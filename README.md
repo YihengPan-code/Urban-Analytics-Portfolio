@@ -1,4 +1,4 @@
-# Urban Analytics Portfolio
+# Environmental Data Analytics Portfolio
 
 Yiheng Pan  
 Department of Environmental Science, University of Plymouth
