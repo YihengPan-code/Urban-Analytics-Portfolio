@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GVI Quantification Tool (Academic Edition)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <style>
+        /* Academic Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; color: #1a202c; background-color: #f8f9fa; }
+        h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
+        
+        /* Custom UI Tweaks */
+        .preset-btn.active { 
+            background-color: #2c5282; /* Academic Blue */
+            color: white; 
+            border-color: #2c5282; 
+        }
+        .preset-btn { 
+            background-color: white;
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+            transition: all 0.15s ease-in-out;
+        }
+        .preset-btn:hover:not(.active) {
+            background-color: #edf2f7;
+        }
+
+        /* Range Slider Styling - Minimalist */
+        input[type=range] {
+            -webkit-appearance: none; 
+            background: transparent; 
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px; width: 16px;
+            border-radius: 50%;
+            background: #2c5282;
+            cursor: pointer;
+            margin-top: -6px; 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%; height: 4px;
+            cursor: pointer; background: #e2e8f0; border-radius: 2px;
+        }
+
+        /* Card States */
+        .card-locked { 
+            border: 2px solid #d69e2e !important; /* Muted Gold */
+            background-color: #fffff0 !important;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-10">
+
+    <div class="max-w-7xl mx-auto bg-white border border-gray-200 shadow-sm">
+        
+        <!-- Academic Header -->
+        <div class="border-b border-gray-200 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center bg-white">
+            <div class="mb-4 md:mb-0">
+                <h1 class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">Green View Index (GVI) Quantification Tool</h1>
+                <div class="mt-3 font-sans">
+                    <p class="text-base font-semibold text-slate-700">Yiheng Pan</p>
+                    <p class="text-sm text-slate-500">Department of Environmental Science, University of Plymouth</p>
+                </div>
+            </div>
+            
+            <!-- Toolbar -->
+            <div class="flex flex-wrap gap-3">
+                 <button onclick="clearAll()" class="px-4 py-2 text-sm font-medium text-red-700 bg-white border border-gray-300 hover:bg-red-50 transition-colors rounded-sm flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    Reset Session
+                </button>
+                 <button onclick="unlockAll()" class="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-gray-300 hover:bg-slate-50 transition-colors rounded-sm flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+                    Unlock All
+                </button>
+                <button onclick="exportAll()" class="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-gray-300 hover:bg-slate-50 transition-colors rounded-sm flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Export Data & Figures
+                </button>
+                <button onclick="document.getElementById('file-input').click()" class="px-4 py-2 text-sm font-medium text-white bg-slate-800 hover:bg-slate-900 transition-colors rounded-sm flex items-center shadow-sm">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    Load Dataset
+                </button>
+            </div>
+        </div>
+
+        <div class="p-6 md:p-8 bg-gray-50 border-b border-gray-200">
+            <!-- Preset Selection -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Parameter Presets</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3" id="preset-container">
+                <button onclick="switchPreset(0)" class="preset-btn active px-3 py-2 text-xs font-semibold rounded-sm">Standard (H46-109)</button>
+                <button onclick="switchPreset(1)" class="preset-btn px-3 py-2 text-xs font-semibold rounded-sm">Autumn Adjusted</button>
+                <button onclick="switchPreset(2)" class="preset-btn px-3 py-2 text-xs font-semibold rounded-sm">Strict Filter</button>
+                <button onclick="switchPreset(3)" class="preset-btn px-3 py-2 text-xs font-semibold rounded-sm">Shadow Enhancement</button>
+                <button onclick="switchPreset(4)" class="preset-btn px-3 py-2 text-xs font-semibold rounded-sm">Anti-Glare/Vest</button>
+                <button onclick="switchPreset(5)" class="preset-btn px-3 py-2 text-xs font-semibold rounded-sm">Custom</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 border-b border-gray-200 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
+            
+            <!-- Sidebar: Parameters -->
+            <div class="lg:col-span-1 p-6 md:p-8 bg-white space-y-8">
+                
+                <!-- Group 1: Vegetation -->
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wide border-l-2 border-slate-800 pl-3">Vegetation Indexing (HSV)</h3>
+                        <span id="current-preset-label" class="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">Standard</span>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Hue -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-xs font-medium text-slate-600">Hue Range (°) </label>
+                                <span id="hue-val" class="text-xs font-mono font-bold text-slate-800">46 - 109</span>
+                            </div>
+                            <div class="relative h-2 bg-gray-200 rounded-sm">
+                                <div class="absolute w-full h-full bg-gradient-to-r from-red-300 via-green-300 to-blue-300 opacity-30 rounded-sm"></div>
+                                <input type="range" id="hue-min" min="0" max="360" class="absolute w-full h-full appearance-none bg-transparent z-20 pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto">
+                                <input type="range" id="hue-max" min="0" max="360" class="absolute w-full h-full appearance-none bg-transparent z-20 pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto">
+                            </div>
+                        </div>
+                        
+                        <!-- Saturation -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-xs font-medium text-slate-600">Min Saturation (%)</label>
+                                <span class="text-xs font-mono font-bold text-slate-800">> <span id="sat-val">10</span>%</span>
+                            </div>
+                            <input type="range" id="sat-min" min="0" max="100" class="w-full">
+                        </div>
+
+                        <!-- Lightness -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-xs font-medium text-slate-600">Lightness Range (%)</label>
+                                <span id="light-val" class="text-xs font-mono font-bold text-slate-800">15 - 95</span>
+                            </div>
+                            <div class="relative h-2 bg-gray-200 rounded-sm">
+                                <input type="range" id="light-min" min="0" max="100" class="absolute w-full h-full appearance-none bg-transparent z-20 pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto">
+                                <input type="range" id="light-max" min="0" max="100" class="absolute w-full h-full appearance-none bg-transparent z-20 pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 2: Exclusion -->
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t border-gray-100">
+                        <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wide border-l-2 border-red-800 pl-3">Artifact Exclusion</h3>
+                        <label class="flex items-center cursor-pointer">
+                            <span class="mr-2 text-xs text-slate-500">Active</span>
+                            <input type="checkbox" id="exclude-vests" class="accent-slate-800 w-4 h-4">
+                        </label>
+                    </div>
+
+                    <div class="space-y-6">
+                        <p class="text-xs text-slate-500 italic">Filters out high-visibility clothing based on high saturation/luminance peaks.</p>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-xs font-medium text-slate-600">Artifact Saturation Threshold</label>
+                                <span class="text-xs font-mono font-bold text-red-800">> <span id="vest-sat-val">50</span>%</span>
+                            </div>
+                            <input type="range" id="vest-sat" min="0" max="100" class="w-full">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-xs font-medium text-slate-600">Artifact Lightness Threshold</label>
+                                <span class="text-xs font-mono font-bold text-red-800">> <span id="vest-light-val">45</span>%</span>
+                            </div>
+                            <input type="range" id="vest-light" min="0" max="100" class="w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content: Visualization -->
+            <div class="lg:col-span-2 bg-gray-50 p-6 md:p-8 min-h-[600px]">
+                
+                <!-- Stats Header -->
+                <div class="bg-white border border-gray-200 p-4 mb-6 flex justify-between items-center shadow-sm rounded-sm">
+                    <div>
+                        <h2 class="text-sm font-bold text-slate-700 uppercase">Analysis Summary</h2>
+                        <p class="text-xs text-slate-500 mt-1">Sample Size (N): <span id="total-imgs" class="font-bold text-slate-900">0</span></p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Mean GVI</div>
+                        <div class="text-4xl font-serif font-bold text-slate-800 tabular-nums" id="avg-gvi">0.00%</div>
+                    </div>
+                </div>
+                
+                <input type="file" id="file-input" multiple accept="image/*" class="hidden"/>
+                
+                <!-- Empty State -->
+                <div id="empty-state" class="border-2 border-dashed border-gray-300 rounded-sm h-96 flex flex-col items-center justify-center text-slate-400 bg-white">
+                    <svg class="w-12 h-12 mb-3 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <p class="text-sm font-medium">No Dataset Loaded</p>
+                    <p class="text-xs mt-1">Click "Load Dataset" to begin processing</p>
+                </div>
+
+                <!-- Grid -->
+                <div id="image-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Images inserted here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer (Removed per request) -->
+        
+        <!-- Mobile Sticky Footer -->
+        <div id="summary-mobile" class="lg:hidden sticky bottom-4 z-50 bg-slate-800 text-white rounded shadow-xl p-4 flex justify-between items-center transform transition-all translate-y-20 opacity-0 m-4">
+             <div><div class="text-[10px] uppercase text-slate-400">Mean GVI</div><div class="text-xl font-bold font-serif" id="avg-gvi-mobile">0.00%</div></div>
+             <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="bg-slate-700 p-2 rounded-full">↑</button>
+        </div>
+    </div>
+
+    <script>
+        // --- Core Logic (Functionality Preserved, Styles Updated) ---
+        
+        let presets = [
+            { name: "Standard (H46-109)", hMin: 46, hMax: 109, sMin: 10, lMin: 0, lMax: 95, vestSat: 11, vestLight: 46, excludeVests: true },
+            { name: "Autumn Adj.", hMin: 20, hMax: 110, sMin: 8, lMin: 10, lMax: 95, vestSat: 55, vestLight: 50, excludeVests: true },
+            { name: "Strict Filter", hMin: 36, hMax: 163, sMin: 49, lMin: 0, lMax: 95, vestSat: 55, vestLight: 30, excludeVests: true },
+            { name: "Shadow Boost", hMin: 25, hMax: 100, sMin: 10, lMin: 5, lMax: 95, vestSat: 50, vestLight: 45, excludeVests: true },
+            { name: "Anti-Glare", hMin: 30, hMax: 100, sMin: 15, lMin: 15, lMax: 90, vestSat: 40, vestLight: 40, excludeVests: true },
+            { name: "Custom", hMin: 25, hMax: 100, sMin: 10, lMin: 15, lMax: 95, vestSat: 50, vestLight: 45, excludeVests: true }
+        ];
+
+        let currentPresetIndex = 0;
+        let loadedImages = [];
+        let ui = {};
+
+        document.addEventListener('DOMContentLoaded', () => {
+            ui = {
+                hueMin: document.getElementById('hue-min'), hueMax: document.getElementById('hue-max'),
+                satMin: document.getElementById('sat-min'),
+                lightMin: document.getElementById('light-min'), lightMax: document.getElementById('light-max'),
+                vestSat: document.getElementById('vest-sat'), vestLight: document.getElementById('vest-light'),
+                excludeVests: document.getElementById('exclude-vests'),
+                labels: {
+                    hue: document.getElementById('hue-val'), sat: document.getElementById('sat-val'),
+                    light: document.getElementById('light-val'), vestSat: document.getElementById('vest-sat-val'),
+                    vestLight: document.getElementById('vest-light-val'), preset: document.getElementById('current-preset-label')
+                },
+                grid: document.getElementById('image-grid'), empty: document.getElementById('empty-state'),
+                avg: document.getElementById('avg-gvi'), avgMob: document.getElementById('avg-gvi-mobile'),
+                total: document.getElementById('total-imgs'),
+                fileInput: document.getElementById('file-input')
+            };
+
+            loadPresetToUI(0);
+            
+            // Event Listeners
+            ui.hueMin.addEventListener('input', () => { if(parseInt(ui.hueMin.value) > parseInt(ui.hueMax.value)) ui.hueMin.value = ui.hueMax.value; updateParam('hMin', ui.hueMin.value); });
+            ui.hueMax.addEventListener('input', () => { if(parseInt(ui.hueMax.value) < parseInt(ui.hueMin.value)) ui.hueMax.value = ui.hueMin.value; updateParam('hMax', ui.hueMax.value); });
+            ui.lightMin.addEventListener('input', () => { if(parseInt(ui.lightMin.value) > parseInt(ui.lightMax.value)) ui.lightMin.value = ui.lightMax.value; updateParam('lMin', ui.lightMin.value); });
+            ui.lightMax.addEventListener('input', () => { if(parseInt(ui.lightMax.value) < parseInt(ui.lightMin.value)) ui.lightMax.value = ui.lightMin.value; updateParam('lMax', ui.lightMax.value); });
+            
+            ui.satMin.addEventListener('input', () => updateParam('sMin', ui.satMin.value));
+            ui.vestSat.addEventListener('input', () => updateParam('vestSat', ui.vestSat.value));
+            ui.vestLight.addEventListener('input', () => updateParam('vestLight', ui.vestLight.value));
+            ui.excludeVests.addEventListener('change', (e) => { presets[currentPresetIndex].excludeVests = e.target.checked; recalculateAll(); });
+
+            ui.fileInput.addEventListener('change', async (e) => {
+                const files = Array.from(e.target.files);
+                if (files.length === 0) return;
+                for (let file of files) { await loadImage(file); }
+                recalculateAll();
+                document.getElementById('summary-mobile').classList.add('show-mobile-summary');
+                document.getElementById('summary-mobile').classList.remove('opacity-0', 'translate-y-20');
+            });
+        });
+
+        function updateParam(key, value) {
+            presets[currentPresetIndex][key] = parseInt(value);
+            updateLabels();
+            recalculateAll();
+        }
+
+        function switchPreset(index) {
+            currentPresetIndex = index;
+            document.querySelectorAll('.preset-btn').forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === index);
+            });
+            loadPresetToUI(index);
+            recalculateAll();
+        }
+
+        function loadPresetToUI(index) {
+            const p = presets[index];
+            ui.hueMin.value = p.hMin; ui.hueMax.value = p.hMax;
+            ui.satMin.value = p.sMin;
+            ui.lightMin.value = p.lMin; ui.lightMax.value = p.lMax;
+            ui.vestSat.value = p.vestSat; ui.vestLight.value = p.vestLight;
+            ui.excludeVests.checked = p.excludeVests;
+            ui.labels.preset.innerText = p.name;
+            updateLabels();
+        }
+
+        function updateLabels() {
+            ui.labels.hue.innerText = `${ui.hueMin.value} - ${ui.hueMax.value}`;
+            ui.labels.sat.innerText = `${ui.satMin.value}`;
+            ui.labels.light.innerText = `${ui.lightMin.value} - ${ui.lightMax.value}`;
+            ui.labels.vestSat.innerText = `${ui.vestSat.value}`;
+            ui.labels.vestLight.innerText = `${ui.vestLight.value}`;
+        }
+
+        function clearAll() {
+            loadedImages = [];
+            recalculateAll();
+        }
+
+        function toggleLock(index) {
+            const img = loadedImages[index];
+            if (img.locked) {
+                img.locked = false;
+                img.settings = null;
+            } else {
+                img.locked = true;
+                img.settings = JSON.parse(JSON.stringify(presets[currentPresetIndex]));
+            }
+            recalculateAll();
+        }
+
+        function unlockAll() {
+            loadedImages.forEach(img => {
+                img.locked = false;
+                img.settings = null;
+            });
+            recalculateAll();
+        }
+
+        async function exportAll() {
+            if(loadedImages.length === 0) { alert("No dataset loaded."); return; }
+
+            const zip = new JSZip();
+            const folder = zip.folder("gvi_data_export");
+            const btn = document.querySelector('button[onclick="exportAll()"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = "Processing...";
+
+            for (let i = 0; i < loadedImages.length; i++) {
+                const item = loadedImages[i];
+                const settings = item.locked ? item.settings : presets[currentPresetIndex];
+                
+                const canvas = document.createElement('canvas');
+                canvas.width = item.element.width;
+                canvas.height = item.element.height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(item.element, 0, 0);
+
+                const gvi = calculateGVI(ctx, canvas.width, canvas.height, settings);
+                
+                // Academic Watermark
+                const fontSize = Math.max(24, Math.floor(canvas.height * 0.035));
+                // Use Times New Roman for academic look
+                ctx.font = `bold ${fontSize}px "Times New Roman", serif`;
+                ctx.fillStyle = "white";
+                // Add simple black outline instead of soft shadow for better legibility
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = fontSize * 0.1;
+                ctx.strokeText(`GVI: ${gvi.toFixed(2)}%`, fontSize, canvas.height - fontSize);
+                ctx.fillText(`GVI: ${gvi.toFixed(2)}%`, fontSize, canvas.height - fontSize);
+
+                const dataUrl = canvas.toDataURL("image/jpeg", 0.9);
+                const base64Data = dataUrl.split(',')[1];
+                const cleanName = item.name.replace(/\.[^/.]+$/, "");
+                folder.file(`${cleanName}_GVI.jpg`, base64Data, {base64: true});
+            }
+
+            const content = await zip.generateAsync({type:"blob"});
+            saveAs(content, "gvi_dataset_export.zip");
+            btn.innerHTML = originalText;
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        loadedImages.push({ name: file.name, element: img, locked: false, settings: null });
+                        resolve();
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function recalculateAll() {
+            ui.grid.innerHTML = '';
+            
+            if (loadedImages.length === 0) {
+                ui.empty.classList.remove('hidden');
+                ui.avg.innerText = "0.00%";
+                ui.avgMob.innerText = "0.00%";
+                ui.total.innerText = "0";
+                ui.fileInput.value = ""; 
+                return; 
+            }
+
+            ui.empty.classList.add('hidden');
+            let totalGvi = 0;
+
+            loadedImages.forEach((item, idx) => {
+                const settingsToUse = item.locked ? item.settings : presets[currentPresetIndex];
+                const gvi = processAndDisplayImage(item.element, item.name, settingsToUse, idx, item.locked);
+                totalGvi += gvi;
+            });
+
+            const avg = (totalGvi / loadedImages.length).toFixed(2) + '%';
+            ui.avg.innerText = avg;
+            ui.avgMob.innerText = avg;
+            ui.total.innerText = loadedImages.length;
+        }
+
+        function processAndDisplayImage(img, fileName, settings, idx, isLocked) {
+            const card = document.createElement('div');
+            // Clean white card with subtle border
+            card.className = "bg-white p-3 border border-gray-200 relative group transition-all duration-200";
+            if (isLocked) { card.classList.add('card-locked'); }
+
+            // Status Indicator (No emoji, just text/color)
+            if (isLocked) {
+                const badge = document.createElement('div');
+                badge.className = "absolute top-0 left-0 bg-yellow-100 text-yellow-800 text-[10px] uppercase font-bold px-2 py-1 tracking-wider border-b border-r border-yellow-200 z-10";
+                badge.innerText = "Locked";
+                card.appendChild(badge);
+            }
+
+            // Controls
+            const controlsDiv = document.createElement('div');
+            controlsDiv.className = "absolute top-2 right-2 flex space-x-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity";
+            
+            const lockBtn = document.createElement('button');
+            lockBtn.className = `w-7 h-7 flex items-center justify-center border transition-colors text-xs ${isLocked ? 'bg-yellow-100 border-yellow-300 text-yellow-800' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'}`;
+            lockBtn.innerHTML = isLocked ? 'L' : 'U';
+            lockBtn.title = isLocked ? "Unlock" : "Lock Parameters";
+            lockBtn.onclick = () => toggleLock(idx);
+            controlsDiv.appendChild(lockBtn);
+
+            const delBtn = document.createElement('button');
+            delBtn.className = "w-7 h-7 flex items-center justify-center bg-white border border-gray-300 text-red-600 hover:bg-red-50 text-xs";
+            delBtn.innerHTML = "X";
+            delBtn.title = "Remove";
+            delBtn.onclick = () => { loadedImages.splice(idx, 1); recalculateAll(); };
+            controlsDiv.appendChild(delBtn);
+            
+            card.appendChild(controlsDiv);
+
+            // Title
+            const title = document.createElement('h4');
+            title.className = "font-medium mb-2 truncate text-xs text-slate-600 font-mono";
+            title.innerText = fileName;
+            card.appendChild(title);
+
+            // Canvas
+            const canvas = document.createElement('canvas');
+            canvas.className = "w-full h-auto border border-gray-100 bg-gray-50";
+            const scaleFactor = 500 / img.width; 
+            canvas.width = 500;
+            canvas.height = img.height * scaleFactor;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            const gvi = calculateGVI(ctx, canvas.width, canvas.height, settings);
+            card.appendChild(canvas);
+            
+            // Result Footer
+            const res = document.createElement('div');
+            res.className = "mt-3 flex justify-between items-end border-t border-gray-100 pt-2";
+            res.innerHTML = `
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider">Calculated GVI</div>
+                <div class="text-xl font-bold font-serif tabular-nums text-slate-800">${gvi.toFixed(2)}%</div>
+            `;
+            card.appendChild(res);
+            ui.grid.appendChild(card);
+            return gvi;
+        }
+
+        function calculateGVI(ctx, width, height, settings) {
+            const imageData = ctx.getImageData(0, 0, width, height);
+            const data = imageData.data;
+            let greenPixels = 0;
+            const totalPixels = width * height;
+            const excludeVests = settings.excludeVests;
+
+            for (let i = 0; i < data.length; i += 4) {
+                const r = data[i]; const g = data[i + 1]; const b = data[i + 2];
+                const [h, s, l] = rgbToHsl(r, g, b);
+
+                const isGreen = (h >= settings.hMin && h <= settings.hMax && s >= settings.sMin && l >= settings.lMin && l <= settings.lMax);
+                if (isGreen) {
+                    let isVest = false;
+                    if (excludeVests && s >= settings.vestSat && l >= settings.vestLight) isVest = true;
+                    if (isVest) { data[i] = 200; data[i+1] = 50; data[i+2] = 50; } // Muted Red for academic display
+                    else { greenPixels++; data[i] = 50; data[i+1] = 150; data[i+2] = 50; } // Muted Green
+                }
+            }
+            ctx.putImageData(imageData, 0, 0);
+            return (greenPixels / totalPixels) * 100;
+        }
+
+        function rgbToHsl(r, g, b) {
+            r /= 255, g /= 255, b /= 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+            if (max == min) { h = s = 0; } 
+            else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+            return [h * 360, s * 100, l * 100];
+        }
+    </script>
+</body>
+</html>

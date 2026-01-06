@@ -1,0 +1,86 @@
+{
+  "dataset": "data_output.csv",
+  "rows": 1104,
+  "cols": 70,
+  "unique_locations": 220,
+  "target": "mean_t",
+  "random_kfold": {
+    "rmse": 0.6117812286129639,
+    "mae": 0.5012590807463204,
+    "r2": 0.9567561557027402
+  },
+  "spatial_block_cv": {
+    "rmse": 1.143653955179693,
+    "mae": 0.7899925433432167,
+    "r2": 0.848880233853138,
+    "block_deg": 0.02,
+    "n_blocks": 66
+  },
+  "leave_location_out": {
+    "rmse": 1.0819974078407144,
+    "mae": 0.763934834869109,
+    "r2": 0.8647353101754331
+  },
+  "top_features": [
+    {
+      "feature": "season",
+      "importance_mean": 2.697897377307489,
+      "importance_std": 0.07634114297337051
+    },
+    {
+      "feature": "A_mean",
+      "importance_mean": 0.17834410459823558,
+      "importance_std": 0.014651187405797923
+    },
+    {
+      "feature": "A_median",
+      "importance_mean": 0.17337034523440495,
+      "importance_std": 0.013569235951002418
+    },
+    {
+      "feature": "DFM",
+      "importance_mean": 0.1653014881835161,
+      "importance_std": 0.01267314656248786
+    },
+    {
+      "feature": "A_min",
+      "importance_mean": 0.1510743642768894,
+      "importance_std": 0.010588728048539976
+    },
+    {
+      "feature": "year",
+      "importance_mean": 0.12300625254265919,
+      "importance_std": 0.005277125179243651
+    },
+    {
+      "feature": "A_max",
+      "importance_mean": 0.11350070361400443,
+      "importance_std": 0.008032360062143248
+    },
+    {
+      "feature": "ndvi_modis",
+      "importance_mean": 0.10799558406470679,
+      "importance_std": 0.010282173452651897
+    },
+    {
+      "feature": "ndvi_l8",
+      "importance_mean": 0.08731442272760273,
+      "importance_std": 0.006673078254830522
+    },
+    {
+      "feature": "bvf",
+      "importance_mean": 0.05558814376570271,
+      "importance_std": 0.0029492171565676005
+    },
+    {
+      "feature": "n_row",
+      "importance_mean": 0.04995212050263874,
+      "importance_std": 0.0030249011035901156
+    },
+    {
+      "feature": "pop_stdev",
+      "importance_mean": 0.035947797201694255,
+      "importance_std": 0.005196268140293779
+    }
+  ]
+}
