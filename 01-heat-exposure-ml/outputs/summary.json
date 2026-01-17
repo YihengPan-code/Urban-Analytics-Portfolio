@@ -1,86 +1,83 @@
 {
-  "dataset": "data_output.csv",
-  "rows": 1104,
-  "cols": 70,
+  "dataset_rows": 1104,
+  "dataset_cols": 70,
   "unique_locations": 220,
   "target": "mean_t",
   "random_kfold": {
-    "rmse": 0.6117812286129639,
-    "mae": 0.5012590807463204,
-    "r2": 0.9567561557027402
+    "rmse": 0.6116565315653407,
+    "mae": 0.5013721848493817,
+    "r2": 0.9567737823637276
   },
   "spatial_block_cv": {
-    "rmse": 1.143653955179693,
-    "mae": 0.7899925433432167,
-    "r2": 0.848880233853138,
-    "block_deg": 0.02,
-    "n_blocks": 66
+    "rmse": 1.155109489873301,
+    "mae": 0.8210650984226588,
+    "r2": 0.8458376563649547
   },
   "leave_location_out": {
-    "rmse": 1.0819974078407144,
-    "mae": 0.763934834869109,
-    "r2": 0.8647353101754331
+    "rmse": 1.1558688841087787,
+    "mae": 0.8130580820443694,
+    "r2": 0.8456348903444204
   },
   "top_features": [
     {
       "feature": "season",
-      "importance_mean": 2.697897377307489,
-      "importance_std": 0.07634114297337051
+      "importance_mean": 2.7014553028492383,
+      "importance_std": 0.07642557363221715
     },
     {
       "feature": "A_mean",
-      "importance_mean": 0.17834410459823558,
-      "importance_std": 0.014651187405797923
+      "importance_mean": 0.18096614501360184,
+      "importance_std": 0.015119027253968763
     },
     {
       "feature": "A_median",
-      "importance_mean": 0.17337034523440495,
-      "importance_std": 0.013569235951002418
+      "importance_mean": 0.1732381651421981,
+      "importance_std": 0.013593800551856855
     },
     {
       "feature": "DFM",
-      "importance_mean": 0.1653014881835161,
-      "importance_std": 0.01267314656248786
+      "importance_mean": 0.1658965160306253,
+      "importance_std": 0.012719114051562714
     },
     {
       "feature": "A_min",
-      "importance_mean": 0.1510743642768894,
-      "importance_std": 0.010588728048539976
+      "importance_mean": 0.15068513583741708,
+      "importance_std": 0.010595704850022465
     },
     {
       "feature": "year",
-      "importance_mean": 0.12300625254265919,
-      "importance_std": 0.005277125179243651
+      "importance_mean": 0.12329413550642673,
+      "importance_std": 0.005310577475240639
     },
     {
       "feature": "A_max",
-      "importance_mean": 0.11350070361400443,
-      "importance_std": 0.008032360062143248
+      "importance_mean": 0.1140464105758143,
+      "importance_std": 0.008052937805098189
     },
     {
       "feature": "ndvi_modis",
-      "importance_mean": 0.10799558406470679,
-      "importance_std": 0.010282173452651897
+      "importance_mean": 0.10617952674622784,
+      "importance_std": 0.010261382676426262
     },
     {
       "feature": "ndvi_l8",
-      "importance_mean": 0.08731442272760273,
-      "importance_std": 0.006673078254830522
+      "importance_mean": 0.08658398359562107,
+      "importance_std": 0.006640315733925871
     },
     {
       "feature": "bvf",
-      "importance_mean": 0.05558814376570271,
-      "importance_std": 0.0029492171565676005
+      "importance_mean": 0.05531172027284122,
+      "importance_std": 0.0029216174623868984
     },
     {
       "feature": "n_row",
-      "importance_mean": 0.04995212050263874,
-      "importance_std": 0.0030249011035901156
+      "importance_mean": 0.049615264207179356,
+      "importance_std": 0.0030237846649330304
     },
     {
       "feature": "pop_stdev",
-      "importance_mean": 0.035947797201694255,
-      "importance_std": 0.005196268140293779
+      "importance_mean": 0.03691511911367699,
+      "importance_std": 0.005177388720360237
     }
   ]
 }
