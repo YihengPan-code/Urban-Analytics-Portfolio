@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adaptive GVI/VVI Calculator v0.5</title>
+  <title>Adaptive GVI/VVI Calculator v0.7</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
@@ -17,9 +17,9 @@
       <header class="p-6 md:p-8 border-b border-slate-200 bg-gradient-to-br from-emerald-50 to-sky-50">
         <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div>
-            <div class="text-xs font-bold tracking-[0.22em] uppercase text-emerald-700">v0.5 precision build</div>
+            <div class="text-xs font-bold tracking-[0.22em] uppercase text-emerald-700">v0.7 semantic shadow-GVI build</div>
             <h1 class="mt-2 text-3xl md:text-4xl font-black tracking-tight">Adaptive GVI/VVI Calculator</h1>
-            <p class="mt-3 text-slate-600 max-w-3xl">语义分割 + 颜色过滤 + 负类抑制。新版重点修复绿色告示牌、阳光地面、窗户玻璃被误识别为 GVI/VVI 的问题。</p>
+            <p class="mt-3 text-slate-600 max-w-3xl">语义分割 + 颜色过滤 + 负类抑制 + 语义内宽 HSV。v0.7 新增 VVI-only lower-ground cleanup：专门把阳光地面、青苔铺装、压实土壤这类蓝青色 VVI-only 误识别从 VVI 中移除，同时不降低 GVI。</p>
           </div>
           <div class="flex flex-wrap gap-3">
             <button id="health-btn" class="px-4 py-2 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-sm font-bold">检查后端</button>
@@ -59,6 +59,7 @@
                   <option value="standard" selected>Standard</option>
                   <option value="sunny">Sunny / Anti-ground</option>
                   <option value="shadow">Shadow</option>
+                  <option value="semantic_shadow">Semantic Shadow / Steel-green GVI</option>
                   <option value="autumn">Autumn</option>
                   <option value="winter">Winter</option>
                   <option value="strict">Strict</option>
@@ -68,7 +69,7 @@
               <label class="text-sm font-bold">Recovery mode
                 <select id="recovery-mode" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
                   <option value="conservative">Conservative</option>
-                  <option value="balanced" selected>Balanced v0.5</option>
+                  <option value="balanced" selected>Balanced v0.7</option>
                   <option value="aggressive">Aggressive</option>
                 </select>
               </label>
@@ -79,11 +80,19 @@
                   <option value="strong" selected>Strong</option>
                 </select>
               </label>
-              <label class="text-sm font-bold">Ground quality filter <span class="text-xs text-slate-400 font-normal">v0.5</span>
+              <label class="text-sm font-bold">Ground quality filter <span class="text-xs text-slate-400 font-normal">v0.7</span>
                 <select id="ground-filter-mode" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
                   <option value="off">Off</option>
                   <option value="balanced" selected>Balanced / 抑制青苔地面</option>
                   <option value="strict">Strict / 地面误判严重时</option>
+                </select>
+              </label>
+              <label class="text-sm font-bold">VVI-only ground cleanup <span class="text-xs text-slate-400 font-normal">new</span>
+                <select id="vvi-ground-cleanup-mode" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+                  <option value="off">Off</option>
+                  <option value="balanced" selected>Balanced / 不影响 GVI</option>
+                  <option value="strict">Strict / 进一步压低地面 VVI</option>
+                  <option value="ultra">Ultra / 只在 VVI 明显虚高时</option>
                 </select>
               </label>
               <label class="text-sm font-bold">Artifact guard
@@ -111,6 +120,38 @@
               <label class="block text-sm font-bold">Recovery radius <span id="radius-label" class="metric text-emerald-700">12</span> px
                 <input id="recovery-radius-px" type="range" min="0" max="40" step="1" value="12" class="w-full mt-2" />
               </label>
+
+              <div class="rounded-2xl border border-emerald-100 bg-emerald-50 p-4 space-y-3">
+                <div class="text-xs font-black uppercase tracking-widest text-emerald-700">Semantic-only GVI expansion</div>
+                <p class="text-xs text-slate-500 leading-relaxed">只作用于已进入 VVI/语义植被的区域，用来补阴影深绿、钢绿色叶片；不会把非植被颜色单独算进 GVI。</p>
+                <label class="flex items-start gap-2 text-sm"><input id="enable-semantic-gvi-expansion" type="checkbox" class="mt-1" /> <span><b>启用语义内宽 HSV</b></span></label>
+                <label class="block text-sm font-bold">Semantic GVI Hue <span id="sem-hue-label" class="metric text-emerald-700">24 - 210</span>°
+                  <div class="grid grid-cols-2 gap-2 mt-2">
+                    <input id="semantic-gvi-hue-min" type="range" min="0" max="360" step="1" value="24" class="w-full" />
+                    <input id="semantic-gvi-hue-max" type="range" min="0" max="360" step="1" value="210" class="w-full" />
+                  </div>
+                </label>
+                <label class="block text-sm font-bold">Semantic GVI Min saturation ≥ <span id="sem-sat-label" class="metric text-emerald-700">8</span>%
+                  <input id="semantic-gvi-sat-min" type="range" min="0" max="60" step="1" value="8" class="w-full mt-2" />
+                </label>
+                <label class="block text-sm font-bold">Semantic GVI Lightness <span id="sem-light-label" class="metric text-emerald-700">0 - 81</span>%
+                  <div class="grid grid-cols-2 gap-2 mt-2">
+                    <input id="semantic-gvi-light-min" type="range" min="0" max="100" step="1" value="0" class="w-full" />
+                    <input id="semantic-gvi-light-max" type="range" min="0" max="100" step="1" value="81" class="w-full" />
+                  </div>
+                </label>
+                <label class="block text-sm font-bold">Leaf evidence softness <span id="sem-leaf-label" class="metric text-emerald-700">0.330 / 0.15 / -0.018</span>
+                  <div class="grid grid-cols-1 gap-2 mt-2">
+                    <input id="semantic-gvi-green-ratio-min" type="range" min="0.300" max="0.380" step="0.001" value="0.328" class="w-full" />
+                    <input id="semantic-gvi-lab-a-green-min" type="range" min="-2.0" max="6.0" step="0.05" value="0.15" class="w-full" />
+                    <input id="semantic-gvi-exg-norm-min" type="range" min="-0.060" max="0.080" step="0.001" value="-0.018" class="w-full" />
+                  </div>
+                </label>
+                <label class="block text-sm font-bold">Semantic expansion veg prob ≥ <span id="sem-prob-label" class="metric text-emerald-700">0.22</span>
+                  <input id="semantic-gvi-prob-min" type="range" min="0.05" max="0.60" step="0.01" value="0.22" class="w-full mt-2" />
+                </label>
+              </div>
+
               <label class="block text-sm font-bold">Ground filter starts at y ≥ <span id="ground-start-label" class="metric text-emerald-700">0.46</span>
                 <input id="ground-quality-bottom-start" type="range" min="0.35" max="0.70" step="0.01" value="0.46" class="w-full mt-2" />
               </label>
@@ -120,6 +161,25 @@
               <label class="block text-sm font-bold">Ground semantic margin ≥ <span id="ground-margin-label" class="metric text-emerald-700">0.10</span>
                 <input id="ground-veg-prob-margin" type="range" min="0.00" max="0.35" step="0.01" value="0.10" class="w-full mt-2" />
               </label>
+
+              <div class="rounded-2xl border border-sky-100 bg-sky-50 p-4 space-y-3">
+                <div class="text-xs font-black uppercase tracking-widest text-sky-700">VVI-only lower-ground cleanup</div>
+                <p class="text-xs text-slate-500 leading-relaxed">只移除 lower-frame 的 VVI-only 区域，不动 GVI；适合修复阳光地面/青苔地面被算进 VVI 的问题。</p>
+                <label class="flex items-start gap-2 text-sm"><input id="enable-vvi-ground-cleanup" type="checkbox" class="mt-1" checked /> <span><b>启用 VVI-only 地面清理</b></span></label>
+                <label class="block text-sm font-bold">VVI cleanup starts at y ≥ <span id="vvi-ground-start-label" class="metric text-sky-700">0.44</span>
+                  <input id="vvi-cleanup-bottom-start" type="range" min="0.30" max="0.75" step="0.01" value="0.44" class="w-full mt-2" />
+                </label>
+                <label class="block text-sm font-bold">VVI front strict zone y ≥ <span id="vvi-front-label" class="metric text-sky-700">0.62</span>
+                  <input id="vvi-cleanup-front-start" type="range" min="0.45" max="0.90" step="0.01" value="0.62" class="w-full mt-2" />
+                </label>
+                <label class="block text-sm font-bold">VVI cleanup leaf evidence <span id="vvi-quality-label" class="metric text-sky-700">0.350 / 0.052 / 3.2</span>
+                  <div class="grid grid-cols-1 gap-2 mt-2">
+                    <input id="vvi-cleanup-green-ratio-min" type="range" min="0.320" max="0.390" step="0.001" value="0.350" class="w-full" />
+                    <input id="vvi-cleanup-exg-min" type="range" min="0.000" max="0.140" step="0.001" value="0.052" class="w-full" />
+                    <input id="vvi-cleanup-lab-min" type="range" min="0.0" max="10.0" step="0.1" value="3.2" class="w-full" />
+                  </div>
+                </label>
+              </div>
             </div>
           </div>
 
@@ -133,6 +193,8 @@
               <label class="flex items-start gap-2"><input id="remove-rectangular-panels" type="checkbox" class="mt-1" checked /> <span><b>矩形告示牌/窗户排除</b></span></label>
               <label class="flex items-start gap-2"><input id="enable-ground-quality-guard" type="checkbox" class="mt-1" checked /> <span><b>地面质量二次过滤</b><br><span class="text-slate-500">针对阳光地面、青苔铺装、灰绿硬质地面。</span></span></label>
               <label class="flex items-start gap-2"><input id="gvi-requires-semantic-support" type="checkbox" class="mt-1" checked /> <span><b>GVI 必须有语义支持</b></span></label>
+              <label class="flex items-start gap-2"><input id="semantic-gvi-require-leaf-evidence" type="checkbox" class="mt-1" checked /> <span><b>宽 HSV 仍需叶片绿色证据</b><br><span class="text-slate-500">避免把语义里的树干/树枝计入 GVI。</span></span></label>
+              <label class="flex items-start gap-2"><input id="semantic-gvi-exclude-woody" type="checkbox" class="mt-1" checked /> <span><b>宽 HSV 排除 woody/branch 色</b></span></label>
               <label class="flex items-start gap-2"><input id="allow-isolated-colour-recovery" type="checkbox" class="mt-1" /> <span><b>允许孤立颜色补回</b><br><span class="text-slate-500">不推荐；容易把绿牌算进去。</span></span></label>
             </div>
           </div>
@@ -216,6 +278,7 @@ function buildForm(file) {
   form.append('recovery_mode', formValue('recovery-mode'));
   form.append('ground_guard', formValue('ground-guard'));
   form.append('ground_filter_mode', formValue('ground-filter-mode'));
+  form.append('vvi_ground_cleanup_mode', formValue('vvi-ground-cleanup-mode'));
   form.append('artifact_guard', formValue('artifact-guard'));
   form.append('segmenter', formValue('segmenter'));
   form.append('model_id', formValue('model-id'));
@@ -227,6 +290,24 @@ function buildForm(file) {
   form.append('ground_quality_bottom_start', formValue('ground-quality-bottom-start'));
   form.append('front_ground_start', formValue('front-ground-start'));
   form.append('ground_veg_prob_margin', formValue('ground-veg-prob-margin'));
+  form.append('enable_vvi_ground_cleanup', checkboxValue('enable-vvi-ground-cleanup'));
+  form.append('vvi_cleanup_bottom_start', formValue('vvi-cleanup-bottom-start'));
+  form.append('vvi_cleanup_front_start', formValue('vvi-cleanup-front-start'));
+  form.append('vvi_cleanup_green_ratio_min', formValue('vvi-cleanup-green-ratio-min'));
+  form.append('vvi_cleanup_exg_min', formValue('vvi-cleanup-exg-min'));
+  form.append('vvi_cleanup_lab_min', formValue('vvi-cleanup-lab-min'));
+  form.append('enable_semantic_gvi_expansion', checkboxValue('enable-semantic-gvi-expansion'));
+  form.append('semantic_gvi_hue_min', formValue('semantic-gvi-hue-min'));
+  form.append('semantic_gvi_hue_max', formValue('semantic-gvi-hue-max'));
+  form.append('semantic_gvi_sat_min', formValue('semantic-gvi-sat-min'));
+  form.append('semantic_gvi_light_min', formValue('semantic-gvi-light-min'));
+  form.append('semantic_gvi_light_max', formValue('semantic-gvi-light-max'));
+  form.append('semantic_gvi_green_ratio_min', formValue('semantic-gvi-green-ratio-min'));
+  form.append('semantic_gvi_lab_a_green_min', formValue('semantic-gvi-lab-a-green-min'));
+  form.append('semantic_gvi_exg_norm_min', formValue('semantic-gvi-exg-norm-min'));
+  form.append('semantic_gvi_prob_min', formValue('semantic-gvi-prob-min'));
+  form.append('semantic_gvi_require_leaf_evidence', checkboxValue('semantic-gvi-require-leaf-evidence'));
+  form.append('semantic_gvi_exclude_woody', checkboxValue('semantic-gvi-exclude-woody'));
   form.append('count_muted_as_gvi', checkboxValue('count-muted-as-gvi'));
   form.append('fence_recovery', checkboxValue('fence-recovery'));
   form.append('exclude_high_vis', checkboxValue('exclude-high-vis'));
@@ -322,7 +403,9 @@ function render() {
       ${r ? `<div class="px-4 pb-4 text-xs text-slate-500 space-y-1">
         <div>Raw semantic VVI: <b>${fmt(r.raw_semantic_vvi_pct)}</b> → Clean semantic: <b>${fmt(r.semantic_clean_vvi_pct)}</b></div>
         <div>Muted candidate: <b>${fmt(r.muted_candidate_pct)}</b> · Olive/dry candidate: <b>${fmt(r.olive_dry_candidate_pct)}</b></div>
-        <div>Ground-quality removed: <b>${fmt(r.ground_quality_removed_pct)}</b> · Panel/sign/glass removed: <b>${fmt(r.component_artifact_removed_pct)}</b></div>
+        <div>Ground-quality removed: <b>${fmt(r.ground_quality_removed_pct)}</b> · VVI-only ground cleanup: <b>${fmt(r.vvi_ground_cleanup_removed_pct)}</b></div>
+        <div>Panel/sign/glass removed: <b>${fmt(r.component_artifact_removed_pct)}</b></div>
+        <div>Semantic-GVI expanded: <b>${fmt(r.semantic_gvi_expanded_pct)}</b> · candidate: <b>${fmt(r.semantic_gvi_candidate_pct)}</b></div>
         <div>Mode: <span class="font-mono">${r.mode}</span></div>
       </div>` : ''}
     `;
@@ -348,7 +431,7 @@ function exportCSV() {
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'gvi_vvi_results_v0_5.csv';
+  a.download = 'gvi_vvi_results_v0_7.csv';
   a.click();
   URL.revokeObjectURL(a.href);
 }
@@ -378,8 +461,38 @@ function updateSliderLabels() {
   $('ground-start-label').textContent = Number($('ground-quality-bottom-start').value).toFixed(2);
   $('front-ground-label').textContent = Number($('front-ground-start').value).toFixed(2);
   $('ground-margin-label').textContent = Number($('ground-veg-prob-margin').value).toFixed(2);
+  $('vvi-ground-start-label').textContent = Number($('vvi-cleanup-bottom-start').value).toFixed(2);
+  $('vvi-front-label').textContent = Number($('vvi-cleanup-front-start').value).toFixed(2);
+  $('vvi-quality-label').textContent = `${Number($('vvi-cleanup-green-ratio-min').value).toFixed(3)} / ${Number($('vvi-cleanup-exg-min').value).toFixed(3)} / ${Number($('vvi-cleanup-lab-min').value).toFixed(1)}`;
+  $('sem-hue-label').textContent = `${$('semantic-gvi-hue-min').value} - ${$('semantic-gvi-hue-max').value}`;
+  $('sem-sat-label').textContent = $('semantic-gvi-sat-min').value;
+  $('sem-light-label').textContent = `${$('semantic-gvi-light-min').value} - ${$('semantic-gvi-light-max').value}`;
+  $('sem-leaf-label').textContent = `${Number($('semantic-gvi-green-ratio-min').value).toFixed(3)} / ${Number($('semantic-gvi-lab-a-green-min').value).toFixed(2)} / ${Number($('semantic-gvi-exg-norm-min').value).toFixed(3)}`;
+  $('sem-prob-label').textContent = Number($('semantic-gvi-prob-min').value).toFixed(2);
 }
-['semantic-prob-min','soft-semantic-prob-min','min-safe-recovery-prob','recovery-radius-px','ground-quality-bottom-start','front-ground-start','ground-veg-prob-margin'].forEach(id => $(id).addEventListener('input', updateSliderLabels));
+['semantic-prob-min','soft-semantic-prob-min','min-safe-recovery-prob','recovery-radius-px','ground-quality-bottom-start','front-ground-start','ground-veg-prob-margin','vvi-cleanup-bottom-start','vvi-cleanup-front-start','vvi-cleanup-green-ratio-min','vvi-cleanup-exg-min','vvi-cleanup-lab-min','semantic-gvi-hue-min','semantic-gvi-hue-max','semantic-gvi-sat-min','semantic-gvi-light-min','semantic-gvi-light-max','semantic-gvi-green-ratio-min','semantic-gvi-lab-a-green-min','semantic-gvi-exg-norm-min','semantic-gvi-prob-min'].forEach(id => $(id).addEventListener('input', updateSliderLabels));
+
+$('preset').addEventListener('change', () => {
+  if ($('preset').value === 'sunny') {
+    $('vvi-ground-cleanup-mode').value = 'strict';
+    $('ground-filter-mode').value = 'strict';
+  }
+  if ($('preset').value === 'semantic_shadow') {
+    $('enable-semantic-gvi-expansion').checked = true;
+    $('semantic-gvi-hue-min').value = 24;
+    $('semantic-gvi-hue-max').value = 210;
+    $('semantic-gvi-sat-min').value = 8;
+    $('semantic-gvi-light-min').value = 0;
+    $('semantic-gvi-light-max').value = 81;
+    $('semantic-gvi-green-ratio-min').value = 0.328;
+    $('semantic-gvi-lab-a-green-min').value = 0.15;
+    $('semantic-gvi-exg-norm-min').value = -0.018;
+    $('semantic-gvi-prob-min').value = 0.22;
+    $('semantic-gvi-require-leaf-evidence').checked = true;
+    $('semantic-gvi-exclude-woody').checked = true;
+  }
+  updateSliderLabels();
+});
 
 dropzone.addEventListener('click', () => fileInput.click());
 dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('dragover'); });

@@ -1,6 +1,6 @@
 [project]
 name = "openheat-toapayoh-forecast"
-version = "0.6.1"
+version = "0.6.4.1"
 description = "Open-data neighbourhood heat-stress forecast and live calibration MVP for Toa Payoh"
 requires-python = ">=3.10"
 

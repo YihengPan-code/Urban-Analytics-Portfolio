@@ -47,7 +47,7 @@ def main():
     parser.add_argument('--mode', choices=['fixture', 'live'], default='fixture')
     parser.add_argument('--grid', default=str(ROOT / 'data/sample/toa_payoh_grid_sample.csv'))
     parser.add_argument('--out-dir', default=str(ROOT / 'outputs'))
-    parser.add_argument('--api-version', choices=['v1', 'v2'], default='v1')
+    parser.add_argument('--api-version', choices=['v1', 'v2'], default='v2', help='v2 is default because current WBGT uses api-open.data.gov.sg weather?api=wbgt')
     args = parser.parse_args()
 
     if args.mode == 'fixture':

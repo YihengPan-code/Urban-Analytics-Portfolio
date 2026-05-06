@@ -1,12 +1,12 @@
 """
-FastAPI wrapper for Adaptive GVI/VVI backend v0.5.
+FastAPI wrapper for Adaptive GVI/VVI backend v0.7.
 
 Run:
-    pip install -r requirements-v0.5.txt
-    uvicorn api_server_v0_5:app --reload --host 127.0.0.1 --port 8000
+    pip install -r requirements-v0.7.txt
+    uvicorn api_server_v0_7:app --reload --host 127.0.0.1 --port 8000
 
 Then open:
-    frontend_adaptive_gvi_vvi_v0_5.html
+    frontend_adaptive_gvi_vvi_v0_7.html
 """
 
 from __future__ import annotations
@@ -22,10 +22,10 @@ import numpy as np
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from adaptive_gvi_vvi_backend_v0_5 import analyse_array, build_segmenter, build_settings, parse_bool
+from adaptive_gvi_vvi_backend_v0_7 import analyse_array, build_segmenter, build_settings, parse_bool
 
 
-app = FastAPI(title="Adaptive GVI/VVI API", version="0.5")
+app = FastAPI(title="Adaptive GVI/VVI API", version="0.7")
 
 app.add_middleware(
     CORSMiddleware,
@@ -61,7 +61,7 @@ def b64_png(path: Path) -> str:
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "version": "0.5", "default_mode": "precision-guarded semantic GVI/VVI"}
+    return {"status": "ok", "version": "0.7", "default_mode": "precision-guarded semantic GVI/VVI"}
 
 
 @app.post("/analyse")
@@ -71,6 +71,7 @@ async def analyse_endpoint(
     recovery_mode: str = Form("balanced"),
     ground_guard: str = Form("strong"),
     ground_filter_mode: str = Form("balanced"),
+    vvi_ground_cleanup_mode: str = Form("balanced"),
     artifact_guard: str = Form("strong"),
     segmenter: str = Form(os.getenv("GVI_SEGMENTER", "hf")),
     model_id: str = Form(os.getenv("GVI_MODEL_ID", "nvidia/segformer-b0-finetuned-ade-512-512")),
@@ -92,6 +93,26 @@ async def analyse_endpoint(
     front_ground_start: Optional[float] = Form(None),
     ground_veg_prob_margin: Optional[float] = Form(None),
     ground_negative_prob_min: Optional[float] = Form(None),
+    enable_vvi_ground_cleanup: str = Form("true"),
+    vvi_cleanup_bottom_start: Optional[float] = Form(None),
+    vvi_cleanup_front_start: Optional[float] = Form(None),
+    vvi_cleanup_green_ratio_min: Optional[float] = Form(None),
+    vvi_cleanup_exg_min: Optional[float] = Form(None),
+    vvi_cleanup_lab_min: Optional[float] = Form(None),
+    vvi_cleanup_low_quality_ratio: Optional[float] = Form(None),
+    enable_semantic_gvi_expansion: Optional[str] = Form(None),
+    semantic_gvi_hue_min: Optional[float] = Form(None),
+    semantic_gvi_hue_max: Optional[float] = Form(None),
+    semantic_gvi_sat_min: Optional[float] = Form(None),
+    semantic_gvi_light_min: Optional[float] = Form(None),
+    semantic_gvi_light_max: Optional[float] = Form(None),
+    semantic_gvi_green_ratio_min: Optional[float] = Form(None),
+    semantic_gvi_lab_a_green_min: Optional[float] = Form(None),
+    semantic_gvi_exg_norm_min: Optional[float] = Form(None),
+    semantic_gvi_prob_min: Optional[float] = Form(None),
+    semantic_gvi_neg_prob_max: Optional[float] = Form(None),
+    semantic_gvi_require_leaf_evidence: Optional[str] = Form(None),
+    semantic_gvi_exclude_woody: Optional[str] = Form(None),
 ):
     raw = await file.read()
     arr = np.frombuffer(raw, dtype=np.uint8)
@@ -117,13 +138,37 @@ async def analyse_endpoint(
         "front_ground_start": front_ground_start,
         "ground_veg_prob_margin": ground_veg_prob_margin,
         "ground_negative_prob_min": ground_negative_prob_min,
+        "enable_vvi_ground_cleanup": parse_bool(enable_vvi_ground_cleanup),
+        "vvi_ground_cleanup_mode": vvi_ground_cleanup_mode,
+        "vvi_cleanup_bottom_start": vvi_cleanup_bottom_start,
+        "vvi_cleanup_front_start": vvi_cleanup_front_start,
+        "vvi_cleanup_green_ratio_min": vvi_cleanup_green_ratio_min,
+        "vvi_cleanup_exg_min": vvi_cleanup_exg_min,
+        "vvi_cleanup_lab_min": vvi_cleanup_lab_min,
+        "vvi_cleanup_low_quality_ratio": vvi_cleanup_low_quality_ratio,
+        "enable_semantic_gvi_expansion": parse_bool(enable_semantic_gvi_expansion) if enable_semantic_gvi_expansion is not None else None,
+        "semantic_gvi_hue_min": semantic_gvi_hue_min,
+        "semantic_gvi_hue_max": semantic_gvi_hue_max,
+        "semantic_gvi_sat_min": semantic_gvi_sat_min,
+        "semantic_gvi_light_min": semantic_gvi_light_min,
+        "semantic_gvi_light_max": semantic_gvi_light_max,
+        "semantic_gvi_green_ratio_min": semantic_gvi_green_ratio_min,
+        "semantic_gvi_lab_a_green_min": semantic_gvi_lab_a_green_min,
+        "semantic_gvi_exg_norm_min": semantic_gvi_exg_norm_min,
+        "semantic_gvi_prob_min": semantic_gvi_prob_min,
+        "semantic_gvi_neg_prob_max": semantic_gvi_neg_prob_max,
+        "semantic_gvi_require_leaf_evidence": parse_bool(semantic_gvi_require_leaf_evidence) if semantic_gvi_require_leaf_evidence is not None else None,
+        "semantic_gvi_exclude_woody": parse_bool(semantic_gvi_exclude_woody) if semantic_gvi_exclude_woody is not None else None,
     }
     # Build presets/guard strength first, then apply requested ground-quality mode and explicit overrides.
     base_overrides = {k: v for k, v in overrides.items() if k != "ground_filter_mode"}
     settings = build_settings(preset, recovery_mode, ground_guard, artifact_guard, overrides=base_overrides)
-    if ground_filter_mode:
-        from adaptive_gvi_vvi_backend_v0_5 import apply_ground_quality_filter
-        apply_ground_quality_filter(settings, ground_filter_mode)
+    if ground_filter_mode or vvi_ground_cleanup_mode:
+        from adaptive_gvi_vvi_backend_v0_7 import apply_ground_quality_filter, apply_vvi_ground_cleanup
+        if ground_filter_mode:
+            apply_ground_quality_filter(settings, ground_filter_mode)
+        if vvi_ground_cleanup_mode:
+            apply_vvi_ground_cleanup(settings, vvi_ground_cleanup_mode)
     for k, v in overrides.items():
         if k == "ground_filter_mode" or v is None or v == "":
             continue

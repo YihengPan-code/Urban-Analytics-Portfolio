@@ -1,4 +1,4 @@
-"""Thermal index utilities for OpenHeat v0.5.
+"""Thermal index utilities for OpenHeat.
 
 The functions here are intentionally labelled as screening-level approximations
 unless official WBGT or physically simulated Tmrt is available.
@@ -34,42 +34,64 @@ def stull_wetbulb_c(t_c: np.ndarray | float, rh_percent: np.ndarray | float) -> 
 def estimate_local_microclimate(forecast_df: pd.DataFrame, grid_df: pd.DataFrame) -> pd.DataFrame:
     """Cross-join weather forecast and grid features, then estimate local Tair/Tmrt/wind.
 
-    v0.5 logic:
-    - Tair is adjusted by built density, road fraction and greenery.
-    - Wind is reduced by urban enclosure and SVF.
-    - Tmrt is approximated from shortwave radiation, shade fraction and SVF.
-
-    This is for prioritisation/prototyping only. Replace with SOLWEIG/UMEP in v0.8+.
+    This is a physics-informed screening model, not a substitute for SOLWEIG,
+    ENVI-met, CFD, or local sensor calibration. v0.6.4.1 tightens several
+    empirical assumptions flagged in source-code review:
+    - use pandas cross join instead of a temporary key;
+    - keep high-GVI areas distinguishable up to roughly 60%;
+    - use faster exponential park-cooling decay rather than an 800 m linear ramp;
+    - cap local wind so the simple enclosure factor does not exceed background wind;
+    - add a small low-SVF wall longwave term for dense canyon/HDB-cluster screening.
     """
     f = forecast_df.copy()
     g = grid_df.copy()
-    f['_key'] = 1
-    g['_key'] = 1
-    df = f.merge(g, on='_key').drop(columns='_key')
+    try:
+        df = f.merge(g, how="cross")
+    except TypeError:  # pragma: no cover - compatibility with very old pandas
+        f["_key"] = 1
+        g["_key"] = 1
+        df = f.merge(g, on="_key").drop(columns="_key")
 
-    gvi_norm = np.clip(df['gvi_percent'] / 40.0, 0, 1)
-    park_cooling = np.clip((800 - df['park_distance_m']) / 800.0, 0, 1)
-    shortwave_norm = np.clip(df['shortwave_radiation'] / 900.0, 0, 1)
+    gvi_norm = np.clip(pd.to_numeric(df["gvi_percent"], errors="coerce") / 60.0, 0, 1)
+    park_distance = pd.to_numeric(df["park_distance_m"], errors="coerce").clip(lower=0).fillna(9999)
+    park_cooling = np.exp(-park_distance / 250.0).clip(0, 1)
+    shortwave_norm = np.clip(pd.to_numeric(df["shortwave_radiation"], errors="coerce") / 900.0, 0, 1)
 
-    df['tair_local_c'] = (
-        df['temperature_2m']
-        + 1.15 * df['building_density']
-        + 0.85 * df['road_fraction']
+    df["tair_local_c"] = (
+        pd.to_numeric(df["temperature_2m"], errors="coerce")
+        + 1.15 * pd.to_numeric(df["building_density"], errors="coerce")
+        + 0.85 * pd.to_numeric(df["road_fraction"], errors="coerce")
         - 0.75 * gvi_norm
         - 0.35 * park_cooling
     )
 
-    df['wind_local_ms'] = (
-        df['wind_speed_10m_ms']
-        * (0.35 + 0.75 * df['svf'])
-        * (1.00 - 0.35 * df['building_density'])
-    ).clip(lower=0.15)
+    ref_wind = pd.to_numeric(df["wind_speed_10m_ms"], errors="coerce").clip(lower=0)
+    wind_raw = (
+        ref_wind
+        * (0.35 + 0.75 * pd.to_numeric(df["svf"], errors="coerce"))
+        * (1.00 - 0.35 * pd.to_numeric(df["building_density"], errors="coerce"))
+    )
+    # In this simple screening model, urban morphology should not accelerate wind
+    # above the background 10 m wind. A minimum keeps UTCI/WBGT calculations stable.
+    df["wind_local_ms"] = np.minimum(wind_raw.clip(lower=0.15), ref_wind.clip(lower=0.15))
 
-    df['tmrt_proxy_c'] = (
-        df['tair_local_c']
-        + 22.0 * shortwave_norm * (1 - df['shade_fraction']) * (0.45 + 0.75 * df['svf'])
+    svf = pd.to_numeric(df["svf"], errors="coerce")
+    shade = pd.to_numeric(df["shade_fraction"], errors="coerce")
+    sky_shortwave_gain = 22.0 * shortwave_norm * (1 - shade) * (0.45 + 0.75 * svf)
+    wall_longwave_gain = 0.4 * (1 - svf) * np.maximum(df["tair_local_c"] - 26.0, 0)
+
+    df["tmrt_proxy_c"] = (
+        df["tair_local_c"]
+        + sky_shortwave_gain
+        + wall_longwave_gain
         - 1.2 * gvi_norm
     )
+
+    # Expose diagnostic components so future reviewers can see what the proxy did.
+    df["gvi_norm_for_screening"] = gvi_norm
+    df["park_cooling_exp250"] = park_cooling
+    df["tmrt_sky_shortwave_gain_c"] = sky_shortwave_gain
+    df["tmrt_wall_longwave_gain_c"] = wall_longwave_gain
 
     return df
 

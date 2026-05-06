@@ -1,8 +1,8 @@
-"""Live API clients and parsers for OpenHeat v0.6.3.
+"""Live API clients and parsers for the OpenHeat operational prototype.
 
 Operational changes from v0.6:
 - Use Open-Meteo without API key and explicitly request Asia/Singapore timezone.
-- Use legacy data.gov.sg /v1/environment endpoints by default; v2 remains optional.
+- Use data.gov.sg v2 realtime APIs by default; v1 remains available for legacy non-WBGT checks.
 - Treat DATA_GOV_SG_API_KEY as optional future-proofing, not a prerequisite.
 - Parse both v1 and v2 NEA schemas, including station-list changes, null values, and the current WBGT records/item/readings shape.
 - Store fetch timestamps and endpoint metadata for archive/debugging.
@@ -30,7 +30,6 @@ NEA_V1_API_ENDPOINTS = {
     "wind_speed": "wind-speed",
     "wind_direction": "wind-direction",
     "rainfall": "rainfall",
-    "wbgt": "wbgt",
 }
 NEA_V2_API_ENDPOINTS = {
     "air_temperature": "air-temperature",
@@ -58,7 +57,7 @@ def _request_json(
     backoff_seconds: float = 2.0,
 ) -> Dict[str, Any] | list[Dict[str, Any]]:
     """GET JSON with light retry behaviour and optional API key header."""
-    headers = {"User-Agent": "OpenHeat-ToaPayoh/0.6.1 academic-prototype"}
+    headers = {"User-Agent": "OpenHeat-ToaPayoh/0.6.4.1 academic-prototype"}
     key = api_key or os.getenv("DATA_GOV_SG_API_KEY")
     if key:
         headers["x-api-key"] = key
@@ -194,15 +193,15 @@ def fetch_datagov_realtime_api(
     date_time: Optional[str] = None,
     timeout: int = 30,
     api_key: Optional[str] = None,
-    api_version: str = "v1",
+    api_version: str = "v2",
 ) -> Dict[str, Any]:
     """Fetch one Singapore data.gov.sg realtime weather API.
 
-    Default v1 endpoint examples:
-    - https://api.data.gov.sg/v1/environment/wbgt
-    - https://api.data.gov.sg/v1/environment/air-temperature
-    - https://api.data.gov.sg/v1/environment/relative-humidity
-    - https://api.data.gov.sg/v1/environment/wind-speed
+    Default v2 endpoint examples:
+    - https://api-open.data.gov.sg/v2/real-time/api/weather?api=wbgt
+    - https://api-open.data.gov.sg/v2/real-time/api/air-temperature
+    - https://api-open.data.gov.sg/v2/real-time/api/relative-humidity
+    - https://api-open.data.gov.sg/v2/real-time/api/wind-speed
     """
     if date and date_time:
         raise ValueError("Pass either date or date_time, not both.")
@@ -470,7 +469,15 @@ def fetch_wind_speed(**kwargs) -> pd.DataFrame:
 
 
 def fetch_official_wbgt(**kwargs) -> pd.DataFrame:
-    return normalise_realtime_station_readings(fetch_datagov_realtime_api("wbgt", **kwargs), "official_wbgt_c")
+    """Fetch official Singapore WBGT observations.
+
+    WBGT uses the newer data.gov.sg v2 weather endpoint in this prototype.
+    Even if callers pass api_version="v1" while testing legacy temperature/RH/wind
+    APIs, WBGT is forced to v2 to avoid the non-existent/forbidden v1 WBGT path.
+    """
+    params = dict(kwargs)
+    params["api_version"] = "v2"
+    return normalise_realtime_station_readings(fetch_datagov_realtime_api("wbgt", **params), "official_wbgt_c")
 
 
 def haversine_m(lat1: float, lon1: float, lat2: float, lon2: float) -> float:

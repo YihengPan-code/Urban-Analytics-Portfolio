@@ -1,4 +1,4 @@
-"""Calibration and validation utilities for OpenHeat v0.6.1.
+"""Calibration and validation utilities for OpenHeat.
 
 The calibration target is intentionally explicit:
     Open-Meteo + OpenHeat WBGT_proxy -> official NEA WBGT observation
@@ -94,19 +94,35 @@ def apply_linear_calibration(df: pd.DataFrame, model: LinearCalibration | dict, 
 def make_paired_wbgt_table(pred_df: pd.DataFrame, obs_df: pd.DataFrame, time_tolerance: str = "20min") -> pd.DataFrame:
     """Pair modelled WBGT proxy with official WBGT observations by station/time.
 
-    Time columns are converted to tz-aware Asia/Singapore timestamps before the
-    nearest-time merge to avoid UTC/SGT drift.
+    Accepts either a wide official-WBGT observation table or the v0.6.4+ long
+    archive format (`variable == official_wbgt_c`, `value`). If model output has
+    `nearest_station_id` but not `station_id`, it is treated as the calibration
+    station id. Time columns are converted to tz-aware Asia/Singapore timestamps
+    before the nearest-time merge to avoid UTC/SGT drift.
     """
     p = pred_df.copy()
     o = obs_df.copy()
+
+    if "station_id" not in p.columns and "nearest_station_id" in p.columns:
+        p["station_id"] = p["nearest_station_id"]
+
+    if "variable" in o.columns:
+        o = o[o["variable"].astype(str).eq("official_wbgt_c")].copy()
+        if "official_wbgt_c" not in o.columns and "value" in o.columns:
+            o["official_wbgt_c"] = pd.to_numeric(o["value"], errors="coerce")
+
     if "time" not in p.columns or "timestamp" not in o.columns:
         raise ValueError("pred_df must contain 'time' and obs_df must contain 'timestamp'.")
+    if "station_id" not in p.columns or "station_id" not in o.columns:
+        raise ValueError("Both pred_df and obs_df must contain station_id, or pred_df must contain nearest_station_id.")
+
     p["time"] = to_singapore_time_series(p["time"])
     o["timestamp"] = to_singapore_time_series(o["timestamp"])
-    p = p.dropna(subset=["time", "station_id"]).sort_values("time")
-    o = o.dropna(subset=["timestamp", "station_id"]).sort_values("timestamp")
+    p = p.dropna(subset=["time", "station_id"]).sort_values(["station_id", "time"])
+    o = o.dropna(subset=["timestamp", "station_id"]).sort_values(["station_id", "timestamp"])
+
     rows = []
-    for sid, pg in p.groupby("station_id"):
+    for sid, pg in p.groupby("station_id", dropna=False):
         og = o[o["station_id"] == sid].sort_values("timestamp")
         if og.empty:
             continue

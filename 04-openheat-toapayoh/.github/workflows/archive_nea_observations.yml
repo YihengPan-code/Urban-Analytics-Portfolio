@@ -31,7 +31,7 @@ jobs:
         env:
           DATA_GOV_SG_API_KEY: ${{ secrets.DATA_GOV_SG_API_KEY }}
         run: |
-          python scripts/archive_nea_observations.py --mode live --api-version v1
+          python scripts/archive_nea_observations.py --mode live --api-version v2
 
       - name: Commit archive update
         run: |

@@ -1,5 +1,5 @@
 """
-Hugging Face SegFormer provider for Adaptive GVI/VVI backend v0.5.
+Hugging Face SegFormer provider for Adaptive GVI/VVI backend v0.7.
 
 Compared with v0.3, this provider returns soft probability maps for both
 vegetation and major negative classes. The backend uses those negative maps to
@@ -14,7 +14,7 @@ from typing import Iterable, Optional
 import cv2
 import numpy as np
 
-from adaptive_gvi_vvi_backend_v0_5 import SemanticPrediction
+from adaptive_gvi_vvi_backend_v0_7 import SemanticPrediction
 
 
 DEFAULT_VEGETATION_LABELS = {

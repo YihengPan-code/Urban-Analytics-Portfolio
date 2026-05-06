@@ -1,5 +1,5 @@
 """
-Adaptive GVI/VVI backend v0.5
+Adaptive GVI/VVI backend v0.7
 
 v0.4 is a precision-focused correction of v0.3.
 
@@ -118,7 +118,25 @@ class Settings:
     include_woody: bool = False
     count_autumn_as_gvi: bool = False
 
-    # Semantic thresholds. v0.4 defaults are stricter than v0.3.
+    # v0.7 semantic-GVI expansion.
+    # This is NOT a normal colour-only preset. It widens the GVI HSV layer only
+    # inside pixels that are already supported by semantic vegetation/VVI. It is
+    # designed for shadowed, deep-green, steel-green or grey-green leaves.
+    enable_semantic_gvi_expansion: bool = False
+    semantic_gvi_hue_min: float = 24.0
+    semantic_gvi_hue_max: float = 210.0
+    semantic_gvi_sat_min: float = 8.0
+    semantic_gvi_light_min: float = 0.0
+    semantic_gvi_light_max: float = 81.0
+    semantic_gvi_green_ratio_min: float = 0.330
+    semantic_gvi_lab_a_green_min: float = 0.25
+    semantic_gvi_exg_norm_min: float = -0.015
+    semantic_gvi_prob_min: float = 0.24
+    semantic_gvi_neg_prob_max: float = 0.28
+    semantic_gvi_require_leaf_evidence: bool = True
+    semantic_gvi_exclude_woody: bool = True
+
+    # Semantic thresholds. v0.7 defaults remain precision-oriented.
     semantic_prob_min: float = 0.40
     soft_semantic_prob_min: float = 0.12
     min_safe_recovery_prob: float = 0.10
@@ -142,7 +160,7 @@ class Settings:
     ground_texture_max: float = 8.5
     remove_horizontal_ground_components: bool = True
 
-    # v0.5 ground-quality refinement. This specifically targets sunlit/mossy paving
+    # v0.7 ground-quality refinement. This specifically targets sunlit/mossy paving
     # or compacted soil on the lower image being classified as grass/vegetation.
     # It does not remove all grass. Lower-image VVI must pass a grass-quality test
     # or a semantic-probability margin test. Tree/shrub/canopy labels are protected.
@@ -165,6 +183,27 @@ class Settings:
     ground_component_low_quality_ratio: float = 0.54
     ground_component_quality_ratio_max: float = 0.30
     protect_tree_canopy_on_ground: bool = True
+
+    # v0.7 post-GVI VVI-only lower-ground cleanup. This is applied after GVI is
+    # computed, so it reduces false VVI on sunlit paving / mossy paths / compacted
+    # ground without lowering GVI.
+    enable_vvi_ground_cleanup: bool = True
+    vvi_ground_cleanup_mode: str = "balanced"  # off | balanced | strict | ultra
+    vvi_cleanup_bottom_start: float = 0.44
+    vvi_cleanup_front_start: float = 0.62
+    vvi_cleanup_component_min_area_px: int = 120
+    vvi_cleanup_component_min_area_ratio: float = 0.00032
+    vvi_cleanup_green_ratio_min: float = 0.350
+    vvi_cleanup_exg_min: float = 0.052
+    vvi_cleanup_lab_min: float = 3.2
+    vvi_cleanup_sat_min: float = 5.0
+    vvi_cleanup_front_green_ratio_min: float = 0.360
+    vvi_cleanup_front_exg_min: float = 0.075
+    vvi_cleanup_front_lab_min: float = 4.8
+    vvi_cleanup_low_quality_ratio: float = 0.46
+    vvi_cleanup_front_low_ratio: float = 0.48
+    vvi_cleanup_remove_all_front_vvi_only: bool = False
+    vvi_cleanup_protect_tree_labels: bool = True
 
     # Artificial sign/window/panel guard.
     hard_negative_veto: bool = True
@@ -247,6 +286,28 @@ def build_settings(
         s.ground_light_min = 48
         s.ground_sat_max = 38
         s.count_muted_as_gvi = False
+    elif p in {"semantic_shadow", "shadow_semantic", "shadow_canopy", "steel_green", "canopy_shadow"}:
+        # New v0.7 preset requested from field testing.
+        # The standard GVI layer remains conservative; the wide HSV range is only
+        # applied to pixels already supported by semantic vegetation/VVI.
+        s.g_hue_min, s.g_hue_max, s.g_sat_min, s.g_light_min, s.g_light_max = 46, 109, 10, 0, 95
+        s.enable_semantic_gvi_expansion = True
+        s.semantic_gvi_hue_min = 24.0
+        s.semantic_gvi_hue_max = 210.0
+        s.semantic_gvi_sat_min = 8.0
+        s.semantic_gvi_light_min = 0.0
+        s.semantic_gvi_light_max = 81.0
+        s.semantic_gvi_prob_min = 0.22
+        s.semantic_gvi_neg_prob_max = 0.28
+        s.semantic_gvi_green_ratio_min = 0.328
+        s.semantic_gvi_lab_a_green_min = 0.15
+        s.semantic_gvi_exg_norm_min = -0.018
+        s.semantic_gvi_require_leaf_evidence = True
+        s.semantic_gvi_exclude_woody = True
+        s.count_muted_as_gvi = False
+        s.broad_hue_min, s.broad_hue_max = 18, 135
+        s.soft_semantic_prob_min = min(s.soft_semantic_prob_min, 0.10)
+        s.min_safe_recovery_prob = min(s.min_safe_recovery_prob, 0.09)
     elif p in {"winter", "winter_woody"}:
         s.g_hue_min, s.g_hue_max, s.g_sat_min, s.g_light_min, s.g_light_max = 35, 112, 7, 0, 96
         s.include_woody = True
@@ -259,12 +320,13 @@ def build_settings(
         pass
     else:
         raise ValueError(
-            f"Unknown preset '{preset}'. Use standard, autumn, strict, shadow, sunny, anti_glare, winter, or custom."
+            f"Unknown preset '{preset}'. Use standard, autumn, strict, shadow, semantic_shadow, sunny, anti_glare, winter, or custom."
         )
 
     apply_recovery_mode(s, recovery_mode)
     apply_ground_guard(s, ground_guard)
     apply_ground_quality_filter(s, s.ground_filter_mode)
+    apply_vvi_ground_cleanup(s, s.vvi_ground_cleanup_mode)
     apply_artifact_guard(s, artifact_guard)
 
     if overrides:
@@ -345,7 +407,7 @@ def apply_ground_guard(s: Settings, mode: str) -> None:
 
 
 def apply_ground_quality_filter(s: Settings, mode: str) -> None:
-    """Tune the new v0.5 grass-vs-mossy-paving filter.
+    """Tune the new v0.7 grass-vs-mossy-paving filter.
 
     balanced is the recommended default for the park images you showed.
     strict is useful when lower-frame paths or compacted/mossy surfaces still enter VVI/GVI.
@@ -384,6 +446,59 @@ def apply_ground_quality_filter(s: Settings, mode: str) -> None:
     else:
         raise ValueError("ground_filter_mode must be off, balanced, or strict")
 
+
+
+def apply_vvi_ground_cleanup(s: Settings, mode: str) -> None:
+    """Tune the v0.7 VVI-only lower-ground cleanup.
+
+    This pass removes VVI-only pixels in the near/lower ground plane that do not
+    meet grass/leaf quality tests. It never removes GVI pixels, so GVI remains
+    stable while VVI becomes less inflated by sunlit paving, moss and compacted
+    soil.
+    """
+    m = (mode or "balanced").lower().strip()
+    s.vvi_ground_cleanup_mode = m
+    if m == "off":
+        s.enable_vvi_ground_cleanup = False
+    elif m == "balanced":
+        s.enable_vvi_ground_cleanup = True
+        s.vvi_cleanup_bottom_start = min(s.vvi_cleanup_bottom_start, 0.44)
+        s.vvi_cleanup_front_start = min(max(s.vvi_cleanup_front_start, 0.60), 0.66)
+        s.vvi_cleanup_green_ratio_min = max(s.vvi_cleanup_green_ratio_min, 0.350)
+        s.vvi_cleanup_exg_min = max(s.vvi_cleanup_exg_min, 0.052)
+        s.vvi_cleanup_lab_min = max(s.vvi_cleanup_lab_min, 3.2)
+        s.vvi_cleanup_front_green_ratio_min = max(s.vvi_cleanup_front_green_ratio_min, 0.360)
+        s.vvi_cleanup_front_exg_min = max(s.vvi_cleanup_front_exg_min, 0.075)
+        s.vvi_cleanup_front_lab_min = max(s.vvi_cleanup_front_lab_min, 4.8)
+        s.vvi_cleanup_low_quality_ratio = min(s.vvi_cleanup_low_quality_ratio, 0.46)
+        s.vvi_cleanup_front_low_ratio = min(s.vvi_cleanup_front_low_ratio, 0.48)
+    elif m == "strict":
+        s.enable_vvi_ground_cleanup = True
+        s.vvi_cleanup_bottom_start = min(s.vvi_cleanup_bottom_start, 0.40)
+        s.vvi_cleanup_front_start = min(max(s.vvi_cleanup_front_start, 0.56), 0.62)
+        s.vvi_cleanup_green_ratio_min = max(s.vvi_cleanup_green_ratio_min, 0.356)
+        s.vvi_cleanup_exg_min = max(s.vvi_cleanup_exg_min, 0.065)
+        s.vvi_cleanup_lab_min = max(s.vvi_cleanup_lab_min, 4.0)
+        s.vvi_cleanup_front_green_ratio_min = max(s.vvi_cleanup_front_green_ratio_min, 0.366)
+        s.vvi_cleanup_front_exg_min = max(s.vvi_cleanup_front_exg_min, 0.095)
+        s.vvi_cleanup_front_lab_min = max(s.vvi_cleanup_front_lab_min, 5.8)
+        s.vvi_cleanup_low_quality_ratio = min(s.vvi_cleanup_low_quality_ratio, 0.40)
+        s.vvi_cleanup_front_low_ratio = min(s.vvi_cleanup_front_low_ratio, 0.40)
+    elif m == "ultra":
+        s.enable_vvi_ground_cleanup = True
+        s.vvi_cleanup_bottom_start = min(s.vvi_cleanup_bottom_start, 0.36)
+        s.vvi_cleanup_front_start = min(max(s.vvi_cleanup_front_start, 0.52), 0.58)
+        s.vvi_cleanup_green_ratio_min = max(s.vvi_cleanup_green_ratio_min, 0.362)
+        s.vvi_cleanup_exg_min = max(s.vvi_cleanup_exg_min, 0.080)
+        s.vvi_cleanup_lab_min = max(s.vvi_cleanup_lab_min, 5.2)
+        s.vvi_cleanup_front_green_ratio_min = max(s.vvi_cleanup_front_green_ratio_min, 0.372)
+        s.vvi_cleanup_front_exg_min = max(s.vvi_cleanup_front_exg_min, 0.115)
+        s.vvi_cleanup_front_lab_min = max(s.vvi_cleanup_front_lab_min, 6.8)
+        s.vvi_cleanup_low_quality_ratio = min(s.vvi_cleanup_low_quality_ratio, 0.34)
+        s.vvi_cleanup_front_low_ratio = min(s.vvi_cleanup_front_low_ratio, 0.32)
+        s.vvi_cleanup_remove_all_front_vvi_only = True
+    else:
+        raise ValueError("vvi_ground_cleanup_mode must be off, balanced, strict, or ultra")
 
 def apply_artifact_guard(s: Settings, mode: str) -> None:
     m = mode.lower().strip()
@@ -590,6 +705,57 @@ def colour_masks(image_bgr: np.ndarray, settings: Settings) -> dict[str, np.ndar
         gvi_colour = gvi_colour | autumn
     gvi_colour = gvi_colour & ~high_vis
 
+    # v0.7: optional wide semantic-only GVI colour layer for shadowed / steel-green leaves.
+    # It is deliberately not allowed to act on non-semantic pixels. The mask here is only
+    # colour/leaf evidence; semantic support is applied later in analyse_array().
+    semantic_gvi_wide_hsv = (
+        settings.enable_semantic_gvi_expansion
+        & ~high_vis
+        & hue_in_range(hue, settings.semantic_gvi_hue_min, settings.semantic_gvi_hue_max)
+        & (sat >= settings.semantic_gvi_sat_min)
+        & (light >= settings.semantic_gvi_light_min)
+        & (light <= settings.semantic_gvi_light_max)
+    )
+
+    # Leaf evidence: accept dark/cool green leaves even when they are low saturation,
+    # but avoid making brown/grey tree branches green.
+    green_channel_support = (
+        (g >= r * 0.94)
+        & (g >= b * 0.72)
+        & (green_ratio >= settings.semantic_gvi_green_ratio_min)
+    )
+    steel_green_support = (
+        hue_in_range(hue, 100, 210)
+        & (g >= r * 0.88)
+        & (b >= r * 0.78)
+        & ((green_ratio >= settings.semantic_gvi_green_ratio_min - 0.010) | (lab_a_green >= settings.semantic_gvi_lab_a_green_min))
+    )
+    lab_or_exg_support = (
+        (lab_a_green >= settings.semantic_gvi_lab_a_green_min)
+        | (exg_norm >= settings.semantic_gvi_exg_norm_min)
+    )
+    leaf_evidence = green_channel_support | steel_green_support | (lab_or_exg_support & (g >= r * 0.88) & (g >= b * 0.70))
+
+    woody_branch_guard = (
+        settings.semantic_gvi_exclude_woody
+        & hue_in_range(hue, 8, 62)
+        & (r >= g * 1.035)
+        & (r >= b * 1.08)
+        & (lab_a_green < settings.semantic_gvi_lab_a_green_min + 0.55)
+        & (exg_norm < max(settings.semantic_gvi_exg_norm_min + 0.020, 0.004))
+    )
+    grey_branch_guard = (
+        settings.semantic_gvi_exclude_woody
+        & (sat <= 18)
+        & (light <= 62)
+        & (np.abs(r - g) <= 7)
+        & (np.abs(g - b) <= 11)
+        & (lab_a_green < settings.semantic_gvi_lab_a_green_min + 0.70)
+        & (exg_norm < settings.semantic_gvi_exg_norm_min + 0.018)
+    )
+
+    semantic_gvi_colour = semantic_gvi_wide_hsv & (leaf_evidence | (not settings.semantic_gvi_require_leaf_evidence)) & ~woody_branch_guard & ~grey_branch_guard
+
     recovery_colour = (legacy_green | broad_green | muted_green | olive_dry | autumn | woody) & ~high_vis
 
     return {
@@ -602,6 +768,8 @@ def colour_masks(image_bgr: np.ndarray, settings: Settings) -> dict[str, np.ndar
         "autumn": autumn,
         "woody": woody,
         "gvi_colour": gvi_colour,
+        "semantic_gvi_colour": semantic_gvi_colour,
+        "semantic_gvi_wide_hsv": semantic_gvi_wide_hsv,
         "recovery_colour": recovery_colour,
         "high_vis": high_vis,
     }
@@ -914,7 +1082,7 @@ def ground_quality_removed_mask(
 ) -> np.ndarray:
     """Remove lower-frame VVI that looks like mossy/sunlit paving rather than grass.
 
-    This v0.5 guard is different from the older ground guard:
+    This v0.7 guard is different from the older ground guard:
     - older guard: remove obviously smooth/bright ground before VVI is built;
     - this guard: after the semantic model has labelled something as vegetation,
       retest lower-image components with a stricter grass-quality and probability-margin rule.
@@ -1054,6 +1222,142 @@ def ground_quality_removed_mask(
                 comp_remove[comp] = True
             else:
                 comp_remove[comp & (~ground_quality | front_zone & ~front_quality)] = True
+
+    return pixel_remove | comp_remove
+
+
+def vvi_only_ground_cleanup_mask(
+    vvi_mask: np.ndarray,
+    gvi_mask: np.ndarray,
+    masks: Mapping[str, np.ndarray],
+    settings: Settings,
+    pred: Optional[SemanticPrediction],
+) -> np.ndarray:
+    """Remove lower-frame VVI-only false positives without changing GVI.
+
+    Remaining v0.6/v0.7 errors often come from the semantic model calling sunlit
+    pavement, mossy ground or compacted soil "vegetation". These pixels show up
+    as cyan VVI-only in the overlay, not green GVI. This cleanup only targets
+    VVI-only lower-ground pixels, protects tree/canopy labels, and uses stricter
+    grass-quality tests for the foreground.
+    """
+    if (not settings.enable_vvi_ground_cleanup) or settings.vvi_ground_cleanup_mode == "off":
+        return np.zeros(vvi_mask.shape, dtype=bool)
+
+    h, w = vvi_mask.shape
+    yy = np.arange(h, dtype=np.float32)[:, None] / max(1, h - 1)
+    lower_zone = yy >= settings.vvi_cleanup_bottom_start
+    front_zone = yy >= settings.vvi_cleanup_front_start
+
+    hue = masks["hue"]
+    sat = masks["sat"]
+    exg_norm = masks["exg_norm"]
+    lab_a_green = masks["lab_a_green"]
+    green_ratio = masks["green_ratio"]
+    strong_green = masks["strong_green"]
+    texture = masks["texture"]
+    local_std = masks["local_std"]
+    light = masks["light"]
+
+    tree_like = label_keyword_mask(pred, TREE_CANOPY_LABEL_KEYWORDS)
+    if tree_like is None:
+        tree_like = np.zeros(vvi_mask.shape, dtype=bool)
+    protected = tree_like if settings.vvi_cleanup_protect_tree_labels else np.zeros_like(vvi_mask, dtype=bool)
+
+    ground_label = label_keyword_mask(pred, GROUND_LABEL_KEYWORDS)
+    if ground_label is None:
+        ground_label = np.zeros(vvi_mask.shape, dtype=bool)
+
+    veg_prob = safe_prob(pred.vegetation_prob if pred is not None else None, vvi_mask.shape)
+    ground_prob = safe_prob(pred.ground_prob if pred is not None else None, vvi_mask.shape)
+    artificial_prob = safe_prob(pred.artificial_prob if pred is not None else None, vvi_mask.shape)
+    built_prob = safe_prob(pred.built_prob if pred is not None else None, vvi_mask.shape)
+    neg_prob = np.maximum.reduce([ground_prob, artificial_prob, built_prob])
+
+    vvi_only_lower = vvi_mask & ~gvi_mask & lower_zone & ~protected
+    if not np.any(vvi_only_lower):
+        return np.zeros(vvi_mask.shape, dtype=bool)
+
+    green_hue = hue_in_range(hue, 24, 132)
+    grass_quality = (
+        green_hue
+        & (sat >= settings.vvi_cleanup_sat_min)
+        & (
+            ((exg_norm >= settings.vvi_cleanup_exg_min) & (green_ratio >= settings.vvi_cleanup_green_ratio_min))
+            | (lab_a_green >= settings.vvi_cleanup_lab_min)
+            | (strong_green & (exg_norm >= settings.vvi_cleanup_exg_min * 0.72))
+        )
+    )
+    front_quality = (
+        green_hue
+        & (sat >= settings.vvi_cleanup_sat_min + 1.0)
+        & (
+            ((exg_norm >= settings.vvi_cleanup_front_exg_min) & (green_ratio >= settings.vvi_cleanup_front_green_ratio_min))
+            | (lab_a_green >= settings.vvi_cleanup_front_lab_min)
+            | (strong_green & (exg_norm >= settings.vvi_cleanup_exg_min))
+        )
+    )
+
+    # Surface-like evidence. This deliberately catches sunlit/mossy hard ground,
+    # not true GVI grass. It is only used on VVI-only lower pixels.
+    surface_like = (
+        ((light >= 42) & (sat <= max(settings.ground_sat_max, 38)) & (exg_norm <= settings.vvi_cleanup_exg_min * 1.15))
+        | ((texture <= max(settings.ground_texture_max, 10.0)) & (local_std <= 18.0) & (green_ratio <= settings.vvi_cleanup_green_ratio_min + 0.012))
+        | ground_label
+        | ((neg_prob >= settings.ground_negative_prob_min) & (neg_prob >= veg_prob - 0.04))
+    )
+
+    pixel_remove = (
+        vvi_only_lower
+        & (
+            (front_zone & ~front_quality)
+            | (~grass_quality & surface_like)
+            | (ground_label & ~grass_quality)
+        )
+    )
+
+    # Component-level pass: remove broad lower-ground VVI-only patches with little
+    # true grass evidence. GVI pixels are excluded from candidate, so real green lawn
+    # remains green while cyan false VVI patches are suppressed.
+    n, labels, stats, cent = cv2.connectedComponentsWithStats(vvi_only_lower.astype(np.uint8), connectivity=8)
+    comp_remove = np.zeros_like(vvi_mask, dtype=bool)
+    min_area = max(settings.vvi_cleanup_component_min_area_px, int(settings.vvi_cleanup_component_min_area_ratio * h * w))
+    for idx in range(1, n):
+        area = int(stats[idx, cv2.CC_STAT_AREA])
+        if area < min_area:
+            continue
+        comp = labels == idx
+        bw = int(stats[idx, cv2.CC_STAT_WIDTH])
+        bh = int(stats[idx, cv2.CC_STAT_HEIGHT])
+        y_centroid = float(cent[idx][1]) / max(1, h)
+        bottom_ratio = float((comp & lower_zone).sum()) / max(1, area)
+        front_pixels = int((comp & front_zone).sum())
+        front_ratio = float(front_pixels) / max(1, area)
+        low_quality_ratio = float((comp & ~grass_quality).sum()) / max(1, area)
+        front_low_ratio = float((comp & front_zone & ~front_quality).sum()) / max(1, front_pixels) if front_pixels else 0.0
+        quality_ratio = float((comp & grass_quality).sum()) / max(1, area)
+        strong_ratio = float((comp & strong_green).sum()) / max(1, area)
+        surface_ratio = float((comp & surface_like).sum()) / max(1, area)
+        ground_ratio = float((comp & ground_label).sum()) / max(1, area)
+        tex_med = float(np.median(texture[comp])) if area else 99.0
+        local_std_med = float(np.median(local_std[comp])) if area else 99.0
+        horizontal = bw >= max(1, bh) * 1.18
+        broad = area >= min_area * 2.0 or bw >= w * 0.08
+
+        front_fail = front_ratio >= 0.22 and front_low_ratio >= settings.vvi_cleanup_front_low_ratio
+        lower_fail = low_quality_ratio >= settings.vvi_cleanup_low_quality_ratio and quality_ratio <= 0.34
+        surface_fail = surface_ratio >= 0.45 and quality_ratio <= 0.42
+        semantic_ground_fail = ground_ratio >= 0.18 and quality_ratio <= 0.48
+        broad_ground_shape = broad and (horizontal or y_centroid >= settings.vvi_cleanup_front_start) and bottom_ratio >= 0.55
+        smooth_surface = tex_med <= max(settings.ground_texture_max, 10.5) and local_std_med <= 20.0
+
+        if settings.vvi_cleanup_remove_all_front_vvi_only and front_ratio >= 0.30 and quality_ratio <= 0.55:
+            comp_remove[comp] = True
+        elif broad_ground_shape and (front_fail or lower_fail or surface_fail or semantic_ground_fail or (smooth_surface and low_quality_ratio >= 0.36)):
+            if quality_ratio <= 0.20 or surface_ratio >= 0.68 or semantic_ground_fail:
+                comp_remove[comp] = True
+            else:
+                comp_remove[comp & (~grass_quality | (front_zone & ~front_quality))] = True
 
     return pixel_remove | comp_remove
 
@@ -1282,7 +1586,7 @@ def analyse_array(
         vvi_candidate = raw_semantic_clean | recovery_mask
         vvi_candidate = remove_horizontal_ground_components(vvi_candidate, masks, settings)
 
-        # v0.5: second-pass lower-frame ground-quality check. This removes mossy/sunlit
+        # v0.7: second-pass lower-frame ground-quality check. This removes mossy/sunlit
         # paving or compacted soil that the semantic model calls grass/vegetation.
         ground_quality_removed = ground_quality_removed_mask(vvi_candidate, masks, settings, pred)
         vvi_candidate = vvi_candidate & ~ground_quality_removed
@@ -1300,8 +1604,36 @@ def analyse_array(
             gvi_semantic_support = raw_semantic_clean | (recovery_mask & (safe_soft_semantic | semantic_context))
         else:
             gvi_semantic_support = vvi_mask
-        gvi_mask = gvi_semantic_support & masks["gvi_colour"] & ~removed_mask
-        mode = "semantic_vvi_v0_5_ground_refined_precision"
+
+        # v0.7 semantic-only wide HSV expansion for shadowed / steel-green leaves.
+        # It can add to GVI only when the pixel is already part of final VVI and has
+        # enough vegetation probability or clean semantic support. Negative class
+        # probabilities still veto signs, ground and windows.
+        artificial_prob = safe_prob(pred.artificial_prob if pred is not None else None, (h, w))
+        built_prob = safe_prob(pred.built_prob if pred is not None else None, (h, w))
+        ground_prob = safe_prob(pred.ground_prob if pred is not None else None, (h, w))
+        neg_prob = np.maximum.reduce([artificial_prob, built_prob, ground_prob])
+        semantic_expansion_support = (
+            settings.enable_semantic_gvi_expansion
+            & vvi_mask
+            & masks["semantic_gvi_colour"]
+            & (raw_semantic_clean | (veg_prob >= settings.semantic_gvi_prob_min))
+            & (neg_prob <= settings.semantic_gvi_neg_prob_max)
+            & ~removed_mask
+        )
+
+        gvi_colour_final = masks["gvi_colour"] | semantic_expansion_support
+        gvi_mask = gvi_semantic_support & gvi_colour_final & ~removed_mask
+
+        # v0.7: final cleanup for VVI-only lower-ground false positives.
+        # It is deliberately post-GVI and never removes GVI pixels.
+        vvi_ground_cleanup_removed = vvi_only_ground_cleanup_mask(vvi_mask, gvi_mask, masks, settings, pred)
+        vvi_mask = vvi_mask & ~vvi_ground_cleanup_removed
+        raw_semantic_clean = raw_semantic_clean & vvi_mask
+        recovery_mask = recovery_mask & vvi_mask
+        removed_mask = removed_mask | vvi_ground_cleanup_removed
+        gvi_mask = gvi_mask & vvi_mask
+        mode = "semantic_vvi_v0_7_vvi_ground_cleaned_shadow_gvi_expansion" if settings.enable_semantic_gvi_expansion else "semantic_vvi_v0_7_vvi_ground_cleaned_precision"
     else:
         # Colour-only fallback: deliberately conservative in v0.4.
         removed_initial = ground_false_positive_mask((h, w), masks, settings, None)
@@ -1313,8 +1645,14 @@ def analyse_array(
         ground_quality_removed = ground_quality_removed_mask(vvi_mask, masks, settings, None)
         vvi_mask = vvi_mask & ~ground_quality_removed
         removed_mask = removed_initial | ground_quality_removed
+        semantic_expansion_support = np.zeros((h, w), dtype=bool)
         gvi_mask = vvi_mask & masks["gvi_colour"]
-        mode = "colour_proxy_v0_5_ground_refined_conservative"
+        vvi_ground_cleanup_removed = vvi_only_ground_cleanup_mask(vvi_mask, gvi_mask, masks, settings, None)
+        vvi_mask = vvi_mask & ~vvi_ground_cleanup_removed
+        recovery_mask = recovery_mask & vvi_mask
+        removed_mask = removed_mask | vvi_ground_cleanup_removed
+        gvi_mask = gvi_mask & vvi_mask
+        mode = "colour_proxy_v0_7_vvi_ground_cleaned_conservative"
 
     raw_semantic_pct = float(raw_semantic.sum() / total * 100) if pred is not None else 0.0
     raw_semantic_clean_pct = float(raw_semantic_clean.sum() / total * 100)
@@ -1325,8 +1663,11 @@ def analyse_array(
     removed_pct = float(removed_mask.sum() / total * 100)
     ground_quality_removed_pct = float(ground_quality_removed.sum() / total * 100) if "ground_quality_removed" in locals() else 0.0
     panel_removed_pct = float(panel_removed.sum() / total * 100) if "panel_removed" in locals() else 0.0
+    vvi_ground_cleanup_removed_pct = float(vvi_ground_cleanup_removed.sum() / total * 100) if "vvi_ground_cleanup_removed" in locals() else 0.0
     muted_pct = float(masks["muted_green"].sum() / total * 100)
     olive_dry_pct = float(masks["olive_dry"].sum() / total * 100)
+    semantic_gvi_candidate_pct = float(masks.get("semantic_gvi_colour", np.zeros((h, w), dtype=bool)).sum() / total * 100)
+    semantic_gvi_expanded_pct = float(semantic_expansion_support.sum() / total * 100) if "semantic_expansion_support" in locals() else 0.0
     gap_pct = max(0.0, vvi_pct - gvi_pct)
     recovery_share_of_vvi = float(recovery_mask.sum() / max(1, vvi_mask.sum()) * 100)
 
@@ -1376,9 +1717,12 @@ def analyse_array(
         "removed_ground_artifact_pct": round(removed_pct, 4),  # compatibility with v0.3/v0.4 frontend columns
         "ground_quality_removed_pct": round(ground_quality_removed_pct, 4),
         "component_artifact_removed_pct": round(panel_removed_pct, 4),
+        "vvi_ground_cleanup_removed_pct": round(vvi_ground_cleanup_removed_pct, 4),
         "high_vis_pct": round(high_vis_pct, 4),
         "muted_candidate_pct": round(muted_pct, 4),
         "olive_dry_candidate_pct": round(olive_dry_pct, 4),
+        "semantic_gvi_candidate_pct": round(semantic_gvi_candidate_pct, 4),
+        "semantic_gvi_expanded_pct": round(semantic_gvi_expanded_pct, 4),
         "confidence_label": confidence_label,
         "overlay_path": str(overlay_path) if save_outputs else "",
         "vvi_mask_path": str(vvi_mask_path) if save_outputs else "",
@@ -1437,7 +1781,7 @@ def build_segmenter(kind: str, model_id: str, veg_labels: Optional[str], device:
     if kind == "none":
         return None
     if kind == "hf":
-        from semantic_segmentation_hf_v0_5 import HFSegFormerVegetationSegmenter
+        from semantic_segmentation_hf_v0_7 import HFSegFormerVegetationSegmenter
 
         labels = [x.strip() for x in veg_labels.split(",")] if veg_labels else None
         segmenter = HFSegFormerVegetationSegmenter(model_id=model_id, vegetation_labels=labels, device=device)
@@ -1470,6 +1814,27 @@ def settings_overrides_from_args(args: argparse.Namespace) -> dict[str, Any]:
         "front_ground_start",
         "ground_veg_prob_margin",
         "ground_negative_prob_min",
+        "enable_vvi_ground_cleanup",
+        "vvi_ground_cleanup_mode",
+        "vvi_cleanup_bottom_start",
+        "vvi_cleanup_front_start",
+        "vvi_cleanup_green_ratio_min",
+        "vvi_cleanup_exg_min",
+        "vvi_cleanup_lab_min",
+        "vvi_cleanup_low_quality_ratio",
+        "enable_semantic_gvi_expansion",
+        "semantic_gvi_hue_min",
+        "semantic_gvi_hue_max",
+        "semantic_gvi_sat_min",
+        "semantic_gvi_light_min",
+        "semantic_gvi_light_max",
+        "semantic_gvi_green_ratio_min",
+        "semantic_gvi_lab_a_green_min",
+        "semantic_gvi_exg_norm_min",
+        "semantic_gvi_prob_min",
+        "semantic_gvi_neg_prob_max",
+        "semantic_gvi_require_leaf_evidence",
+        "semantic_gvi_exclude_woody",
     ):
         value = getattr(args, key, None)
         if value is not None:
@@ -1485,12 +1850,13 @@ def main() -> None:
     parser.add_argument(
         "--preset",
         default="standard",
-        choices=["standard", "autumn", "strict", "shadow", "sunny", "anti_glare", "winter", "custom"],
+        choices=["standard", "autumn", "strict", "shadow", "semantic_shadow", "sunny", "anti_glare", "winter", "custom"],
         help="Colour preset. Standard/autumn/shadow are calibrated from the older HTML tool.",
     )
     parser.add_argument("--recovery-mode", default="balanced", choices=["conservative", "balanced", "aggressive"])
     parser.add_argument("--ground-guard", default="strong", choices=["light", "balanced", "strong"])
-    parser.add_argument("--ground-filter-mode", default="balanced", choices=["off", "balanced", "strict"], help="v0.5 lower-frame grass-vs-paving refinement.")
+    parser.add_argument("--ground-filter-mode", default="balanced", choices=["off", "balanced", "strict"], help="v0.7 lower-frame grass-vs-paving refinement.")
+    parser.add_argument("--vvi-ground-cleanup-mode", default="balanced", choices=["off", "balanced", "strict", "ultra"], help="v0.7 post-GVI VVI-only lower-ground cleanup. Does not reduce GVI.")
     parser.add_argument("--artifact-guard", default="strong", choices=["light", "balanced", "strong"])
     parser.add_argument("--segmenter", default="none", choices=["none", "hf"], help="Run a semantic segmentation model if no mask is provided.")
     parser.add_argument("--model-id", default="nvidia/segformer-b0-finetuned-ade-512-512", help="Hugging Face semantic segmentation model id.")
@@ -1512,6 +1878,26 @@ def main() -> None:
     parser.add_argument("--front-ground-start", type=float, default=None)
     parser.add_argument("--ground-veg-prob-margin", type=float, default=None)
     parser.add_argument("--ground-negative-prob-min", type=float, default=None)
+    parser.add_argument("--enable-vvi-ground-cleanup", type=str, default=None)
+    parser.add_argument("--vvi-cleanup-bottom-start", type=float, default=None)
+    parser.add_argument("--vvi-cleanup-front-start", type=float, default=None)
+    parser.add_argument("--vvi-cleanup-green-ratio-min", type=float, default=None)
+    parser.add_argument("--vvi-cleanup-exg-min", type=float, default=None)
+    parser.add_argument("--vvi-cleanup-lab-min", type=float, default=None)
+    parser.add_argument("--vvi-cleanup-low-quality-ratio", type=float, default=None)
+    parser.add_argument("--enable-semantic-gvi-expansion", type=str, default=None)
+    parser.add_argument("--semantic-gvi-hue-min", type=float, default=None)
+    parser.add_argument("--semantic-gvi-hue-max", type=float, default=None)
+    parser.add_argument("--semantic-gvi-sat-min", type=float, default=None)
+    parser.add_argument("--semantic-gvi-light-min", type=float, default=None)
+    parser.add_argument("--semantic-gvi-light-max", type=float, default=None)
+    parser.add_argument("--semantic-gvi-green-ratio-min", type=float, default=None)
+    parser.add_argument("--semantic-gvi-lab-a-green-min", type=float, default=None)
+    parser.add_argument("--semantic-gvi-exg-norm-min", type=float, default=None)
+    parser.add_argument("--semantic-gvi-prob-min", type=float, default=None)
+    parser.add_argument("--semantic-gvi-neg-prob-max", type=float, default=None)
+    parser.add_argument("--semantic-gvi-require-leaf-evidence", type=str, default=None)
+    parser.add_argument("--semantic-gvi-exclude-woody", type=str, default=None)
     parser.add_argument("--settings-json", type=Path, default=None, help="Optional JSON settings overrides.")
     args = parser.parse_args()
 
@@ -1520,6 +1906,7 @@ def main() -> None:
         overrides.update(json.loads(args.settings_json.read_text(encoding="utf-8")))
     settings = build_settings(args.preset, args.recovery_mode, args.ground_guard, args.artifact_guard, overrides=overrides)
     apply_ground_quality_filter(settings, args.ground_filter_mode)
+    apply_vvi_ground_cleanup(settings, args.vvi_ground_cleanup_mode)
     # Re-apply explicit settings-json/CLI overrides after the preset-specific mode, so user values win.
     for k, v in overrides.items():
         if v is None or v == "" or not hasattr(settings, k):
@@ -1545,9 +1932,9 @@ def main() -> None:
         raise SystemExit("No images found.")
 
     df = pd.DataFrame(rows)
-    csv_path = args.output / "gvi_vvi_results_v0_5.csv"
+    csv_path = args.output / "gvi_vvi_results_v0_7.csv"
     df.to_csv(csv_path, index=False, encoding="utf-8-sig")
-    (args.output / "settings_used_v0_5.json").write_text(json.dumps(asdict(settings), ensure_ascii=False, indent=2), encoding="utf-8")
+    (args.output / "settings_used_v0_7.json").write_text(json.dumps(asdict(settings), ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Saved {csv_path}")
     cols = [
         "image",
