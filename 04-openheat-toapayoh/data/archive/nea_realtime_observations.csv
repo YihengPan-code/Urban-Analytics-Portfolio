@@ -4,46 +4,62 @@ timestamp,station_id,device_id,station_name,station_lat,station_lon,air_temperat
 2026-05-05 15:40:00+08:00,S43,S43,Kim Chuan Road,1.3399,103.8878,31.9,Air Temperature,deg C,70.2,Relative Humidity,percentage,3.1,Wind Speed AVG(S)10M M1M,knots,1.5947764,31.1,Wet Bulb Globe Temperature,deg C,2026-05-06T00:28:21Z,fixture,,,,,,,,,
 2026-05-06 10:08:00+08:00,S06,S06,Paya Lebar Airport,1.3524,103.9007,30.9,DBT 1M F,deg C,70.0,,,4.9,,,2.5207756000000003,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S102,S102,Semakau Island Landfill,1.189,103.768,30.5,DBT 1M F,deg C,80.8,,,3.4,,,1.7491096,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
-2026-05-06 10:08:00+08:00,S104,S104,Woodlands Avenue 9,1.44387,103.78538,30.7,DBT 1M F,deg C,76.1,,,3.3,,,1.6976651999999999,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
+2026-05-06 10:08:00+08:00,S104,S104,Woodlands Avenue 9,1.44387,103.78538,30.7,DBT 1M F,deg C,76.1,,,3.3,,,1.6976652,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S106,S106,Pulau Ubin,1.4168,103.9673,30.7,DBT 1M F,deg C,84.8,,,3.0,,,1.543332,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S107,S107,East Coast Parkway,1.3135,103.9625,30.3,DBT 1M F,deg C,77.2,,,3.5,,,1.800554,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
-,S108,,,,,,,,,,,1.1,,,0.5658884000000001,,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-2026-05-06 10:08:00+08:00,S109,S109,Ang Mo Kio Avenue 5,1.3764,103.8492,29.8,DBT 1M F,deg C,77.2,,,2.6,,,1.3375544000000001,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
+2026-05-06 10:08:00+08:00,S109,S109,Ang Mo Kio Avenue 5,1.3764,103.8492,29.8,DBT 1M F,deg C,77.2,,,2.6,,,1.3375544,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S111,S111,Scotts Road,1.31055,103.8365,30.3,DBT 1M F,deg C,71.6,,,3.8,,,1.9548872,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S115,S115,Tuas South Avenue 3,1.29377,103.61843,29.1,DBT 1M F,deg C,87.2,,,1.3,,,0.6687772000000001,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S116,S116,West Coast Highway,1.281,103.754,30.2,DBT 1M F,deg C,73.0,,,4.6,,,2.3664424,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S117,S117,Banyan Road,1.256,103.679,30.5,DBT 1M F,deg C,78.9,,,3.7,,,1.9034428,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
-,S121,,,,,,,,,,,2.1,,,1.0803324,,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S124,,,,,,,,,,,,,,,28.6,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S125,,,,,,,,,,,,,,,30.1,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S126,,,,,,,,,,,,,,,31.2,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S127,,,,,,,,,,,,,,,31.1,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S128,,,,,,,,,,,,,,,28.6,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S129,,,,,,,,,,,,,,,30.5,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S130,,,,,,,,,,,,,,,30.7,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S132,,,,,,,,,,,,,,,28.5,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S135,,,,,,,,,,,,,,,31.2,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S137,,,,,,,,,,,,,,,30.9,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S139,,,,,,,,,,,,,,,28.9,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S140,,,,,,,,,,,,,,,30.9,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S141,,,,,,,,,,,,,,,29.8,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S142,,,,,,,,,,,,,,,31.5,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S143,,,,,,,,,,,,,,,29.2,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S144,,,,,,,,,,,,,,,31.2,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S145,,,,,,,,,,,,,,,30.0,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S146,,,,,,,,,,,,,,,31.0,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S147,,,,,,,,,,,,,,,30.2,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S148,,,,,,,,,,,,,,,27.6,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S149,,,,,,,,,,,,,,,28.1,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S150,,,,,,,,,,,,,,,29.1,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S151,,,,,,,,,,,,,,,28.3,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S153,,,,,,,,,,,,,,,30.3,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S180,,,,,,,,,,,,,,,29.0,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S184,,,,,,,,,,,,,,,27.8,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
-,S187,,,,,,,,,,,,,,,30.6,,,2026-05-06T02:12:48+00:00,live_v2,,,,,,,,,ok
 2026-05-06 10:08:00+08:00,S23,S23,S23,1.3858,103.7114,31.0,DBT 1M F,deg C,77.2,,,2.4,,,1.2346656,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S24,S24,Upper Changi Road North,1.3678,103.9826,30.0,DBT 1M F,deg C,72.1,,,,,,,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S43,S43,Kim Chuan Road,1.3399,103.8878,31.0,DBT 1M F,deg C,70.3,,,2.5,,,1.28611,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S44,S44,Nanyang Avenue,1.34583,103.68166,28.5,DBT 1M F,deg C,89.6,,,2.8,,,1.4404432,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S50,S50,Clementi Road,1.3337,103.7768,30.2,DBT 1M F,deg C,78.4,,,2.9,,,1.4918876,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
 2026-05-06 10:08:00+08:00,S60,S60,Sentosa,1.25,103.8279,30.5,DBT 1M F,deg C,78.7,,,2.3,,,1.1832212,,,,2026-05-06T02:12:48+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:12:44+00:00,False,ok
+2026-05-06 10:14:00+08:00,S06,S06,Paya Lebar Airport,1.3524,103.9007,31.1,DBT 1M F,deg C,69.0,,,3.8,,,1.9548872,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S102,S102,Semakau Island Landfill,1.189,103.768,30.8,DBT 1M F,deg C,80.1,,,3.0,,,1.543332,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S104,S104,Woodlands Avenue 9,1.44387,103.78538,30.6,DBT 1M F,deg C,73.2,,,2.4,,,1.2346656,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S106,S106,Pulau Ubin,1.4168,103.9673,31.1,DBT 1M F,deg C,79.5,,,3.5,,,1.800554,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S107,S107,East Coast Parkway,1.3135,103.9625,30.0,DBT 1M F,deg C,75.7,,,3.5,,,1.800554,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+,S108,,,,,,,,,,,1.3,,,0.6687772000000001,,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+2026-05-06 10:14:00+08:00,S109,S109,Ang Mo Kio Avenue 5,1.3764,103.8492,29.7,DBT 1M F,deg C,77.2,,,2.5,,,1.28611,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S111,S111,Scotts Road,1.31055,103.8365,29.9,DBT 1M F,deg C,71.7,,,3.0,,,1.543332,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S115,S115,Tuas South Avenue 3,1.29377,103.61843,29.2,DBT 1M F,deg C,86.5,,,1.5,,,0.771666,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S116,S116,West Coast Highway,1.281,103.754,30.4,DBT 1M F,deg C,74.6,,,4.7,,,2.4178868000000002,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S117,S117,Banyan Road,1.256,103.679,30.1,DBT 1M F,deg C,78.2,,,3.2,,,1.6462208,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+,S121,,,,,,,,,,,1.9,,,0.9774436,,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S124,,,,,,,,,,,,,,,28.6,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S125,,,,,,,,,,,,,,,30.1,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S126,,,,,,,,,,,,,,,31.2,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S127,,,,,,,,,,,,,,,31.1,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S128,,,,,,,,,,,,,,,28.6,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S129,,,,,,,,,,,,,,,30.5,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S130,,,,,,,,,,,,,,,30.7,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S132,,,,,,,,,,,,,,,28.5,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S135,,,,,,,,,,,,,,,31.2,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S137,,,,,,,,,,,,,,,30.9,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S139,,,,,,,,,,,,,,,28.9,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S140,,,,,,,,,,,,,,,30.9,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S141,,,,,,,,,,,,,,,29.8,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S142,,,,,,,,,,,,,,,31.5,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S143,,,,,,,,,,,,,,,29.2,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S144,,,,,,,,,,,,,,,31.2,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S145,,,,,,,,,,,,,,,30.0,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S146,,,,,,,,,,,,,,,31.0,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S147,,,,,,,,,,,,,,,30.2,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S148,,,,,,,,,,,,,,,27.6,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S149,,,,,,,,,,,,,,,28.1,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S150,,,,,,,,,,,,,,,29.1,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S151,,,,,,,,,,,,,,,28.3,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S153,,,,,,,,,,,,,,,30.3,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S180,,,,,,,,,,,,,,,29.0,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S184,,,,,,,,,,,,,,,27.8,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+,S187,,,,,,,,,,,,,,,30.6,,,2026-05-06T02:19:24+00:00,live_v2,,,,,,,,,ok
+2026-05-06 10:14:00+08:00,S23,S23,S23,1.3858,103.7114,30.9,DBT 1M F,deg C,76.1,,,2.4,,,1.2346656,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S24,S24,Upper Changi Road North,1.3678,103.9826,30.2,DBT 1M F,deg C,70.0,,,,,,,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S43,S43,Kim Chuan Road,1.3399,103.8878,31.2,DBT 1M F,deg C,69.6,,,2.1,,,1.0803324,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S44,S44,Nanyang Avenue,1.34583,103.68166,28.3,DBT 1M F,deg C,89.4,,,3.6,,,1.8519984,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S50,S50,Clementi Road,1.3337,103.7768,30.5,DBT 1M F,deg C,77.5,,,1.8,,,0.9259992,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok
+2026-05-06 10:14:00+08:00,S60,S60,Sentosa,1.25,103.8279,30.1,DBT 1M F,deg C,78.1,,,3.4,,,1.7491096,,,,2026-05-06T02:19:24+00:00,live_v2,,,,air_temperature,v2,https://api-open.data.gov.sg/v2/real-time/api/air-temperature,2026-05-06T02:19:22+00:00,False,ok

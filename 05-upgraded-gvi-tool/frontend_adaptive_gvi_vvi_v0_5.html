@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adaptive GVI/VVI Calculator v0.5</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .metric { font-variant-numeric: tabular-nums; }
+    .dropzone.dragover { border-color: #10b981; background: #ecfdf5; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+  <main class="max-w-7xl mx-auto p-4 md:p-8">
+    <section class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+      <header class="p-6 md:p-8 border-b border-slate-200 bg-gradient-to-br from-emerald-50 to-sky-50">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div>
+            <div class="text-xs font-bold tracking-[0.22em] uppercase text-emerald-700">v0.5 precision build</div>
+            <h1 class="mt-2 text-3xl md:text-4xl font-black tracking-tight">Adaptive GVI/VVI Calculator</h1>
+            <p class="mt-3 text-slate-600 max-w-3xl">语义分割 + 颜色过滤 + 负类抑制。新版重点修复绿色告示牌、阳光地面、窗户玻璃被误识别为 GVI/VVI 的问题。</p>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <button id="health-btn" class="px-4 py-2 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-sm font-bold">检查后端</button>
+            <button id="load-btn" class="px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800 text-sm font-bold">上传照片</button>
+            <button id="analyse-btn" class="px-4 py-2 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 text-sm font-bold">开始分析</button>
+            <button id="export-btn" class="px-4 py-2 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-sm font-bold">导出 CSV</button>
+            <button id="clear-btn" class="px-4 py-2 rounded-xl bg-white border border-red-200 text-red-700 hover:bg-red-50 text-sm font-bold">清空</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="p-6 md:p-8 grid grid-cols-1 xl:grid-cols-4 gap-6">
+        <aside class="xl:col-span-1 space-y-5">
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h2 class="font-black text-lg">后端与模型</h2>
+            <label class="block mt-4 text-xs font-bold uppercase tracking-wider text-slate-500">API URL</label>
+            <input id="api-url" value="http://127.0.0.1:8000/analyse" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-mono" />
+
+            <label class="block mt-4 text-xs font-bold uppercase tracking-wider text-slate-500">Segmenter</label>
+            <select id="segmenter" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+              <option value="hf" selected>HuggingFace SegFormer</option>
+              <option value="none">Colour-only fallback</option>
+            </select>
+
+            <label class="block mt-4 text-xs font-bold uppercase tracking-wider text-slate-500">Model ID</label>
+            <input id="model-id" value="nvidia/segformer-b0-finetuned-ade-512-512" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-xs font-mono" />
+
+            <label class="block mt-4 text-xs font-bold uppercase tracking-wider text-slate-500">Vegetation labels</label>
+            <input id="veg-labels" value="tree,grass,plant,flower,vegetation,palm,shrub,bush,field" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-xs font-mono" />
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h2 class="font-black text-lg">核心策略</h2>
+            <div class="grid grid-cols-1 gap-3 mt-4">
+              <label class="text-sm font-bold">Preset
+                <select id="preset" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+                  <option value="standard" selected>Standard</option>
+                  <option value="sunny">Sunny / Anti-ground</option>
+                  <option value="shadow">Shadow</option>
+                  <option value="autumn">Autumn</option>
+                  <option value="winter">Winter</option>
+                  <option value="strict">Strict</option>
+                  <option value="anti_glare">Anti-glare</option>
+                </select>
+              </label>
+              <label class="text-sm font-bold">Recovery mode
+                <select id="recovery-mode" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+                  <option value="conservative">Conservative</option>
+                  <option value="balanced" selected>Balanced v0.5</option>
+                  <option value="aggressive">Aggressive</option>
+                </select>
+              </label>
+              <label class="text-sm font-bold">Ground guard
+                <select id="ground-guard" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+                  <option value="light">Light</option>
+                  <option value="balanced">Balanced</option>
+                  <option value="strong" selected>Strong</option>
+                </select>
+              </label>
+              <label class="text-sm font-bold">Ground quality filter <span class="text-xs text-slate-400 font-normal">v0.5</span>
+                <select id="ground-filter-mode" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+                  <option value="off">Off</option>
+                  <option value="balanced" selected>Balanced / 抑制青苔地面</option>
+                  <option value="strict">Strict / 地面误判严重时</option>
+                </select>
+              </label>
+              <label class="text-sm font-bold">Artifact guard
+                <select id="artifact-guard" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">
+                  <option value="light">Light</option>
+                  <option value="balanced">Balanced</option>
+                  <option value="strong" selected>Strong</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h2 class="font-black text-lg">阈值</h2>
+            <div class="mt-4 space-y-4">
+              <label class="block text-sm font-bold">Semantic prob ≥ <span id="semantic-prob-label" class="metric text-emerald-700">0.40</span>
+                <input id="semantic-prob-min" type="range" min="0.20" max="0.75" step="0.01" value="0.40" class="w-full mt-2" />
+              </label>
+              <label class="block text-sm font-bold">Soft recovery prob ≥ <span id="soft-prob-label" class="metric text-emerald-700">0.12</span>
+                <input id="soft-semantic-prob-min" type="range" min="0.03" max="0.35" step="0.01" value="0.12" class="w-full mt-2" />
+              </label>
+              <label class="block text-sm font-bold">Safe recovery prob ≥ <span id="safe-prob-label" class="metric text-emerald-700">0.10</span>
+                <input id="min-safe-recovery-prob" type="range" min="0.03" max="0.35" step="0.01" value="0.10" class="w-full mt-2" />
+              </label>
+              <label class="block text-sm font-bold">Recovery radius <span id="radius-label" class="metric text-emerald-700">12</span> px
+                <input id="recovery-radius-px" type="range" min="0" max="40" step="1" value="12" class="w-full mt-2" />
+              </label>
+              <label class="block text-sm font-bold">Ground filter starts at y ≥ <span id="ground-start-label" class="metric text-emerald-700">0.46</span>
+                <input id="ground-quality-bottom-start" type="range" min="0.35" max="0.70" step="0.01" value="0.46" class="w-full mt-2" />
+              </label>
+              <label class="block text-sm font-bold">Front-ground strict zone y ≥ <span id="front-ground-label" class="metric text-emerald-700">0.68</span>
+                <input id="front-ground-start" type="range" min="0.50" max="0.90" step="0.01" value="0.68" class="w-full mt-2" />
+              </label>
+              <label class="block text-sm font-bold">Ground semantic margin ≥ <span id="ground-margin-label" class="metric text-emerald-700">0.10</span>
+                <input id="ground-veg-prob-margin" type="range" min="0.00" max="0.35" step="0.01" value="0.10" class="w-full mt-2" />
+              </label>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+            <h2 class="font-black text-lg">开关</h2>
+            <div class="mt-4 space-y-3 text-sm">
+              <label class="flex items-start gap-2"><input id="count-muted-as-gvi" type="checkbox" class="mt-1" /> <span><b>Muted grey-green 计入 GVI</b><br><span class="text-slate-500">默认关闭；低饱和植物仍可进入 VVI。</span></span></label>
+              <label class="flex items-start gap-2"><input id="fence-recovery" type="checkbox" class="mt-1" checked /> <span><b>围栏/遮挡补回</b><br><span class="text-slate-500">需有 soft semantic 或邻近植被支持。</span></span></label>
+              <label class="flex items-start gap-2"><input id="exclude-high-vis" type="checkbox" class="mt-1" checked /> <span><b>High-vis / neon 排除</b></span></label>
+              <label class="flex items-start gap-2"><input id="hard-negative-veto" type="checkbox" class="mt-1" checked /> <span><b>负类语义否决</b><br><span class="text-slate-500">sign/window/building/road 等优先排除。</span></span></label>
+              <label class="flex items-start gap-2"><input id="remove-rectangular-panels" type="checkbox" class="mt-1" checked /> <span><b>矩形告示牌/窗户排除</b></span></label>
+              <label class="flex items-start gap-2"><input id="enable-ground-quality-guard" type="checkbox" class="mt-1" checked /> <span><b>地面质量二次过滤</b><br><span class="text-slate-500">针对阳光地面、青苔铺装、灰绿硬质地面。</span></span></label>
+              <label class="flex items-start gap-2"><input id="gvi-requires-semantic-support" type="checkbox" class="mt-1" checked /> <span><b>GVI 必须有语义支持</b></span></label>
+              <label class="flex items-start gap-2"><input id="allow-isolated-colour-recovery" type="checkbox" class="mt-1" /> <span><b>允许孤立颜色补回</b><br><span class="text-slate-500">不推荐；容易把绿牌算进去。</span></span></label>
+            </div>
+          </div>
+        </aside>
+
+        <section class="xl:col-span-3 space-y-6">
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+            <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm"><div class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Photos</div><div id="summary-n" class="text-3xl font-black metric">0</div></div>
+            <div class="bg-emerald-50 rounded-2xl border border-emerald-100 p-4 shadow-sm"><div class="text-[10px] font-bold uppercase tracking-widest text-emerald-700">Mean GVI</div><div id="summary-gvi" class="text-3xl font-black metric text-emerald-700">0.00%</div></div>
+            <div class="bg-sky-50 rounded-2xl border border-sky-100 p-4 shadow-sm"><div class="text-[10px] font-bold uppercase tracking-widest text-sky-700">Mean VVI</div><div id="summary-vvi" class="text-3xl font-black metric text-sky-700">0.00%</div></div>
+            <div class="bg-orange-50 rounded-2xl border border-orange-100 p-4 shadow-sm"><div class="text-[10px] font-bold uppercase tracking-widest text-orange-700">Recovery</div><div id="summary-recovery" class="text-3xl font-black metric text-orange-700">0.00%</div></div>
+            <div class="bg-red-50 rounded-2xl border border-red-100 p-4 shadow-sm"><div class="text-[10px] font-bold uppercase tracking-widest text-red-700">Removed</div><div id="summary-removed" class="text-3xl font-black metric text-red-700">0.00%</div></div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-4 text-sm text-slate-600 shadow-sm">
+            <b>Overlay 图例：</b>
+            <span class="ml-2 text-emerald-700 font-bold">绿色 = GVI</span>
+            <span class="ml-2 text-sky-700 font-bold">蓝青 = semantic VVI-only</span>
+            <span class="ml-2 text-orange-700 font-bold">橙色 = recovery VVI-only</span>
+            <span class="ml-2 text-red-700 font-bold">红色 = 被排除的告示牌/窗户/地面/high-vis</span>
+          </div>
+
+          <div id="status" class="bg-slate-900 text-white rounded-2xl px-4 py-3 text-sm font-mono shadow-sm">准备就绪。先启动 FastAPI 后端，再上传照片。</div>
+
+          <div id="dropzone" class="dropzone bg-white border-2 border-dashed border-slate-300 rounded-3xl p-12 text-center cursor-pointer hover:bg-slate-50 transition">
+            <input id="file-input" type="file" accept="image/*" multiple class="hidden" />
+            <div class="text-5xl">🌿</div>
+            <h3 class="mt-4 text-xl font-black">点击或拖拽上传街景照片</h3>
+            <p class="mt-2 text-slate-500">支持四向照片；文件名含 N/E/S/W 会自动识别方向。</p>
+          </div>
+
+          <div id="grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+<script>
+const state = { files: [], rows: [] };
+const $ = id => document.getElementById(id);
+const fileInput = $('file-input');
+const loadBtn = $('load-btn');
+const analyseBtn = $('analyse-btn');
+const clearBtn = $('clear-btn');
+const exportBtn = $('export-btn');
+const healthBtn = $('health-btn');
+const dropzone = $('dropzone');
+const grid = $('grid');
+const statusEl = $('status');
+
+function fmt(x) { return `${Number(x || 0).toFixed(2)}%`; }
+function inferDirection(name, index) {
+  const n = name.toLowerCase();
+  if (/(^|[_\-\s])(n|north)([_\-\s.]|$)/.test(n)) return 'N';
+  if (/(^|[_\-\s])(e|east)([_\-\s.]|$)/.test(n)) return 'E';
+  if (/(^|[_\-\s])(s|south)([_\-\s.]|$)/.test(n)) return 'S';
+  if (/(^|[_\-\s])(w|west)([_\-\s.]|$)/.test(n)) return 'W';
+  return ['N', 'E', 'S', 'W'][index % 4];
+}
+function readAsDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
+}
+async function addFiles(files) {
+  const incoming = Array.from(files || []).filter(f => f.type.startsWith('image/'));
+  for (const file of incoming) {
+    state.files.push({ file, name: file.name, direction: inferDirection(file.name, state.files.length), preview: await readAsDataURL(file), result: null });
+  }
+  render();
+}
+function formValue(id) { return $(id).value; }
+function checkboxValue(id) { return $(id).checked ? 'true' : 'false'; }
+function buildForm(file) {
+  const form = new FormData();
+  form.append('file', file);
+  form.append('preset', formValue('preset'));
+  form.append('recovery_mode', formValue('recovery-mode'));
+  form.append('ground_guard', formValue('ground-guard'));
+  form.append('ground_filter_mode', formValue('ground-filter-mode'));
+  form.append('artifact_guard', formValue('artifact-guard'));
+  form.append('segmenter', formValue('segmenter'));
+  form.append('model_id', formValue('model-id'));
+  form.append('veg_labels', formValue('veg-labels'));
+  form.append('semantic_prob_min', formValue('semantic-prob-min'));
+  form.append('soft_semantic_prob_min', formValue('soft-semantic-prob-min'));
+  form.append('min_safe_recovery_prob', formValue('min-safe-recovery-prob'));
+  form.append('recovery_radius_px', formValue('recovery-radius-px'));
+  form.append('ground_quality_bottom_start', formValue('ground-quality-bottom-start'));
+  form.append('front_ground_start', formValue('front-ground-start'));
+  form.append('ground_veg_prob_margin', formValue('ground-veg-prob-margin'));
+  form.append('count_muted_as_gvi', checkboxValue('count-muted-as-gvi'));
+  form.append('fence_recovery', checkboxValue('fence-recovery'));
+  form.append('exclude_high_vis', checkboxValue('exclude-high-vis'));
+  form.append('allow_isolated_colour_recovery', checkboxValue('allow-isolated-colour-recovery'));
+  form.append('gvi_requires_semantic_support', checkboxValue('gvi-requires-semantic-support'));
+  form.append('hard_negative_veto', checkboxValue('hard-negative-veto'));
+  form.append('remove_rectangular_panels', checkboxValue('remove-rectangular-panels'));
+  form.append('enable_ground_quality_guard', checkboxValue('enable-ground-quality-guard'));
+  return form;
+}
+async function analyseOne(item) {
+  const response = await fetch(formValue('api-url'), { method: 'POST', body: buildForm(item.file) });
+  if (!response.ok) throw new Error(await response.text());
+  return await response.json();
+}
+async function analyseAll() {
+  if (state.files.length === 0) return;
+  analyseBtn.disabled = true;
+  state.rows = [];
+  try {
+    for (let i = 0; i < state.files.length; i++) {
+      const item = state.files[i];
+      statusEl.textContent = `正在分析 ${i + 1}/${state.files.length}: ${item.name}`;
+      render();
+      const data = await analyseOne(item);
+      item.result = data.result;
+      item.overlay = data.overlay_png;
+      item.semanticMask = data.semantic_clean_mask_png || data.semantic_raw_mask_png;
+      item.recoveryMask = data.recovery_mask_png;
+      item.removedMask = data.removed_mask_png;
+      state.rows.push({ direction: item.direction, ...data.result });
+      render();
+    }
+    statusEl.textContent = `完成：${state.files.length} 张照片已分析。`;
+  } catch (err) {
+    console.error(err);
+    statusEl.textContent = `错误：${err.message || err}`;
+    alert(`分析失败：\n${err.message || err}`);
+  } finally {
+    analyseBtn.disabled = false;
+  }
+}
+function updateSummary() {
+  const done = state.files.filter(x => x.result);
+  $('summary-n').textContent = state.files.length;
+  if (done.length === 0) {
+    $('summary-gvi').textContent = '0.00%';
+    $('summary-vvi').textContent = '0.00%';
+    $('summary-recovery').textContent = '0.00%';
+    $('summary-removed').textContent = '0.00%';
+    return;
+  }
+  const mean = key => done.reduce((s, x) => s + Number(x.result[key] || 0), 0) / done.length;
+  $('summary-gvi').textContent = fmt(mean('gvi_pct'));
+  $('summary-vvi').textContent = fmt(mean('vvi_pct'));
+  $('summary-recovery').textContent = fmt(mean('recovery_pct'));
+  $('summary-removed').textContent = fmt(mean('removed_artifact_pct'));
+}
+function confidenceClass(label) {
+  if (label === 'high') return 'bg-emerald-50 text-emerald-700 border-emerald-200';
+  if (label === 'medium') return 'bg-amber-50 text-amber-700 border-amber-200';
+  return 'bg-red-50 text-red-700 border-red-200';
+}
+function render() {
+  updateSummary();
+  dropzone.classList.toggle('hidden', state.files.length > 0);
+  grid.innerHTML = '';
+  state.files.forEach((item, index) => {
+    const r = item.result;
+    const card = document.createElement('article');
+    card.className = 'bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden';
+    const imgSrc = item.overlay || item.preview;
+    card.innerHTML = `
+      <div class="p-4 border-b border-slate-100 flex justify-between gap-3 items-start">
+        <div class="min-w-0">
+          <div class="text-xs font-mono text-slate-400 truncate">${item.name}</div>
+          <div class="mt-1 flex gap-2 items-center flex-wrap">
+            <select data-index="${index}" class="direction-select rounded-lg border border-slate-300 text-xs px-2 py-1">
+              ${['N','E','S','W','NA'].map(d => `<option value="${d}" ${item.direction === d ? 'selected' : ''}>${d}</option>`).join('')}
+            </select>
+            ${r ? `<span class="text-xs px-2 py-1 rounded-full border ${confidenceClass(r.confidence_label)}">confidence: ${r.confidence_label}</span>` : '<span class="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-500">pending</span>'}
+          </div>
+        </div>
+        <button data-index="${index}" class="delete-btn text-slate-400 hover:text-red-600 font-bold text-2xl leading-none">×</button>
+      </div>
+      <img src="${imgSrc}" class="w-full block bg-slate-100" />
+      <div class="p-4 grid grid-cols-2 gap-3">
+        <div class="rounded-xl bg-emerald-50 p-3"><div class="text-[10px] uppercase tracking-widest text-emerald-700 font-bold">GVI</div><div class="text-2xl font-black text-emerald-700 metric">${r ? fmt(r.gvi_pct) : '--'}</div></div>
+        <div class="rounded-xl bg-sky-50 p-3"><div class="text-[10px] uppercase tracking-widest text-sky-700 font-bold">VVI</div><div class="text-2xl font-black text-sky-700 metric">${r ? fmt(r.vvi_pct) : '--'}</div></div>
+        <div class="rounded-xl bg-orange-50 p-3"><div class="text-[10px] uppercase tracking-widest text-orange-700 font-bold">Recovery</div><div class="text-xl font-black text-orange-700 metric">${r ? fmt(r.recovery_pct) : '--'}</div></div>
+        <div class="rounded-xl bg-red-50 p-3"><div class="text-[10px] uppercase tracking-widest text-red-700 font-bold">Removed</div><div class="text-xl font-black text-red-700 metric">${r ? fmt(r.removed_artifact_pct) : '--'}</div></div>
+      </div>
+      ${r ? `<div class="px-4 pb-4 text-xs text-slate-500 space-y-1">
+        <div>Raw semantic VVI: <b>${fmt(r.raw_semantic_vvi_pct)}</b> → Clean semantic: <b>${fmt(r.semantic_clean_vvi_pct)}</b></div>
+        <div>Muted candidate: <b>${fmt(r.muted_candidate_pct)}</b> · Olive/dry candidate: <b>${fmt(r.olive_dry_candidate_pct)}</b></div>
+        <div>Ground-quality removed: <b>${fmt(r.ground_quality_removed_pct)}</b> · Panel/sign/glass removed: <b>${fmt(r.component_artifact_removed_pct)}</b></div>
+        <div>Mode: <span class="font-mono">${r.mode}</span></div>
+      </div>` : ''}
+    `;
+    grid.appendChild(card);
+  });
+
+  document.querySelectorAll('.direction-select').forEach(sel => {
+    sel.addEventListener('change', e => { state.files[Number(e.target.dataset.index)].direction = e.target.value; updateRowsFromState(); });
+  });
+  document.querySelectorAll('.delete-btn').forEach(btn => {
+    btn.addEventListener('click', e => { state.files.splice(Number(e.target.dataset.index), 1); updateRowsFromState(); render(); });
+  });
+}
+function updateRowsFromState() {
+  state.rows = state.files.filter(x => x.result).map(x => ({ direction: x.direction, ...x.result }));
+}
+function exportCSV() {
+  updateRowsFromState();
+  if (state.rows.length === 0) { alert('还没有可导出的分析结果。'); return; }
+  const keys = Object.keys(state.rows[0]);
+  const esc = v => `"${String(v ?? '').replaceAll('"', '""')}"`;
+  const csv = [keys.join(','), ...state.rows.map(row => keys.map(k => esc(row[k])).join(','))].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'gvi_vvi_results_v0_5.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+async function healthCheck() {
+  try {
+    const url = formValue('api-url').replace(/\/analyse\/?$/, '/health');
+    const r = await fetch(url);
+    const data = await r.json();
+    statusEl.textContent = `后端正常：${JSON.stringify(data)}`;
+  } catch (err) {
+    statusEl.textContent = `无法连接后端。请确认 uvicorn 已启动。${err.message || err}`;
+  }
+}
+
+loadBtn.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', e => addFiles(e.target.files));
+analyseBtn.addEventListener('click', analyseAll);
+clearBtn.addEventListener('click', () => { state.files = []; state.rows = []; fileInput.value = ''; statusEl.textContent = '已清空。'; render(); });
+exportBtn.addEventListener('click', exportCSV);
+healthBtn.addEventListener('click', healthCheck);
+
+function updateSliderLabels() {
+  $('semantic-prob-label').textContent = Number($('semantic-prob-min').value).toFixed(2);
+  $('soft-prob-label').textContent = Number($('soft-semantic-prob-min').value).toFixed(2);
+  $('safe-prob-label').textContent = Number($('min-safe-recovery-prob').value).toFixed(2);
+  $('radius-label').textContent = $('recovery-radius-px').value;
+  $('ground-start-label').textContent = Number($('ground-quality-bottom-start').value).toFixed(2);
+  $('front-ground-label').textContent = Number($('front-ground-start').value).toFixed(2);
+  $('ground-margin-label').textContent = Number($('ground-veg-prob-margin').value).toFixed(2);
+}
+['semantic-prob-min','soft-semantic-prob-min','min-safe-recovery-prob','recovery-radius-px','ground-quality-bottom-start','front-ground-start','ground-veg-prob-margin'].forEach(id => $(id).addEventListener('input', updateSliderLabels));
+
+dropzone.addEventListener('click', () => fileInput.click());
+dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('dragover'); });
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+dropzone.addEventListener('drop', e => { e.preventDefault(); dropzone.classList.remove('dragover'); addFiles(e.dataTransfer.files); });
+
+updateSliderLabels();
+render();
+</script>
+</body>
+</html>
