@@ -1,0 +1,56 @@
+{
+  "code": 0,
+  "data": {
+    "stations": [
+      {
+        "id": "S109",
+        "deviceId": "S109",
+        "name": "Ang Mo Kio Avenue 5",
+        "location": {
+          "latitude": 1.3764,
+          "longitude": 103.8492
+        }
+      },
+      {
+        "id": "S111",
+        "deviceId": "S111",
+        "name": "Scotts Road",
+        "location": {
+          "latitude": 1.31055,
+          "longitude": 103.8365
+        }
+      },
+      {
+        "id": "S43",
+        "deviceId": "S43",
+        "name": "Kim Chuan Road",
+        "location": {
+          "latitude": 1.3399,
+          "longitude": 103.8878
+        }
+      }
+    ],
+    "readings": [
+      {
+        "timestamp": "2026-05-05T15:40:00+08:00",
+        "data": [
+          {
+            "stationId": "S109",
+            "value": 31.7
+          },
+          {
+            "stationId": "S111",
+            "value": 32.2
+          },
+          {
+            "stationId": "S43",
+            "value": 31.9
+          }
+        ]
+      }
+    ],
+    "readingType": "Air Temperature",
+    "readingUnit": "deg C"
+  },
+  "errorMsg": ""
+}

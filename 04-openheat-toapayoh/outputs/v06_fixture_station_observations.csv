@@ -1,0 +1,4 @@
+timestamp,station_id,device_id,station_name,station_lat,station_lon,air_temperature_c,reading_type,reading_unit,relative_humidity_percent,reading_type_rhs,reading_unit_rhs,wind_speed_raw,reading_type_rhs,reading_unit_rhs,wind_speed_ms,official_wbgt_c,reading_type_rhs,reading_unit_rhs
+2026-05-05 15:40:00+08:00,S109,S109,Ang Mo Kio Avenue 5,1.3764,103.8492,31.7,Air Temperature,deg C,68.0,Relative Humidity,percentage,2.3,Wind Speed AVG(S)10M M1M,knots,1.1832212,30.8,Wet Bulb Globe Temperature,deg C
+2026-05-05 15:40:00+08:00,S111,S111,Scotts Road,1.31055,103.8365,32.2,Air Temperature,deg C,66.5,Relative Humidity,percentage,6.6,Wind Speed AVG(S)10M M1M,knots,3.3953303999999997,31.4,Wet Bulb Globe Temperature,deg C
+2026-05-05 15:40:00+08:00,S43,S43,Kim Chuan Road,1.3399,103.8878,31.9,Air Temperature,deg C,70.2,Relative Humidity,percentage,3.1,Wind Speed AVG(S)10M M1M,knots,1.5947764,31.1,Wet Bulb Globe Temperature,deg C

@@ -1,0 +1,8 @@
+[project]
+name = "openheat-toapayoh-forecast"
+version = "0.6.1"
+description = "Open-data neighbourhood heat-stress forecast and live calibration MVP for Toa Payoh"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
