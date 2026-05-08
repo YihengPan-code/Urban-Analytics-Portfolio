@@ -1,0 +1,7 @@
+feature: park_distance_m / large_park_distance_m
+source: data/raw/nparks_parks_nature_reserves.geojson
+method: Centroid-to-nearest park polygon distance in SVY21; large parks filtered by area threshold
+unit: metres
+known_issues:
+  - Distance is geometric and does not capture wind direction or park morphology
+last_updated_utc: 2026-05-07T23:31:10.378475+00:00

@@ -1,0 +1,7 @@
+feature: building_density
+source: data/raw/ura_masterplan2019_buildings.geojson
+method: Areal intersection between 100 m SVY21 grid and building footprints; area / cell_area
+unit: dimensionless [0,1]
+known_issues:
+  - v0.7-alpha uses indicative footprints; no height considered
+last_updated_utc: 2026-05-07T23:31:09.915897+00:00

@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "sample_buildings",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 0, "BLDG_TYPE": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 103.84945, 1.3334 ], [ 103.84945, 1.33375 ], [ 103.849, 1.33375 ], [ 103.849, 1.3334 ], [ 103.84945, 1.3334 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 1, "BLDG_TYPE": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 103.85015, 1.3336 ], [ 103.85015, 1.33405 ], [ 103.8498, 1.33405 ], [ 103.8498, 1.3336 ], [ 103.85015, 1.3336 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "BLDG_TYPE": 2 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 103.8511, 1.334 ], [ 103.8511, 1.3345 ], [ 103.8506, 1.3345 ], [ 103.8506, 1.334 ], [ 103.8511, 1.334 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "BLDG_TYPE": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 103.8518, 1.335 ], [ 103.8518, 1.3354 ], [ 103.8514, 1.3354 ], [ 103.8514, 1.335 ], [ 103.8518, 1.335 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "BLDG_TYPE": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 103.8507, 1.336 ], [ 103.8507, 1.3363 ], [ 103.85, 1.3363 ], [ 103.85, 1.336 ], [ 103.8507, 1.336 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "BLDG_TYPE": 3 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 103.85195, 1.3336 ], [ 103.85195, 1.3342 ], [ 103.8515, 1.3342 ], [ 103.8515, 1.3336 ], [ 103.85195, 1.3336 ] ] ] } }
+]
+}

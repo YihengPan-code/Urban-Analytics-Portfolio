@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "sample_parks",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Sample Town Park", "L_CODE": "PARK01" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 103.8524, 1.3352 ], [ 103.8524, 1.3368 ], [ 103.8508, 1.3368 ], [ 103.8508, 1.3352 ], [ 103.8524, 1.3352 ] ] ] } }
+]
+}

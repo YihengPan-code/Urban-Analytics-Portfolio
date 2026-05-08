@@ -1,0 +1,24 @@
+{
+  "description": "OpenHeat v0.7-alpha grid feature config. Paths are relative to project root unless absolute.",
+  "cell_size_m": 100,
+  "cell_id_prefix": "TP",
+  "bbox_wgs84": [103.8400, 1.3260, 103.8660, 1.3560],
+  "out_grid_dir": "data/grid",
+  "out_features_dir": "data/features",
+  "out_outputs_dir": "outputs",
+  "raw_paths": {
+    "buildings": "data/raw/ura_masterplan2019_buildings.geojson",
+    "land_use": "data/raw/ura_masterplan2019_land_use.geojson",
+    "parks": "data/raw/nparks_parks_nature_reserves.geojson",
+    "roads": "data/raw/osm_roads_toa_payoh.geojson",
+    "water": "data/raw/osm_water_toa_payoh.geojson"
+  },
+  "land_use_column": "LU_DESC",
+  "gpr_column": "GPR",
+  "road_buffer_m": 7,
+  "large_park_threshold_ha": 10,
+  "optional_feature_csv": {
+    "height": "",
+    "vegetation": ""
+  }
+}

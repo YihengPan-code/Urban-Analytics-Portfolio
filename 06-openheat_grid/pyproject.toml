@@ -1,0 +1,8 @@
+[project]
+name = "openheat-toapayoh-forecast"
+version = "0.7.0-alpha"
+description = "Open-data neighbourhood heat-stress forecast, calibration, and v0.7 grid-feature extraction pipeline for Toa Payoh"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

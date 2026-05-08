@@ -1,0 +1,7 @@
+feature: road_fraction
+source: data/raw/osm_roads_toa_payoh.geojson
+method: Road LineStrings buffered then intersected with grid; polygons are intersected directly
+unit: dimensionless [0,1]
+known_issues:
+  - Buffer width is a v0.7-alpha approximation
+last_updated_utc: 2026-05-07T23:31:10.229456+00:00

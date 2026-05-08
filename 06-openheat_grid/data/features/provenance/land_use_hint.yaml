@@ -1,0 +1,7 @@
+feature: land_use_hint
+source: data/raw/ura_masterplan2019_land_use.geojson
+method: Area-majority land-use class within each grid cell, simplified to broad categories
+unit: categorical
+known_issues:
+  - Master Plan land use is planning-zoning information, not observed activity
+last_updated_utc: 2026-05-07T23:31:10.125427+00:00

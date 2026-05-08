@@ -1,0 +1,473 @@
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import re
+import sys
+from pathlib import Path
+from typing import Any
+
+import geopandas as gpd
+import numpy as np
+import pandas as pd
+from shapely.geometry import Point
+
+ROOT = Path(__file__).resolve().parents[1]
+SVY21 = "EPSG:3414"
+WGS84 = "EPSG:4326"
+
+
+def load_config(path: str | Path) -> dict[str, Any]:
+    with Path(path).open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def robust_minmax(series: pd.Series, p_low: float = 0.05, p_high: float = 0.95) -> pd.Series:
+    x = pd.to_numeric(series, errors="coerce").fillna(0.0).astype(float)
+    lo = float(x.quantile(p_low))
+    hi = float(x.quantile(p_high))
+    if not np.isfinite(lo) or not np.isfinite(hi) or hi <= lo:
+        return pd.Series(np.zeros(len(x)), index=x.index, dtype=float)
+    return ((x - lo) / (hi - lo)).clip(0, 1)
+
+
+def norm_name(x: Any) -> str:
+    if pd.isna(x):
+        return ""
+    s = str(x).upper().strip()
+    s = s.replace("’", "'")
+    s = re.sub(r"[^A-Z0-9]+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+
+def norm_col(x: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(x).lower())
+
+
+def to_number(s: pd.Series) -> pd.Series:
+    return pd.to_numeric(
+        s.astype(str)
+        .str.replace(",", "", regex=False)
+        .str.replace("-", "0", regex=False)
+        .str.strip(),
+        errors="coerce",
+    ).fillna(0.0)
+
+
+def find_col(df: pd.DataFrame, candidates: list[str]) -> str:
+    lookup = {norm_col(c): c for c in df.columns}
+    for cand in candidates:
+        key = norm_col(cand)
+        if key in lookup:
+            return lookup[key]
+    # substring fallback
+    for cand in candidates:
+        key = norm_col(cand)
+        for normed, original in lookup.items():
+            if key and (key in normed or normed in key):
+                return original
+    raise KeyError(f"Could not find any of columns {candidates}. Available: {list(df.columns)[:20]}...")
+
+
+def parse_census_age_table(path: str | Path) -> pd.DataFrame:
+    df = pd.read_csv(path)
+    label_col = find_col(df, ["Number"])
+    total_col = find_col(df, ["(Total) Total", "Total_Total", "Total Total"])
+    child_col = find_col(df, ["(Total) 0 - 4", "Total_0_4", "Total 0 4"])
+    elderly_cols = [
+        find_col(df, ["(Total) 65 - 69", "Total_65_69", "Total 65 69"]),
+        find_col(df, ["(Total) 70 - 74", "Total_70_74", "Total 70 74"]),
+        find_col(df, ["(Total) 75 - 79", "Total_75_79", "Total 75 79"]),
+        find_col(df, ["(Total) 80 - 84", "Total_80_84", "Total 80 84"]),
+        find_col(df, ["(Total) 85 - 89", "Total_85_89", "Total 85 89"]),
+        find_col(df, ["(Total) 90 & Over", "Total_90_Over", "Total 90 Over", "Total_90_Over"]),
+    ]
+
+    records: list[dict[str, Any]] = []
+    current_pa: str | None = None
+    for _, row in df.iterrows():
+        label = str(row[label_col]).strip()
+        if not label or label.lower() == "nan":
+            continue
+        if norm_name(label) == "TOTAL":
+            continue
+        if re.search(r"\s*-\s*TOTAL$", label, flags=re.IGNORECASE):
+            current_pa = re.sub(r"\s*-\s*TOTAL$", "", label, flags=re.IGNORECASE).strip()
+            continue
+        # The SingStat table uses Planning Area - Total rows followed by subzone rows.
+        planning_area = current_pa
+        subzone = label
+        # Extra defensive parsing if a future export uses "PA - Subzone" rows.
+        if " - " in label and not label.lower().endswith(" - total"):
+            maybe_pa, maybe_sz = [p.strip() for p in label.split(" - ", 1)]
+            if maybe_pa and maybe_sz:
+                planning_area = maybe_pa
+                subzone = maybe_sz
+        total = float(to_number(pd.Series([row[total_col]])).iloc[0])
+        if total <= 0:
+            continue
+        elderly = sum(float(to_number(pd.Series([row[c]])).iloc[0]) for c in elderly_cols)
+        children = float(to_number(pd.Series([row[child_col]])).iloc[0])
+        records.append(
+            {
+                "planning_area_census": planning_area,
+                "subzone_census": subzone,
+                "planning_area_norm": norm_name(planning_area),
+                "subzone_norm": norm_name(subzone),
+                "total_pop": total,
+                "elderly_count_65plus": elderly,
+                "children_count_under5": children,
+                "elderly_pct_65plus": elderly / total,
+                "children_pct_under5": children / total,
+            }
+        )
+    out = pd.DataFrame.from_records(records)
+    if out.empty:
+        raise ValueError(f"No subzone records parsed from census table: {path}")
+    return out
+
+
+def read_grid(grid_csv: str | Path, grid_geojson: str | Path) -> tuple[pd.DataFrame, gpd.GeoDataFrame]:
+    grid_df = pd.read_csv(grid_csv)
+    grid_geo = gpd.read_file(grid_geojson)
+    if grid_geo.crs is None:
+        grid_geo = grid_geo.set_crs(WGS84)
+    grid_geo = grid_geo.to_crs(SVY21)
+    grid_geo["cell_id"] = grid_geo["cell_id"].astype(str)
+    grid_df["cell_id"] = grid_df["cell_id"].astype(str)
+    return grid_df, grid_geo
+
+
+def read_vector(path: str | Path | None, projected: bool = True) -> gpd.GeoDataFrame | None:
+    if not path:
+        return None
+    p = ROOT / path if not Path(path).is_absolute() else Path(path)
+    if not p.exists():
+        print(f"[WARN] Missing optional vector file: {p}")
+        return None
+    gdf = gpd.read_file(p)
+    if gdf.empty:
+        return gdf
+    if gdf.crs is None:
+        gdf = gdf.set_crs(WGS84)
+    # Some point GeoJSONs include 3D coordinates; shapely handles this, but forcing buffer(0)
+    # on points is unnecessary. Clean only invalid polygons lightly.
+    gdf = gdf[gdf.geometry.notna() & ~gdf.geometry.is_empty].copy()
+    if projected:
+        gdf = gdf.to_crs(SVY21)
+    return gdf
+
+
+def clean_subzone_boundaries(path: str | Path) -> gpd.GeoDataFrame:
+    gdf = read_vector(path)
+    if gdf is None or gdf.empty:
+        raise ValueError("Subzone boundary file missing or empty")
+    required = ["SUBZONE_N", "PLN_AREA_N"]
+    missing = [c for c in required if c not in gdf.columns]
+    if missing:
+        raise ValueError(f"Subzone boundary missing columns {missing}; available={list(gdf.columns)}")
+    gdf = gdf.copy()
+    gdf["subzone_norm"] = gdf["SUBZONE_N"].map(norm_name)
+    gdf["planning_area_norm"] = gdf["PLN_AREA_N"].map(norm_name)
+    return gdf
+
+
+def area_weight_demographics(
+    grid_geo: gpd.GeoDataFrame,
+    subzone_geo: gpd.GeoDataFrame,
+    census: pd.DataFrame,
+    demographic_weights: dict[str, float],
+) -> pd.DataFrame:
+    sub = subzone_geo.merge(
+        census,
+        on=["planning_area_norm", "subzone_norm"],
+        how="left",
+        indicator=True,
+    )
+    matched = int((sub["_merge"] == "both").sum())
+    if matched == 0:
+        # Fallback: subzone-only join. This is less strict but useful if planning-area names differ.
+        print("[WARN] No PA+subzone demographic matches. Falling back to subzone-only matching.")
+        sub = subzone_geo.merge(
+            census.drop(columns=["planning_area_norm"], errors="ignore"),
+            on="subzone_norm",
+            how="left",
+            indicator=True,
+        )
+    else:
+        sub = sub.drop(columns=["_merge"])
+
+    missing_pct = sub["elderly_pct_65plus"].isna().mean()
+    if missing_pct > 0.35:
+        print(f"[WARN] High demographic missingness after join: {missing_pct:.1%}. Check subzone name matching.")
+    # Fill unmatched with global medians rather than 0 to avoid artificial holes.
+    for c in ["elderly_pct_65plus", "children_pct_under5", "total_pop"]:
+        if c in sub.columns:
+            sub[c] = pd.to_numeric(sub[c], errors="coerce")
+            sub[c] = sub[c].fillna(float(sub[c].median(skipna=True)))
+
+    grid_small = grid_geo[["cell_id", "geometry"]].copy()
+    sub_small = sub[["SUBZONE_N", "PLN_AREA_N", "elderly_pct_65plus", "children_pct_under5", "total_pop", "geometry"]].copy()
+    inter = gpd.overlay(grid_small, sub_small, how="intersection", keep_geom_type=False)
+    if inter.empty:
+        raise ValueError("No intersections between grid and subzone polygons")
+    inter["_area"] = inter.geometry.area
+    grouped = inter.groupby("cell_id", as_index=False).apply(
+        lambda x: pd.Series(
+            {
+                "elderly_pct_65plus": np.average(x["elderly_pct_65plus"], weights=x["_area"]),
+                "children_pct_under5": np.average(x["children_pct_under5"], weights=x["_area"]),
+                "subzone_area_weighted": " | ".join(
+                    f"{r.SUBZONE_N}:{r._area / x['_area'].sum():.2f}" for _, r in x.iterrows()
+                ),
+                "dominant_subzone": x.loc[x["_area"].idxmax(), "SUBZONE_N"],
+                "dominant_planning_area": x.loc[x["_area"].idxmax(), "PLN_AREA_N"],
+            }
+        )
+    ).reset_index(drop=True)
+
+    ew = float(demographic_weights.get("elderly_pct_65plus", 0.75))
+    cw = float(demographic_weights.get("children_pct_under5", 0.25))
+    grouped["demographic_vulnerability_raw"] = ew * grouped["elderly_pct_65plus"] + cw * grouped["children_pct_under5"]
+    grouped["demographic_vulnerability_score"] = robust_minmax(grouped["demographic_vulnerability_raw"])
+    return grouped
+
+
+def node_display_name(row: pd.Series, name_cols: list[str]) -> str:
+    vals = []
+    for c in name_cols:
+        if c in row.index and pd.notna(row[c]):
+            vals.append(str(row[c]))
+    if vals:
+        return " | ".join(vals[:2])
+    return "unknown"
+
+
+def standardise_nodes(
+    path: str | Path | None,
+    node_type: str,
+    group: str,
+    base_weight: float,
+    decay_m: float,
+    name_cols: list[str],
+    size_weight_column: str | None = None,
+    size_weight_mode: str | None = None,
+) -> gpd.GeoDataFrame | None:
+    gdf = read_vector(path)
+    if gdf is None or gdf.empty:
+        return None
+    gdf = gdf.copy()
+    # Use centroid for any polygon/multipolygon resource.
+    non_point = ~gdf.geometry.geom_type.isin(["Point", "MultiPoint"])
+    if non_point.any():
+        gdf.loc[non_point, "geometry"] = gdf.loc[non_point, "geometry"].centroid
+    gdf["node_type"] = node_type
+    gdf["score_group"] = group
+    gdf["base_weight"] = float(base_weight)
+    gdf["decay_m"] = float(decay_m)
+    gdf["node_name"] = gdf.apply(lambda r: node_display_name(r, name_cols), axis=1)
+    gdf["node_id"] = [f"{node_type}_{i:05d}" for i in range(len(gdf))]
+    gdf["node_weight"] = float(base_weight)
+    if size_weight_column and size_weight_column in gdf.columns:
+        size = pd.to_numeric(gdf[size_weight_column], errors="coerce")
+        median = float(size[size > 0].median()) if (size > 0).any() else np.nan
+        if np.isfinite(median) and median > 0 and size_weight_mode == "sqrt_relative_to_median":
+            multiplier = np.sqrt((size.fillna(median).clip(lower=1)) / median).clip(0.5, 2.5)
+            gdf["node_weight"] = gdf["base_weight"] * multiplier
+            gdf["size_weight_value"] = size
+    keep = ["node_id", "node_type", "score_group", "node_name", "base_weight", "node_weight", "decay_m", "geometry"]
+    if "size_weight_value" in gdf.columns:
+        keep.append("size_weight_value")
+    return gdf[keep]
+
+
+def exp_decay_scores(grid_geo: gpd.GeoDataFrame, nodes: gpd.GeoDataFrame, node_type: str, decay_m: float, search_radius_m: float) -> pd.DataFrame:
+    centroids = grid_geo.geometry.centroid
+    score = np.zeros(len(grid_geo), dtype=float)
+    count = np.zeros(len(grid_geo), dtype=int)
+    if nodes is None or nodes.empty:
+        return pd.DataFrame({"cell_id": grid_geo["cell_id"].astype(str), f"{node_type}_score_raw": score, f"{node_type}_count": count})
+
+    pts = nodes.geometry
+    weights = pd.to_numeric(nodes.get("node_weight", 1.0), errors="coerce").fillna(1.0).to_numpy()
+    # N_grid * N_nodes is small enough for v0.7.1 AOI; avoid scipy dependency.
+    for i, c in enumerate(centroids):
+        # Vectorised distances for all nodes to one centroid.
+        d = pts.distance(c).to_numpy(dtype=float)
+        mask = d <= float(search_radius_m)
+        if mask.any():
+            score[i] = np.sum(weights[mask] * np.exp(-d[mask] / float(decay_m)))
+            count[i] = int(mask.sum())
+    return pd.DataFrame({"cell_id": grid_geo["cell_id"].astype(str), f"{node_type}_score_raw": score, f"{node_type}_count": count})
+
+
+def build_node_scores(grid_geo: gpd.GeoDataFrame, raw_paths: dict[str, str], node_cfg: dict[str, Any]) -> tuple[pd.DataFrame, gpd.GeoDataFrame]:
+    score_parts: list[pd.DataFrame] = [pd.DataFrame({"cell_id": grid_geo["cell_id"].astype(str)})]
+    node_layers: list[gpd.GeoDataFrame] = []
+    for node_type, cfg in node_cfg.items():
+        path = raw_paths.get(cfg.get("path_key", ""))
+        layer = standardise_nodes(
+            path,
+            node_type=node_type,
+            group=cfg.get("score_group", "unknown"),
+            base_weight=float(cfg.get("weight", 1.0)),
+            decay_m=float(cfg.get("decay_m", 150)),
+            name_cols=list(cfg.get("name_columns", [])),
+            size_weight_column=cfg.get("size_weight_column"),
+            size_weight_mode=cfg.get("size_weight_mode"),
+        )
+        if layer is not None and not layer.empty:
+            node_layers.append(layer)
+        scores = exp_decay_scores(
+            grid_geo,
+            layer if layer is not None else gpd.GeoDataFrame(columns=["geometry"], geometry="geometry", crs=SVY21),
+            node_type=node_type,
+            decay_m=float(cfg.get("decay_m", 150)),
+            search_radius_m=float(cfg.get("search_radius_m", 3 * float(cfg.get("decay_m", 150)))),
+        )
+        score_parts.append(scores)
+
+    out = score_parts[0]
+    for s in score_parts[1:]:
+        out = out.merge(s, on="cell_id", how="left")
+    for c in out.columns:
+        if c != "cell_id":
+            out[c] = pd.to_numeric(out[c], errors="coerce").fillna(0.0)
+
+    nodes_all = gpd.GeoDataFrame(pd.concat(node_layers, ignore_index=True), geometry="geometry", crs=SVY21) if node_layers else gpd.GeoDataFrame(columns=["node_id", "node_type", "score_group", "geometry"], geometry="geometry", crs=SVY21)
+    return out, nodes_all
+
+
+def combine_scores(demo: pd.DataFrame, node_scores: pd.DataFrame, cfg: dict[str, Any]) -> pd.DataFrame:
+    df = demo.merge(node_scores, on="cell_id", how="outer")
+    df = df.fillna(0.0)
+
+    # Aggregate configured node types by group.
+    outdoor_raw = np.zeros(len(df))
+    vuln_raw = np.zeros(len(df))
+    for node_type, nc in cfg.get("node_types", {}).items():
+        raw_col = f"{node_type}_score_raw"
+        if raw_col not in df.columns:
+            continue
+        if nc.get("score_group") == "outdoor_exposure":
+            outdoor_raw += pd.to_numeric(df[raw_col], errors="coerce").fillna(0).to_numpy()
+        elif nc.get("score_group") == "node_vulnerability":
+            vuln_raw += pd.to_numeric(df[raw_col], errors="coerce").fillna(0).to_numpy()
+
+    df["outdoor_exposure_raw"] = outdoor_raw
+    df["node_vulnerability_raw"] = vuln_raw
+    df["outdoor_exposure_score_v071"] = robust_minmax(df["outdoor_exposure_raw"])
+    df["node_vulnerability_score"] = robust_minmax(df["node_vulnerability_raw"])
+
+    vw = cfg.get("risk_weights", {}).get("vulnerability_score_v071", {})
+    demo_w = float(vw.get("demographic_vulnerability_score", 0.70))
+    node_w = float(vw.get("node_vulnerability_score", 0.30))
+    df["vulnerability_score_v071"] = (
+        demo_w * pd.to_numeric(df["demographic_vulnerability_score"], errors="coerce").fillna(0)
+        + node_w * pd.to_numeric(df["node_vulnerability_score"], errors="coerce").fillna(0)
+    ).clip(0, 1)
+    return df
+
+
+def make_qa_report(features: pd.DataFrame, nodes: gpd.GeoDataFrame, cfg: dict[str, Any]) -> str:
+    lines = ["# OpenHeat v0.7.1 risk/exposure QA report", ""]
+    lines.append(f"Grid cells: **{len(features)}**")
+    lines.append(f"Cleaned nodes: **{len(nodes)}**")
+    if not nodes.empty:
+        lines.append("")
+        lines.append("## Node counts")
+        for k, v in nodes["node_type"].value_counts().items():
+            lines.append(f"- {k}: {v}")
+    lines.append("")
+    lines.append("## Feature summaries")
+    summary_cols = [
+        "elderly_pct_65plus", "children_pct_under5", "demographic_vulnerability_score",
+        "node_vulnerability_score", "vulnerability_score_v071", "outdoor_exposure_score_v071",
+    ]
+    for c in summary_cols:
+        if c in features.columns:
+            s = pd.to_numeric(features[c], errors="coerce")
+            lines.append(f"- `{c}`: missing={int(s.isna().sum())}, min={s.min():.4f}, mean={s.mean():.4f}, median={s.median():.4f}, max={s.max():.4f}")
+    lines.append("")
+    lines.append("## Dominant subzones in AOI")
+    if "dominant_subzone" in features.columns:
+        for k, v in features["dominant_subzone"].value_counts(dropna=False).head(20).items():
+            lines.append(f"- {k}: {v}")
+    lines.append("")
+    lines.append("## Interpretation / limitations")
+    notes = cfg.get("notes", {})
+    for _, note in notes.items():
+        lines.append(f"- {note}")
+    lines.append("- Hawker centres, eldercare services and preschools are treated as vulnerable-congregation nodes, not direct outdoor-exposure nodes.")
+    lines.append("- Bus stops, MRT exits and SportSG facilities are treated as public outdoor exposure potential, not observed pedestrian counts.")
+    return "\n".join(lines) + "\n"
+
+
+def build_features(config: dict[str, Any]) -> dict[str, Path]:
+    raw_paths = {k: (str(ROOT / v) if v and not Path(v).is_absolute() else v) for k, v in config.get("raw_paths", {}).items()}
+    grid_csv = ROOT / config.get("grid_csv", "data/grid/toa_payoh_grid_v07_features_beta_final.csv")
+    grid_geojson = ROOT / config.get("grid_geojson", "data/grid/toa_payoh_grid_v07_features.geojson")
+    out_dir = ROOT / config.get("out_dir", "outputs/v071_risk_exposure")
+    out_grid_csv = ROOT / config.get("out_grid_csv", "data/grid/toa_payoh_grid_v07_features_beta_final_v071_risk.csv")
+    out_features_dir = ROOT / "data/features/v071"
+    out_nodes_path = ROOT / "data/features/v071/v071_public_nodes_clean.geojson"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_features_dir.mkdir(parents=True, exist_ok=True)
+    out_grid_csv.parent.mkdir(parents=True, exist_ok=True)
+
+    grid_df, grid_geo = read_grid(grid_csv, grid_geojson)
+    census = parse_census_age_table(raw_paths["census_age_subzone_csv"])
+    subzones = clean_subzone_boundaries(raw_paths["subzone_boundary_geojson"])
+    demo = area_weight_demographics(grid_geo, subzones, census, config.get("demographic_weights", {}))
+    demo.to_csv(out_features_dir / "v071_subzone_demographic_vulnerability.csv", index=False)
+
+    node_scores, nodes = build_node_scores(grid_geo, raw_paths, config.get("node_types", {}))
+    node_scores.to_csv(out_features_dir / "v071_node_scores_raw.csv", index=False)
+    if not nodes.empty:
+        nodes.to_crs(WGS84).to_file(out_nodes_path, driver="GeoJSON")
+
+    risk = combine_scores(demo, node_scores, config)
+    risk.to_csv(out_features_dir / "v071_risk_exposure_features.csv", index=False)
+
+    # Merge into the beta-final grid feature table, preserving existing columns.
+    add_cols = [c for c in risk.columns if c != "cell_id"]
+    grid_out = grid_df.merge(risk[["cell_id", *add_cols]], on="cell_id", how="left")
+    for c in add_cols:
+        if c in grid_out.columns and pd.api.types.is_numeric_dtype(grid_out[c]):
+            grid_out[c] = grid_out[c].fillna(0.0)
+    grid_out["risk_exposure_note_v071"] = "Static open-data risk/exposure proxies: subzone demographics + weighted distance-decay public nodes; not observed people counts."
+    grid_out.to_csv(out_grid_csv, index=False)
+
+    # GeoJSON for QA mapping.
+    geo_out = grid_geo[["cell_id", "geometry"]].merge(grid_out, on="cell_id", how="left")
+    geojson_out = out_dir / "v071_grid_risk_exposure_features.geojson"
+    geo_out.to_crs(WGS84).to_file(geojson_out, driver="GeoJSON")
+
+    report = make_qa_report(risk, nodes, config)
+    report_path = out_dir / "v071_risk_exposure_QA_report.md"
+    report_path.write_text(report, encoding="utf-8")
+
+    return {
+        "risk_grid_csv": out_grid_csv,
+        "risk_features_csv": out_features_dir / "v071_risk_exposure_features.csv",
+        "clean_nodes_geojson": out_nodes_path,
+        "risk_grid_geojson": geojson_out,
+        "qa_report": report_path,
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Build v0.7.1 static risk/exposure features for OpenHeat grid")
+    parser.add_argument("--config", default=str(ROOT / "configs/v071_risk_exposure_config.example.json"))
+    args = parser.parse_args()
+    cfg = load_config(args.config)
+    files = build_features(cfg)
+    print("[OK] v0.7.1 risk/exposure features built")
+    for k, v in files.items():
+        print(f"{k}: {v}")
+
+
+if __name__ == "__main__":
+    main()

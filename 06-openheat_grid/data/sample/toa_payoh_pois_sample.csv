@@ -1,0 +1,6 @@
+poi_id,name,lat,lon,poi_type,vulnerability_weight,exposure_weight
+TP_BUS_01,Bus stop near Lorong 4,1.3339,103.8568,bus_stop,0.75,0.85
+TP_HAWKER_01,Neighbourhood centre / hawker area,1.3348,103.856,hawker_centre,0.7,0.9
+TP_SENIOR_01,Senior activity cluster,1.337,103.854,elderly,0.95,0.65
+TP_SCHOOL_01,School frontage,1.3312,103.8585,school,0.8,0.7
+TP_PARK_01,Park edge path,1.3392,103.8528,park_path,0.45,0.55

@@ -1,0 +1,61 @@
+{
+  "feature_diagnostics": {
+    "n_cells": 986,
+    "svf_ge_0_98_count": 119,
+    "svf_ge_0_98_share": 0.1206896551724138,
+    "svf_ge_0_95_count": 267,
+    "svf_ge_0_95_share": 0.27079107505070993,
+    "svf_min": 0.3998163559515927,
+    "svf_mean": 0.8621122774942264,
+    "svf_median": 0.9145255263555581,
+    "svf_max": 0.98,
+    "shade_min": 0.04,
+    "shade_mean": 0.25041362773331827,
+    "shade_median": 0.23635849117364371,
+    "shade_max": 0.6367218903462821,
+    "shade_floorish_count": 11,
+    "shade_floorish_share": 0.011156186612576065,
+    "tree_canopy_zero_count": 817,
+    "tree_canopy_zero_share": 0.8286004056795132,
+    "impervious_mean": 0.4968321013646348,
+    "impervious_median": 0.5312901334404415,
+    "impervious_ge_0_95_share": 0.0030425963488843813,
+    "impervious_old_mean": 0.8411047470236253,
+    "impervious_old_median": 0.9446716919682039,
+    "impervious_old_ge_0_95_share": 0.44523326572008115
+  },
+  "event_summary": {
+    "event_file_found": true,
+    "n_event_hours": 96,
+    "wbgt_alert_counts": {
+      "low": 96
+    },
+    "utci_alert_counts": {
+      "moderate": 49,
+      "strong": 44,
+      "very_strong": 3
+    },
+    "combined_alert_counts": {
+      "watch": 49,
+      "elevated": 44,
+      "high": 3
+    },
+    "neighbourhood_alert_counts": {
+      "watch": 49,
+      "elevated": 44,
+      "high": 3
+    },
+    "max_wbgt_proxy_c_max": 29.799700209407696,
+    "p90_wbgt_proxy_c_max": 29.06388708665603,
+    "max_utci_c_max": 39.6,
+    "p90_utci_c_max": 38.1,
+    "peak_utci_time": "2026-05-09 14:00:00+08:00",
+    "peak_utci_value": 39.6,
+    "peak_wbgt_time": "2026-05-09 14:00:00+08:00",
+    "peak_wbgt_value": 29.799700209407696
+  },
+  "hazard_risk_metrics": {
+    "spearman_rank_vs_hazard_rank": 0.9213637085866224,
+    "top20_risk_hazard_overlap": 4
+  }
+}

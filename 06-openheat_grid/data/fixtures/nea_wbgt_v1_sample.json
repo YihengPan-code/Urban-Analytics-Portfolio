@@ -1,0 +1,19 @@
+{
+  "api_info": {"status": "healthy"},
+  "metadata": {
+    "stations": [
+      {"id": "S109", "device_id": "S109", "name": "Ang Mo Kio Avenue 5", "location": {"latitude": 1.3764, "longitude": 103.8492}},
+      {"id": "S111", "device_id": "S111", "name": "Scotts Road", "location": {"latitude": 1.31055, "longitude": 103.8365}},
+      {"id": "S43", "device_id": "S43", "name": "Kim Chuan Road", "location": {"latitude": 1.3399, "longitude": 103.8878}}
+    ],
+    "reading_type": "Wet Bulb Globe Temperature",
+    "reading_unit": "deg C"
+  },
+  "items": [
+    {"timestamp": "2026-05-05T15:45:00+08:00", "readings": [
+      {"station_id": "S109", "value": 30.8},
+      {"station_id": "S111", "value": null},
+      {"station_id": "S43", "value": 31.1}
+    ]}
+  ]
+}

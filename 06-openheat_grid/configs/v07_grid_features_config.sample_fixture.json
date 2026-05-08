@@ -1,0 +1,24 @@
+{
+  "description": "Tiny synthetic fixture config to prove the v0.7 pipeline works offline.",
+  "cell_size_m": 100,
+  "cell_id_prefix": "TPF",
+  "bbox_wgs84": [103.8485, 1.3330, 103.8525, 1.3370],
+  "out_grid_dir": "data/grid",
+  "out_features_dir": "data/features",
+  "out_outputs_dir": "outputs",
+  "raw_paths": {
+    "buildings": "data/sample/v07_raw_fixtures/sample_buildings.geojson",
+    "land_use": "data/sample/v07_raw_fixtures/sample_land_use.geojson",
+    "parks": "data/sample/v07_raw_fixtures/sample_parks.geojson",
+    "roads": "data/sample/v07_raw_fixtures/sample_roads.geojson",
+    "water": "data/sample/v07_raw_fixtures/sample_water.geojson"
+  },
+  "land_use_column": "LU_DESC",
+  "gpr_column": "GPR",
+  "road_buffer_m": 8,
+  "large_park_threshold_ha": 0.5,
+  "optional_feature_csv": {
+    "height": "",
+    "vegetation": ""
+  }
+}
