@@ -1,0 +1,20 @@
+{
+  "predictions_csv": "outputs/v09_beta_calibration/v09_beta_predictions_long.csv",
+  "out_dir": "outputs/v09_beta_threshold_scan",
+  "models": [
+    "M1b_period_bias",
+    "M3_regime_current_ridge",
+    "M4_inertia_ridge",
+    "M5_inertia_morphology_ridge"
+  ],
+  "split_types": ["LOSO"],
+  "periods": ["overall", "daytime", "peak", "nighttime"],
+  "event_thresholds_official": [31.0, 33.0],
+  "prediction_threshold_min": 27.0,
+  "prediction_threshold_max": 33.0,
+  "prediction_threshold_step": 0.1,
+  "target_recall": 0.6,
+  "target_precision": 0.5,
+  "focus_stations": ["S128", "S145", "S127"],
+  "notes": "Threshold scan treats model output threshold as a decision threshold for detecting official WBGT events; it does not replace official WBGT thresholds."
+}

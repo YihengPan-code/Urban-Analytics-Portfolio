@@ -1,0 +1,18 @@
+{
+  "project_crs": "EPSG:3414",
+  "grid_geojson": "outputs/v08_umep_with_veg_forecast_live/risk_scenarios/v08_risk_scenario_rankings.geojson",
+  "ranking_csv": "outputs/v08_umep_with_veg_forecast_live/risk_scenarios/v08_risk_scenario_rankings.csv",
+  "building_dsm": "data/rasters/v08/dsm_buildings_2m_toapayoh.tif",
+  "vegetation_dsm": "data/rasters/v08/dsm_vegetation_2m_toapayoh.tif",
+  "out_dir": "data/solweig/v09_tiles",
+  "tile_size_m": 500,
+  "tile_buffer_m": 100,
+  "reference_selection": {
+    "min_hazard_rank": 750,
+    "sort_by": ["shade_fraction", "ndvi_mean", "gvi_percent"]
+  },
+  "solweig_output_root": "data/solweig/v09_solweig_outputs",
+  "solweig_tmrt_pattern": "**/*Tmrt*.tif",
+  "forecast_hourly_csv": "outputs/v08_umep_with_veg_forecast_live/v06_live_hourly_grid_heatstress_forecast.csv",
+  "notes": "Use QGIS/UMEP to run SOLWEIG manually on each tile after tiles and rasters are prepared. Then run aggregation scripts."
+}

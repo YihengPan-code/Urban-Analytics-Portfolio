@@ -1,0 +1,19 @@
+{
+  "input_pairs_csv": "data/calibration/v09_wbgt_station_pairs.csv",
+  "output_dir": "outputs/v09_beta_calibration",
+  "target_col": "official_wbgt_c",
+  "proxy_col": "wbgt_proxy_physics",
+  "station_col": "station_id",
+  "timestamp_col": "timestamp_sgt",
+  "focus_stations": ["S128", "S145", "S127"],
+  "thresholds": [31.0, 33.0],
+  "daytime_start_hour": 9,
+  "daytime_end_hour": 18,
+  "peak_start_hour": 12,
+  "peak_end_hour": 16,
+  "night_start_hour": 20,
+  "night_end_hour": 7,
+  "ridge_alpha": 1.0,
+  "minimum_train_rows_per_fold": 100,
+  "notes": "v0.9-beta calibration: day/night/peak metrics, thermal-inertia features, LOSO-CV. No random split."
+}

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "aoi_buffered_200m",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3414" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "aoi_grid_buffer200m" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 31800.000000001884473, 33999.999999999934516 ], [ 31800.000000001884473, 37800.00000000007276 ], [ 28499.999999999457941, 37800.00000000007276 ], [ 28499.999999999457941, 33999.999999999934516 ], [ 31800.000000001884473, 33999.999999999934516 ] ] ] } }
+]
+}

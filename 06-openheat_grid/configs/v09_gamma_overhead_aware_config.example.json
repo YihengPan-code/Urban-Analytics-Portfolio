@@ -1,0 +1,42 @@
+{
+  "working_crs": "EPSG:3414",
+  "ranking_geojson": "outputs/v08_umep_with_veg_forecast_live/risk_scenarios/v08_risk_scenario_rankings.geojson",
+  "ranking_csv": "outputs/v08_umep_with_veg_forecast_live/risk_scenarios/v08_risk_scenario_rankings.csv",
+  "grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+  "overhead_geojson": "outputs/v09_gamma_qa/v09_overhead_structures.geojson",
+  "building_dsm": "data/rasters/v08/dsm_buildings_2m_toapayoh.tif",
+  "vegetation_dsm": "data/rasters/v08/dsm_vegetation_2m_toapayoh.tif",
+  "out_dir": "data/solweig/v09_tiles_overhead_aware",
+  "qa_dir": "outputs/v09_gamma_qa",
+  "tile_size_m": 500,
+  "tile_buffer_m": 100,
+  "min_center_distance_m": 550,
+  "max_tile_iou": 0.20,
+  "constraints": {
+    "max_focus_overhead_fraction_clean": 0.02,
+    "max_focus_overhead_fraction_risk": 0.05,
+    "max_tile_overhead_fraction_clean": 0.10,
+    "max_tile_overhead_fraction_reference": 0.05,
+    "reference_min_hazard_rank": 750,
+    "reference_min_shade_quantile": 0.75,
+    "reference_min_green_quantile": 0.75
+  },
+  "selection": {
+    "include_overhead_confounded_diagnostic_tile": true,
+    "tile_types": [
+      "clean_hazard_top",
+      "conservative_risk_top",
+      "social_risk_top",
+      "open_paved_hotspot",
+      "clean_shaded_reference"
+    ]
+  },
+  "overhead_type_widths_m": {
+    "covered_walkway": 3.0,
+    "pedestrian_bridge": 4.0,
+    "elevated_rail": 10.0,
+    "elevated_road": 14.0,
+    "viaduct": 12.0,
+    "other_overhead": 6.0
+  }
+}

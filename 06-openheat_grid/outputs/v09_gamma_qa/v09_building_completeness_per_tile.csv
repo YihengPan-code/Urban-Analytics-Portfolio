@@ -1,0 +1,7 @@
+tile_id,tile_area_m2,osm_n_buildings,osm_building_area_m2,dsm_building_area_m2,dsm_pct_of_osm,missing_area_m2,missing_pct_of_tile
+T01_clean_hazard_top,490000.0,231,85307.0,6676.0,7.8,78631.0,16.05
+T02_conservative_risk_top,490000.0,80,43560.0,5472.0,12.6,38088.0,7.77
+T03_social_risk_top,490000.0,79,84084.0,55848.0,66.4,28236.0,5.76
+T04_open_paved_hotspot,490000.0,151,76943.0,30556.0,39.7,46387.0,9.47
+T05_clean_shaded_reference,490000.0,70,73286.0,12384.0,16.9,60902.0,12.43
+T06_overhead_confounded_hazard_case,490000.0,215,67456.0,0.0,0.0,67456.0,13.77

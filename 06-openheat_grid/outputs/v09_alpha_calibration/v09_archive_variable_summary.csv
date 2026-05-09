@@ -1,0 +1,5 @@
+api_name,variable,rows,stations,timestamps,missing_value_rows,min_value,mean_value,max_value
+air_temperature,air_temperature_c,1490,16,96,0,24.7,28.938389261744966,33.9
+relative_humidity,relative_humidity_percent,1490,16,96,0,55.6,82.37838926174496,100.0
+wbgt,official_wbgt_c,2565,27,95,1,23.5,27.380343213728548,34.0
+wind_speed,wind_speed_ms,1585,17,96,0,0.1543332,1.3822477367823345,5.8132172

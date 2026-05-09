@@ -1,0 +1,6 @@
+tile_id,tile_type,focus_cell_id,n_overhead_structures,n_elevated_rail,n_viaduct,n_pedestrian_bridge,n_elevated_road,n_bridge_other,n_covered_walkway,structure_names,structure_refs
+T01,hazard_top,TP_0088,12,0,0,1,4,5,2,Jalan Toa Payoh; Pan-Island Expressway; Mount Pleasant Road,PIE
+T02,conservative_risk_top,TP_0378,39,0,0,1,0,0,38,,
+T03,social_risk_top,TP_0452,30,0,0,8,0,8,14,Lorong 6 Toa Payoh; Toa Payoh North Flyover; Lorong 8 Toa Payoh; Kallang Park Connector,
+T04,candidate_policy_top,TP_0366,6,0,0,1,0,0,5,,
+T05,shaded_reference,TP_0892,59,53,0,2,2,1,1,Central Expressway,CTE

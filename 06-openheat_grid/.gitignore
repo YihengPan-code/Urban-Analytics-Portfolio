@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.lnk
+desktop.ini
+
+# Archives
+*.zip
+*.tar.gz
+*.7z
+*.rar
+
+# QGIS
+*.qgz~
+*.qgs~
+
+# Raw data
+data/raw/ura_masterplan2019_*.geojson
+data/raw/hdb3d/
+data/raw/canopy/
+
+# UMEP intermediates
+data/rasters/v08/umep_svf/
+data/rasters/v08/umep_svf_with_veg/
+data/solweig/v09_tiles_overhead_aware/*/svf_outputs/svfs.zip
+data/solweig/v09_tiles_overhead_aware/*/svf_outputs/shadowmats.npz
+data/solweig/v09_tiles_overhead_aware/*/solweig_outputs_h*/svfs.zip
+data/solweig/v09_tiles_overhead_aware/*/solweig_outputs_h*/shadowmats.npz
+
+# Forecast CSVs
+outputs/v07_forecast_live/
+outputs/v07_beta_forecast_live/
+outputs/v07_beta_final_forecast_live/
+outputs/v07_beta_impervfix_forecast_live/
+outputs/v08_umep_with_veg_forecast_live/
+outputs/v071_risk_exposure/v071_hourly_grid_heatstress_forecast_with_risk.csv
+
+# Temp
+*.log
+*.tmp
+*.bak
+*~
+.cache/
+node_modules/
+
+# Additional UMEP shadow intermediates (regenerable from SVF Calculator)
+data/rasters/v08/umep_shadow/
+data/rasters/v08/umep_shadow_with_veg/
+data/features_3d/hdb3d_raw.geojson

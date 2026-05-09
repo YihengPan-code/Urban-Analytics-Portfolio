@@ -1,0 +1,51 @@
+{
+  "archive_csv": "data/archive/nea_realtime_observations.csv",
+  "grid_csv": "data/grid/toa_payoh_grid_v08_features_umep_with_veg.csv",
+  "outputs_dir": "outputs/v09_alpha_calibration",
+  "calibration_dir": "data/calibration",
+  "toa_payoh_center": {
+    "lat": 1.334,
+    "lon": 103.858
+  },
+  "time": {
+    "timezone": "Asia/Singapore",
+    "archive_start_buffer_days": 0,
+    "archive_end_buffer_days": 0
+  },
+  "historical_forecast": {
+    "primary_api": "historical_forecast",
+    "fallback_api": "historical_weather",
+    "historical_forecast_endpoint": "https://historical-forecast-api.open-meteo.com/v1/forecast",
+    "historical_weather_endpoint": "https://archive-api.open-meteo.com/v1/archive",
+    "chunk_size": 20,
+    "timeout_seconds": 60,
+    "hourly_variables": [
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "direct_radiation",
+      "diffuse_radiation",
+      "cloud_cover"
+    ],
+    "hourly_variables_historical_weather": [
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "cloud_cover"
+    ],
+    "wind_speed_unit": "ms"
+  },
+  "pairing": {
+    "wbgt_variable_name": "official_wbgt_c",
+    "main_proxy": "weather_only",
+    "morphology_local_m": 1000,
+    "morphology_nearby_m": 3000,
+    "station_time_interpolation": "linear_time"
+  },
+  "report": {
+    "nearest_station_focus": ["S128", "S145", "S127"],
+    "write_png_plots": true
+  }
+}
