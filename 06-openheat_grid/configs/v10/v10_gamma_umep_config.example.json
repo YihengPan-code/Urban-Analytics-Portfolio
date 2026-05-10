@@ -1,0 +1,37 @@
+{
+  "project_note": "OpenHeat v10-gamma: reviewed building DSM + vegetation DSM UMEP SVF/shadow morphology, forecast rerun and v08-v10 comparison.",
+  "paths": {
+    "grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+    "base_grid_csv": "data/grid/toa_payoh_grid_v08_features_umep_with_veg.csv",
+    "v10_basic_morphology_csv": "data/grid/v10/toa_payoh_grid_v10_basic_morphology.csv",
+    "v10_building_dsm": "data/rasters/v10/dsm_buildings_2m_augmented_reviewed_heightqa.tif",
+    "vegetation_dsm": "data/rasters/v08/dsm_vegetation_2m_toapayoh.tif",
+    "umep_svf_dir": "data/rasters/v10/umep_svf_with_veg",
+    "umep_svf_raster": "data/rasters/v10/umep_svf_with_veg/SkyViewFactor.tif",
+    "umep_shadow_dir": "data/rasters/v10/umep_shadow_with_veg",
+    "v10_morphology_csv": "data/grid/v10/toa_payoh_grid_v10_umep_morphology_with_veg.csv",
+    "v10_morphology_geojson": "data/grid/v10/toa_payoh_grid_v10_umep_morphology_with_veg.geojson",
+    "v10_grid_csv": "data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.csv",
+    "v10_grid_geojson": "data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.geojson",
+    "forecast_dir": "outputs/v10_gamma_forecast_live",
+    "old_v08_ranking_csv": "outputs/v08_umep_with_veg_forecast_live/v06_live_hotspot_ranking.csv",
+    "false_positive_candidates_csv": "outputs/v10_ranking_audit/v10_old_false_positive_candidates.csv",
+    "output_morphology_dir": "outputs/v10_umep_morphology",
+    "comparison_dir": "outputs/v10_gamma_comparison"
+  },
+  "settings": {
+    "building_height_threshold_m": 0.5,
+    "shade_interpretation": "zero_is_shade",
+    "shade_threshold": 0.5,
+    "shade_hours_10_16": [1000, 1100, 1200, 1300, 1400, 1500, 1600],
+    "shade_hours_13_15": [1300, 1400, 1500],
+    "shadow_file_glob": "Shadow*.tif",
+    "umep_shadow_date": "20260320",
+    "umep_includes_vegetation": true,
+    "vegetation_transmissivity_pct": 3,
+    "vegetation_trunk_zone_pct": 25,
+    "copy_geometry_to_outputs": true,
+    "compare_metric": "hazard_score",
+    "top_n": 20
+  }
+}

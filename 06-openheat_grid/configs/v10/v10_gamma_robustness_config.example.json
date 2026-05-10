@@ -1,0 +1,26 @@
+{
+  "inputs": {
+    "rank_comparison_csv": "outputs/v10_gamma_comparison/v10_vs_v08_rank_comparison.csv",
+    "v10_hotspot_ranking_csv": "outputs/v10_gamma_forecast_live/v10_gamma_hotspot_ranking_with_grid_features.csv",
+    "morphology_shift_csv": "outputs/v10_morphology/v10_old_vs_new_building_morphology_shift.csv",
+    "old_false_positive_candidates_csv": "outputs/v10_ranking_audit/v10_old_false_positive_candidates.csv",
+    "v10_gamma_comparison_report_md": "outputs/v10_gamma_comparison/v10_vs_v08_forecast_ranking_comparison.md"
+  },
+  "parameters": {
+    "top_n": 20,
+    "old_topn_for_candidate_definition": 50,
+    "old_completeness_threshold": 0.10,
+    "building_density_gain_threshold": 0.10,
+    "coverage_gain_threshold": 0.50,
+    "dense_thresholds": [0.85, 0.95, 0.99]
+  },
+  "outputs": {
+    "output_dir": "outputs/v10_gamma_robustness",
+    "robustness_report_md": "outputs/v10_gamma_robustness/v10_gamma_robustness_audit_report.md",
+    "transition_classes_csv": "outputs/v10_gamma_robustness/v10_gamma_top20_transition_classes.csv",
+    "false_positive_definition_check_csv": "outputs/v10_gamma_robustness/v10_gamma_false_positive_definition_check.csv",
+    "fp_vs_nonfp_contingency_csv": "outputs/v10_gamma_robustness/v10_gamma_fp_vs_nonfp_top20_contingency.csv",
+    "dense_cell_sanity_csv": "outputs/v10_gamma_robustness/v10_gamma_dense_cell_sanity_check.csv",
+    "tp0315_diagnostic_csv": "outputs/v10_gamma_robustness/v10_gamma_tp0315_diagnostic.csv"
+  }
+}

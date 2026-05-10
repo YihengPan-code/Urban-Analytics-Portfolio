@@ -1,0 +1,67 @@
+{
+  "crs": "EPSG:3414",
+  "inputs": {
+    "grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+    "v10_grid_csv": "data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.csv",
+    "v10_grid_geojson": "data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.geojson",
+    "v10_base_ranking_csv": "outputs/v10_gamma_forecast_live/v06_live_hotspot_ranking.csv",
+    "v10_base_ranking_with_features_csv": "outputs/v10_gamma_forecast_live/v10_gamma_hotspot_ranking_with_grid_features.csv",
+    "v09_overhead_structures_geojson": "outputs/v09_gamma_qa/v09_overhead_structures.geojson",
+    "v09_overhead_footprints_geojson": "outputs/v09_gamma_qa/v09_overhead_structures_footprints.geojson",
+    "v10_overhead_candidates_geojson": "data/features_3d/v10/manual_qa/overhead_candidates_v10.geojson",
+    "manual_overhead_candidates_geojson": "data/features_3d/v10/overhead/manual_overhead_candidates_v10.geojson"
+  },
+  "outputs": {
+    "overhead_dir": "data/features_3d/v10/overhead",
+    "overhead_structures_geojson": "data/features_3d/v10/overhead/overhead_structures_v10.geojson",
+    "overhead_layer_report": "outputs/v10_overhead_qa/v10_overhead_layer_QA_report.md",
+    "overhead_per_cell_csv": "outputs/v10_overhead_qa/v10_overhead_per_cell.csv",
+    "overhead_per_cell_geojson": "outputs/v10_overhead_qa/v10_overhead_per_cell.geojson",
+    "overhead_cell_report": "outputs/v10_overhead_qa/v10_overhead_cell_QA_report.md",
+    "overhead_sensitivity_grid_csv": "data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.csv",
+    "overhead_sensitivity_grid_geojson": "data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.geojson",
+    "overhead_sensitivity_report": "outputs/v10_overhead_qa/v10_overhead_sensitivity_grid_report.md",
+    "comparison_dir": "outputs/v10_delta_overhead_comparison",
+    "base_vs_overhead_comparison_csv": "outputs/v10_delta_overhead_comparison/v10_base_vs_overhead_sensitivity_rank_comparison.csv",
+    "base_vs_overhead_comparison_report": "outputs/v10_delta_overhead_comparison/v10_base_vs_overhead_sensitivity_comparison.md",
+    "topset_details_csv": "outputs/v10_delta_overhead_comparison/v10_base_vs_overhead_topset_details.csv"
+  },
+  "classification": {
+    "default_width_m": 5.0,
+    "type_width_m": {
+      "covered_walkway": 3.0,
+      "pedestrian_bridge": 4.0,
+      "station_canopy": 8.0,
+      "elevated_rail": 10.0,
+      "elevated_road": 14.0,
+      "viaduct": 14.0,
+      "unknown_overhead": 5.0
+    },
+    "type_opacity": {
+      "covered_walkway": 0.90,
+      "pedestrian_bridge": 0.80,
+      "station_canopy": 0.95,
+      "elevated_rail": 0.80,
+      "elevated_road": 0.75,
+      "viaduct": 0.75,
+      "unknown_overhead": 0.60
+    },
+    "cell_flag_thresholds": {
+      "clean_or_minor_max": 0.02,
+      "moderate_max": 0.10
+    }
+  },
+  "sensitivity": {
+    "replace_shade_fraction": true,
+    "base_shade_column": "shade_fraction",
+    "output_shade_column": "shade_fraction_overhead_sens",
+    "base_svf_column": "svf",
+    "add_notes_column": true,
+    "clip_overhead_shade_proxy": true
+  },
+  "comparison": {
+    "metric": "hazard_score",
+    "top_n": 20,
+    "overhead_ranking_csv": "outputs/v10_delta_overhead_forecast_live/v06_live_hotspot_ranking.csv"
+  }
+}

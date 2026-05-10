@@ -61,3 +61,68 @@ node_modules/
 data/rasters/v08/umep_shadow/
 data/rasters/v08/umep_shadow_with_veg/
 data/features_3d/hdb3d_raw.geojson
+
+# Python/cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# QGIS/GDAL sidecars and local artifacts
+*.aux.xml
+*.qmd
+*.lnk
+
+# Local archives
+*.zip
+
+# Large/generated rasters unless deliberately tracked
+data/rasters/**/*.aux.xml
+
+# ===== OpenHeat heavy geospatial artifacts =====
+*.tif
+*.tiff
+*.vrt
+*.ovr
+*.aux.xml
+*.npz
+*.npy
+
+# UMEP / SOLWEIG heavy outputs
+data/solweig/
+data/rasters/**/*.tif
+data/rasters/**/*.tiff
+data/rasters/v10/umep_shadow_with_veg/
+data/rasters/v10/umep_svf_with_veg/
+outputs/**/solweig*/
+outputs/**/*.tif
+outputs/**/*.tiff
+outputs/**/*.zip
+
+# Archive / live collection raw data
+data/archive/
+outputs/archive/
+outputs/live/
+outputs/forecast_live/
+
+# Raw / intermediate building data
+data/raw/buildings_v10/
+data/features_3d/v10/height_imputed/
+data/features_3d/v10/osm/
+data/features_3d/v10/sources/
+
+# Temporary packages and backups
+*.zip
+*.7z
+*.rar
+*.bak*
+*.bak_*
+*_backup*
+*.tmp
+
+# Python/QGIS temp
+__pycache__/
+*.pyc
+.qgis2/
+.qgis/outputs/v10_delta_overhead_forecast_live/v06_live_hourly_grid_heatstress_forecast.csv
+outputs/v10_gamma_forecast_live/v06_live_hourly_grid_heatstress_forecast.csv
+outputs/*forecast_live/*hourly_grid_heatstress_forecast*.csv

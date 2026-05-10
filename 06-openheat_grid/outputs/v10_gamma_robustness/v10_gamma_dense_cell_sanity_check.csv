@@ -1,0 +1,3 @@
+cell_id,v10_building_density,hazard_score,rank,max_utci_c,svf,shade_fraction,v10_open_pixel_fraction,mean_building_height_m,max_building_height_m,land_use_hint,building_source_v10
+TP_0945,1.0000000000011824,0.0,962,,,0.0,0.0,9.0,9.0,transport,reviewed_augmented_HDB3D_URA_OSM_manual_DSM
+TP_0212,0.920000000001004,0.6874181035319568,118,39.27147007055251,0.4358143529389053,0.1428571428571428,0.0799999999999999,15.36947844878487,20.0,commercial,reviewed_augmented_HDB3D_URA_OSM_manual_DSM
