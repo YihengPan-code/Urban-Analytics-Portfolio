@@ -1,0 +1,154 @@
+{
+  "archive": {
+    "root_dir": "data/archive/v11_longterm",
+    "raw_json_dir": "data/archive/v11_longterm/raw_json",
+    "outputs_dir": "outputs/v11_archive_longterm",
+    "state_path": "data/archive/v11_longterm/archive_state.json",
+    "timezone": "Asia/Singapore",
+    "run_label_prefix": "v11",
+    "save_raw_json": true,
+    "write_daily_partitions": true,
+    "max_raw_json_days_to_keep": 14,
+    "dedupe_existing_csv": true,
+    "raw_json_cleanup_note": "Hotfix: collector deletes raw_json/YYYYMMDD folders older than this retention period."
+  },
+  "data_gov_sg": {
+    "api_key_env": "DATA_GOV_SG_API_KEY",
+    "timeout_seconds": 25,
+    "retries": 3,
+    "sleep_between_calls_seconds": 0.7,
+    "endpoints": [
+      {
+        "name": "wbgt",
+        "enabled": true,
+        "url": "https://api-open.data.gov.sg/v2/real-time/api/weather",
+        "params": {
+          "api": "wbgt"
+        },
+        "variable": "official_wbgt_c",
+        "unit": "deg C",
+        "api_name": "nea_wbgt_observations"
+      },
+      {
+        "name": "air_temperature",
+        "enabled": true,
+        "url": "https://api-open.data.gov.sg/v2/real-time/api/air-temperature",
+        "params": {},
+        "variable": "air_temperature_c",
+        "unit": "deg C",
+        "api_name": "nea_air_temperature"
+      },
+      {
+        "name": "relative_humidity",
+        "enabled": true,
+        "url": "https://api-open.data.gov.sg/v2/real-time/api/relative-humidity",
+        "params": {},
+        "variable": "relative_humidity_percent",
+        "unit": "%",
+        "api_name": "nea_relative_humidity"
+      },
+      {
+        "name": "wind_speed",
+        "enabled": true,
+        "url": "https://api-open.data.gov.sg/v2/real-time/api/wind-speed",
+        "params": {},
+        "variable": "wind_speed_ms",
+        "unit": "m/s",
+        "api_name": "nea_wind_speed"
+      },
+      {
+        "name": "wind_direction",
+        "enabled": true,
+        "url": "https://api-open.data.gov.sg/v2/real-time/api/wind-direction",
+        "params": {},
+        "variable": "wind_direction_deg",
+        "unit": "deg",
+        "api_name": "nea_wind_direction"
+      },
+      {
+        "name": "rainfall",
+        "enabled": false,
+        "url": "https://api-open.data.gov.sg/v2/real-time/api/rainfall",
+        "params": {},
+        "variable": "rainfall_mm",
+        "unit": "mm",
+        "api_name": "nea_rainfall"
+      }
+    ]
+  },
+  "openmeteo": {
+    "enabled": true,
+    "base_url": "https://api.open-meteo.com/v1/forecast",
+    "timeout_seconds": 35,
+    "retries": 3,
+    "min_minutes_between_runs": 60,
+    "timezone": "Asia/Singapore",
+    "forecast_days": 4,
+    "past_days": 1,
+    "hourly_variables": [
+      "temperature_2m",
+      "relative_humidity_2m",
+      "dew_point_2m",
+      "apparent_temperature",
+      "precipitation",
+      "rain",
+      "cloud_cover",
+      "cloud_cover_low",
+      "cloud_cover_mid",
+      "cloud_cover_high",
+      "shortwave_radiation",
+      "direct_radiation",
+      "diffuse_radiation",
+      "direct_normal_irradiance",
+      "global_tilted_irradiance",
+      "terrestrial_radiation",
+      "uv_index",
+      "wind_speed_10m",
+      "wind_direction_10m",
+      "wind_gusts_10m",
+      "surface_pressure",
+      "weather_code",
+      "is_day"
+    ],
+    "locations": [
+      {
+        "location_id": "toa_payoh_center",
+        "name": "Toa Payoh centre",
+        "lat": 1.3343,
+        "lon": 103.8511,
+        "role": "aoi_centroid"
+      }
+    ],
+    "fetch_station_locations_from_wbgt": true,
+    "station_location_prefix": "station_",
+    "max_station_locations": 40,
+    "sleep_between_location_calls_seconds": 0.4
+  },
+  "v10_features": {
+    "station_to_cell_csv": "configs/v11/station_to_cell.example.csv",
+    "umep_features_csv": "data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.csv",
+    "overhead_features_csv": "data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.csv",
+    "basic_morphology_csv": "data/grid/v10/toa_payoh_grid_v10_basic_morphology.csv",
+    "join_features_to_pairs": true
+  },
+  "pairing": {
+    "enabled": true,
+    "weather_location_preference": "station_then_aoi",
+    "valid_time_rounding": "floor_hour",
+    "max_forecast_issue_age_hours": 72,
+    "allow_posthoc_weather_if_no_operational_match": true,
+    "output_operational_pairs_csv": "data/archive/v11_longterm/paired/v11_operational_station_weather_pairs.csv",
+    "output_latest_pairs_csv": "data/calibration/v11/v11_station_weather_pairs.csv",
+    "pairing_note": "Hotfix: v11 collector is the authoritative pairing source. v11-alpha should skip legacy build_pairs and read data/calibration/v11/v11_station_weather_pairs.csv."
+  },
+  "proxy_features": {
+    "compute_fallback_wbgt_proxy": true,
+    "proxy_note": "Fallback smoke-test proxy only. Prefer OpenHeat production WBGT proxy when available."
+  },
+  "quality_thresholds": {
+    "warn_missing_wbgt_minutes": 45,
+    "warn_min_wbgt_stations": 20,
+    "warn_high_event_rows_31": 50,
+    "warn_high_event_rows_33": 20
+  }
+}
