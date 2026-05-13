@@ -1,0 +1,66 @@
+{
+  "crs": "EPSG:3414",
+  "tile_size_m": 500,
+  "buffer_m": 100,
+  "selected_cells": [
+    {
+      "cell_id": "TP_0565",
+      "role": "confident_hot_anchor_1",
+      "selection_reason": "Stable high hazard under v10-gamma and v10-delta; overhead fraction approximately zero."
+    },
+    {
+      "cell_id": "TP_0986",
+      "role": "confident_hot_anchor_2",
+      "selection_reason": "Second stable high-hazard anchor; overhead fraction approximately zero."
+    },
+    {
+      "cell_id": "TP_0088",
+      "role": "overhead_confounded_rank1_case",
+      "selection_reason": "v10-gamma rank-1 hazard cell that drops strongly under v10-delta overhead sensitivity."
+    },
+    {
+      "cell_id": "TP_0916",
+      "role": "saturated_overhead_case",
+      "selection_reason": "Transport-deck/viaduct cell with overhead-shade saturation in v10-delta."
+    },
+    {
+      "cell_id": "TP_0433",
+      "role": "natural_canopy_reference",
+      "selection_reason": "Riparian tree-cluster cell, rank 972/986 (lowest-hazard cluster), zero overhead, stable across v10-gamma/v10-delta. Provides natural-canopy cooling baseline as physical contrast to built-up anchor hotspots (TP_0565/TP_0986)."
+    }
+  ],
+  "paths": {
+    "grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+    "v10_gamma_hotspot_csv": "outputs/v10_gamma_forecast_live/v10_gamma_hotspot_ranking_with_grid_features.csv",
+    "v10_delta_rank_comparison_csv": "outputs/v10_delta_overhead_comparison/v10_base_vs_overhead_sensitivity_rank_comparison.csv",
+    "building_dsm": "data/rasters/v10/dsm_buildings_2m_augmented_reviewed_heightqa.tif",
+    "vegetation_dsm": "data/rasters/v08/dsm_vegetation_2m_toapayoh.tif",
+    "overhead_structures_geojson": "data/features_3d/v10/overhead/overhead_structures_v10.geojson",
+    "tile_root": "data/solweig/v10_epsilon_tiles",
+    "output_root": "outputs/v10_epsilon_solweig"
+  },
+  "overhead_height_defaults_m": {
+    "covered_walkway": 3.0,
+    "pedestrian_bridge": 5.0,
+    "station_canopy": 5.0,
+    "elevated_rail": 9.0,
+    "elevated_road": 10.0,
+    "viaduct": 10.0,
+    "unknown_overhead": 5.0
+  },
+  "solweig": {
+    "date": "2026-05-07",
+    "hours_sgt": [
+      1000,
+      1200,
+      1300,
+      1500,
+      1600
+    ],
+    "base_folder": "solweig_base",
+    "overhead_folder": "solweig_overhead",
+    "tmrt_glob_pattern": "**/*Tmrt*.tif",
+    "vegetation_transmissivity_pct": 3,
+    "trunk_zone_pct": 25
+  }
+}

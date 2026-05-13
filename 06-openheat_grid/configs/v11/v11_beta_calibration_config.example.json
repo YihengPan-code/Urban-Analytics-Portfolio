@@ -1,0 +1,32 @@
+{
+  "paths": {
+    "paired_dataset_csv": "data/calibration/v11/v11_station_weather_pairs.csv",
+    "cv_splits_csv": "data/calibration/v11/v11_cv_splits.csv",
+    "output_dir": "outputs/v11_beta_calibration",
+    "oof_predictions_csv": "outputs/v11_beta_calibration/v11_beta_oof_predictions.csv"
+  },
+  "model": {
+    "target_col": "official_wbgt_c",
+    "raw_proxy_col": "raw_proxy_wbgt_c",
+    "ridge_alpha": 1.0
+  },
+  "cv": {
+    "schemes": ["loso", "time_block"]
+  },
+  "feature_groups": {
+    "weather": ["raw_proxy_wbgt_c", "air_temperature_c", "relative_humidity_pct", "wind_speed_m_s", "shortwave_w_m2", "cloud_cover_pct", "precipitation_mm", "hour_sin", "hour_cos", "is_daytime_07_19", "is_peak_13_16"],
+    "inertia": ["raw_proxy_wbgt_c", "air_temperature_c", "relative_humidity_pct", "wind_speed_m_s", "shortwave_w_m2", "shortwave_w_m2_lag1", "shortwave_w_m2_roll3_mean", "shortwave_day_cumsum", "air_temperature_c_lag1", "air_temperature_c_roll3_mean", "dtemp_dt", "hour_sin", "hour_cos"],
+    "morphology": ["raw_proxy_wbgt_c", "air_temperature_c", "relative_humidity_pct", "wind_speed_m_s", "shortwave_w_m2", "shortwave_w_m2_roll3_mean", "hour_sin", "hour_cos", "svf", "svf_mean", "svf_umep_mean_open_v10", "shade_fraction", "shade_fraction_umep_10_16_open_v10", "building_density", "v10_building_density", "building_pixel_fraction_v10", "mean_building_height", "building_height_p90", "tree_canopy_fraction", "ndvi_mean", "road_fraction", "impervious_fraction"],
+    "overhead": ["raw_proxy_wbgt_c", "air_temperature_c", "relative_humidity_pct", "wind_speed_m_s", "shortwave_w_m2", "shortwave_w_m2_roll3_mean", "hour_sin", "hour_cos", "svf", "svf_umep_mean_open_v10", "shade_fraction", "shade_fraction_umep_10_16_open_v10", "building_density", "v10_building_density", "overhead_fraction_total", "overhead_shade_proxy", "transport_deck_fraction", "pedestrian_shelter_fraction"]
+  },
+  "thresholds": {
+    "event_thresholds_c": [31, 33],
+    "scan_min_c": 26.0,
+    "scan_max_c": 38.0,
+    "scan_step_c": 0.1,
+    "recall_targets": {
+      "31": 0.90,
+      "33": 0.75
+    }
+  }
+}
