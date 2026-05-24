@@ -1,10 +1,10 @@
 {
-  "github_run_id": "26361467311",
+  "github_run_id": "26363401970",
   "github_run_attempt": "1",
   "workflow": "OpenHeat v1.1 archive collector",
-  "event_name": "workflow_dispatch",
+  "event_name": "schedule",
   "ref": "refs/heads/main",
-  "sha": "e78b23dbc8840d78236bad2be89608bba121dbfd",
+  "sha": "dd156c06a24ecbd998755891b8342aa39cf2e11e",
   "scheduled_cron": "7,22,37,52 * * * *",
   "runner_os": "Linux"
 }
