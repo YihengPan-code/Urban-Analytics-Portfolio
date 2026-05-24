@@ -1,0 +1,33 @@
+{
+  "inputs": {
+    "canonical_buildings_height": "data/features_3d/v10/height_imputed/canonical_buildings_v10_height.geojson",
+    "canonical_conflicts": "data/features_3d/v10/canonical/canonical_buildings_v10_conflicts.geojson",
+    "grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+    "v09_tiles_buffered": "data/solweig/v09_tiles_overhead_aware/v09_solweig_tiles_overhead_aware_buffered.geojson",
+    "v08_risk_scenario_geojson": "outputs/v08_umep_with_veg_forecast_live/risk_scenarios/v08_risk_scenario_rankings.geojson",
+    "per_cell_completeness": "outputs/v10_dsm_audit/v10_building_completeness_per_cell.csv",
+    "per_tile_completeness": "outputs/v10_dsm_audit/v10_building_completeness_per_tile.csv",
+    "negative_gain_cells": "outputs/v10_dsm_audit/v10_negative_gain_cells.csv"
+  },
+  "outputs": {
+    "out_dir": "outputs/v10_dsm_audit/alpha2_qa_targets"
+  },
+  "thresholds": {
+    "large_low_conf_area_m2": 1000,
+    "very_large_default_area_m2": 3000,
+    "conflict_area_m2": 500,
+    "negative_gain_area_m2": -100,
+    "old_hazard_top_n": 50,
+    "low_old_completeness_threshold": 0.2,
+    "high_coverage_gain_threshold": 0.5,
+    "max_building_targets": 250,
+    "max_conflict_targets": 100,
+    "max_cell_targets": 150
+  },
+  "manual_review_fields": {
+    "review_status": "todo",
+    "manual_decision": "",
+    "manual_height_m": "",
+    "manual_notes": ""
+  }
+}

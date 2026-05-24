@@ -1,0 +1,56 @@
+{
+  "version": "v10-alpha.3-manual-qa-v2",
+  "description": "Compatibility config for applying manual QA decisions, rasterizing reviewed DSM, and reviewed completeness audit.",
+  "crs": "EPSG:3414",
+  "inputs": {
+    "canonical_height_geojson": "data/features_3d/v10/height_imputed/canonical_buildings_v10_height.geojson",
+    "canonical_conflicts_geojson": "data/features_3d/v10/canonical/canonical_buildings_v10_conflicts.geojson",
+    "manual_review_csv": "outputs\\v10_dsm_audit\\alpha2_qa_targets\\v10_alpha2_manual_review_template.csv",
+    "manual_missing_buildings_geojson": "data/features_3d/v10/manual_qa/manual_missing_buildings_v10.geojson",
+    "alpha2_conflict_targets_csv": "outputs/v10_dsm_audit/alpha2_qa_targets/v10_alpha2_conflict_QA_targets.csv",
+    "old_building_dsm": "data/rasters/v08/dsm_buildings_2m_toapayoh.tif",
+    "base_grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+    "osm_reference_buildings_geojson": "data/raw/buildings_v10/osm_buildings_toapayoh.geojson",
+    "v09_tiles_buffered_geojson": "data/solweig/v09_tiles_overhead_aware/v09_solweig_tiles_overhead_aware_buffered.geojson",
+    "grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+    "osm_buildings_geojson": "data/raw/buildings_v10/osm_buildings_toapayoh.geojson",
+    "v09_tiles_buffered": "data/solweig/v09_tiles_overhead_aware/v09_solweig_tiles_overhead_aware_buffered.geojson",
+    "conflict_targets_csv": "outputs/v10_dsm_audit/alpha2_qa_targets/v10_alpha2_conflict_QA_targets.csv",
+    "v10_alpha1_dsm": "data/rasters/v10/dsm_buildings_2m_augmented.tif"
+  },
+  "manual_defaults": {
+    "move_to_overhead_building_ids": [
+      "v10_bldg_000690"
+    ],
+    "merge_top_conflicts_n": 20,
+    "apply_default_conflict_merge_if_no_manual_review": true
+  },
+  "outputs": {
+    "reviewed_canonical_geojson": "data/features_3d/v10/height_imputed/canonical_buildings_v10_height_reviewed.geojson",
+    "overhead_candidates_geojson": "data/features_3d/v10/manual_qa/overhead_candidates_v10.geojson",
+    "applied_decisions_csv": "outputs/v10_dsm_audit/v10_alpha3_applied_manual_decisions.csv",
+    "manual_qa_report_md": "outputs/v10_dsm_audit/v10_alpha3_manual_decisions_report.md",
+    "reviewed_dsm": "data/rasters/v10/dsm_buildings_2m_augmented_reviewed.tif",
+    "reviewed_raster_QA_md": "outputs/v10_dsm_audit/v10_alpha3_rasterize_reviewed_dsm_QA.md",
+    "reviewed_completeness_per_cell_csv": "outputs/v10_dsm_audit/v10_alpha3_building_completeness_per_cell.csv",
+    "reviewed_completeness_per_tile_csv": "outputs/v10_dsm_audit/v10_alpha3_building_completeness_per_tile.csv",
+    "reviewed_completeness_report_md": "outputs/v10_dsm_audit/v10_alpha3_completeness_gain_report.md",
+    "reviewed_canonical_buildings_geojson": "data/features_3d/v10/height_imputed/canonical_buildings_v10_height_reviewed.geojson",
+    "removed_buildings_geojson": "data/features_3d/v10/manual_qa/removed_buildings_v10.geojson",
+    "manual_decisions_report": "outputs/v10_dsm_audit/v10_alpha3_manual_decisions_report.md",
+    "reviewed_dsm_tif": "data/rasters/v10/dsm_buildings_2m_augmented_reviewed.tif",
+    "rasterize_reviewed_dsm_QA": "outputs/v10_dsm_audit/v10_alpha3_rasterize_reviewed_dsm_QA.md",
+    "rasterize_reviewed_dsm_QA_report": "outputs/v10_dsm_audit/v10_alpha3_rasterize_reviewed_dsm_QA.md",
+    "per_cell_completeness_csv": "outputs/v10_dsm_audit/v10_alpha3_building_completeness_per_cell.csv",
+    "per_tile_completeness_csv": "outputs/v10_dsm_audit/v10_alpha3_building_completeness_per_tile.csv",
+    "completeness_map_geojson": "outputs/v10_dsm_audit/v10_alpha3_building_completeness_map.geojson",
+    "completeness_gain_report": "outputs/v10_dsm_audit/v10_alpha3_completeness_gain_report.md",
+    "negative_gain_cells_csv": "outputs/v10_dsm_audit/v10_alpha3_negative_gain_cells.csv"
+  },
+  "raster": {
+    "resolution_m": 2.0,
+    "height_threshold_m": 0.5,
+    "all_touched": false,
+    "nodata": null
+  }
+}

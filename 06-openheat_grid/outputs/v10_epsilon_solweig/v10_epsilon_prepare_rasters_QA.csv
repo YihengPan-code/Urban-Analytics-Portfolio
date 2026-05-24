@@ -1,0 +1,6 @@
+tile_id,cell_id,role,n_overhead_features,building_pixels,vegetation_pixels_base,overhead_pixels,vegetation_pixels_overhead,raster_shape
+E01_confident_hot_anchor_1_TP_0565,TP_0565,confident_hot_anchor_1,84,25593,37002,4716,40263,350x350
+E02_confident_hot_anchor_2_TP_0986,TP_0986,confident_hot_anchor_2,0,27951,11791,0,11791,350x350
+E03_overhead_confounded_rank1_case_TP_0088,TP_0088,overhead_confounded_rank1_case,13,16219,37969,5356,43075,350x350
+E04_saturated_overhead_case_TP_0916,TP_0916,saturated_overhead_case,127,24892,48240,31354,77737,350x350
+E05_clean_shaded_reference_TP_0433,TP_0433,clean_shaded_reference,14,20711,72341,3928,76102,350x350

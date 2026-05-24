@@ -1,0 +1,54 @@
+{
+  "paths": {
+    "output_dir": "outputs/v11_alpha_archive",
+    "calibration_dir": "data/calibration/v11",
+    "paired_dataset_csv": "data/calibration/v11/v11_station_weather_pairs.csv",
+    "cv_splits_csv": "data/calibration/v11/v11_cv_splits.csv",
+    "station_to_cell_csv": "configs/v11/station_to_cell.example.csv",
+    "v10_umep_features_csv": "data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.csv",
+    "overhead_sensitivity_grid_csv": "data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.csv"
+  },
+  "archive": {
+    "timezone": "Asia/Singapore",
+    "timestamp_round": "15min",
+    "merge_tolerance_minutes": 20,
+    "weather_is_global": true,
+    "nea_wbgt_globs": [
+      "data/archive/**/*wbgt*.csv",
+      "data/archive/**/*WBGT*.csv",
+      "outputs/archive/**/*wbgt*.csv"
+    ],
+    "weather_globs": [
+      "data/archive/**/*openmeteo*.csv",
+      "data/archive/**/*weather*.csv",
+      "data/archive/**/*meteo*.csv",
+      "outputs/archive/**/*openmeteo*.csv"
+    ],
+    "extra_globs": []
+  },
+  "column_overrides": {
+    "nea": {
+      "timestamp": null,
+      "station_id": null,
+      "official_wbgt_c": null,
+      "raw_proxy_wbgt_c": null
+    },
+    "weather": {
+      "timestamp": null,
+      "station_id": null,
+      "air_temperature_c": null,
+      "relative_humidity_pct": null,
+      "wind_speed_m_s": null,
+      "shortwave_w_m2": null,
+      "cloud_cover_pct": null,
+      "precipitation_mm": null,
+      "raw_proxy_wbgt_c": null
+    }
+  },
+  "qa": {
+    "event_thresholds_c": [29, 31, 33]
+  },
+  "cv": {
+    "n_time_blocks": 5
+  }
+}

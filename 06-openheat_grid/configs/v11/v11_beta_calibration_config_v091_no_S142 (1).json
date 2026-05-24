@@ -1,0 +1,126 @@
+{
+  "_comment": "v11-beta.1 config (post \u03b2.1 audit fix): uses pair_used_for_retrospective_calibration filter by default. Solves friend's audit on flag semantics conflation. [SENSITIVITY: excludes S142]",
+  "paths": {
+    "paired_dataset_csv": "data/calibration/v11/v11_station_weather_pairs_v091.csv",
+    "cv_splits_csv": "data/calibration/v11/v11_cv_splits.csv",
+    "output_dir": "outputs/v11_beta_calibration",
+    "oof_predictions_csv": "outputs/v11_beta_calibration/v11_beta_oof_predictions.csv"
+  },
+  "model": {
+    "target_col": "official_wbgt_c",
+    "raw_proxy_col": "wbgt_proxy_v09_c",
+    "ridge_alpha": 1.0,
+    "_proxy_note": "wbgt_proxy_v09_c is the v0.9 production proxy (Stull wet-bulb + globe-T with wind-attenuated radiation). This is the project's canonical lineage proxy used in v07/v08/v09 forecast pipelines. Expected M0 bias around -1.1 to -1.3 deg C based on v0.9-beta findings."
+  },
+  "cv": {
+    "schemes": [
+      "loso",
+      "time_block"
+    ]
+  },
+  "data_filters": {
+    "_comment": "Set exclude_station_ids to ['S142'] for the no-S142 sensitivity case. Use output_dir_suffix to write to a sub-folder so all_stations and no_S142 runs do not overwrite each other.",
+    "exclude_station_ids": [
+      "S142"
+    ],
+    "output_dir_suffix": "no_S142",
+    "filter_mode": "retrospective_calibration"
+  },
+  "feature_groups": {
+    "weather": [
+      "wbgt_proxy_v09_c",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "cloud_cover",
+      "precipitation",
+      "direct_fraction",
+      "diffuse_fraction",
+      "shortwave_positive",
+      "hour_sin_v09",
+      "hour_cos_v09",
+      "is_daytime_v09",
+      "is_peak_heat_v09"
+    ],
+    "inertia": [
+      "wbgt_proxy_v09_c",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "shortwave_lag_1h",
+      "shortwave_lag_2h",
+      "shortwave_3h_mean",
+      "cumulative_day_shortwave_whm2",
+      "temperature_lag_1h",
+      "dTair_dt_1h",
+      "proxy_lag_1h",
+      "proxy_3h_mean",
+      "diffuse_fraction",
+      "direct_fraction",
+      "cloud_cover",
+      "hour_sin_v09",
+      "hour_cos_v09"
+    ],
+    "morphology": [
+      "wbgt_proxy_v09_c",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "shortwave_3h_mean",
+      "hour_sin_v09",
+      "hour_cos_v09",
+      "morph_svf",
+      "morph_building_density",
+      "morph_mean_building_height",
+      "morph_building_height_p90",
+      "morph_road_fraction",
+      "morph_gvi_percent",
+      "morph_shade_fraction",
+      "v10_dsm_max_all_m",
+      "shade_fraction_base_v10"
+    ],
+    "overhead": [
+      "wbgt_proxy_v09_c",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "shortwave_3h_mean",
+      "hour_sin_v09",
+      "hour_cos_v09",
+      "morph_svf",
+      "shade_fraction_base_v10",
+      "shade_fraction_overhead_sens",
+      "delta_shade_overhead_sens_minus_base",
+      "overhead_fraction_elevated_road",
+      "overhead_fraction_elevated_rail",
+      "overhead_area_pedestrian_bridge_m2",
+      "overhead_area_covered_walkway_m2",
+      "n_overhead_features"
+    ]
+  },
+  "thresholds": {
+    "event_thresholds_c": [
+      31,
+      33
+    ],
+    "scan_min_c": 26.0,
+    "scan_max_c": 38.0,
+    "scan_step_c": 0.1,
+    "recall_targets": {
+      "31": 0.9,
+      "33": 0.75
+    }
+  },
+  "_methodology_notes": [
+    "Ladder structure mirrors v0.9-beta (M0/M1/M1b/M2/M3/M4/M5/M6) on v11 archive.",
+    "M1b PeriodBiasModel is included; v0.9-beta findings showed M1b is the most useful single-correction baseline (24h archive: M1 MAE=1.32, M1b MAE=0.66).",
+    "M4 inertia features now include true time-aware lags (shortwave_lag_1h/2h, cumulative_day_shortwave, dTair_dt_1h, proxy_lag_1h/3h_mean), addressing the friend's 5.1 audit item.",
+    "M5/M6 morphology unidentifiability (only S128 has v10 cell features) remains structural; expect SimpleImputer to drop most morph cols in LOSO folds excluding S128.",
+    "For the S142 sensitivity case: copy this config, set exclude_station_ids=['S142'], output_dir_suffix='no_S142', run v11_beta_calibration_baselines.py separately.",
+    "Threshold scan WBGT>=33 remains exploratory only until archive >= 30 days."
+  ]
+}

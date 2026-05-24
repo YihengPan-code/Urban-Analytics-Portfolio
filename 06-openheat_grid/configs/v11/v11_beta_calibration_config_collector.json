@@ -1,0 +1,98 @@
+{
+  "_comment": "v11-beta calibration config tuned for v11 collector pairs. Use this when the paired dataset comes from data/calibration/v11/v11_station_weather_pairs.csv produced by v11_archive_collect_once.py. Feature group names reference Open-Meteo column names (temperature_2m etc.) which the patched baselines script also aliases to legacy NEA names (air_temperature_c etc.).",
+  "paths": {
+    "paired_dataset_csv": "data/calibration/v11/v11_station_weather_pairs.csv",
+    "cv_splits_csv": "data/calibration/v11/v11_cv_splits.csv",
+    "output_dir": "outputs/v11_beta_calibration",
+    "oof_predictions_csv": "outputs/v11_beta_calibration/v11_beta_oof_predictions.csv"
+  },
+  "model": {
+    "target_col": "official_wbgt_c",
+    "raw_proxy_col": "raw_proxy_wbgt_radiative_fallback_c",
+    "ridge_alpha": 1.0,
+    "_proxy_note": "raw_proxy_wbgt_radiative_fallback_c is the collector's most complete fallback (Stull wet-bulb + radiation + wind correction). Treat M0/M1 results as testing the fallback formula's bias, NOT the project's v0.6 production WBGT proxy."
+  },
+  "cv": {
+    "schemes": ["loso", "time_block"]
+  },
+  "feature_groups": {
+    "weather": [
+      "raw_proxy_wbgt_radiative_fallback_c",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "cloud_cover",
+      "precipitation",
+      "hour_sin",
+      "hour_cos",
+      "is_daytime_07_19",
+      "is_peak_13_16"
+    ],
+    "inertia": [
+      "raw_proxy_wbgt_radiative_fallback_c",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "shortwave_3h_mean",
+      "wetbulb_stull_c",
+      "hour_sin",
+      "hour_cos"
+    ],
+    "morphology": [
+      "raw_proxy_wbgt_radiative_fallback_c",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "shortwave_3h_mean",
+      "hour_sin",
+      "hour_cos",
+      "morph_svf",
+      "morph_building_density",
+      "morph_mean_building_height",
+      "morph_building_height_p90",
+      "morph_road_fraction",
+      "morph_gvi_percent",
+      "morph_shade_fraction",
+      "v10_dsm_max_all_m",
+      "shade_fraction_base_v10"
+    ],
+    "overhead": [
+      "raw_proxy_wbgt_radiative_fallback_c",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "wind_speed_10m",
+      "shortwave_radiation",
+      "shortwave_3h_mean",
+      "hour_sin",
+      "hour_cos",
+      "morph_svf",
+      "shade_fraction_base_v10",
+      "shade_fraction_overhead_sens",
+      "delta_shade_overhead_sens_minus_base",
+      "overhead_fraction_elevated_road",
+      "overhead_fraction_elevated_rail",
+      "overhead_area_pedestrian_bridge_m2",
+      "overhead_area_covered_walkway_m2",
+      "n_overhead_features"
+    ]
+  },
+  "thresholds": {
+    "event_thresholds_c": [31, 33],
+    "scan_min_c": 26.0,
+    "scan_max_c": 38.0,
+    "scan_step_c": 0.1,
+    "recall_targets": {
+      "31": 0.90,
+      "33": 0.75
+    }
+  },
+  "_notes": [
+    "Feature names that don't exist in the paired dataset will be silently dropped by available_features(). This means M5/M6 morphology/overhead features only contribute for stations with cell_id mapped (currently only S128).",
+    "Inertia features include shortwave_3h_mean and wetbulb_stull_c as proxies for thermal lag. True lag features (lag1, roll3_mean, day_cumsum, dtemp_dt) are NOT computed by the collector and would need a separate prep step.",
+    "Treat all M0-M6 metrics on <14 days of archive as PIPELINE INTEGRATION TEST results, not calibration evidence.",
+    "Threshold scan WBGT>=33: only ~29 events, dominated by S142 (~19 events). Report as exploratory only."
+  ]
+}

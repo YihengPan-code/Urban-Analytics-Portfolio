@@ -1,0 +1,48 @@
+{
+  "project_root": ".",
+  "output_dir": "outputs/v10_final_figures",
+  "figure_formats": [
+    "png",
+    "svg"
+  ],
+  "dpi": 300,
+  "map": {
+    "label_top_n": 12,
+    "show_scale_bar": true,
+    "show_north_arrow": true,
+    "use_basemap": false,
+    "basemap_provider": "CartoDB.Positron"
+  },
+  "paths": {
+    "grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+    "v10_gamma_hotspot_geojson": "outputs/v10_gamma_forecast_live/v10_gamma_hotspot_ranking_with_grid_features.geojson",
+    "v10_gamma_hotspot_csv": "outputs/v10_gamma_forecast_live/v10_gamma_hotspot_ranking_with_grid_features.csv",
+    "v10_gamma_rank_comparison_csv": "outputs/v10_gamma_comparison/v10_vs_v08_rank_comparison.csv",
+    "v10_delta_rank_comparison_csv": "outputs/v10_delta_overhead_comparison/v10_base_vs_overhead_sensitivity_rank_comparison.csv",
+    "v10_overhead_per_cell_csv": "outputs/v10_overhead_qa/v10_overhead_per_cell.csv",
+    "v10_overhead_per_cell_geojson": "outputs/v10_overhead_qa/v10_overhead_per_cell.geojson",
+    "v10_old_false_positive_candidates_csv": "outputs/v10_ranking_audit/v10_old_false_positive_candidates.csv",
+    "v10_basic_morphology_csv": "data/grid/v10/toa_payoh_grid_v10_basic_morphology.csv",
+    "v10_umep_grid_csv": "data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.csv",
+    "v10_overhead_sensitivity_grid_csv": "data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.csv",
+    "overhead_structures_geojson": "data/features_3d/v10/overhead/overhead_structures_v10.geojson",
+    "epsilon_tmrt_summary_csv": "outputs/v10_epsilon_solweig/v10_epsilon_focus_tmrt_summary.csv",
+    "epsilon_tmrt_comparison_csv": "outputs/v10_epsilon_solweig/v10_epsilon_base_vs_overhead_tmrt_comparison.csv"
+  },
+  "final_hotspot_cells": {
+    "confident_hotspot": [
+      "TP_0565",
+      "TP_0986"
+    ],
+    "overhead_confounded_validated": [
+      "TP_0088",
+      "TP_0916"
+    ],
+    "shaded_reference": [
+      "TP_0433"
+    ],
+    "dense_built_edge_case": [
+      "TP_0945"
+    ]
+  }
+}

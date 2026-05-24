@@ -1,0 +1,12 @@
+{
+  "crs": "EPSG:3414",
+  "resolution_m": 2,
+  "aoi_buffer_m": 200,
+  "base_grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+  "v08_building_dsm": "data/rasters/v08/dsm_buildings_2m_toapayoh.tif",
+  "v10_outputs": {
+    "canonical_buildings": "data/features_3d/v10/canonical/canonical_buildings_v10.geojson",
+    "canonical_buildings_height": "data/features_3d/v10/height_imputed/canonical_buildings_v10_height.geojson",
+    "augmented_dsm": "data/rasters/v10/dsm_buildings_2m_augmented.tif"
+  }
+}

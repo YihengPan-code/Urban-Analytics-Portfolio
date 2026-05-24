@@ -1,0 +1,92 @@
+# v10-beta morphology shift audit report
+
+This report audits how the reviewed v10 augmented building DSM changes basic building morphology relative to the old v08/current DSM.
+
+**Important:** This is not final heat-hazard reranking. Final hazard ranking requires v10 UMEP SVF/shadow recomputation.
+
+Rows: **986**
+Possible old DSM-gap false-positive candidates: **34**
+
+## Flag counts
+```text
+old_hazard_top20                        20
+old_hazard_top50                        50
+low_old_completeness                   512
+zero_old_completeness                  484
+high_coverage_gain                     556
+large_building_density_gain            455
+possible_old_dsm_gap_false_positive     34
+```
+
+## Summary statistics
+```text
+       old_building_density  v10_building_density  delta_building_density  old_building_area_m2  v10_building_area_m2  delta_building_area_m2  old_vs_osm_completeness  reviewed_vs_osm_completeness  coverage_gain_vs_osm
+count            986.000000            986.000000              986.000000            986.000000            986.000000              986.000000               871.000000                    871.000000            871.000000
+mean               0.074627              0.214805                0.140178            746.267748           2148.052738             1401.784990                 0.477138                     12.399943             11.922805
+std                0.125339              0.156040                0.160418           1253.387552           1560.395269             1604.183088                 1.693015                    323.659009            323.671969
+min                0.000000              0.000000               -0.030800              0.000000              0.000000             -308.000000                 0.000000                      0.000000             -0.201067
+25%                0.000000              0.088000                0.000000              0.000000            880.000000                0.000000                 0.000000                      0.994915              0.061615
+50%                0.000000              0.204400                0.074400              0.000000           2044.000000              744.000000                 0.000000                      1.003117              0.990780
+75%                0.118700              0.316300                0.252700           1187.000000           3163.000000             2527.000000                 0.936983                      1.086317              1.001492
+max                0.906400              1.000000                1.000000           9064.000000          10000.000000            10000.000000                46.183379                   9552.869760           9552.869760
+```
+
+## Top possible old DSM-gap false-positive candidates
+```text
+cell_id  hazard_rank_true_v08  hazard_score  old_vs_osm_completeness  reviewed_vs_osm_completeness  coverage_gain_vs_osm  old_building_density  v10_building_density  delta_building_density  delta_building_area_m2                                                                                                               audit_flags
+TP_0116                     2      0.733155                 0.000000                      0.995708              0.995708                0.0000                0.1756                  0.1756                  1756.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0564                     7      0.721124                 0.000000                      0.997615              0.997615                0.0000                0.3248                  0.3248                  3248.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0849                     8      0.720823                 0.000000                      0.994721              0.994721                0.0000                0.2696                  0.2696                  2696.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0985                     9      0.720476                 0.000000                      1.000012              1.000012                0.0000                0.4248                  0.4248                  4248.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0986                    10      0.718385                 0.000000                      0.999823              0.999823                0.0000                0.4276                  0.4276                  4276.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0984                    12      0.716203                 0.000000                      0.998140              0.998140                0.0000                0.4048                  0.4048                  4048.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0565                    13      0.715641                 0.000000                      1.000279              1.000279                0.0000                0.3320                  0.3320                  3320.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0638                    14      0.715620                 0.000000                      1.000633              1.000633                0.0000                0.3180                  0.3180                  3180.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0027                    15      0.715382                 0.000000                      1.000083              1.000083                0.0000                0.4104                  0.4104                  4104.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0923                    17      0.713267                 0.000000                      0.997216              0.997216                0.0000                0.2632                  0.2632                  2632.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0876                    18      0.712936                 0.000000                      0.997134              0.997134                0.0000                0.3416                  0.3416                  3416.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0820                    19      0.712658                 0.000000                      1.017695              1.017695                0.0000                0.4348                  0.4348                  4348.0 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0012                    21      0.710477                 0.000000                      1.000759              1.000759                0.0000                0.3940                  0.3940                  3940.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0315                    22      0.709298                 0.000000                      1.000515              1.000515                0.0000                0.2816                  0.2816                  2816.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0042                    23      0.708415                 0.000000                      1.039194              1.039194                0.0000                0.2848                  0.2848                  2848.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0983                    24      0.704759                 0.000000                      0.999146              0.999146                0.0000                0.3880                  0.3880                  3880.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0848                    27      0.703976                 0.000000                      1.004352              1.004352                0.0000                0.3268                  0.3268                  3268.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0760                    29      0.701994                 0.000000                      0.998282              0.998282                0.0000                0.3928                  0.3928                  3928.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0847                    30      0.701897                 0.000000                      1.015368              1.015368                0.0000                0.3404                  0.3404                  3404.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0902                    31      0.701877                 0.000000                      0.995508              0.995508                0.0000                0.4420                  0.4420                  4420.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0030                    33      0.699933                 0.000000                      0.997505              0.997505                0.0000                0.2800                  0.2800                  2800.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0756                    35      0.698882                 0.000000                      0.998697              0.998697                0.0000                0.4400                  0.4400                  4400.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0787                    36      0.698741                 0.000000                      0.992279              0.992279                0.0000                0.2668                  0.2668                  2668.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0727                    37      0.697932                 0.000000                      1.000980              1.000980                0.0000                0.3692                  0.3692                  3692.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0028                    39      0.697791                 0.000000                      0.998709              0.998709                0.0000                0.4308                  0.4308                  4308.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0011                    41      0.694791                 0.139484                      0.917713              0.778229                0.0504                0.3316                  0.2812                  2812.0  old_top50_hazard;low_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0527                    42      0.694577                 0.000000                      0.833854              0.833854                0.0000                0.6972                  0.6972                  6972.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0879                    43      0.693324                 0.000000                      0.998878              0.998878                0.0000                0.2688                  0.2688                  2688.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0955                    44      0.692969                 0.000000                      1.000547              1.000547                0.0000                0.4388                  0.4388                  4388.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0850                    45      0.688887                 0.000000                      0.998900              0.998900                0.0000                0.3288                  0.3288                  3288.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0786                    46      0.688579                 0.000000                      0.998978              0.998978                0.0000                0.3924                  0.3924                  3924.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0819                    47      0.686776                 0.000000                      1.026751              1.026751                0.0000                0.3172                  0.3172                  3172.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0954                    49      0.686277                 0.000000                      1.001562              1.001562                0.0000                0.3276                  0.3276                  3276.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0878                    50      0.686045                 0.000000                      1.006205              1.006205                0.0000                0.3968                  0.3968                  3968.0 old_top50_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+```
+
+## Critical cells
+```text
+cell_id  hazard_rank_true_v08  old_vs_osm_completeness  reviewed_vs_osm_completeness  coverage_gain_vs_osm  old_building_density  v10_building_density  delta_building_density                                                                                                               audit_flags
+TP_0116                     2                 0.000000                      0.995708              0.995708                0.0000                0.1756                  0.1756 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0120                    34                 1.117707                      1.117707              0.000000                0.1492                0.1492                  0.0000                                                                                                          old_top50_hazard
+TP_0378                    51                 0.000000                      0.993073              0.993073                0.0000                0.0916                  0.0916                                                                                  zero_old_completeness;high_coverage_gain
+TP_0433                   974                 0.000000                      1.046828              1.046828                0.0000                0.0168                  0.0168                                                                                  zero_old_completeness;high_coverage_gain
+TP_0452                    59                 0.971240                      0.971240              0.000000                0.3136                0.3136                  0.0000                                                                                                                          
+TP_0564                     7                 0.000000                      0.997615              0.997615                0.0000                0.3248                  0.3248 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0575                    20                 0.000000                      0.000000              0.000000                0.0000                0.0000                  0.0000                                                                                    old_top20_hazard;zero_old_completeness
+TP_0849                     8                 0.000000                      0.994721              0.994721                0.0000                0.2696                  0.2696 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0984                    12                 0.000000                      0.998140              0.998140                0.0000                0.4048                  0.4048 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0985                     9                 0.000000                      1.000012              1.000012                0.0000                0.4248                  0.4248 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+TP_0986                    10                 0.000000                      0.999823              0.999823                0.0000                0.4276                  0.4276 old_top20_hazard;zero_old_completeness;high_coverage_gain;large_building_density_gain;possible_old_dsm_gap_false_positive
+```
+
+## Interpretation
+- Cells flagged as possible old DSM-gap false positives were highly ranked under the old current-DSM hazard layer but had low old building completeness and high v10 coverage gain.
+- This audit should guide which cells to inspect before final v10 hazard ranking.
+- Final hazard ranking should wait until v10 UMEP SVF/shadow are recomputed using the reviewed DSM.

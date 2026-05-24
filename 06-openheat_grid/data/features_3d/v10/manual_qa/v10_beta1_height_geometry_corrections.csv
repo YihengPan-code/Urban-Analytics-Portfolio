@@ -1,0 +1,3 @@
+﻿target_type,target_id,manual_decision,manual_height_m,manual_notes
+building,v10_bldg_000001,height_adjust,30,Google Street View visual QA: adjacent high-rise labelled around 71m; this building appears less than half that height. Original 85.3m likely too high.
+building,v10_bldg_000002,split_complex,,Block complex contains two high-rise towers and a low/mid-rise podium. Replace original uniform 93.7m footprint with manual split geometries.

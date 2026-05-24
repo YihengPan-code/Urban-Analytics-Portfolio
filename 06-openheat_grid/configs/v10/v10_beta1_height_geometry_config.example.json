@@ -1,0 +1,44 @@
+{
+  "crs": "EPSG:3414",
+  "inputs": {
+    "reviewed_canonical_geojson": "data/features_3d/v10/height_imputed/canonical_buildings_v10_height_reviewed.geojson",
+    "manual_split_buildings_geojson": "data/features_3d/v10/manual_qa/manual_split_buildings_v10.geojson",
+    "height_geometry_corrections_csv": "data/features_3d/v10/manual_qa/v10_beta1_height_geometry_corrections.csv",
+    "reference_raster": "data/rasters/v10/dsm_buildings_2m_augmented_reviewed.tif"
+  },
+  "outputs": {
+    "heightqa_canonical_geojson": "data/features_3d/v10/height_imputed/canonical_buildings_v10_height_reviewed_heightqa.geojson",
+    "split_replaced_originals_geojson": "data/features_3d/v10/manual_qa/split_replaced_originals_v10.geojson",
+    "applied_corrections_csv": "outputs/v10_dsm_audit/v10_beta1_applied_height_geometry_corrections.csv",
+    "heightqa_dsm": "data/rasters/v10/dsm_buildings_2m_augmented_reviewed_heightqa.tif",
+    "heightqa_report": "outputs/v10_dsm_audit/v10_beta1_height_geometry_QA_report.md",
+    "rasterize_report": "outputs/v10_dsm_audit/v10_beta1_heightqa_rasterize_QA_report.md"
+  },
+  "default_corrections": [
+    {
+      "target_type": "building",
+      "target_id": "v10_bldg_000001",
+      "manual_decision": "height_adjust",
+      "manual_height_m": 30,
+      "manual_notes": "Google Street View visual QA: adjacent high-rise labelled around 71m; this building appears less than half that height. Original 85.3m likely too high."
+    },
+    {
+      "target_type": "building",
+      "target_id": "v10_bldg_000002",
+      "manual_decision": "split_complex",
+      "manual_height_m": "",
+      "manual_notes": "Block complex contains two high-rise towers and a low/mid-rise podium. Replace original uniform 93.7m footprint with manual split geometries."
+    }
+  ],
+  "split_defaults": {
+    "parent_building_id": "v10_bldg_000002",
+    "tower_height_m": 93.7,
+    "podium_height_m": 15,
+    "unknown_part_height_m": 30
+  },
+  "rasterize": {
+    "all_touched": false,
+    "min_height_m": 0.5,
+    "compress": "deflate"
+  }
+}

@@ -1,0 +1,7 @@
+station_id,station_name,cell_id,station_lat,station_lon,notes
+S128,NEA station S128,TP_0565,,,EDIT_THIS_MAPPING_BEFORE_FORMAL_ML
+S142,Sentosa Palawan Green,,,,outside_toa_payoh_or_no_grid_cell
+S137,Sakra Road,,,,outside_toa_payoh_or_no_grid_cell
+S145,MacRitchie Reservoir,,,,outside_toa_payoh_or_no_grid_cell
+S141,Yio Chu Kang Stadium,,,,outside_toa_payoh_or_no_grid_cell
+S144,Upper Pickering Street,,,,outside_toa_payoh_or_no_grid_cell

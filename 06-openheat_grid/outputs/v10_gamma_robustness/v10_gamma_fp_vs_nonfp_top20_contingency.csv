@@ -1,0 +1,4 @@
+candidate_definition,candidate_left_topN,candidate_stayed_topN,noncandidate_left_topN,noncandidate_stayed_topN,candidate_leave_rate,noncandidate_leave_rate,fisher_two_sided_p,odds_ratio,top_n
+co_derived_v10_beta_flag,9,3,1,7,0.75,0.125,0.01976661109788045,21.0,20
+independent_old_rank_top50_old_completeness_le_0.1,10,5,0,5,0.6666666666666666,0.0,0.032507739938080496,inf,20
+recomputed_co_derived_criteria,9,3,1,7,0.75,0.125,0.01976661109788045,21.0,20
