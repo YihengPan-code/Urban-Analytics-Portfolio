@@ -1,0 +1,89 @@
+{
+  "version": "v1.2-alpha.0",
+  "scope": "modifier target specification only; no scaled SOLWEIG or surrogate training",
+  "hard_gates": {
+    "no_local_wbgt_conversion": true,
+    "no_surrogate_training_until_typology_pilot_passes": true,
+    "no_hazard_maps_in_v12_alpha": true,
+    "no_risk_layer_spatial_product_wording": true
+  },
+  "target": {
+    "pixel_source": "SOLWEIG Tmrt raster",
+    "cell_summary_primary": "tmrt_p90_c",
+    "cell_summary_secondary": [
+      "tmrt_mean_c",
+      "tmrt_p50_c",
+      "tmrt_p75_c",
+      "tmrt_p95_c",
+      "tmrt_max_c"
+    ],
+    "delta_target": "delta_tmrt_p90_c",
+    "hazard_modifier_primary": "m_rad_pct",
+    "hazard_modifier_secondary": "m_rad_robust01"
+  },
+  "reference": {
+    "primary_method": "same_hour_same_scenario_median_tmrt_p90",
+    "primary_method_description": "tmrt_ref_p90_c is the median cell-level tmrt_p90_c for the same scenario_id, date_sgt, hour_sgt, and reference_domain_id",
+    "pilot_reference_domain_id": "pilot_typology_batch",
+    "scaled_reference_domain_id": "stratified_sample_or_domain",
+    "secondary_references": [
+      "shaded_reference_cell",
+      "open_sun_reference_cell",
+      "typology_specific_median"
+    ]
+  },
+  "normalization": {
+    "primary": "percentile_rank",
+    "secondary": "robust_0_1_p05_p95",
+    "groupby": [
+      "reference_domain_id",
+      "scenario_id",
+      "date_sgt",
+      "hour_sgt"
+    ]
+  },
+  "pilot_defaults": {
+    "hours_sgt": [
+      10,
+      12,
+      13,
+      15,
+      16
+    ],
+    "scenario_ids": [
+      "base",
+      "overhead_as_canopy"
+    ],
+    "cell_count_min": 8,
+    "cell_count_max": 12,
+    "include_v10_anchor_cells": [
+      "TP_0565",
+      "TP_0986",
+      "TP_0088",
+      "TP_0916",
+      "TP_0433"
+    ],
+    "candidate_cells_csv": "data/grid/v12/solweig_typology_cell_candidates.csv"
+  },
+  "output_schema": {
+    "modifier_targets_long_csv": "outputs/v12_modifier_targets/modifier_targets_long.csv",
+    "modifier_reference_table_csv": "outputs/v12_modifier_targets/modifier_reference_table.csv",
+    "modifier_normalization_params_csv": "outputs/v12_modifier_targets/modifier_normalization_params.csv"
+  },
+  "claim_boundary": {
+    "allowed": [
+      "SOLWEIG-derived local radiative modifier",
+      "ΔTmrt_p90 local radiative penalty",
+      "simulation-informed local radiative modifier",
+      "WBGT-gated local radiative hazard score"
+    ],
+    "disallowed": [
+      "local WBGT prediction",
+      "validated 100m WBGT",
+      "risk-layer spatial product",
+      "hazard output equals risk-layer output",
+      "ΔTmrt converted to ΔWBGT",
+      "surrogate training before typology pilot passes"
+    ]
+  }
+}
