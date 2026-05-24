@@ -54,3 +54,6 @@
 06-openheat_grid/outputs/v06_offline_event_windows.csv
 06-openheat_grid/outputs/sample_event_windows.csv
 06-openheat_grid/outputs/tmp_archive_test.csv
+# Local unrelated artifacts
+05-upgraded-gvi-tool.zip
+05-upgraded-gvi-tool/.Rhistory
