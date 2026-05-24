@@ -50,6 +50,7 @@ jobs:
           else
             python -m pip install pandas numpy requests python-dateutil pytz
           fi
+          python -m pip install tabulate
 
       - name: Prepare ops directories and run context
         run: |
