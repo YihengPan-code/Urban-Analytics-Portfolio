@@ -1,0 +1,2 @@
+﻿run_id,cell_id,typology_label,pilot_tier,hour_sgt,scenario_id,forcing_id,tile_dir,focus_cell_geojson,tmrt_raster_path,notes
+v12_wave0_reuse_v10_TP0986_h13_base,TP_0986,low_rise_residential_null_control,wave0_smoke,13,base,v10_epsilon_2026_05_07_S128_h13,data/solweig/v10_epsilon_tiles/E02_confident_hot_anchor_2_TP_0986,data/solweig/v10_epsilon_tiles/E02_confident_hot_anchor_2_TP_0986/focus_cell.geojson,outputs/v12_solweig_typology_pilot/wave0_reuse_v10_TP0986_h13_base/Tmrt_average.tif,Reuses v10 E02 prepared rasters/SVF/wall rasters but writes new v12 output.

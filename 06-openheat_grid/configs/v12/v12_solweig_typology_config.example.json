@@ -1,0 +1,156 @@
+{
+  "version": "v1.2-beta.wave0",
+  "purpose": "SOLWEIG typology pilot technical smoke and later Core-8 preparation",
+  "crs": "EPSG:3414",
+  "tile_size_m": 500,
+  "buffer_m": 100,
+  "paths": {
+    "grid_geojson": "data/grid/toa_payoh_grid_v07_features.geojson",
+    "building_dsm": "data/rasters/v10/dsm_buildings_2m_augmented_reviewed_heightqa.tif",
+    "vegetation_dsm": "data/rasters/v08/dsm_vegetation_2m_toapayoh.tif",
+    "overhead_structures_geojson": "data/features_3d/v10/overhead/overhead_structures_v10.geojson",
+    "v10_tile_root": "data/solweig/v10_epsilon_tiles",
+    "v12_tile_root": "data/solweig/v12_typology_tiles",
+    "output_root": "outputs/v12_solweig_typology_pilot",
+    "manifest_dir": "configs/v12"
+  },
+  "v10_wave0_reuse": {
+    "tile": "E02_confident_hot_anchor_2_TP_0986",
+    "cell_id": "TP_0986",
+    "hour_sgt": 13,
+    "scenario_id": "base",
+    "forcing_file": "data/solweig/v09_met_forcing_2026_05_07_S128_h13.txt",
+    "focus_cell_geojson": "data/solweig/v10_epsilon_tiles/E02_confident_hot_anchor_2_TP_0986/focus_cell.geojson",
+    "output_dir": "outputs/v12_solweig_typology_pilot/wave0_reuse_v10_TP0986_h13_base"
+  },
+  "forcing_files_by_hour": {
+    "10": "data/solweig/v09_met_forcing_2026_05_07_S128_h10.txt",
+    "12": "data/solweig/v09_met_forcing_2026_05_07_S128_h12.txt",
+    "13": "data/solweig/v09_met_forcing_2026_05_07_S128_h13.txt",
+    "15": "data/solweig/v09_met_forcing_2026_05_07_S128_h15.txt",
+    "16": "data/solweig/v09_met_forcing_2026_05_07_S128_h16.txt"
+  },
+  "solweig_algorithm_id": "umep:Outdoor Thermal Comfort: SOLWEIG",
+  "solweig_params": {
+    "TRANS_VEG": 3,
+    "INPUT_THEIGHT": 25.0,
+    "LEAF_START": 1,
+    "LEAF_END": 366,
+    "CONIFER_TREES": false,
+    "USE_LC_BUILD": false,
+    "SAVE_BUILD": false,
+    "WALLTEMP_NETCDF": false,
+    "WALL_TYPE": 0,
+    "ALBEDO_WALLS": 0.2,
+    "ALBEDO_GROUND": 0.15,
+    "EMIS_WALLS": 0.9,
+    "EMIS_GROUND": 0.95,
+    "ABS_S": 0.7,
+    "ABS_L": 0.95,
+    "POSTURE": 0,
+    "CYL": true,
+    "ONLYGLOBAL": false,
+    "UTC": 8,
+    "WOI_FILE": null,
+    "WOI_FIELD": "",
+    "POI_FILE": null,
+    "POI_FIELD": "",
+    "AGE": 35,
+    "ACTIVITY": 80.0,
+    "CLO": 0.9,
+    "WEIGHT": 75,
+    "HEIGHT": 180,
+    "SEX": 0,
+    "SENSOR_HEIGHT": 10.0,
+    "OUTPUT_TMRT": true,
+    "OUTPUT_KDOWN": false,
+    "OUTPUT_KUP": false,
+    "OUTPUT_LDOWN": false,
+    "OUTPUT_LUP": false,
+    "OUTPUT_SH": false,
+    "OUTPUT_TREEPLANTER": false
+  },
+  "scenarios": {
+    "base": {
+      "svf_suffix": "base",
+      "cdsm_suffix": "base",
+      "output_suffix": "base"
+    },
+    "overhead_as_canopy": {
+      "svf_suffix": "overhead",
+      "cdsm_suffix": "overhead",
+      "output_suffix": "overhead_as_canopy"
+    }
+  },
+  "hours_sgt": [
+    10,
+    12,
+    13,
+    15,
+    16
+  ],
+  "core8_cells": [
+    {
+      "cell_id": "TP_0565",
+      "typology_label": "school_gate_road_edge_hot_anchor",
+      "typology_label_cn": "幼儿园门口/道路边界混合热锚点",
+      "pilot_tier": "core"
+    },
+    {
+      "cell_id": "TP_0986",
+      "typology_label": "low_rise_residential_null_control",
+      "typology_label_cn": "低层住宅 clean null-control",
+      "pilot_tier": "core"
+    },
+    {
+      "cell_id": "TP_0366",
+      "typology_label": "school_gate_bus_stop_waiting_node",
+      "typology_label_cn": "学校门口+公交候车混合等待节点",
+      "pilot_tier": "core"
+    },
+    {
+      "cell_id": "TP_0542",
+      "typology_label": "river_edge_shaded_walkway",
+      "typology_label_cn": "河边树荫步道",
+      "pilot_tier": "core"
+    },
+    {
+      "cell_id": "TP_0627",
+      "typology_label": "street_canyon_wall_adjacent_low_svf",
+      "typology_label_cn": "街道峡谷/贴墙/低SVF走廊",
+      "pilot_tier": "core"
+    },
+    {
+      "cell_id": "TP_0326",
+      "typology_label": "stable_high_rise_residential_estate",
+      "typology_label_cn": "稳定高层住宅小区",
+      "pilot_tier": "core"
+    },
+    {
+      "cell_id": "TP_0059",
+      "typology_label": "open_paved_hardscape_parking_lot",
+      "typology_label_cn": "开阔硬质铺装/露天停车场",
+      "pilot_tier": "core"
+    },
+    {
+      "cell_id": "TP_0835",
+      "typology_label": "grass_park_green_mixed",
+      "typology_label_cn": "草地/公园绿地 mixed",
+      "pilot_tier": "core"
+    }
+  ],
+  "overhead_height_defaults_m": {
+    "covered_walkway": 3.0,
+    "pedestrian_bridge": 5.0,
+    "station_canopy": 5.0,
+    "elevated_rail": 9.0,
+    "elevated_road": 10.0,
+    "viaduct": 10.0,
+    "unknown_overhead": 5.0
+  },
+  "claim_boundary": {
+    "not_local_wbgt": true,
+    "not_risk_map": true,
+    "no_surrogate_in_this_stage": true
+  }
+}
