@@ -1,0 +1,40 @@
+{
+  "inputs": {
+    "snapshot_v091_csv": "data/calibration/v11/snapshots/v11_pairs_14d_formal_20260524_40419_v091.csv",
+    "target_col": "official_wbgt_c",
+    "timestamp_col": "timestamp_sgt",
+    "station_col": "station_id"
+  },
+  "outputs": {
+    "out_dir": "outputs/v11_formula_audit",
+    "write_row_level_comparison_gzip": true
+  },
+  "columns": {
+    "existing_proxy_col": "wbgt_proxy_v09_c",
+    "temperature_col": "temperature_2m",
+    "rh_col": "relative_humidity_2m",
+    "wind_col": "wind_speed_10m",
+    "shortwave_col": "shortwave_radiation",
+    "stull_wetbulb_col": "wetbulb_stull_c_v09",
+    "globe_proxy_col": "globe_temp_proxy_v09_c"
+  },
+  "formula_variants": {
+    "globe_k_values": [
+      0.0025,
+      0.0035,
+      0.0045,
+      0.0055,
+      0.0065
+    ],
+    "wind_offset": 0.25,
+    "min_wind_for_sqrt": 0.0
+  },
+  "thresholds_c": [
+    31.0,
+    33.0
+  ],
+  "notes": {
+    "scope": "Companion System A formula sensitivity audit. Does not retroactively recalibrate v1.1-beta-formal.",
+    "claim_boundary": "Variants are screening/sensitivity formulas unless a Liljegren/PyWBGT implementation is explicitly validated."
+  }
+}
