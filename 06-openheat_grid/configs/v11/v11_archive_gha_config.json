@@ -1,0 +1,52 @@
+{
+  "schema_version": "v11_archive_gha_config_v0.1",
+  "purpose": "GitHub Actions archive continuity config for the v1.1 best-effort archive lane.",
+  "base_collector_config": "configs/v11/v11_longterm_archive_config.example.json",
+  "source": "gha",
+  "archive": {
+    "timezone": "Asia/Singapore",
+    "expected_stations": 27,
+    "dedup_keys": ["station_id", "timestamp"],
+    "prefer_valid_time_over_fetch_time": true
+  },
+  "collector_overrides": {
+    "data_gov_sg": {
+      "api_key_env": "DATA_GOV_SG_API_KEY",
+      "timeout_seconds": 25,
+      "retries": 3,
+      "sleep_between_calls_seconds": 0.7
+    },
+    "openmeteo": {
+      "enabled": true,
+      "timeout_seconds": 35,
+      "retries": 3,
+      "min_minutes_between_runs": 60
+    }
+  },
+  "outputs": {
+    "live_chunk_dir": "data/calibration/v11/live_chunks",
+    "ops_dir": "outputs/v11_archive_ops",
+    "manifest_json_latest": "outputs/v11_archive_ops/gha_run_manifest_latest.json",
+    "latest_health_md": "outputs/v11_archive_ops/gha_health_latest.md",
+    "latest_health_json": "outputs/v11_archive_ops/gha_health_latest.json"
+  },
+  "git_safety": {
+    "commit_only_paths": [
+      "data/calibration/v11/live_chunks",
+      "outputs/v11_archive_ops"
+    ],
+    "forbidden_patterns": [
+      "*.tif",
+      "*.tiff",
+      "data/solweig/**",
+      "data/rasters/**",
+      "data/archive/**",
+      "outputs/*forecast_live/*hourly_grid_heatstress_forecast*.csv"
+    ],
+    "max_file_mb": 25
+  },
+  "notes": [
+    "GitHub Actions schedule is best-effort, not strict sensor-grade 15-minute cadence.",
+    "The domestic PC remains the research compute lane for formal pass, QGIS/UMEP/SOLWEIG, and surrogate experiments."
+  ]
+}

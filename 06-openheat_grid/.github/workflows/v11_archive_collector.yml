@@ -1,0 +1,138 @@
+name: OpenHeat v1.1 archive collector
+
+on:
+  # Offset away from exact hour to reduce schedule-delay risk.
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: openheat-v11-archive
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    env:
+      OPENHEAT_RUN_SOURCE: gha
+      OPENHEAT_ARCHIVE_CONFIG: configs/v11/v11_archive_gha_config.json
+      DATA_GOV_SG_API_KEY: ${{ secrets.DATA_GOV_SG_API_KEY }}
+      NEA_API_KEY: ${{ secrets.NEA_API_KEY }}
+      TZ: Asia/Singapore
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt
+          else
+            python -m pip install pandas numpy requests python-dateutil pytz
+          fi
+
+      - name: Prepare ops directories and run context
+        run: |
+          mkdir -p outputs/v11_archive_ops data/calibration/v11/live_chunks
+          echo "OPENHEAT_SCHEDULED_AT_UTC=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> "$GITHUB_ENV"
+          cat > outputs/v11_archive_ops/gha_context_latest.json <<EOF
+          {
+            "github_run_id": "${{ github.run_id }}",
+            "github_run_attempt": "${{ github.run_attempt }}",
+            "workflow": "${{ github.workflow }}",
+            "event_name": "${{ github.event_name }}",
+            "ref": "${{ github.ref }}",
+            "sha": "${{ github.sha }}",
+            "scheduled_cron": "7,22,37,52 * * * *",
+            "runner_os": "${{ runner.os }}"
+          }
+          EOF
+
+      - name: Run collector once
+        id: collect
+        run: |
+          set +e
+          if [ ! -f scripts/v11_archive_gha_collect_once.py ]; then
+            echo "scripts/v11_archive_gha_collect_once.py not found" >&2
+            exit 2
+          fi
+          python scripts/v11_archive_gha_collect_once.py --config "$OPENHEAT_ARCHIVE_CONFIG"
+          code=$?
+          echo "collector_exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit $code
+
+      - name: Write health summary
+        if: always()
+        run: |
+          if compgen -G "data/calibration/v11/live_chunks/*.csv.gz" > /dev/null; then
+            python scripts/v11_archive_health_summary.py \
+              --input "data/calibration/v11/live_chunks/*.csv.gz" \
+              --output-md outputs/v11_archive_ops/gha_health_latest.md \
+              --output-json outputs/v11_archive_ops/gha_health_latest.json \
+              --expected-stations 27
+          else
+            cat > outputs/v11_archive_ops/gha_health_latest.md <<'EOF'
+          # OpenHeat v1.1 archive health summary
+
+          No controlled live chunk exists yet. See the latest GHA run manifest for collector status.
+
+          GitHub Actions scheduled runs are best-effort and should not be described as strict sensor-grade 15-minute cadence.
+          EOF
+            cat > outputs/v11_archive_ops/gha_health_latest.json <<'EOF'
+          {
+            "verdict": "RED",
+            "reason": "no_controlled_live_chunk"
+          }
+          EOF
+          fi
+
+      - name: Large-file and path commit guard
+        if: always()
+        run: |
+          if [ -f scripts/v11_archive_commit_guard.py ]; then
+            python scripts/v11_archive_commit_guard.py --max-mb 25 --repo-root .
+          else
+            echo "scripts/v11_archive_commit_guard.py not found" >&2
+            exit 3
+          fi
+
+      - name: Commit controlled archive artifacts
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Only stage controlled compact archive / ops outputs. Do not use `git add -A` here.
+          git add -- data/calibration/v11/live_chunks outputs/v11_archive_ops || true
+
+          if [ -f scripts/v11_archive_commit_guard.py ]; then
+            python scripts/v11_archive_commit_guard.py --max-mb 25 --repo-root . --staged-only
+          fi
+
+          if git diff --cached --quiet; then
+            echo "No controlled archive changes to commit."
+          else
+            git commit -m "chore(v11): archive collector run ${{ github.run_id }}"
+            git pull --rebase
+            python scripts/v11_archive_commit_guard.py --max-mb 25 --repo-root . --staged-only
+            git push
+          fi
