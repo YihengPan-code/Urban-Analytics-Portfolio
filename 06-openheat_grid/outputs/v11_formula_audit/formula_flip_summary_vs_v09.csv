@@ -1,0 +1,15 @@
+formula,reference_formula,threshold_c,n_valid,formula_ge_ref_lt,formula_lt_ref_ge,same_classification
+reconstructed_from_v09_components,existing_v09_proxy,31.0,40389,0,0,40389
+reconstructed_from_v09_components,existing_v09_proxy,33.0,40389,0,0,40389
+stull_simple_globe_k0p0025,existing_v09_proxy,31.0,40389,0,0,40389
+stull_simple_globe_k0p0025,existing_v09_proxy,33.0,40389,0,0,40389
+stull_simple_globe_k0p0035,existing_v09_proxy,31.0,40389,0,0,40389
+stull_simple_globe_k0p0035,existing_v09_proxy,33.0,40389,0,0,40389
+stull_simple_globe_k0p0045,existing_v09_proxy,31.0,40389,0,0,40389
+stull_simple_globe_k0p0045,existing_v09_proxy,33.0,40389,0,0,40389
+stull_simple_globe_k0p0055,existing_v09_proxy,31.0,40389,0,0,40389
+stull_simple_globe_k0p0055,existing_v09_proxy,33.0,40389,0,0,40389
+stull_simple_globe_k0p0065,existing_v09_proxy,31.0,40389,0,0,40389
+stull_simple_globe_k0p0065,existing_v09_proxy,33.0,40389,0,0,40389
+no_radiation_sensitivity_tg_eq_tair,existing_v09_proxy,31.0,40389,0,0,40389
+no_radiation_sensitivity_tg_eq_tair,existing_v09_proxy,33.0,40389,0,0,40389
