@@ -1,0 +1,47 @@
+{
+  "version": "v1.2-beta.formal_hotday_forcing_config.example",
+  "purpose": "Document local formal-hot-day SOLWEIG forcing files used for pre-scale QA.",
+  "status": "template_only_do_not_treat_as_generated_forcing",
+  "claim_boundary": {
+    "allowed": "formal-hot-day SOLWEIG forcing provenance for Tmrt modifier robustness QA",
+    "disallowed": [
+      "local WBGT conversion",
+      "hazard map generation",
+      "risk map generation",
+      "surrogate training"
+    ]
+  },
+  "forcing_files": [
+    {
+      "hour_sgt": 10,
+      "path": "data/solweig/v12_formal_hotday_forcing/v12_formal_hotday_S128_h10.txt",
+      "required_for": "optional_core8_full_matrix"
+    },
+    {
+      "hour_sgt": 12,
+      "path": "data/solweig/v12_formal_hotday_forcing/v12_formal_hotday_S128_h12.txt",
+      "required_for": "optional_core8_full_matrix"
+    },
+    {
+      "hour_sgt": 13,
+      "path": "data/solweig/v12_formal_hotday_forcing/v12_formal_hotday_S128_h13.txt",
+      "required_for": "20_run_smoke"
+    },
+    {
+      "hour_sgt": 15,
+      "path": "data/solweig/v12_formal_hotday_forcing/v12_formal_hotday_S128_h15.txt",
+      "required_for": "20_run_smoke"
+    },
+    {
+      "hour_sgt": 16,
+      "path": "data/solweig/v12_formal_hotday_forcing/v12_formal_hotday_S128_h16.txt",
+      "required_for": "optional_core8_full_matrix"
+    }
+  ],
+  "expected_umep_met_header": "%iy id it imin qn qh qe qs qf U RH Tair pres rain kdown snow ldown fcld wuh xsmd lai_hr Kdiff Kdir Wd",
+  "notes": [
+    "Generate or verify these files locally from the accepted formal-hot-day forcing workflow before running QGIS/SOLWEIG.",
+    "Do not commit large forcing or raw archive files unless intentionally size-controlled and reviewed.",
+    "Use INPUTMET, not INPUT_MET, in SOLWEIG parameter dicts."
+  ]
+}
