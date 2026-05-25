@@ -1,0 +1,47 @@
+schema_version: "v1.1-sprint4c-p_ge31-diagnostic-export"
+input_prediction_file: "outputs/v11_level1/probability_calibration/p_ge31_diagnostic_predictions.csv"
+output_dir: "outputs/v11_level1/p_ge31_export"
+default_score_model: "M4_like_inertia_ridge"
+default_calibrator: "logistic_score_calibration"
+validation_context: "blocked_date_calibration"
+output_modes:
+  - "station_diagnostic"
+  - "aoi_temporal_schema_only"
+  - "aoi_temporal_candidate_aggregation_disabled_by_default"
+required_columns:
+  - "timestamp_sgt"
+  - "station_id"
+  - "dataset_label"
+  - "wbgt_a_score_c"
+  - "wbgt_a_score_model_id"
+  - "wbgt_a_score_version"
+  - "p_ge31_diagnostic"
+  - "p_ge31_calibrator_id"
+  - "p_ge31_validation_context"
+  - "is_retrospective"
+  - "source_prediction_context"
+  - "quality_flag"
+forbidden_columns:
+  - "cell_id"
+  - "local_wbgt_c"
+  - "wbgt_cell_c"
+  - "delta_wbgt_cell"
+  - "risk_score"
+  - "m_rad"
+  - "tmrt"
+  - "solweig"
+  - "exposure"
+  - "vulnerability"
+quality_flags:
+  - "ok_retrospective_diagnostic"
+  - "sample_only_retrospective"
+  - "missing_probability"
+  - "low_support_station"
+  - "station_bias_warning"
+  - "ge33_exploratory"
+  - "prospective_metadata_missing"
+  - "not_operational_warning"
+max_sample_rows: 200
+do_not_commit_large_outputs: true
+station_bias_abs_warning_threshold: 0.075
+low_support_event_count_threshold: 10

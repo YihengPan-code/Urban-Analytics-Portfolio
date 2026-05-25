@@ -1,0 +1,10 @@
+check_name,status,observed,expected,notes
+required_columns_present,PASS,all required columns present,timestamp_sgt;station_id;dataset_label;wbgt_a_score_c;wbgt_a_score_model_id;wbgt_a_score_version;p_ge31_diagnostic;p_ge31_calibrator_id;p_ge31_validation_context;is_retrospective;source_prediction_context;quality_flag,
+forbidden_columns_absent,PASS,no forbidden columns present,cell_id;local_wbgt_c;wbgt_cell_c;delta_wbgt_cell;risk_score;m_rad;tmrt;solweig;exposure;vulnerability,
+is_retrospective_true,PASS,True,all station rows true,
+station_diagnostic_mode_labelled,PASS,station_diagnostic,station_diagnostic,
+aoi_temporal_schema_only,PASS,rows=0; columns=timestamp_sgt;timestamp_utc;aoi_id;dataset_label;output_mode;spatial_scope;aggregation_method;wbgt_a_score_c;wbgt_a_score_model_id;wbgt_a_score_version;p_ge31_diagnostic;p_ge31_calibrator_id;p_ge31_validation_context;ge31_screening_flag_best_f1_optional;ge31_screening_flag_high_recall_optional;p_ge33_exploratory_optional;is_retrospective;source_prediction_context;quality_flag;notes,zero rows; aoi_id present; station_id absent,AOI temporal mode was not silently created from station rows.
+quality_flag_present,PASS,missing=0,quality_flag present on every row,
+p_ge31_diagnostic_within_0_1,PASS,missing_probability=0,"all non-missing probabilities within [0,1]",
+missing_values_count,PASS,timestamp_sgt=0;station_id=0;dataset_label=0;wbgt_a_score_c=0;wbgt_a_score_model_id=0;wbgt_a_score_version=0;p_ge31_diagnostic=0;p_ge31_calibrator_id=0;p_ge31_validation_context=0;is_retrospective=0;source_prediction_context=0;quality_flag=0,required columns have zero missing/blank values,total_required_missing=0
+row_count,PASS,10473,station diagnostic export has rows when source predictions exist,
