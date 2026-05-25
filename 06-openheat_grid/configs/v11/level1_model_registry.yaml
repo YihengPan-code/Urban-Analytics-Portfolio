@@ -1,0 +1,85 @@
+version: v11_l1_sprint1
+scope: "System A Level 1 audit and reproduction foundation; no new model families."
+output_dir: outputs/v11_level1/reproduction
+cv_scheme: loso
+ridge_alpha: 1.0
+event_thresholds_c: [31, 33]
+
+datasets:
+  - dataset_label: all_stations_formal
+    target_mode: instant
+    input_csv: outputs/v11_beta_formal/diagnostics_inputs/v11_pairs_14d_formal_20260524_40419_v091_diag.csv
+    fallback_input_csv: data/calibration/v11/v11_station_weather_pairs_v091.csv
+    target_col: official_wbgt_c
+    raw_proxy_col: wbgt_proxy_v09_c
+    filter_mode: retrospective_calibration
+    previous_metrics_csv: outputs/v11_beta_formal/ablation_B_retrospective/v11_beta_calibration_metrics.csv
+
+  - dataset_label: hourly_mean
+    target_mode: hourly_mean
+    input_csv: data/calibration/v11/v11_station_weather_pairs_hourly.csv
+    target_col: official_wbgt_c_mean
+    raw_proxy_col: wbgt_proxy_v09_c
+    filter_mode: retrospective_calibration
+    previous_metrics_csv: outputs/v11_beta_calibration/hourly_mean/v11_beta_calibration_metrics.csv
+
+  - dataset_label: hourly_max
+    target_mode: hourly_max
+    input_csv: data/calibration/v11/v11_station_weather_pairs_hourly.csv
+    target_col: official_wbgt_c_max
+    raw_proxy_col: wbgt_proxy_v09_c
+    filter_mode: retrospective_calibration
+    previous_metrics_csv: outputs/v11_beta_calibration/hourly_max/v11_beta_calibration_metrics.csv
+
+models:
+  - model: M3_weather_ridge
+    feature_group: weather
+  - model: M4_inertia_ridge
+    feature_group: inertia
+  - model: M7_compact_weather_ridge
+    feature_group: compact_weather
+
+feature_groups:
+  weather:
+    - wbgt_proxy_v09_c
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - cloud_cover
+    - precipitation
+    - direct_fraction
+    - diffuse_fraction
+    - shortwave_positive
+    - hour_sin_v09
+    - hour_cos_v09
+    - is_daytime_v09
+    - is_peak_heat_v09
+  inertia:
+    - wbgt_proxy_v09_c
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_lag_1h
+    - shortwave_lag_2h
+    - shortwave_3h_mean
+    - cumulative_day_shortwave_whm2
+    - temperature_lag_1h
+    - dTair_dt_1h
+    - proxy_lag_1h
+    - proxy_3h_mean
+    - diffuse_fraction
+    - direct_fraction
+    - cloud_cover
+    - hour_sin_v09
+    - hour_cos_v09
+  compact_weather:
+    - wbgt_proxy_v09_c
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+    - hour_sin_v09
+    - hour_cos_v09
