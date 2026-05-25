@@ -1,0 +1,123 @@
+{
+  "schema_version": "v1.1-sprint4b2-local-prospective-dry-smoke-v0.1",
+  "generated_at_utc": "2026-05-25T21:49:45Z",
+  "status": "PASS",
+  "dry_smoke_mode": "offline_synthetic_only",
+  "no_network": true,
+  "api_calls": 0,
+  "archive_modification": false,
+  "collector_runtime_modification": false,
+  "model_training": false,
+  "model_evaluation": false,
+  "forecast_skill_claim": false,
+  "prospective_skill_claim": false,
+  "system_b_or_v12_touched": false,
+  "input_files": [
+    "scripts/v11_prospective_metadata_helpers.py",
+    "scripts/v11_test_prospective_metadata_schema.py",
+    "configs/v11/system_a_prospective_metadata_config.example.yaml",
+    "configs/v11/system_a_local_prospective_dry_smoke_config.example.yaml",
+    "docs/v11/SystemA_prospective_metadata_schema_CN.md",
+    "outputs/v11_level1/prospective_eval/metadata_patch/sprint4b1_metadata_patch_report.md",
+    "outputs/v11_level1/prospective_eval/metadata_patch/prospective_metadata_schema_smoke.csv",
+    "outputs/v11_level1/prospective_eval/metadata_patch/prospective_metadata_schema_smoke.md",
+    "outputs/v11_level1/prospective_eval/prospective_metadata_gap_audit.csv",
+    "docs/v11/SystemA_Level1_prospective_eval_design_CN.md"
+  ],
+  "outputs": {
+    "synthetic_prospective_rows_csv": "outputs\\v11_level1\\prospective_eval\\local_dry_smoke\\synthetic_prospective_rows.csv",
+    "legacy_compatibility_rows_csv": "outputs\\v11_level1\\prospective_eval\\local_dry_smoke\\legacy_compatibility_rows.csv",
+    "manifest_json": "outputs\\v11_level1\\prospective_eval\\local_dry_smoke\\local_dry_smoke_manifest.json",
+    "manifest_md": "outputs\\v11_level1\\prospective_eval\\local_dry_smoke\\local_dry_smoke_manifest.md",
+    "validation_csv": "outputs\\v11_level1\\prospective_eval\\local_dry_smoke\\local_dry_smoke_validation.csv",
+    "validation_md": "outputs\\v11_level1\\prospective_eval\\local_dry_smoke\\local_dry_smoke_validation.md",
+    "report_md": "outputs\\v11_level1\\prospective_eval\\local_dry_smoke\\sprint4b2_local_dry_smoke_report.md"
+  },
+  "synthetic_summary": {
+    "row_count": 63,
+    "station_count": 3,
+    "lead_time_bins": [
+      0,
+      1,
+      3,
+      6,
+      24
+    ],
+    "valid_time_min_utc": "2026-05-26T00:00:00Z",
+    "valid_time_max_utc": "2026-05-27T00:00:00Z",
+    "quality_flag_counts": {
+      "missing_forecast_issue_time": 3,
+      "missing_lead_time": 3,
+      "missing_model_run_time": 3,
+      "ok_prospective_metadata": 60
+    },
+    "issue_valid_pair_id_unique": true
+  },
+  "legacy_compatibility": {
+    "status": "sampled",
+    "source_path": "data\\calibration\\v11\\live_chunks\\wbgt_pairs_2026-05-24.csv.gz",
+    "rows_read": 10,
+    "max_rows": 10
+  },
+  "validation": {
+    "checks": [
+      {
+        "check": "all required schema fields exist",
+        "passed": true,
+        "detail": "all present"
+      },
+      {
+        "check": "helper prospective schema fields exist",
+        "passed": true,
+        "detail": "all present"
+      },
+      {
+        "check": "issue_valid_pair_id non-null and unique",
+        "passed": true,
+        "detail": "non_null=True; unique=True; rows=63"
+      },
+      {
+        "check": "lead_time computed correctly when model_run_time exists",
+        "passed": true,
+        "detail": "checked_rows=60"
+      },
+      {
+        "check": "lead_time null when issue/model time missing",
+        "passed": true,
+        "detail": "checked_rows=3"
+      },
+      {
+        "check": "fail_closed quality flags present",
+        "passed": true,
+        "detail": "checked_rows=3"
+      },
+      {
+        "check": "no forbidden claim fields",
+        "passed": true,
+        "detail": "none"
+      },
+      {
+        "check": "source_lane equals local_dry_smoke",
+        "passed": true,
+        "detail": "{'local_dry_smoke': 63}"
+      },
+      {
+        "check": "no row labelled live/prospective_skill/evaluated",
+        "passed": true,
+        "detail": "none"
+      },
+      {
+        "check": "legacy rows marked missing prospective metadata",
+        "passed": true,
+        "detail": "rows=10; lead_time_null=True"
+      },
+      {
+        "check": "expected synthetic quality flags present",
+        "passed": true,
+        "detail": "present"
+      }
+    ],
+    "passed_count": 11,
+    "check_count": 11
+  }
+}

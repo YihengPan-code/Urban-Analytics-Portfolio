@@ -1,0 +1,70 @@
+schema_version: v1.1-sprint4b3-live-prospective-smoke-v0.1
+output_dir: outputs/v11_level1/prospective_eval/live_smoke/
+live_smoke_mode: one_run_local_api_smoke
+
+max_openmeteo_calls: 3
+max_wbgt_calls: 2
+allowed_network: true
+write_archive: false
+patch_collector_runtime: false
+
+selected_stations:
+  - S128
+  - S142
+  - S137
+
+station_coordinates:
+  source: data/fixtures/nea_wbgt_v2_current_schema_sample.json
+  notes: Read-only documented station metadata fixture used by prior schema work.
+  stations:
+    S128:
+      name: Bishan Street
+      latitude: 1.354825
+      longitude: 103.852219
+    S142:
+      name: Sentosa Palawan Green
+      latitude: 1.24950363476734
+      longitude: 103.819177652546
+    S137:
+      name: Sakra Road
+      latitude: 1.2571
+      longitude: 103.698
+
+forecast_provider: open-meteo
+forecast_api_product: forecast_api_live_smoke
+forecast_endpoint: https://api.open-meteo.com/v1/forecast
+forecast_variables:
+  - temperature_2m
+  - relative_humidity_2m
+  - wind_speed_10m
+  - shortwave_radiation
+forecast_horizon:
+  timezone: UTC
+  forecast_days: 1
+  max_hourly_rows_per_station: 6
+
+wbgt_provider: data.gov.sg
+wbgt_api_product: wbgt_observations_live_smoke
+wbgt_endpoint: https://api-open.data.gov.sg/v2/real-time/api/weather
+wbgt_query:
+  api: wbgt
+
+quality_flags:
+  - ok_live_smoke_metadata
+  - missing_model_run_time
+  - missing_forecast_issue_time
+  - missing_lead_time
+  - missing_official_observed_at
+  - missing_official_retrieved_at
+  - provider_schema_unexpected
+  - no_future_valid_times
+  - no_matching_station
+  - no_safe_pairing
+  - live_smoke_not_forecast_skill
+
+do_not_commit_large_outputs: true
+
+claim_boundary:
+  - This one-run smoke captures live request/retrieval metadata only.
+  - It does not establish prospective forecast skill.
+  - It does not validate an operational forecast or local WBGT.

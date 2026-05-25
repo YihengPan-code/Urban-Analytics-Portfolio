@@ -1,0 +1,219 @@
+{
+  "schema_version": "v1.1-sprint4b3-live-prospective-smoke-v0.1",
+  "generated_at_utc": "2026-05-25T22:11:00Z",
+  "status": "PASS",
+  "live_smoke_mode": "one_run_local_api_smoke",
+  "allowed_network": true,
+  "write_archive": false,
+  "patch_collector_runtime": false,
+  "model_training": false,
+  "forecast_skill_evaluation": false,
+  "operational_output": false,
+  "local_wbgt": false,
+  "system_b_or_v12_touched": false,
+  "api_summary": {
+    "openmeteo_call_count": 3,
+    "wbgt_call_count": 1,
+    "status_codes": [
+      200,
+      200,
+      200,
+      200
+    ],
+    "elapsed_seconds": [
+      0.144,
+      0.145,
+      0.149,
+      0.624
+    ],
+    "endpoint_summary": [
+      {
+        "provider": "open-meteo",
+        "endpoint": "https://api.open-meteo.com/v1/forecast",
+        "query_summary": "latitude=1.354825&longitude=103.852219&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Cshortwave_radiation&timezone=UTC&forecast_days=1",
+        "status": 200,
+        "elapsed_seconds": 0.144,
+        "error": null
+      },
+      {
+        "provider": "open-meteo",
+        "endpoint": "https://api.open-meteo.com/v1/forecast",
+        "query_summary": "latitude=1.24950363476734&longitude=103.819177652546&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Cshortwave_radiation&timezone=UTC&forecast_days=1",
+        "status": 200,
+        "elapsed_seconds": 0.145,
+        "error": null
+      },
+      {
+        "provider": "open-meteo",
+        "endpoint": "https://api.open-meteo.com/v1/forecast",
+        "query_summary": "latitude=1.2571&longitude=103.698&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Cshortwave_radiation&timezone=UTC&forecast_days=1",
+        "status": 200,
+        "elapsed_seconds": 0.149,
+        "error": null
+      },
+      {
+        "provider": "data.gov.sg",
+        "endpoint": "https://api-open.data.gov.sg/v2/real-time/api/weather",
+        "query_summary": "api=wbgt",
+        "status": 200,
+        "elapsed_seconds": 0.624,
+        "error": null
+      }
+    ]
+  },
+  "forecast_summary": {
+    "rows": 3,
+    "stations": 3,
+    "valid_time_min_utc": "2026-05-25T23:00:00Z",
+    "valid_time_max_utc": "2026-05-25T23:00:00Z",
+    "provider_model_run_time_available_rows": 0,
+    "lead_time_available_rows": 0,
+    "min_valid_time_minus_retrieval_hours": 0.816667,
+    "quality_flag_counts": {
+      "live_smoke_not_forecast_skill": 3,
+      "missing_forecast_issue_time": 3,
+      "missing_lead_time": 3,
+      "missing_model_run_time": 3
+    }
+  },
+  "official_summary": {
+    "rows": 3,
+    "stations": 3,
+    "observation_time_available_rows": 3,
+    "official_retrieved_at_available_rows": 3,
+    "quality_flag_counts": {
+      "live_smoke_not_forecast_skill": 3
+    }
+  },
+  "pair_summary": {
+    "rows": 1,
+    "exact_pairing_possible": false,
+    "issue_valid_pair_id_count": 0,
+    "issue_valid_pair_id_unique": false,
+    "quality_flag_counts": {
+      "live_smoke_not_forecast_skill": 1,
+      "no_safe_pairing": 1
+    },
+    "skill_evaluable_rows": 0
+  },
+  "schema_errors": [],
+  "smoke_warnings": [],
+  "input_files": [
+    "scripts/v11_prospective_metadata_helpers.py",
+    "scripts/v11_l1_prospective_metadata_local_dry_smoke.py",
+    "configs/v11/system_a_prospective_metadata_config.example.yaml",
+    "configs/v11/system_a_local_prospective_dry_smoke_config.example.yaml",
+    "configs/v11/system_a_live_prospective_smoke_config.example.yaml",
+    "docs/v11/SystemA_prospective_metadata_schema_CN.md",
+    "docs/v11/SystemA_local_prospective_metadata_dry_smoke_runbook_CN.md",
+    "outputs/v11_level1/prospective_eval/local_dry_smoke/sprint4b2_local_dry_smoke_report.md",
+    "scripts/v11_archive_collect_once.py",
+    "scripts/v11_archive_gha_collect_once.py"
+  ],
+  "outputs": {
+    "forecast_metadata_rows_csv": "outputs\\v11_level1\\prospective_eval\\live_smoke\\live_forecast_metadata_rows.csv",
+    "official_wbgt_metadata_rows_csv": "outputs\\v11_level1\\prospective_eval\\live_smoke\\live_official_wbgt_metadata_rows.csv",
+    "issue_valid_pair_candidates_csv": "outputs\\v11_level1\\prospective_eval\\live_smoke\\live_issue_valid_pair_candidates.csv",
+    "manifest_json": "outputs\\v11_level1\\prospective_eval\\live_smoke\\live_smoke_manifest.json",
+    "manifest_md": "outputs\\v11_level1\\prospective_eval\\live_smoke\\live_smoke_manifest.md",
+    "validation_csv": "outputs\\v11_level1\\prospective_eval\\live_smoke\\live_smoke_validation.csv",
+    "validation_md": "outputs\\v11_level1\\prospective_eval\\live_smoke\\live_smoke_validation.md",
+    "report_md": "outputs\\v11_level1\\prospective_eval\\live_smoke\\sprint4b3_live_local_smoke_report.md"
+  },
+  "validation": {
+    "checks": [
+      {
+        "check": "Open-Meteo API calls within limit",
+        "passed": true,
+        "detail": "3"
+      },
+      {
+        "check": "WBGT API calls within limit",
+        "passed": true,
+        "detail": "1"
+      },
+      {
+        "check": "output path is live_smoke only",
+        "passed": true,
+        "detail": "outputs\\v11_level1\\prospective_eval\\live_smoke"
+      },
+      {
+        "check": "no archive files modified by script",
+        "passed": true,
+        "detail": "script writes only live_smoke outputs"
+      },
+      {
+        "check": "no provider schema unexpected stop",
+        "passed": true,
+        "detail": "none"
+      },
+      {
+        "check": "no no_future_valid_times partial stop",
+        "passed": true,
+        "detail": "none"
+      },
+      {
+        "check": "forecast_requested_at_utc present",
+        "passed": true,
+        "detail": "forecast_rows=3"
+      },
+      {
+        "check": "forecast_retrieved_at_utc present",
+        "passed": true,
+        "detail": "forecast_rows=3"
+      },
+      {
+        "check": "selected forecast valid_time follows next-hour retrieval rule",
+        "passed": true,
+        "detail": "min_valid_time_minus_retrieval_hours=0.816667"
+      },
+      {
+        "check": "official_retrieved_at_utc present if official API succeeded",
+        "passed": true,
+        "detail": "official_success=True; official_rows=3"
+      },
+      {
+        "check": "source_lane equals local_live_smoke",
+        "passed": true,
+        "detail": "['local_live_smoke']"
+      },
+      {
+        "check": "issue_valid_pair_id present where pair candidate exists",
+        "passed": true,
+        "detail": "pair_rows=0"
+      },
+      {
+        "check": "lead_time null when model/issue time missing",
+        "passed": true,
+        "detail": "checked_rows=3"
+      },
+      {
+        "check": "missing flags present when model/issue time missing",
+        "passed": true,
+        "detail": "checked_rows=3"
+      },
+      {
+        "check": "no row labelled forecast_skill_evaluated",
+        "passed": true,
+        "detail": "none"
+      },
+      {
+        "check": "no forbidden fields",
+        "passed": true,
+        "detail": "none"
+      },
+      {
+        "check": "no regression/event skill metrics written",
+        "passed": true,
+        "detail": "none"
+      },
+      {
+        "check": "quality_flag includes live_smoke_not_forecast_skill",
+        "passed": true,
+        "detail": "checked available quality_flag columns"
+      }
+    ],
+    "passed_count": 18,
+    "check_count": 18
+  }
+}

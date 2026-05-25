@@ -1,0 +1,12 @@
+check,passed,detail
+all required schema fields exist,True,all present
+helper prospective schema fields exist,True,all present
+issue_valid_pair_id non-null and unique,True,non_null=True; unique=True; rows=63
+lead_time computed correctly when model_run_time exists,True,checked_rows=60
+lead_time null when issue/model time missing,True,checked_rows=3
+fail_closed quality flags present,True,checked_rows=3
+no forbidden claim fields,True,none
+source_lane equals local_dry_smoke,True,{'local_dry_smoke': 63}
+no row labelled live/prospective_skill/evaluated,True,none
+legacy rows marked missing prospective metadata,True,rows=10; lead_time_null=True
+expected synthetic quality flags present,True,present

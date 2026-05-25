@@ -1,0 +1,74 @@
+schema_version: v1.1-sprint4b2-local-prospective-dry-smoke-v0.1
+output_dir: outputs/v11_level1/prospective_eval/local_dry_smoke/
+dry_smoke_mode: offline_synthetic_only
+no_network: true
+
+synthetic_stations:
+  - S128
+  - S142
+  - S137
+
+synthetic_source_lane: local_dry_smoke
+synthetic_forecast_provider: open-meteo
+synthetic_forecast_api_product: single_runs_api_synthetic_placeholder
+synthetic_forecast_endpoint: offline_synthetic
+
+lead_time_hours:
+  - 0
+  - 1
+  - 3
+  - 6
+  - 24
+
+valid_time_count: 4
+
+required_metadata_fields:
+  - station_id
+  - valid_time_utc
+  - valid_time_sgt
+  - model_run_time_utc
+  - forecast_issue_time_utc
+  - forecast_requested_at_utc
+  - forecast_retrieved_at_utc
+  - forecast_provider
+  - forecast_model
+  - forecast_endpoint
+  - forecast_api_product
+  - forecast_lead_time_hours
+  - forecast_age_hours
+  - openmeteo_grid_lat
+  - openmeteo_grid_lon
+  - temperature_2m
+  - relative_humidity_2m
+  - wind_speed_10m
+  - shortwave_radiation
+  - wbgt_proxy_v09_c
+  - wbgt_a_score_c
+  - p_ge31_diagnostic
+  - official_wbgt_c
+  - official_observed_at_utc
+  - official_retrieved_at_utc
+  - official_wbgt_publication_delay_minutes
+  - collector_run_id
+  - archive_run_id
+  - source_lane
+  - row_added_at_utc
+  - issue_valid_pair_id
+  - quality_flag
+
+expected_quality_flags:
+  - ok_prospective_metadata
+  - missing_model_run_time
+  - missing_forecast_issue_time
+  - missing_lead_time
+  - legacy_missing_prospective_metadata
+
+legacy_compatibility_check:
+  enabled: true
+  max_rows: 10
+
+do_not_commit_large_outputs: true
+
+notes:
+  - single_runs_api_synthetic_placeholder is a synthetic label only.
+  - No Open-Meteo Single Runs data are fetched by this dry smoke.
