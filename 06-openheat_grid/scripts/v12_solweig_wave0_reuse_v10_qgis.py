@@ -1,2 +1,1 @@
-from pathlib import Path
-exec(compile(Path('C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/scripts/v12_solweig_qgis_loop.py').read_text(), 'v12_solweig_qgis_loop.py', 'exec'))
+exec(open(r"C:\Users\CloudStar\Documents\GitHub\Urban-Analytics-Portfolio\06-openheat_grid\scripts\v12_solweig_qgis_loop_formal_hotday_smoke.py", encoding="utf-8").read())
