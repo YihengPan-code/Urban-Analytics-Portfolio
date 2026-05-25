@@ -1,0 +1,86 @@
+schema_version: "v1.1-sprint4d-aoi-temporal-aggregation"
+aggregation_version: "v1.1-sprint4d-design-dry-run"
+aoi_id: "ToaPayoh_or_OpenHeat_AOI_candidate"
+
+inputs:
+  station_diagnostic: "outputs/v11_level1/p_ge31_export/p_ge31_station_diagnostic.csv"
+  station_diagnostic_sample: "outputs/v11_level1/p_ge31_export/p_ge31_station_diagnostic_sample.csv"
+  fallback_probability_predictions: "outputs/v11_level1/probability_calibration/p_ge31_diagnostic_predictions.csv"
+
+output_dir: "outputs/v11_level1/aoi_temporal_aggregation"
+design_doc: "docs/v11/SystemA_AOI_temporal_aggregation_design_CN.md"
+
+dataset_selection:
+  primary: "hourly_max"
+  secondary_optional: "hourly_mean"
+  include_secondary_when_primary_available: false
+
+coverage:
+  minimum_station_count_nominal: 20
+  minimum_coverage_fraction: 0.80
+  high_event_stations:
+    - "S142"
+    - "S137"
+    - "S135"
+  low_event_or_overprediction_sensitive_stations:
+    - "S139"
+    - "S124"
+  local_anchor_station: "S128"
+
+candidate_methods:
+  network_mean:
+    score: "mean(wbgt_a_score_c)"
+    p_ge31: "mean(p_ge31_diagnostic)"
+    role: "diagnostic average only"
+    disabled_by_default: false
+  network_median:
+    score: "median(wbgt_a_score_c)"
+    p_ge31: "median(p_ge31_diagnostic)"
+    role: "background severity candidate"
+    disabled_by_default: false
+  network_p75:
+    score: "p75(wbgt_a_score_c)"
+    p_ge31: "p75(p_ge31_diagnostic)"
+    role: "moderate-conservative candidate"
+    disabled_by_default: false
+  network_p90:
+    score: "p90(wbgt_a_score_c)"
+    p_ge31: "p90(p_ge31_diagnostic)"
+    role: "conservative event-gate candidate"
+    disabled_by_default: false
+  network_max:
+    score: "max(wbgt_a_score_c)"
+    p_ge31: "max(p_ge31_diagnostic)"
+    role: "upper-bound sensitivity only"
+    disabled_by_default: false
+  anchor_S128:
+    score: "S128 wbgt_a_score_c"
+    p_ge31: "S128 p_ge31_diagnostic"
+    role: "local-anchor sensitivity only if S128 exists"
+    caveat: "not validated as Toa Payoh AOI truth"
+    disabled_by_default: false
+  exclude_S142_network_p90:
+    score: "p90(wbgt_a_score_c excluding S142)"
+    p_ge31: "p90(p_ge31_diagnostic excluding S142)"
+    role: "high-event-station sensitivity"
+    disabled_by_default: false
+  exclude_high_event_stations_network_p90:
+    score: "p90(wbgt_a_score_c excluding S142, S137, S135 if present)"
+    p_ge31: "p90(p_ge31_diagnostic excluding S142, S137, S135 if present)"
+    role: "sensitivity only, not default"
+    disabled_by_default: false
+  probability_any_independence_experimental:
+    p_any: "1 - product(1 - p_i)"
+    role: "experimental only"
+    caveat: "assumes station independence and should not be default"
+    disabled_by_default: true
+
+forbidden_outputs:
+  - "cell_id"
+  - "local_wbgt_c"
+  - "risk_score"
+  - "m_rad"
+  - "tmrt"
+  - "solweig"
+  - "exposure"
+  - "vulnerability"

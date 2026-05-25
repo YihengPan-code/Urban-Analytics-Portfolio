@@ -1,0 +1,5 @@
+candidate_a,candidate_b,n_top_decile_a,n_top_decile_b,n_overlap,jaccard_overlap,overlap_fraction_of_a,overlap_fraction_of_b
+network_median_p_ge31,network_p90_p_ge31,39,39,38,0.95,0.9743589743589743,0.9743589743589743
+network_p90_p_ge31,network_max_p_ge31,39,39,36,0.8571428571428571,0.9230769230769231,0.9230769230769231
+anchor_S128_p_ge31,network_median_p_ge31,39,39,38,0.95,0.9743589743589743,0.9743589743589743
+anchor_S128_p_ge31,network_p90_p_ge31,39,39,37,0.9024390243902439,0.9487179487179487,0.9487179487179487
