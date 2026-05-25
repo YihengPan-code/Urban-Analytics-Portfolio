@@ -1,0 +1,205 @@
+version: "v1.1-sprint4a-level1-interim"
+generated_date: "2026-05-25"
+scope:
+  system: "System A"
+  level: "Level 1"
+  geography: "Toa Payoh / station-network background context"
+  status: "interim_retrospective_not_operational"
+  trains_models: false
+  changes_models: false
+output_modes:
+  station_diagnostic:
+    description: "Station-row retrospective diagnostic output."
+    station_id_required: true
+    aoi_id_required: false
+    intended_consumers:
+      - model_diagnostics
+      - station_bias_analysis
+      - retrospective_reports
+    not_for:
+      - System_B_cell_modifier
+      - local_WBGT
+  aoi_temporal:
+    description: "AOI-level temporal severity output for downstream System B gating."
+    station_id_required: false
+    aoi_id_required: true
+    aggregation_method_required: true
+    allowed_consumers:
+      - System_B_temporal_severity
+      - research_reports
+    required_columns:
+      - timestamp_sgt
+      - aoi_id
+      - wbgt_a_score_c
+      - wbgt_a_score_model_id
+      - p_ge31_diagnostic
+      - p_ge31_calibrator_id
+      - is_retrospective
+      - quality_flag
+    forbidden_interpretation:
+      - local_WBGT
+      - cell_level_WBGT
+      - risk_score
+allowed_outputs:
+  - name: "wbgt_a_score_c"
+    model_id: "M4_like_inertia_ridge"
+    interpretation: "WBGT-like background heat-stress regression score in degrees C."
+    caveat: "Not calibrated nominal fixed-threshold crossing; not local WBGT."
+  - name: "p_ge31_diagnostic"
+    score_source: "M4_like_inertia_ridge"
+    calibrator: "logistic_score_calibration"
+    validation_context: "blocked_date_calibration"
+    interpretation: "Retrospective diagnostic probability that official WBGT >= 31 C."
+    caveat: "Not an official warning probability and not a prospective forecast."
+  - name: "ge31_screening_flag_best_f1_optional"
+    interpretation: "Optional diagnostic screening flag if a downstream report explicitly chooses a threshold."
+    caveat: "No official advisory meaning."
+  - name: "ge31_screening_flag_high_recall_optional"
+    interpretation: "Optional diagnostic high-recall screening flag."
+    caveat: "Expected to trade higher false alarms for recall."
+  - name: "p_ge33_exploratory_optional"
+    interpretation: "Exploratory ge33 diagnostic placeholder only."
+    caveat: "Sparse events and unstable performance; not operational."
+forbidden_outputs:
+  - "cell_id"
+  - "local_wbgt_c"
+  - "wbgt_cell_c"
+  - "delta_wbgt_cell"
+  - "risk_score"
+  - "m_rad"
+  - "tmrt"
+  - "solweig"
+  - "exposure"
+  - "vulnerability"
+model_components:
+  regression_score:
+    output_name: "wbgt_a_score_c"
+    model_id: "M4_like_inertia_ridge"
+    target_context:
+      - "hourly_max formal-hourly diagnostics"
+      - "hourly_mean formal-hourly diagnostics"
+    purpose: "WBGT-like background heat-stress score."
+    caveat: "Not calibrated nominal fixed-threshold crossing."
+  probability_companion:
+    output_name: "p_ge31_diagnostic"
+    score_source: "M4_like_inertia_ridge"
+    calibrator: "logistic_score_calibration"
+    validation_context: "blocked_date_calibration"
+    purpose: "Retrospective diagnostic probability that official WBGT >= 31 C."
+    caveat: "Not an official warning probability; not a prospective forecast."
+  ge33:
+    status: "exploratory_only"
+    reason: "Sparse events and weak/unstable performance."
+  sensitivity_candidates:
+    - "M7_like_compact_weather_ridge"
+    - "L1_full_dynamic"
+    - "L1_proxy_radiation"
+column_schema:
+  timestamp_sgt:
+    type: "datetime_with_timezone"
+    required: true
+    description: "Prediction timestamp in Singapore time."
+  timestamp_utc:
+    type: "datetime_with_timezone"
+    required: true
+    description: "Same timestamp converted to UTC."
+  station_id:
+    type: "string"
+    required: true
+    description: "Station identifier for Level 1 station-network diagnostics."
+  aoi_id:
+    type: "string"
+    required: false
+    description: "AOI identifier for AOI-level temporal severity outputs."
+  spatial_scope:
+    type: "string"
+    required: false
+    allowed_examples: ["station", "aoi"]
+    description: "Explicit spatial scope of the output row."
+  aggregation_method:
+    type: "string"
+    required: false
+    description: "Documented method used to aggregate station diagnostics into AOI temporal severity."
+  dataset_label:
+    type: "string"
+    required: true
+    allowed_examples: ["hourly_max", "hourly_mean"]
+  wbgt_a_score_c:
+    type: "float"
+    required: true
+    units: "degrees_C"
+  wbgt_a_score_model_id:
+    type: "string"
+    required: true
+    expected: "M4_like_inertia_ridge"
+  wbgt_a_score_version:
+    type: "string"
+    required: true
+  p_ge31_diagnostic:
+    type: "float"
+    required: false
+    range: [0, 1]
+  p_ge31_calibrator_id:
+    type: "string"
+    required: false
+    expected: "logistic_score_calibration"
+  p_ge31_validation_context:
+    type: "string"
+    required: false
+    expected: "blocked_date_calibration"
+  ge31_screening_flag_best_f1_optional:
+    type: "boolean"
+    required: false
+  ge31_screening_flag_high_recall_optional:
+    type: "boolean"
+    required: false
+  p_ge33_exploratory_optional:
+    type: "float"
+    required: false
+    range: [0, 1]
+  is_retrospective:
+    type: "boolean"
+    required: true
+    expected: true
+  source_prediction_context:
+    type: "string"
+    required: true
+  quality_flag:
+    type: "string"
+    required: true
+  notes:
+    type: "string"
+    required: false
+quality_flags:
+  ok_retrospective_sample: "Small retrospective sample row from prior diagnostic predictions."
+  schema_only_no_source_predictions: "Contract schema emitted but no prediction source was available."
+  sample_only_retrospective: "Not a full export and not operational."
+  missing_probability: "Probability companion unavailable for this row."
+  source_gap: "Required upstream evidence artifact was missing."
+validation_context:
+  regression:
+    schemes:
+      - "LOSO"
+      - "formal-hourly OOF-derived diagnostics"
+      - "blocked-date CV"
+      - "future-holdout diagnostic"
+    nature: "retrospective"
+  probability:
+    event_target: "official WBGT >= 31 C"
+    selected_default: "M4_like_inertia_ridge + logistic_score_calibration + blocked_date_calibration"
+    nature: "retrospective diagnostic companion"
+downstream_consumers:
+  research_reports: "allowed"
+  System_B_temporal_severity: "allowed_with_rules"
+  public_warning: "forbidden"
+  health_risk_forecast: "forbidden"
+system_b_consumption_rules:
+  allowed:
+    - "timestamp_sgt"
+    - "wbgt_a_score_c"
+    - "p_ge31_diagnostic"
+    - "optional S_WBGT or event screening flags"
+  forbidden:
+    - "local WBGT"
+    - "station residual as cell modifier"
+    - "Level 2 station adjustment as cell value"
