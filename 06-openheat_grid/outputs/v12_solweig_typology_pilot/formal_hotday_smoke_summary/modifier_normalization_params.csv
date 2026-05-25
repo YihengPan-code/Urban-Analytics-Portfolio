@@ -1,0 +1,5 @@
+reference_domain_id,scenario_id,hour_sgt,normalization_method,delta_min_c,delta_p05_c,delta_p50_c,delta_p95_c,delta_max_c,n_cells,notes
+current_manifest_batch,base,13,percentile_rank_and_robust01_p05_p95,-28.21109390258789,-23.028038024902344,0.0,0.996533966064453,1.1073799133300781,5,Computed over available rows in current manifest batch.
+current_manifest_batch,base,15,percentile_rank_and_robust01_p05_p95,-29.937393188476562,-24.86593017578125,0.0,0.18785400390625,0.19091033935546875,5,Computed over available rows in current manifest batch.
+current_manifest_batch,overhead_as_canopy,13,percentile_rank_and_robust01_p05_p95,-28.203201293945312,-23.017970275878906,0.0,1.0049209594726562,1.1158905029296875,5,Computed over available rows in current manifest batch.
+current_manifest_batch,overhead_as_canopy,15,percentile_rank_and_robust01_p05_p95,-29.937393188476562,-29.13217239379883,0.0,0.179937744140625,0.1900634765625,5,Computed over available rows in current manifest batch.

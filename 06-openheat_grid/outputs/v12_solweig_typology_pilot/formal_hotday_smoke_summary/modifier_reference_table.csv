@@ -1,0 +1,5 @@
+reference_domain_id,scenario_id,hour_sgt,reference_method,n_reference_cells,tmrt_ref_p90_c,delta_p05_c,delta_p50_c,delta_p95_c,notes
+current_manifest_batch,base,13,same_hour_same_scenario_median_tmrt_p90,5,63.87703323364258,-23.028038024902344,0.0,0.996533966064453,Computed over available rows in current manifest batch.
+current_manifest_batch,base,15,same_hour_same_scenario_median_tmrt_p90,5,66.37628936767578,-24.86593017578125,0.0,0.18785400390625,Computed over available rows in current manifest batch.
+current_manifest_batch,overhead_as_canopy,13,same_hour_same_scenario_median_tmrt_p90,5,63.869140625,-23.017970275878906,0.0,1.0049209594726562,Computed over available rows in current manifest batch.
+current_manifest_batch,overhead_as_canopy,15,same_hour_same_scenario_median_tmrt_p90,5,66.37628936767578,-29.13217239379883,0.0,0.179937744140625,Computed over available rows in current manifest batch.
