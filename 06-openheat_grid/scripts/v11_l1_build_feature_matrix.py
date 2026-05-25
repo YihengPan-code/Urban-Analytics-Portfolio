@@ -97,18 +97,28 @@ def prepare_dataset(df: pd.DataFrame, spec: dict) -> pd.DataFrame:
 def feature_count(df: pd.DataFrame, registry: dict) -> int:
     features: set[str] = set()
     for model in registry["models"]:
-        group = registry["feature_groups"].get(model["feature_group"], [])
-        features.update(c for c in group if c in df.columns)
+        if "feature_blocks" in model:
+            for block in model["feature_blocks"]:
+                for feature in registry.get("feature_blocks", {}).get(block, []):
+                    if feature.endswith("*"):
+                        prefix = feature[:-1]
+                        features.update(c for c in df.columns if c.startswith(prefix))
+                    elif feature in df.columns:
+                        features.add(feature)
+        else:
+            group = registry["feature_groups"].get(model["feature_group"], [])
+            features.update(c for c in group if c in df.columns)
     return len(features)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build Level 1 feature matrices from registry datasets.")
     parser.add_argument("--registry", default="configs/v11/level1_model_registry.yaml")
+    parser.add_argument("--out-dir", default=None, help="Override registry output_dir without changing default reproduction behavior.")
     args = parser.parse_args()
     registry_path = ROOT / args.registry
     registry = load_registry(registry_path)
-    out_dir = ROOT / registry.get("output_dir", "outputs/v11_level1/reproduction")
+    out_dir = ROOT / (args.out_dir if args.out_dir else registry.get("output_dir", "outputs/v11_level1/reproduction"))
     out_dir.mkdir(parents=True, exist_ok=True)
 
     manifest_rows: list[dict[str, object]] = []

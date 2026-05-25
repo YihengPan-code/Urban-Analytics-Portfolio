@@ -1,0 +1,109 @@
+version: v11_l1_sprint2a_feature_ablation
+scope: "System A Level 1 dynamic feature ablation only; sklearn Ridge LOSO; no Level 2, System B, SOLWEIG, v12, or local WBGT."
+output_dir: outputs/v11_level1/feature_ablation
+predictions_filename: oof_predictions_feature_ablation.csv
+cv_scheme: loso
+ridge_alpha: 1.0
+event_thresholds_c: [31, 33]
+reference_metrics_csv: outputs/v11_level1/formal_hourly_reproduction/formal_hourly_oof_derived_metrics.csv
+
+datasets:
+  - dataset_label: hourly_mean
+    target_mode: hourly_mean
+    input_csv: data/calibration/v11/snapshots/v11_pairs_14d_formal_20260524_40419_hourly.csv
+    target_col: official_wbgt_c_mean
+    raw_proxy_col: wbgt_proxy_v09_c
+    filter_mode: retrospective_calibration
+
+  - dataset_label: hourly_max
+    target_mode: hourly_max
+    input_csv: data/calibration/v11/snapshots/v11_pairs_14d_formal_20260524_40419_hourly.csv
+    target_col: official_wbgt_c_max
+    raw_proxy_col: wbgt_proxy_v09_c
+    filter_mode: retrospective_calibration
+
+models:
+  - model: L1_proxy_only
+    feature_blocks: [proxy]
+  - model: L1_proxy_weather
+    feature_blocks: [proxy, weather_core]
+  - model: L1_proxy_radiation
+    feature_blocks: [proxy, radiation_basic, radiation_extra]
+  - model: L1_proxy_time
+    feature_blocks: [proxy, time]
+  - model: L1_proxy_inertia
+    feature_blocks: [proxy, inertia]
+  - model: L1_proxy_weather_radiation
+    feature_blocks: [proxy, weather_core, radiation_basic, radiation_extra]
+  - model: L1_proxy_weather_time
+    feature_blocks: [proxy, weather_core, time]
+  - model: L1_proxy_weather_inertia
+    feature_blocks: [proxy, weather_core, inertia]
+  - model: L1_full_dynamic
+    feature_blocks: [proxy, weather_core, radiation_basic, radiation_extra, time, inertia]
+  - model: M4_like_inertia_ridge
+    feature_blocks: [m4_like_inertia]
+  - model: M7_like_compact_weather_ridge
+    feature_blocks: [m7_like_compact_weather]
+
+feature_blocks:
+  proxy:
+    - wbgt_proxy_v09_c
+  weather_core:
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+  radiation_basic:
+    - shortwave_radiation
+  radiation_extra:
+    - cloud_cover
+    - direct_radiation
+    - diffuse_radiation
+    - solar_zenith_or_proxy
+  time:
+    - hour_sin_v09
+    - hour_cos_v09
+    - period_*
+  inertia:
+    - shortwave_1h_lag
+    - shortwave_2h_lag
+    - shortwave_3h_mean
+    - d_temperature_dt
+    - d_temp_dt
+    - temperature_1h_delta
+    - shortwave_lag_1h
+    - shortwave_lag_2h
+    - cumulative_day_shortwave_whm2
+    - cumulative_day_shortwave_hourly_whm2
+    - temperature_lag_1h
+    - dTair_dt_1h
+    - proxy_lag_1h
+    - proxy_3h_mean
+  m4_like_inertia:
+    - wbgt_proxy_v09_c
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_lag_1h
+    - shortwave_lag_2h
+    - shortwave_3h_mean
+    - cumulative_day_shortwave_whm2
+    - temperature_lag_1h
+    - dTair_dt_1h
+    - proxy_lag_1h
+    - proxy_3h_mean
+    - diffuse_fraction
+    - direct_fraction
+    - cloud_cover
+    - hour_sin_v09
+    - hour_cos_v09
+  m7_like_compact_weather:
+    - wbgt_proxy_v09_c
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+    - hour_sin_v09
+    - hour_cos_v09

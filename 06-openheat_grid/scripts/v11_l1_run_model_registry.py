@@ -59,6 +59,23 @@ def available_features(df: pd.DataFrame, features: list[str]) -> list[str]:
     return [feature for feature in features if feature in df.columns]
 
 
+def expand_features(df: pd.DataFrame, registry: dict, model_spec: dict) -> tuple[list[str], list[str]]:
+    if "feature_blocks" not in model_spec:
+        group_name = model_spec["feature_group"]
+        return available_features(df, registry["feature_groups"].get(group_name, [])), [group_name]
+    features: list[str] = []
+    for block in model_spec["feature_blocks"]:
+        for feature in registry.get("feature_blocks", {}).get(block, []):
+            if feature.endswith("*"):
+                prefix = feature[:-1]
+                features.extend(c for c in df.columns if c.startswith(prefix))
+            elif feature in df.columns:
+                features.append(feature)
+    deduped = list(dict.fromkeys(features))
+    numeric = [feature for feature in deduped if pd.api.types.is_numeric_dtype(df[feature])]
+    return numeric, list(model_spec["feature_blocks"])
+
+
 def fit_predict_sklearn_ridge(
     train: pd.DataFrame,
     test: pd.DataFrame,
@@ -94,8 +111,7 @@ def run_dataset(
     pred_frames: list[pd.DataFrame] = []
     for model_spec in registry["models"]:
         model_name = model_spec["model"]
-        group_name = model_spec["feature_group"]
-        features = available_features(df, registry["feature_groups"].get(group_name, []))
+        features, feature_blocks = expand_features(df, registry, model_spec)
         if not features:
             raise SystemExit(f"[ERROR] no available features for {model_name} on {spec['dataset_label']}")
         oof = pd.Series(np.nan, index=df.index)
@@ -125,11 +141,14 @@ def run_dataset(
         pred_df["target_col"] = spec["target_col"]
         pred_df["raw_proxy_col"] = spec["raw_proxy_col"]
         pred_df["model"] = model_name
+        pred_df["ablation_model"] = model_name
+        pred_df["feature_blocks"] = ";".join(feature_blocks)
         pred_df["cv_scheme"] = "loso"
         pred_df["fold"] = fold_used.to_numpy()
         pred_df["n_folds"] = len(folds)
         pred_df["n_features"] = len(features)
         pred_df["features"] = ";".join(features)
+        pred_df["feature_list"] = ";".join(features)
         pred_df["ridge_backend_requested"] = "sklearn"
         pred_df["ridge_backend"] = "sklearn"
         pred_df["imputation_method"] = IMPUTATION_METHOD
@@ -151,6 +170,7 @@ def run_dataset(
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run registered Level 1 sklearn Ridge models with LOSO OOF prediction.")
     parser.add_argument("--registry", default="configs/v11/level1_model_registry.yaml")
+    parser.add_argument("--out-dir", default=None, help="Override registry output_dir without changing default reproduction behavior.")
     parser.add_argument(
         "--ridge-backend",
         choices=["sklearn"],
@@ -164,15 +184,16 @@ def main() -> int:
     )
     args = parser.parse_args()
     registry = load_registry(ROOT / args.registry)
-    out_dir = ROOT / registry.get("output_dir", "outputs/v11_level1/reproduction")
+    out_dir = ROOT / (args.out_dir if args.out_dir else registry.get("output_dir", "outputs/v11_level1/reproduction"))
     out_dir.mkdir(parents=True, exist_ok=True)
     frames = [run_dataset(registry, spec, out_dir, args.ridge_backend, args.command_run) for spec in registry["datasets"]]
     frames = [frame for frame in frames if not frame.empty]
     if not frames:
         raise SystemExit("[ERROR] no predictions generated")
     preds = pd.concat(frames, ignore_index=True, sort=False)
-    preds.to_csv(out_dir / "oof_predictions_reproduction.csv", index=False)
-    print(f"[OK] wrote {out_dir / 'oof_predictions_reproduction.csv'}")
+    predictions_filename = registry.get("predictions_filename", "oof_predictions_reproduction.csv")
+    preds.to_csv(out_dir / predictions_filename, index=False)
+    print(f"[OK] wrote {out_dir / predictions_filename}")
     return 0
 
 

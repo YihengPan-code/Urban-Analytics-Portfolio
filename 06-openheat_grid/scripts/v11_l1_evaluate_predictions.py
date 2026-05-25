@@ -225,6 +225,7 @@ def write_report(registry: dict, metrics: pd.DataFrame, out_dir: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Evaluate Level 1 reproduction OOF predictions.")
     parser.add_argument("--registry", default="configs/v11/level1_model_registry.yaml")
+    parser.add_argument("--out-dir", default=None, help="Override registry output_dir without changing default reproduction behavior.")
     parser.add_argument(
         "--command-run",
         default=" ".join(sys.argv),
@@ -232,7 +233,7 @@ def main() -> int:
     )
     args = parser.parse_args()
     registry = load_registry(ROOT / args.registry)
-    out_dir = ROOT / registry.get("output_dir", "outputs/v11_level1/reproduction")
+    out_dir = ROOT / (args.out_dir if args.out_dir else registry.get("output_dir", "outputs/v11_level1/reproduction"))
     preds_path = out_dir / "oof_predictions_reproduction.csv"
     if not preds_path.exists():
         raise SystemExit(f"[ERROR] predictions not found: {preds_path}")
