@@ -1,0 +1,101 @@
+schema_version: v1.1-sprint4b1-prospective-metadata-v0.1
+status: example_config_additive_metadata_only
+scope: System A Level 1 archive metadata only
+
+source_lanes:
+  local_loop:
+    description: local long-term archive collector lane
+    may_fetch_live_api: true
+  gha:
+    description: GitHub Actions compact archive continuity lane
+    may_fetch_live_api: true
+  hindcast:
+    description: future reconstruction using provider forecast archive products
+    may_fetch_live_api: false
+
+forecast_provider: open-meteo
+
+forecast_api_product_allowed:
+  - forecast_api
+  - historical_forecast_api
+  - previous_runs_api
+  - single_runs_api
+
+required_future_fields:
+  - issue_valid_pair_id
+  - station_id
+  - valid_time_utc
+  - valid_time_sgt
+  - forecast_provider
+  - forecast_api_product
+  - forecast_retrieved_at_utc
+  - official_observed_at_utc
+  - official_retrieved_at_utc
+  - forecast_lead_time_hours
+  - collector_run_id
+  - source_lane
+  - row_added_at_utc
+  - quality_flag
+
+optional_fields:
+  - forecast_issue_time_utc
+  - model_run_time_utc
+  - forecast_requested_at_utc
+  - forecast_model
+  - forecast_endpoint
+  - forecast_age_hours
+  - openmeteo_grid_lat
+  - openmeteo_grid_lon
+  - official_wbgt_publication_delay_minutes
+  - archive_run_id
+  - gha_run_id
+  - scheduled_at_utc
+  - started_at_utc
+  - completed_at_utc
+
+quality_flags:
+  - ok_prospective_metadata
+  - missing_model_run_time
+  - missing_forecast_issue_time
+  - missing_forecast_retrieved_at
+  - missing_official_retrieved_at
+  - missing_lead_time
+  - legacy_missing_prospective_metadata
+
+fail_closed_rules:
+  lead_time:
+    rule: compute only from model_run_time_utc, or from semantically reliable forecast_issue_time_utc if model_run_time_utc is absent
+    forbidden_substitute: forecast_retrieved_at_utc
+  live_mode:
+    require_before_scoring:
+      - forecast_retrieved_at_utc
+      - official_retrieved_at_utc
+      - forecast_lead_time_hours
+      - issue_valid_pair_id
+    reject_if:
+      - quality_flag contains missing_lead_time
+      - quality_flag contains missing_forecast_retrieved_at
+      - quality_flag contains missing_official_retrieved_at
+      - quality_flag contains legacy_missing_prospective_metadata
+  legacy_rows:
+    handling: preserve as historical evidence and mark missing prospective metadata
+    rewrite_historical_archive: false
+
+output_paths:
+  patch_report_dir: outputs/v11_level1/prospective_eval/metadata_patch
+  smoke_csv: outputs/v11_level1/prospective_eval/metadata_patch/prospective_metadata_schema_smoke.csv
+  smoke_md: outputs/v11_level1/prospective_eval/metadata_patch/prospective_metadata_schema_smoke.md
+  future_prospective_snapshot_pattern: outputs/v11_level1/prospective_eval/snapshots/system_a_level1_prospective_pairs_v0_1_YYYYMMDD_YYYYMMDD.csv.gz
+
+do_not_commit_patterns:
+  - "*.tif"
+  - "*.tiff"
+  - svfs.zip
+  - data/solweig/**
+  - data/rasters/**
+  - data/archive/**
+  - data/raw/buildings_v10/**
+  - outputs/*forecast_live/*hourly_grid_heatstress_forecast*.csv
+  - outputs/v11_level1/prospective_eval/raw_json/**
+  - "*patch*.zip"
+  - "*raw_api_dump*"

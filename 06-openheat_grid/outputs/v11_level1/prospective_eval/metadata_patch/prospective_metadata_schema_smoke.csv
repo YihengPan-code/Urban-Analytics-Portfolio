@@ -1,0 +1,7 @@
+test,passed,detail
+helper creates issue_valid_pair_id,True,ivp_80578384b6707897
+lead_time is None when issue/model time missing,True,None
+lead_time computed correctly when model_run_time exists,True,12.0
+legacy row gets legacy/missing metadata flags,True,missing_model_run_time|missing_forecast_issue_time|missing_forecast_retrieved_at|missing_official_retrieved_at|missing_lead_time|legacy_missing_prospective_metadata
+strict prospective row passes required metadata,True,ok_prospective_metadata
+output columns match expected schema,True,all present
