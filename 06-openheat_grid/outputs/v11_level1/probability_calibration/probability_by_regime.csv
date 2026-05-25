@@ -1,0 +1,2 @@
+status,reason
+skipped_missing_shortwave_or_radiation_regime_in_prediction_outputs,The Sprint 2A OOF prediction table used for probability calibration does not carry shortwave/radiation columns; no new feature join was attempted.
