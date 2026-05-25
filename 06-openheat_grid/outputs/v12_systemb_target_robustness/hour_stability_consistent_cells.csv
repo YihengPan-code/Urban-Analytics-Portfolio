@@ -1,0 +1,15 @@
+scenario,metric,hours_compared,consistent_top_cells,consistent_bottom_cells,n_consistent_top,n_consistent_bottom
+base,tmrt_mean_c,10|12|13|15|16,TP_0059|TP_0366,TP_0326|TP_0542|TP_0835,2,3
+base,tmrt_p75_c,10|12|13|15|16,TP_0059|TP_0565|TP_0986,TP_0326|TP_0542|TP_0835,3,3
+base,tmrt_p90_c,10|12|13|15|16,TP_0059|TP_0565|TP_0986,TP_0326|TP_0542|TP_0835,3,3
+base,tmrt_p95_c,10|12|13|15|16,TP_0326|TP_0565|TP_0986,TP_0366|TP_0542|TP_0835,3,3
+base,tmrt_max_c,10|12|13|15|16,TP_0326|TP_0542|TP_0986,TP_0835,3,1
+base,delta_tmrt_p90_c,10|12|13|15|16,TP_0059|TP_0565|TP_0986,TP_0326|TP_0542|TP_0835,3,3
+base,m_rad_pct,10|12|13|15|16,TP_0059|TP_0565|TP_0986,TP_0326|TP_0542|TP_0835,3,3
+overhead_as_canopy,tmrt_mean_c,10|12|13|15|16,TP_0366|TP_0565,TP_0326|TP_0542|TP_0835,2,3
+overhead_as_canopy,tmrt_p75_c,10|12|13|15|16,TP_0059|TP_0565|TP_0986,TP_0326|TP_0542|TP_0835,3,3
+overhead_as_canopy,tmrt_p90_c,10|12|13|15|16,TP_0565|TP_0986,TP_0326|TP_0542|TP_0835,2,3
+overhead_as_canopy,tmrt_p95_c,10|12|13|15|16,TP_0326|TP_0565|TP_0986,TP_0366|TP_0542|TP_0835,3,3
+overhead_as_canopy,tmrt_max_c,10|12|13|15|16,TP_0326|TP_0542|TP_0986,TP_0059|TP_0366|TP_0835,3,3
+overhead_as_canopy,delta_tmrt_p90_c,10|12|13|15|16,TP_0565|TP_0986,TP_0326|TP_0542|TP_0835,2,3
+overhead_as_canopy,m_rad_pct,10|12|13|15|16,TP_0565|TP_0986,TP_0326|TP_0542|TP_0835,2,3

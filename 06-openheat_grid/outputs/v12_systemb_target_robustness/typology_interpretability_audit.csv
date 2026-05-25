@@ -1,0 +1,17 @@
+scenario,cell_id,typology_label,shade_label,overhead_label,hardscape_label,wooded_label,road_edge_label,water_adjacent_label,average_tmrt_p90_rank,average_m_rad_pct,is_consistent_hot_anchor,is_consistent_cool_anchor,notes
+base,TP_0059,open_paved_hardscape_parking_lot,False,False,True,True,False,False,1.0,0.75,True,False,
+base,TP_0326,stable_high_rise_residential_estate,False,False,False,False,False,False,1.0,0.375,False,True,
+base,TP_0366,school_gate_bus_stop_waiting_node,False,False,False,False,False,False,1.0,0.5,False,False,pedestrian relevance cue in label
+base,TP_0542,river_edge_shaded_walkway,True,False,False,False,False,True,1.0,0.25,False,True,pedestrian relevance cue in label
+base,TP_0565,school_gate_road_edge_hot_anchor,False,False,False,False,True,False,1.0,0.875,True,False,pedestrian relevance cue in label
+base,TP_0627,street_canyon_wall_adjacent_low_svf,False,False,False,True,False,False,1.0,0.625,False,False,
+base,TP_0835,grass_park_green_mixed,False,False,False,True,False,False,1.0,0.125,False,True,
+base,TP_0986,low_rise_residential_null_control,False,False,False,False,False,False,1.0,1.0,True,False,
+overhead_as_canopy,TP_0059,open_paved_hardscape_parking_lot,False,False,True,True,False,False,1.0,0.725,False,False,
+overhead_as_canopy,TP_0326,stable_high_rise_residential_estate,False,False,False,False,False,False,1.0,0.375,False,True,
+overhead_as_canopy,TP_0366,school_gate_bus_stop_waiting_node,False,False,False,False,False,False,1.0,0.5,False,False,pedestrian relevance cue in label
+overhead_as_canopy,TP_0542,river_edge_shaded_walkway,True,False,False,False,False,True,1.0,0.25,False,True,pedestrian relevance cue in label
+overhead_as_canopy,TP_0565,school_gate_road_edge_hot_anchor,False,False,False,False,True,False,1.0,0.875,True,False,pedestrian relevance cue in label
+overhead_as_canopy,TP_0627,street_canyon_wall_adjacent_low_svf,False,False,False,True,False,False,1.0,0.65,False,False,
+overhead_as_canopy,TP_0835,grass_park_green_mixed,False,False,False,True,False,False,1.0,0.125,False,True,
+overhead_as_canopy,TP_0986,low_rise_residential_null_control,False,False,False,False,False,False,1.0,1.0,True,False,
