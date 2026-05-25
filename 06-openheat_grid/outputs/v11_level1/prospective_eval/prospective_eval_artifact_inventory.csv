@@ -1,0 +1,66 @@
+artifact_path,artifact_type,exists,row_count_if_easy,contains_timestamp_sgt,contains_timestamp_utc,contains_valid_time,contains_forecast_issue_time,contains_model_run_time,contains_forecast_retrieved_at,contains_collection_time,contains_scheduled_at_utc,contains_started_at_utc,contains_completed_at_utc,contains_archive_run_id,contains_source,contains_lead_time,contains_openmeteo_metadata,contains_nea_observation_metadata,can_support_retrospective_calibration,can_support_hindcast_reconstruction,can_support_live_prospective_eval,notes
+.github/workflows,dir,yes,children=1,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+.github/workflows/archive_nea_observations.yml,workflow,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,yes,no,no,no,
+.github/workflows/v11_archive_collector.yml,workflow,no,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,missing expected artifact
+configs/v11/system_a_level1_output_contract.yaml,yaml,yes,,yes,yes,no,no,no,no,no,no,no,no,no,yes,no,no,yes,no,no,no,
+configs/v11/v11_alpha_archive_config.example.json,json,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,yes,yes,no,no,no,
+configs/v11/v11_archive_gha_config.example.json,json,yes,,no,no,yes,no,no,no,no,no,no,no,no,yes,no,yes,yes,yes,no,no,
+configs/v11/v11_archive_gha_config.json,json,yes,,no,no,yes,no,no,no,no,no,no,no,no,yes,no,yes,yes,yes,no,no,
+configs/v11/v11_longterm_archive_config.example.json,json,yes,,no,no,yes,no,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,no,
+data/archive/v11_longterm/normalized/nea_station_weather_v11_longterm_wide.csv,csv,yes,39181,yes,yes,no,no,no,no,no,no,no,no,no,no,no,no,yes,no,no,no,
+data/archive/v11_longterm/normalized/nea_wbgt_v11_longterm_normalized.csv,csv,yes,41472,yes,yes,no,no,no,no,yes,no,no,no,yes,no,no,no,yes,no,no,no,
+data/archive/v11_longterm/normalized/openmeteo_forecast_snapshots_v11_longterm.csv,csv,yes,1132992,no,yes,yes,yes,no,no,yes,no,no,no,yes,yes,no,yes,yes,yes,yes,no,"forecast_issue_time-like field exists, but provider model_run_time is absent"
+data/archive/v11_longterm/paired/v11_operational_station_weather_pairs.csv,csv,yes,41472,yes,yes,yes,yes,no,yes,yes,no,no,no,yes,yes,yes,yes,yes,yes,yes,no,"forecast_issue_time-like field exists, but provider model_run_time is absent; issue_age_hours exists; lead_time_hours is not stored"
+data/calibration/v11,dir,yes,children=6,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+data/calibration/v11/live_chunks,dir,yes,children=1,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+data/calibration/v11/live_chunks/wbgt_pairs_2026-05-24.csv.gz,csv,yes,243,yes,yes,yes,yes,no,yes,yes,no,no,no,yes,yes,yes,yes,yes,yes,yes,no,"forecast_issue_time-like field exists, but provider model_run_time is absent; issue_age_hours exists; lead_time_hours is not stored"
+data/calibration/v11/snapshots,dir,yes,children=3,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+data/calibration/v11/snapshots/v11_pairs_14d_formal_20260524_40419.csv,csv,yes,40419,yes,yes,yes,yes,no,yes,yes,no,no,no,yes,yes,yes,yes,yes,yes,yes,no,"forecast_issue_time-like field exists, but provider model_run_time is absent; issue_age_hours exists; lead_time_hours is not stored"
+data/calibration/v11/snapshots/v11_pairs_14d_formal_20260524_40419_hourly.csv,csv,yes,10476,yes,no,no,no,no,no,no,no,no,no,yes,yes,no,yes,yes,no,no,no,
+data/calibration/v11/snapshots/v11_pairs_14d_formal_20260524_40419_v091.csv,csv,yes,40419,yes,yes,yes,yes,no,yes,yes,no,no,no,yes,yes,yes,yes,yes,yes,yes,no,"forecast_issue_time-like field exists, but provider model_run_time is absent; issue_age_hours exists; lead_time_hours is not stored"
+data/calibration/v11/v11_station_weather_pairs.csv,csv,yes,41472,yes,yes,yes,yes,no,yes,yes,no,no,no,yes,yes,yes,yes,yes,yes,yes,no,"forecast_issue_time-like field exists, but provider model_run_time is absent; issue_age_hours exists; lead_time_hours is not stored"
+data/calibration/v11/v11_station_weather_pairs_v091.csv,csv,yes,6372,yes,yes,yes,yes,no,yes,yes,no,no,no,yes,yes,yes,yes,yes,yes,yes,no,"forecast_issue_time-like field exists, but provider model_run_time is absent; issue_age_hours exists; lead_time_hours is not stored"
+data/calibration/v11/v11_station_weather_pairs_v091_features.csv,csv,no,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,missing expected artifact
+docs/handoff/OpenHeat_v1_1_v1_2_canonical_development_handoff_2026-05-24.md,md,yes,,no,no,yes,no,no,no,no,yes,yes,yes,no,yes,no,yes,yes,yes,no,no,
+docs/v11/OpenHeat_GHA_archive_ops_note_CN.md,md,yes,,no,no,no,no,no,no,no,yes,yes,yes,no,yes,no,no,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+docs/v11/SystemA_Level1_Interim_Model_Card_CN.md,md,yes,,no,no,no,no,no,no,no,no,no,no,no,yes,no,yes,yes,no,no,no,
+outputs/v11_archive_ops,dir,yes,children=19,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+outputs/v11_archive_ops/gha_context_latest.json,json,yes,,no,no,no,no,no,no,no,no,no,no,yes,no,no,no,no,no,no,no,
+outputs/v11_archive_ops/gha_health_latest.json,json,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+outputs/v11_archive_ops/gha_health_latest.md,md,yes,,no,no,yes,no,no,no,no,no,no,no,no,no,no,no,yes,yes,no,no,
+outputs/v11_archive_ops/gha_run_manifest_20260524.csv,csv,yes,10,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_121639Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,no,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_123922Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_140630Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_152200Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_163304Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_173842Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_185517Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_201534Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_211548Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_gha_20260524_221557Z.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/gha_run_manifest_latest.json,json,yes,,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,no,no,no,run manifest timing exists separately from paired valid-time rows
+outputs/v11_archive_ops/local_check_gha_chunks.json,json,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+outputs/v11_archive_ops/local_check_gha_chunks.md,md,yes,,no,no,yes,no,no,no,no,no,no,no,no,no,no,no,yes,yes,no,no,
+outputs/v11_archive_ops/local_health_test.json,json,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+outputs/v11_archive_ops/local_health_test.md,md,yes,,yes,no,no,no,no,no,no,no,no,no,no,no,no,no,yes,no,no,no,
+outputs/v11_level1/model_card/system_a_level1_claim_boundary_matrix.csv,csv,yes,11,yes,no,no,no,no,no,no,no,no,no,no,yes,no,no,no,no,no,no,
+outputs/v11_level1/model_card/system_a_level1_current_recommendations.md,md,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+outputs/v11_level1/model_card/system_a_level1_output_contract.md,md,yes,,yes,yes,no,no,no,no,no,no,no,no,no,yes,no,no,yes,no,no,no,
+scripts/archive_nea_observations.py,py,yes,,no,no,no,no,no,no,no,no,no,no,no,yes,no,no,yes,no,no,no,
+scripts/v09_archive_qa.py,py,yes,,yes,no,no,no,no,no,no,no,no,no,no,no,no,no,yes,no,no,no,
+scripts/v09_fetch_historical_forecast_for_archive.py,py,yes,,no,no,no,no,no,no,no,no,no,no,no,yes,no,yes,yes,no,no,no,
+scripts/v10_archive_preflight.py,py,yes,,yes,no,no,no,no,no,no,no,no,no,no,no,no,no,yes,no,no,no,
+scripts/v11_alpha_archive_inventory.py,py,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,yes,no,no,no,
+scripts/v11_alpha_archive_qa.py,py,yes,,yes,no,no,no,no,no,no,no,no,no,no,yes,yes,yes,yes,no,no,no,
+scripts/v11_archive_cleanup_raw_json.py,py,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+scripts/v11_archive_collect_once.py,py,yes,,yes,yes,yes,yes,no,no,yes,no,no,no,yes,yes,yes,yes,yes,yes,yes,no,"forecast_issue_time-like field exists, but provider model_run_time is absent"
+scripts/v11_archive_commit_guard.py,py,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,
+scripts/v11_archive_force_openmeteo_backfill.py,py,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,yes,yes,no,no,no,
+scripts/v11_archive_gha_collect_once.py,py,yes,,yes,yes,yes,no,no,no,no,yes,yes,yes,yes,yes,no,yes,yes,yes,no,no,
+scripts/v11_archive_health_check.py,py,yes,,yes,no,no,no,no,no,no,no,no,no,no,no,no,no,yes,no,no,no,
+scripts/v11_archive_health_summary.py,py,yes,,yes,yes,yes,no,no,no,no,no,no,no,no,no,no,yes,yes,yes,no,no,
+scripts/v11_archive_migrate_legacy.py,py,yes,,no,yes,no,no,no,no,yes,no,no,no,no,yes,no,no,yes,no,no,no,
+scripts/v11_archive_preflight.py,py,yes,,no,no,no,no,no,no,no,no,no,no,no,no,no,yes,yes,no,no,no,
+scripts/v11_archive_rebuild_normalized.py,py,yes,,yes,no,no,no,no,no,no,no,no,no,no,no,no,yes,yes,no,no,no,
+scripts/v11_beta_build_features.py,py,yes,,yes,no,yes,no,no,no,no,no,no,no,yes,yes,yes,yes,yes,yes,no,no,

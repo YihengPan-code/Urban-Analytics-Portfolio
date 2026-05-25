@@ -1,0 +1,114 @@
+version: v1.1-sprint4b-prospective-eval-example
+status: example_config_design_only
+scope: System A Level 1 prospective evaluation design
+
+input_patterns:
+  retrospective_pairs: data/calibration/v11/snapshots/*.csv
+  live_chunks: data/calibration/v11/live_chunks/*.csv.gz
+  prospective_pairs: outputs/v11_level1/prospective_eval/snapshots/*.csv.gz
+
+official_archive_pattern: data/calibration/v11/live_chunks/*.csv.gz
+forecast_archive_pattern: outputs/v11_level1/prospective_eval/forecast_snapshots/*.csv.gz
+output_dir: outputs/v11_level1/prospective_eval
+
+required_metadata_fields:
+  - issue_valid_pair_id
+  - station_id
+  - valid_time_utc
+  - valid_time_sgt
+  - forecast_issue_time_utc
+  - forecast_retrieved_at_utc
+  - forecast_lead_time_hours
+  - forecast_provider
+  - forecast_endpoint
+  - forecast_api_product
+  - official_wbgt_c
+  - official_observed_at_utc
+  - official_retrieved_at_utc
+  - collector_run_id
+  - source_lane
+  - quality_flag
+
+optional_metadata_fields:
+  - model_run_time_utc
+  - forecast_model
+  - forecast_requested_at_utc
+  - forecast_age_hours
+  - openmeteo_grid_lat
+  - openmeteo_grid_lon
+  - archive_run_id
+  - gha_run_id
+  - scheduled_at_utc
+  - started_at_utc
+  - completed_at_utc
+  - row_added_at_utc
+  - official_wbgt_publication_delay_minutes
+
+lead_time_bins:
+  nowcast_like_0h: {min_hours: -0.25, max_hours: 0.5}
+  1h: {min_hours: 0.5, max_hours: 1.5}
+  3h: {min_hours: 2.5, max_hours: 3.5}
+  6h: {min_hours: 5.5, max_hours: 6.5}
+  12h: {min_hours: 11.5, max_hours: 12.5}
+  24h: {min_hours: 23.5, max_hours: 24.5}
+
+targets:
+  regression_target: official_wbgt_c
+  event_ge31: official_wbgt_c >= 31
+  event_ge33: official_wbgt_c >= 33
+
+model_score_fields:
+  - wbgt_proxy_v09_c
+  - wbgt_a_score_c
+
+probability_fields:
+  - p_ge31_diagnostic
+
+quality_flags:
+  ok: usable prospective row
+  missing_issue_time: forecast issue/model time absent
+  missing_valid_time: valid time absent
+  missing_retrieval_time: forecast or official retrieval time absent
+  stale_forecast: forecast age exceeds configured maximum
+  fetched_after_valid_time: forecast retrieval happened after valid time for a non-hindcast mode
+  missing_station: station metadata unavailable
+  missing_official_wbgt: official target missing
+  legacy_missing_prospective_metadata: historical row without prospective fields
+
+minimum_row_counts:
+  smoke_24h_rows: 500
+  smoke_7d_rows: 3000
+  formal_14d_rows: 6000
+  preferred_30d_rows: 12000
+
+minimum_event_counts:
+  ge31_warning: 30
+  ge31_preferred: 100
+  ge33_warning: 20
+  ge33_preferred: 50
+
+do_not_commit_outputs:
+  - "*.tif"
+  - "*.tiff"
+  - data/solweig/**
+  - data/rasters/**
+  - data/archive/**
+  - outputs/*forecast_live/*hourly_grid_heatstress_forecast*.csv
+  - outputs/v11_level1/prospective_eval/raw_json/**
+
+evaluation_modes:
+  retrospective:
+    enabled: true
+    description: valid-time calibration using existing retrospective artifacts
+    requires_forecast_issue_time: false
+  hindcast_reconstruction:
+    enabled: false
+    description: reconstruct past issue-time forecasts from provider archive products
+    requires_forecast_issue_time: true
+    requires_model_run_time: true
+  live_prospective:
+    enabled: false
+    description: score forecasts collected live before valid_time after official observations arrive
+    requires_forecast_issue_time: true
+    requires_retrieval_time: true
+    requires_official_retrieval_time: true
