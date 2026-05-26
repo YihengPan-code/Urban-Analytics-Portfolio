@@ -1,0 +1,74 @@
+lane: A-L1H.1
+description: System A L1H formula-v2 / physical proxy diagnostic audit.
+
+inputs:
+  residual_weather_merge: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/residual_weather_merge_full_period.csv
+  residual_analysis_input: outputs/v11_systema_l1_high_tail/residual_decomposition/residual_analysis_input.csv
+  oof_predictions: outputs/v11_beta_calibration/hourly_max/v11_beta_oof_predictions.csv
+  optional_input_paths:
+    - outputs/v11_level1/formula_v2/formula_candidate_registry.csv
+    - outputs/v11_level1/formula_v2/raw_formula_metrics.csv
+    - outputs/v11_level1/formula_v2/raw_formula_threshold_metrics.csv
+    - outputs/v11_level1/formula_v2/sprint3a_formula_v2_proxy_benchmark_report.md
+    - outputs/v11_formula_audit/formula_bias_mae_rmse_table.csv
+    - outputs/v11_formula_audit/formula_threshold_operating_points.csv
+    - outputs/v11_formula_audit/System_A_WBGT_formula_audit_report.md
+    - data/calibration/v11/live_chunks/wbgt_pairs_2026-05-24.csv.gz
+    - outputs/v11_beta_formal/diagnostics_inputs/v11_pairs_14d_formal_20260524_40419_v091_diag.csv
+
+schema:
+  station_col: station_id
+  timestamp_col: timestamp
+  merge_time_col: merge_time_sgt_hour
+  target_col: official_wbgt_c
+  model_name_col: model_name
+  model_score_col: model_score
+  oof_model_col: model
+  oof_proxy_col: wbgt_proxy_v09_c
+  oof_target_col: official_wbgt_c_max
+  required_weather_columns:
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+  optional_weather_columns:
+    - shortwave_3h_mean
+    - direct_radiation
+    - diffuse_radiation
+    - cloud_cover
+    - precipitation
+
+candidates:
+  score_comparators:
+    - M4_inertia_ridge
+    - M7_compact_weather_ridge
+  k_values:
+    - 0.002
+    - 0.003
+    - 0.0045
+    - 0.006
+    - 0.008
+    - 0.010
+    - 0.012
+  wind_floor_values:
+    - 0.25
+    - 0.5
+    - 1.0
+  radiation_inputs:
+    - shortwave_radiation
+    - shortwave_3h_mean
+    - direct_plus_diffuse
+
+analysis:
+  threshold_scan_start_c: 24.0
+  threshold_scan_stop_c: 34.0
+  threshold_scan_step_c: 0.05
+  decision_mae_degradation_limit_c: 0.25
+  decision_high_tail_residual_improvement_c: 0.25
+  decision_threshold_gap_improvement_c: 0.5
+  severe_false_alarm_multiplier: 2.0
+  radiation_hot_label: radiation_hot
+  very_high_label: very_high
+
+outputs:
+  output_dir: outputs/v11_systema_l1_high_tail/formula_proxy_audit
