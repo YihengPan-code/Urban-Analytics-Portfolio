@@ -1,0 +1,45 @@
+# Sprint B5 B4 Decision Validation
+
+## Status
+PASS
+
+This validation checks that the B4 N24 decision can be carried forward without upgrading claims beyond the N24-internal evidence base.
+
+|section|check|status|observed|expected|note|
+|---|---|---|---|---|---|
+|B4 report|report exists|PASS|outputs/v12_systemb_n24_target_robustness/sprint_b4_n24_target_robustness_report.md|present||
+|B4 report|status is PASS|PASS|PASS|PASS||
+|B4 decision|decision matrix exists|PASS|outputs/v12_systemb_n24_target_robustness/n24_target_decision_matrix.csv|present||
+|B3 report|B3 report exists|PASS|outputs/v12_solweig_n24_execution/sprint_b3_n24_solweig_execution_report.md|present||
+|B3 focus|focus summary exists|PASS|240 rows|240 rows||
+|B3 delta|base-vs-overhead delta exists|PASS|120 rows|120 rows||
+|B3 modifier|provisional modifier exists|PASS|240 rows|present||
+|B4 decision|tmrt_p90_c is N24-supported primary candidate|PASS|n24_supported_primary_candidate|n24_supported_primary_candidate or equivalent||
+|B4 decision|tmrt_p75_c has companion/sensitivity status|PASS|companion_required|companion / sensitivity status||
+|B4 decision|tmrt_p95_c has companion/sensitivity status|PASS|companion_required|companion / sensitivity status||
+|B4 decision|tmrt_mean_c has companion/sensitivity status|PASS|background_companion|companion / sensitivity status||
+|B4 decision|tmrt_max_c has companion/sensitivity status|PASS|sensitivity_only|companion / sensitivity status||
+|B4 decision|pct_pixels_tmrt_ge_40 exists as threshold-area metric|PASS|optional_companion|optional companion / sensitivity||
+|B4 decision|pct_pixels_tmrt_ge_45 exists as threshold-area metric|PASS|optional_companion|optional companion / sensitivity||
+|B4 decision|pct_pixels_tmrt_ge_50 exists as threshold-area metric|PASS|optional_companion|optional companion / sensitivity||
+|B4 decision|pct_pixels_tmrt_ge_55 exists as threshold-area metric|PASS|optional_companion|optional companion / sensitivity||
+|B4 decision|delta_tmrt_p90_c caveated as derived/provisional|PASS|derived_provisional_companion|derived / provisional caveat||
+|B4 decision|m_rad_pct_provisional caveated as derived/provisional|PASS|derived_provisional_companion|derived / provisional caveat||
+|B3 focus|pct_pixels_tmrt_ge_40 present in focus summary|PASS|True|column present||
+|B3 focus|pct_pixels_tmrt_ge_45 present in focus summary|PASS|True|column present||
+|B3 focus|pct_pixels_tmrt_ge_50 present in focus summary|PASS|True|column present||
+|B3 focus|pct_pixels_tmrt_ge_55 present in focus summary|PASS|True|column present||
+|Claim boundary|B4 did not claim final AOI-wide M_rad|PASS|True|explicit no-final-AOI-wide caveat||
+|Claim boundary|B4 did not claim risk|PASS|True|risk forbidden/caveated||
+|Input inventory|outputs/v12_systemb_n24_target_robustness/n24_target_rank_correlation.csv|PASS|present|present||
+|Input inventory|outputs/v12_systemb_n24_target_robustness/n24_target_topk_overlap.csv|PASS|present|present||
+|Input inventory|outputs/v12_systemb_n24_target_robustness/n24_hour_stability_rank_correlation.csv|PASS|present|present||
+|Input inventory|outputs/v12_systemb_n24_target_robustness/n24_base_vs_overhead_sensitivity_summary.csv|PASS|present|present||
+|Input inventory|outputs/v12_systemb_n24_target_robustness/n24_threshold_area_audit.csv|PASS|present|present||
+|Input inventory|outputs/v12_systemb_n24_target_robustness/n24_tail_heterogeneity_diagnostics.csv|PASS|present|present||
+|Input inventory|docs/v12/OpenHeat_SystemB_N24_target_robustness_reaudit_CN.md|PASS|present|present||
+|Input inventory|docs/v12/OpenHeat_SystemB_product_taxonomy_CN.md|PASS|present|present||
+|Input inventory|docs/v12/OpenHeat_SystemB_N24_companion_metric_plan_CN.md|PASS|present|present||
+|Input inventory|docs/v12/OpenHeat_SystemB_target_robustness_protocol_CN.md|PASS|present|present||
+|Input inventory|docs/v12/OpenHeat_SystemB_architecture_discussion_record_CN.md|PASS|missing optional|present if available||
+|Input inventory|outputs/v12_systemb_target_robustness/systemb_target_decision_matrix.csv|PASS|present|present if available||

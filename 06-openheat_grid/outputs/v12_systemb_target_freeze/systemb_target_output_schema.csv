@@ -1,0 +1,31 @@
+field,type,requirement,description
+cell_id,string,required,cell identifier
+hour_sgt,integer,required,Singapore local hour
+scenario,string,required,SOLWEIG scenario
+reference_domain_version,string,required,reference domain used for modifier normalization
+target_version,string,required,target contract version
+tmrt_mean_c,float,required_companion,cell-average radiant exposure
+tmrt_p50_c,float,optional_companion,median radiant exposure
+tmrt_p75_c,float,required_companion,upper shoulder radiant exposure
+tmrt_p90_c,float,primary_target,mixed-cell upper-tail radiant exposure
+tmrt_p95_c,float,required_companion,higher-tail radiant exposure
+tmrt_max_c,float,sensitivity_only,pixel-level extreme
+pct_pixels_tmrt_ge_40,float,optional_threshold_area_companion,percent pixels at or above 40 C Tmrt
+pct_pixels_tmrt_ge_45,float,optional_threshold_area_companion,percent pixels at or above 45 C Tmrt
+pct_pixels_tmrt_ge_50,float,optional_threshold_area_companion,percent pixels at or above 50 C Tmrt
+pct_pixels_tmrt_ge_55,float,optional_threshold_area_companion,percent pixels at or above 55 C Tmrt
+tmrt_ref_p90_c,float,reference,same-hour same-scenario reference median p90
+delta_tmrt_p90_c,float,primary_modifier_delta,p90 minus reference p90
+m_rad_pct01,float,normalized_modifier,0-1 average-rank normalized delta
+target_quality_flag,string,required,OK or explicit quality caveat
+source,string,required,solweig_observed / surrogate_predicted / provisional_n24
+raw_solweig_available,boolean,required,whether raw SOLWEIG output is locally available
+notes,string,optional,free-text caveat
+local_wbgt_c,forbidden,forbidden_in_systemb_target_output,reserved for future/non-System-B contracts; not produced by B5 target outputs
+wbgt_cell_c,forbidden,forbidden_in_systemb_target_output,reserved for future/non-System-B contracts; not produced by B5 target outputs
+delta_wbgt_cell,forbidden,forbidden_in_systemb_target_output,reserved for future/non-System-B contracts; not produced by B5 target outputs
+hazard_score,forbidden,forbidden_in_systemb_target_output,reserved for future/non-System-B contracts; not produced by B5 target outputs
+risk_score,forbidden,forbidden_in_systemb_target_output,reserved for future/non-System-B contracts; not produced by B5 target outputs
+exposure_score,forbidden,forbidden_in_systemb_target_output,reserved for future/non-System-B contracts; not produced by B5 target outputs
+vulnerability_score,forbidden,forbidden_in_systemb_target_output,reserved for future/non-System-B contracts; not produced by B5 target outputs
+official_warning_probability,forbidden,forbidden_in_systemb_target_output,reserved for future/non-System-B contracts; not produced by B5 target outputs

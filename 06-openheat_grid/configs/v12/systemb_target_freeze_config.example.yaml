@@ -1,0 +1,49 @@
+target_version: systemb_target_family_v0_1_b5
+primary_target: tmrt_p90_c
+primary_modifier_delta: delta_tmrt_p90_c
+normalized_modifier: m_rad_pct01
+reference_rule: same_hour_same_scenario_reference_domain_median
+percentile_rank_rule: rank_average_minus_1_over_n_minus_1
+reference_domain_versions:
+  - n24_internal_b3
+  - n150_training_future
+  - full_aoi_prediction_future
+scenarios:
+  - base
+  - overhead_as_canopy
+hours_sgt:
+  - 10
+  - 12
+  - 13
+  - 15
+  - 16
+required_companions:
+  - tmrt_p75_c
+  - tmrt_p95_c
+  - tmrt_mean_c
+  - tmrt_max_c
+optional_threshold_area_companions:
+  - pct_pixels_tmrt_ge_40
+  - pct_pixels_tmrt_ge_45
+  - pct_pixels_tmrt_ge_50
+  - pct_pixels_tmrt_ge_55
+forbidden_claims:
+  - local_wbgt
+  - risk
+  - observed_truth
+  - official_warning
+  - final_aoi_mrad_before_surrogate_or_full_aoi
+output_contract:
+  target_family_table: outputs/v12_systemb_target_freeze/systemb_target_family_freeze.csv
+  schema_table: outputs/v12_systemb_target_freeze/systemb_target_output_schema.csv
+  surrogate_label_contract: outputs/v12_systemb_target_freeze/systemb_surrogate_label_contract.csv
+  claim_boundary_matrix: outputs/v12_systemb_target_freeze/systemb_downstream_claim_boundary_matrix.csv
+non_goals:
+  - no_solweig_rerun
+  - no_qgis
+  - no_raw_raster_reads
+  - no_local_wbgt
+  - no_hazard_score
+  - no_risk_score
+  - no_surrogate_training
+  - no_system_a_b_coupling

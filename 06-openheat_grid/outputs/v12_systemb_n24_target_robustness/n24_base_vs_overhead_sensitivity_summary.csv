@@ -1,0 +1,10 @@
+metric,n_rows,mean_delta,median_delta,min_delta,max_delta,count_hours_cooled,count_hours_unchanged,count_hours_warmed,interpretation_note
+delta_tmrt_mean_c,120,-1.4535023053487142,-0.040596008300781194,-17.265151977539062,0.0,69,51,0,"overhead_as_canopy minus base; sensitivity scenario, not absolute truth"
+delta_tmrt_p75_c,120,-0.6621996243794759,-0.02993965148925775,-11.648841857910156,0.0031661987304687,67,53,0,"overhead_as_canopy minus base; sensitivity scenario, not absolute truth"
+delta_tmrt_p90_c,120,-0.45358378092447915,-0.00394630432128905,-11.533084869384766,0.0,56,64,0,"overhead_as_canopy minus base; sensitivity scenario, not absolute truth"
+delta_tmrt_p95_c,120,-0.2649188677469889,0.0,-3.084705352783203,0.0032577514648437,48,72,0,"overhead_as_canopy minus base; sensitivity scenario, not absolute truth"
+delta_tmrt_max_c,120,-0.1193582534790039,0.0,-1.215179443359375,0.0,28,92,0,"overhead_as_canopy minus base; sensitivity scenario, not absolute truth"
+delta_pct_pixels_ge_40,120,-6.243333333333333,-0.0799999999999983,-74.52000000000001,0.0,63,57,0,"overhead_as_canopy minus base; sensitivity scenario, not absolute truth"
+delta_pct_pixels_ge_45,120,-7.361666666666667,0.0,-94.8,0.0,56,64,0,"overhead_as_canopy minus base; sensitivity scenario, not absolute truth"
+delta_pct_pixels_ge_50,120,-5.864999999999999,0.0,-95.08,0.0,42,78,0,"overhead_as_canopy minus base; sensitivity scenario, not absolute truth"
+delta_pct_pixels_ge_55,120,-4.312333333333333,0.0,-77.6,0.0,38,82,0,"overhead_as_canopy minus base; sensitivity scenario, not absolute truth"

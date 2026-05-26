@@ -1,0 +1,49 @@
+# Sprint B4 Input Validation
+
+Status: **PASS**
+
+This validation read existing CSV/Markdown summaries only. It did not rerun SOLWEIG, QGIS, qgis_process, read rasters, compute local WBGT, compute hazard_score/risk_score, train a surrogate, or perform System A/B coupling.
+
+## Summary
+
+- PASS: `33`
+- WARN: `0`
+- FAIL: `0`
+
+## Checks
+
+| section                | check                                                                             | status   | observed                                    | expected                                    | note                                             |
+|:-----------------------|:----------------------------------------------------------------------------------|:---------|:--------------------------------------------|:--------------------------------------------|:-------------------------------------------------|
+| files                  | outputs/v12_solweig_n24_execution/sprint_b3_n24_solweig_execution_report.md       | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_solweig_n24_execution/b3_3_execution_completion_validation.md         | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_solweig_n24_execution/n24_solweig_run_log.csv                         | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_solweig_n24_execution/n24_focus_tmrt_summary.csv                      | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_solweig_n24_execution/n24_base_vs_overhead_delta.csv                  | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_systemb_n24_sample_design/n24_selected_cells_b2_2_human_qa_freeze.csv | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_systemb_n24_sample_design/n24_diagnostic_role_coverage.csv            | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_systemb_n24_sample_design/n24_typology_coverage_matrix.csv            | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_systemb_n24_sample_design/sprint_b2_2_n24_human_qa_freeze_report.md   | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_systemb_target_robustness/systemb_target_decision_matrix.csv          | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_systemb_target_robustness/systemb_target_robustness_report.md         | PASS     | True                                        | True                                        |                                                  |
+| files                  | docs/v12/OpenHeat_SystemB_target_robustness_protocol_CN.md                        | PASS     | True                                        | True                                        |                                                  |
+| files                  | docs/v12/OpenHeat_SystemB_N24_companion_metric_plan_CN.md                         | PASS     | True                                        | True                                        |                                                  |
+| files                  | docs/v12/OpenHeat_SystemB_product_taxonomy_CN.md                                  | PASS     | True                                        | True                                        |                                                  |
+| files                  | outputs/v12_solweig_n24_execution/n24_modifier_targets_provisional.csv            | PASS     | True                                        | True                                        |                                                  |
+| b3_report              | status_pass                                                                       | PASS     | True                                        | True                                        |                                                  |
+| b3_validation          | status_pass                                                                       | PASS     | True                                        | True                                        |                                                  |
+| focus_tmrt_summary     | rows                                                                              | PASS     | 240                                         | 240                                         |                                                  |
+| base_vs_overhead_delta | rows                                                                              | PASS     | 120                                         | 120                                         |                                                  |
+| provisional_modifier   | rows                                                                              | PASS     | 240                                         | 240                                         | N24-internal only; not final AOI-wide M_rad_pct. |
+| focus_tmrt_summary     | unique_cells                                                                      | PASS     | 24                                          | 24                                          |                                                  |
+| focus_tmrt_summary     | scenarios                                                                         | PASS     | base, overhead_as_canopy                    | base, overhead_as_canopy                    |                                                  |
+| focus_tmrt_summary     | hours                                                                             | PASS     | 10, 12, 13, 15, 16                          | 10, 12, 13, 15, 16                          |                                                  |
+| focus_tmrt_summary     | required_metric_columns                                                           | PASS     | present                                     | all required metrics                        |                                                  |
+| focus_tmrt_summary     | valid_pixel_count_complete                                                        | PASS     | 240                                         | 240                                         |                                                  |
+| focus_tmrt_summary     | replacement_in_cells_present                                                      | PASS     | TP_0141, TP_0301, TP_0773, TP_0676, TP_0575 | TP_0141, TP_0301, TP_0773, TP_0676, TP_0575 |                                                  |
+| focus_tmrt_summary     | replaced_out_cells_absent                                                         | PASS     | none                                        | none                                        |                                                  |
+| base_vs_overhead_delta | unique_cells                                                                      | PASS     | 24                                          | 24                                          |                                                  |
+| base_vs_overhead_delta | hours                                                                             | PASS     | 10, 12, 13, 15, 16                          | 10, 12, 13, 15, 16                          |                                                  |
+| base_vs_overhead_delta | delta_metric_columns                                                              | PASS     | present                                     | all required delta aliases                  |                                                  |
+| b2_2_selected_cells    | unique_cells                                                                      | PASS     | 24                                          | 24                                          |                                                  |
+| b2_2_selected_cells    | replacement_in_cells_present                                                      | PASS     | TP_0141, TP_0301, TP_0773, TP_0676, TP_0575 | TP_0141, TP_0301, TP_0773, TP_0676, TP_0575 |                                                  |
+| b2_2_selected_cells    | replaced_out_cells_absent                                                         | PASS     | none                                        | none                                        |                                                  |

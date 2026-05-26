@@ -1,0 +1,5 @@
+reference_domain_version,eligible_cells,intended_use,canonical_for_final_aoi_mrad,rule,caveat
+n24_internal_b3,completed N24 cells only,B4/B5 evidence and traceability only,False,same-hour same-scenario median reference,not final AOI-wide M_rad
+n150_training_future,future N150 executed SOLWEIG sample,surrogate training / validation,False,same-hour same-scenario median reference,future sample must be frozen before label generation
+full_aoi_prediction_future,all eligible predicted cells after accepted surrogate inference,final AOI-wide modifier ranking,True,same-hour same-scenario median reference,requires accepted surrogate and full-domain prediction contract
+sensitivity_reference_optional,future shaded-reference or typology-specific subset,optional sensitivity analysis,False,explicitly labelled alternative reference,not canonical in B5

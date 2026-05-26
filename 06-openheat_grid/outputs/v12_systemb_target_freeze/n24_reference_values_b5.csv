@@ -1,0 +1,11 @@
+hour_sgt,scenario,tmrt_ref_p90_c,n_reference_cells,reference_domain_version,reference_rule,reference_caveat
+10,base,44.96133995056152,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad
+10,overhead_as_canopy,44.16713523864746,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad
+12,base,61.5889892578125,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad
+12,overhead_as_canopy,60.94166564941406,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad
+13,base,61.46331977844238,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad
+13,overhead_as_canopy,60.61849594116211,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad
+15,base,59.42742729187012,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad
+15,overhead_as_canopy,57.903303146362305,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad
+16,base,50.2655029296875,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad
+16,overhead_as_canopy,48.777780532836914,24,n24_internal_b3,same_hour_same_scenario_reference_domain_median,N24-internal method check only; not final AOI-wide M_rad

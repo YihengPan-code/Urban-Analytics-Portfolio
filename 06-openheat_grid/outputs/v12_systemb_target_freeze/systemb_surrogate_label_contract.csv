@@ -1,0 +1,5 @@
+contract_item,fields,allowed_use,forbidden_use,notes
+primary_supervised_label_candidate,delta_tmrt_p90_c,surrogate regression label candidate,"local WBGT, hazard_score, risk_score, observed truth",Preferred physical delta because it is reference-relative and in Celsius difference units.
+secondary_supervised_label_candidate,tmrt_p90_c,secondary surrogate regression label candidate,standalone modifier without reference-domain normalization,May support direct p90 prediction before delta and rank derivation.
+companion_validation_labels,tmrt_p75_c; tmrt_p95_c; tmrt_mean_c; tmrt_max_c; pct_pixels_tmrt_ge_40; pct_pixels_tmrt_ge_45; pct_pixels_tmrt_ge_50; pct_pixels_tmrt_ge_55,robustness and validation diagnostics,automatic replacement of primary target without revised spec,Keep p90 from becoming a single-metric blind spot.
+post_prediction_modifier,m_rad_pct01,computed after prediction from delta/p90 values within the chosen reference domain,rank-only sole regression label unless explicitly justified,"B5 freezes the rank method, not a final AOI map."
