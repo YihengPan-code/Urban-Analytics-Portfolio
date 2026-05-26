@@ -1,0 +1,78 @@
+asset_readiness_version: systemb_b85_f2_asset_readiness_v0_1
+lane: B8.5-F2a
+branch: codex/b85-f2a-asset-readiness
+generated_date: 2026-05-26
+
+scope:
+  local_asset_readiness_gate_only: true
+  qgis_executed: false
+  solweig_executed: false
+  create_rasters: false
+  copy_rasters: false
+  create_aoi_predictions: false
+  create_local_wbgt: false
+  create_hazard_score: false
+  create_risk_score: false
+  create_system_ab_coupling: false
+  stage_changes: false
+  commit_changes: false
+  dry_run_only: true
+
+expected_manifest:
+  planned_rows: 480
+  unique_cells: 24
+  forcing_days: 2
+  hours_sgt:
+    - 10
+    - 12
+    - 13
+    - 15
+    - 16
+  scenarios:
+    - base
+    - overhead_as_canopy
+  solweig_execute_now: "no"
+
+inputs:
+  f0_run_matrix: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv
+  f1_required_asset_inventory: outputs/v12_surrogate/b8_5_execution_package/b85_f1_required_asset_inventory.csv
+  f1_qgis_parameter_contract: outputs/v12_surrogate/b8_5_execution_package/b85_f1_qgis_parameter_contract.csv
+  f1_expected_run_log_schema: outputs/v12_surrogate/b8_5_execution_package/b85_f1_expected_run_log_schema.csv
+  f1_manifest_validation: outputs/v12_surrogate/b8_5_execution_package/b85_f1_manifest_validation.csv
+  f1_execution_package_config: configs/v12/systemb_b85_f1_execution_package.yaml
+  qgis_skeleton_script: scripts/qgis/v12_b85_qgis_solweig_execution_SKELETON.py
+
+asset_templates:
+  existing_n24_tile_root_reference: data/solweig/v12_n24_tiles
+  manual_local_raw_output_root: C:/OpenHeat-local/solweig/b85_f1_tiles
+  met_forcing_path_template: data/solweig/v09_met_forcing_{date_yyyymmdd}_S128_h{hour_sgt:02d}.txt
+  focus_geojson_name: focus_cell.geojson
+  dsm_buildings_name: dsm_buildings_tile.tif
+  dem_name: dsm_dem_flat_tile.tif
+  vegetation_base_name: dsm_vegetation_tile_base.tif
+  vegetation_overhead_name: dsm_vegetation_tile_overhead_as_canopy.tif
+  wall_height_name: wall_height.tif
+  wall_aspect_name: wall_aspect.tif
+  svf_base_zip: svf_base/svfs.zip
+  svf_overhead_zip: svf_overhead_as_canopy/svfs.zip
+
+qgis_manual_check:
+  algorithm_id_hint: "umep:Outdoor Thermal Comfort: SOLWEIG"
+  skeleton_must_exist: true
+  dry_run_default_required: true
+  required_skeleton_phrases:
+    - "DRY_RUN = True"
+    - "human must"
+    - "SOLWEIG not executed"
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_5_f2_asset_readiness
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B8_5_F2_asset_readiness_CN.md
+  summary: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_asset_readiness_summary.csv
+  by_asset: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_asset_readiness_by_asset.csv
+  by_run: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_asset_readiness_by_run.csv
+  missing_assets: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_missing_assets.csv
+  local_output_root_check: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_local_output_root_check.csv
+  dry_run_simulation_log: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_dry_run_simulation_log.csv
+  manual_execution_checklist: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_manual_execution_checklist.md
+  status: outputs/v12_surrogate/b8_5_f2_asset_readiness/B8_5_F2A_STATUS.md

@@ -1,0 +1,2 @@
+configured_output_root,resolved_output_root,project_root,git_root,exists,parent_exists,inside_git_worktree,can_be_created_by_human,status,notes
+C:/OpenHeat-local/solweig/b85_f1_tiles,C:/OpenHeat-local/solweig/b85_f1_tiles,C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid,C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8,no,no,no,yes,NEEDS_CREATE,Configured output root is outside Git and should be created by a human before manual QGIS execution.
