@@ -1,0 +1,124 @@
+execution_package_version: systemb_b85_f1_execution_package_v0_1
+lane: B8.5-F1
+branch: codex/b85-f1-execution-package
+generated_date: 2026-05-26
+
+scope:
+  execution_package_only: true
+  qgis_executed: false
+  solweig_executed: false
+  create_rasters: false
+  copy_rasters: false
+  create_aoi_predictions: false
+  create_local_wbgt: false
+  create_hazard_score: false
+  create_risk_score: false
+  create_system_ab_coupling: false
+  stage_changes: false
+  commit_changes: false
+
+expected_manifest:
+  planned_rows: 480
+  unique_cells: 24
+  forcing_days: 2
+  hours_sgt:
+    - 10
+    - 12
+    - 13
+    - 15
+    - 16
+  scenarios:
+    - base
+    - overhead_as_canopy
+  solweig_execute_now: "no"
+
+inputs:
+  active_dev_board: docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-26.md
+  f0_status: outputs/v12_surrogate/b8_5_multiforcing_preflight/B8_5_F0_STATUS.md
+  f0_run_matrix: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv
+  selected_forcing_days: outputs/v12_surrogate/b8_5_multiforcing_preflight/selected_forcing_days.csv
+  n24_cell_set: outputs/v12_surrogate/b8_5_multiforcing_preflight/n24_cell_set_for_multiforcing.csv
+  f0_qgis_execution_readme: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_qgis_execution_readme.md
+  f0_stability_metrics_protocol: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_stability_metrics_protocol.md
+  grid_feature_path: data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.csv
+  v12_grid_typology_revised: data/grid/v12/solweig_typology_pilot_cells_revised_v2.csv
+  v12_grid_typology_candidates: data/grid/v12/solweig_typology_cell_candidates.csv
+  building_dsm_path: data/rasters/v10/dsm_buildings_2m_augmented_reviewed_heightqa.tif
+  vegetation_dsm_path: data/rasters/v08/dsm_vegetation_2m_toapayoh.tif
+  overhead_vector_path: data/features_3d/v10/overhead/overhead_structures_v10.geojson
+  b3_qgis_runner: scripts/qgis/v12_b3_n24_run_solweig_from_manifest.py
+  b7_qgis_runner: scripts/qgis/v12_b7_n150_run_solweig_new_from_manifest.py
+  aggregate_tmrt_reference: scripts/v12_solweig_aggregate_tmrt.py
+  n24_effective_parameters: outputs/v12_solweig_n24_execution/n24_effective_solweig_parameters.json
+  n150_effective_parameters: outputs/v12_solweig_n150_execution/n150_effective_solweig_parameters.json
+  n24_qgis_algorithm_resolution: outputs/v12_solweig_n24_execution/qgis_algorithm_resolution.md
+  n24_qgis_preprocess_algorithm_resolution: outputs/v12_solweig_n24_execution/qgis_preprocess_algorithm_resolution.md
+  n150_qgis_algorithm_resolution: outputs/v12_solweig_n150_execution/qgis_algorithm_resolution.md
+  n150_qgis_preprocess_algorithm_resolution: outputs/v12_solweig_n150_execution/qgis_preprocess_algorithm_resolution.md
+
+asset_templates:
+  existing_n24_tile_root_reference: data/solweig/v12_n24_tiles
+  manual_local_raw_output_root: C:/OpenHeat-local/solweig/b85_f1_tiles
+  met_forcing_path_template: data/solweig/v09_met_forcing_{date_yyyymmdd}_S128_h{hour_sgt:02d}.txt
+  focus_geojson_name: focus_cell.geojson
+  dsm_buildings_name: dsm_buildings_tile.tif
+  dem_name: dsm_dem_flat_tile.tif
+  vegetation_base_name: dsm_vegetation_tile_base.tif
+  vegetation_overhead_name: dsm_vegetation_tile_overhead_as_canopy.tif
+  wall_height_name: wall_height.tif
+  wall_aspect_name: wall_aspect.tif
+  svf_base_zip: svf_base/svfs.zip
+  svf_overhead_zip: svf_overhead_as_canopy/svfs.zip
+
+qgis_execution:
+  skeleton_script: scripts/qgis/v12_b85_qgis_solweig_execution_SKELETON.py
+  dry_run_default: true
+  run_matrix_from_config: true
+  expected_run_log_path: outputs/v12_surrogate/b8_5_execution_package/future_b85_f1_qgis_run_log.csv
+  qgis_algorithm_id_hint: "umep:Outdoor Thermal Comfort: SOLWEIG"
+  wall_algorithm_id_hint: "umep:Urban Geometry: Wall Height and Aspect"
+  svf_algorithm_id_hint: "umep:Urban Geometry: Sky View Factor"
+  do_not_write_rasters_inside_git_by_default: true
+  do_not_run_blindly: true
+
+preprocess_parameters:
+  wall_input_limit_m: 3.0
+  trans_veg: 3
+  input_theight: 25.0
+  aniso: true
+  wall_scheme: false
+  kmeans: true
+  clusters: 5
+  input_svfheight: 1.0
+
+solweig_parameters:
+  INPUTMET_key: INPUTMET
+  LEAF_START: 1
+  LEAF_END: 366
+  UTC: 8
+  TRANS_VEG: 3
+  INPUT_THEIGHT: 25.0
+  OUTPUT_TMRT: true
+  OUTPUT_KDOWN: false
+  OUTPUT_KUP: false
+  OUTPUT_LDOWN: false
+  OUTPUT_LUP: false
+  OUTPUT_SH: false
+  OUTPUT_TREEPLANTER: false
+
+aggregation_contract:
+  focus_cell_size_m: 100
+  expected_resolution_m: 2
+  reference_domain: within_forcing_day_id_x_hour_sgt_x_scenario
+  stability_protocol: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_stability_metrics_protocol.md
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_5_execution_package
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B8_5_execution_package_CN.md
+  manifest_validation: outputs/v12_surrogate/b8_5_execution_package/b85_f1_manifest_validation.csv
+  required_asset_inventory: outputs/v12_surrogate/b8_5_execution_package/b85_f1_required_asset_inventory.csv
+  qgis_parameter_contract: outputs/v12_surrogate/b8_5_execution_package/b85_f1_qgis_parameter_contract.csv
+  expected_run_log_schema: outputs/v12_surrogate/b8_5_execution_package/b85_f1_expected_run_log_schema.csv
+  expected_aggregation_contract: outputs/v12_surrogate/b8_5_execution_package/b85_f1_expected_aggregation_contract.csv
+  execution_readme: outputs/v12_surrogate/b8_5_execution_package/b85_f1_execution_readme.md
+  status: outputs/v12_surrogate/b8_5_execution_package/B8_5_F1_STATUS.md

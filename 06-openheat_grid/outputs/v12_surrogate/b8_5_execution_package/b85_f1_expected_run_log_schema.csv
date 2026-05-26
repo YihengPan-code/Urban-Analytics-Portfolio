@@ -1,0 +1,14 @@
+column_name,dtype,required,allowed_values_or_format,description
+run_id,string,yes,unique manifest run_id,Primary run key.
+cell_id,string,yes,TP_####,Focus cell identifier.
+forcing_day_id,string,yes,FD##_...,Selected forcing day key.
+date,date,yes,YYYY-MM-DD,Forcing day date in Singapore local time.
+hour_sgt,integer,yes,"10,12,13,15,16",Execution hour in SGT.
+scenario,string,yes,base|overhead_as_canopy,SOLWEIG scenario.
+started_at,datetime,yes,ISO-8601 local timestamp,Attempt start.
+completed_at,datetime,yes,ISO-8601 local timestamp,Attempt completion.
+status,string,yes,dry_run|success|failed|skipped|blocked,Execution status; dry_run is default.
+error_message,string,no,free text,Error text only when status is failed or blocked.
+qgis_algorithm_id,string,yes,umep:Outdoor Thermal Comfort: SOLWEIG,Resolved or intended QGIS algorithm id.
+output_tmrt_path,string,yes,absolute or local-only path,Expected or produced Tmrt raster path; not committed.
+notes,string,no,free text,Execution notes and manual-review comments.

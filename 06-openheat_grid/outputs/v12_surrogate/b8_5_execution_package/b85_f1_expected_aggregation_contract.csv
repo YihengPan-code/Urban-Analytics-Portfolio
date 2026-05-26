@@ -1,0 +1,28 @@
+contract_section,field_or_artifact,required,dtype_or_artifact_type,grouping_or_formula,notes
+input,run_log,yes,CSV,one row per run_id,Use the expected run log schema.
+input,tmrt_raster_paths,yes,file path,output_tmrt_path from run log,Raster paths stay local/uncommitted.
+input,focus_cell_mask,yes,GeoJSON/raster mask,one focus mask per cell_id,Clip Tmrt to the 100 m focus cell.
+output_key,run_id,yes,string,preserve from run matrix,Trace every summary to one manifest row.
+output_key,cell_id,yes,string,preserve from run matrix,
+output_key,forcing_day_id,yes,string,preserve from run matrix,
+output_key,date,yes,date,preserve from run matrix,
+output_key,hour_sgt,yes,integer,preserve from run matrix,
+output_key,scenario,yes,string,preserve from run matrix,
+cell_summary,tmrt_mean_c,yes,float,mean valid focus-cell pixels,SOLWEIG Tmrt only; not WBGT.
+cell_summary,tmrt_p50_c,yes,float,50th percentile valid focus-cell pixels,
+cell_summary,tmrt_p75_c,yes,float,75th percentile valid focus-cell pixels,
+cell_summary,tmrt_p90_c,yes,float,90th percentile valid focus-cell pixels,Primary System B target family metric.
+cell_summary,tmrt_p95_c,yes,float,95th percentile valid focus-cell pixels,
+cell_summary,tmrt_max_c,yes,float,max valid focus-cell pixels,
+cell_summary,pct_pixels_tmrt_ge_40,yes,float,100 * count(Tmrt >= 40) / valid pixels,
+cell_summary,pct_pixels_tmrt_ge_45,yes,float,100 * count(Tmrt >= 45) / valid pixels,
+cell_summary,pct_pixels_tmrt_ge_50,yes,float,100 * count(Tmrt >= 50) / valid pixels,
+cell_summary,pct_pixels_tmrt_ge_55,yes,float,100 * count(Tmrt >= 55) / valid pixels,
+modifier,delta_tmrt_p90_c,yes,float,tmrt_p90_c minus reference within within_forcing_day_id_x_hour_sgt_x_scenario,Delta Tmrt is not delta WBGT.
+modifier,m_rad_pct01,yes,float,"percentile rank within within_forcing_day_id_x_hour_sgt_x_scenario, scaled 0..1",Radiative modifier only; not risk.
+stability,rank_correlation,yes,float,Spearman across forcing days,Follow B8.5-F0 protocol.
+stability,top_k_overlap,yes,float,Jaccard/top-k shared count,Follow B8.5-F0 protocol.
+stability,sign_stability,yes,string/boolean,flag sign flips by cell/hour/scenario,Follow B8.5-F0 protocol.
+stability,m_rad_pct01_rank_stability,yes,float,absolute percentile-rank drift,Follow B8.5-F0 protocol.
+stability,cell_class_stability,yes,string/table,transition classes across forcing days,Follow B8.5-F0 protocol.
+stability,unstable_cell_inventory,yes,CSV/Markdown,"high drift, class flips, sign flips",No causal heat-risk claims.

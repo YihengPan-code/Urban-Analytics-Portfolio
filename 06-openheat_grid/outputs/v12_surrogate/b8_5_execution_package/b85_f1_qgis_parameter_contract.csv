@@ -1,0 +1,26 @@
+contract_section,parameter_name,qgis_parameter_key,required,expected_value_or_template,source,notes
+algorithm,qgis_algorithm_id,,yes,umep:Outdoor Thermal Comfort: SOLWEIG,QGIS Processing registry,Verify inside QGIS/UMEP before execution.
+preprocess,wall_algorithm_id,,yes,umep:Urban Geometry: Wall Height and Aspect,B3/B7 runner,Reference only; B8.5-F1 does not run preprocessing.
+preprocess,svf_algorithm_id,,yes,umep:Urban Geometry: Sky View Factor,B3/B7 runner,Reference only; B8.5-F1 does not run preprocessing.
+path,run_matrix_path,,yes,outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv,Config,Controlling 480-row manifest.
+path,output_root,OUTPUT_DIR,yes,C:/OpenHeat-local/solweig/b85_f1_tiles,Config,Default manual output root is outside Git.
+path,expected_output_group,OUTPUT_DIR,yes,manual_local_raw_output_root / expected_output_group,Run matrix,One output folder per manifest row.
+path,input_dsm,INPUT_DSM,yes,existing_n24_tile_root_reference/<cell_id>/dsm_buildings_tile.tif,B3/B7 runner,Raster reference; do not copy.
+path,input_svf,INPUT_SVF,yes,existing_n24_tile_root_reference/<cell_id>/svf_<scenario>/svfs.zip,B3/B7 runner,SVF zip reference; do not copy.
+path,wall_height,INPUT_HEIGHT,yes,existing_n24_tile_root_reference/<cell_id>/wall_height.tif,B3/B7 runner,Raster reference; do not copy.
+path,wall_aspect,INPUT_ASPECT,yes,existing_n24_tile_root_reference/<cell_id>/wall_aspect.tif,B3/B7 runner,Raster reference; do not copy.
+path,scenario_cdsm,INPUT_CDSM,yes,base: vegetation_base; overhead_as_canopy: vegetation_overhead_as_canopy,B3/B7 runner,Scenario-specific CDSM.
+path,input_dem,INPUT_DEM,yes,existing_n24_tile_root_reference/<cell_id>/dsm_dem_flat_tile.tif,B3/B7 runner,Raster reference; do not copy.
+path,inputmet,INPUTMET,yes,data/solweig/v09_met_forcing_{date_yyyymmdd}_S128_h{hour_sgt:02d}.txt,Config,Required for each forcing_day_id x hour_sgt.
+constant,LEAF_START,LEAF_START,yes,1,n24/n150 effective parameters,
+constant,LEAF_END,LEAF_END,yes,366,n24/n150 effective parameters,
+constant,UTC,UTC,yes,8,n24/n150 effective parameters,Singapore local time.
+constant,TRANS_VEG,TRANS_VEG,yes,3,n24/n150 effective parameters,
+constant,INPUT_THEIGHT,INPUT_THEIGHT,yes,25.0,n24/n150 effective parameters,
+constant,OUTPUT_TMRT,OUTPUT_TMRT,yes,True,n24/n150 effective parameters,Only Tmrt output is required for the later aggregation.
+constant,OUTPUT_KDOWN,OUTPUT_KDOWN,no,False,n24/n150 effective parameters,
+constant,OUTPUT_KUP,OUTPUT_KUP,no,False,n24/n150 effective parameters,
+constant,OUTPUT_LDOWN,OUTPUT_LDOWN,no,False,n24/n150 effective parameters,
+constant,OUTPUT_LUP,OUTPUT_LUP,no,False,n24/n150 effective parameters,
+constant,OUTPUT_SH,OUTPUT_SH,no,False,n24/n150 effective parameters,
+constant,OUTPUT_TREEPLANTER,OUTPUT_TREEPLANTER,no,False,n24/n150 effective parameters,

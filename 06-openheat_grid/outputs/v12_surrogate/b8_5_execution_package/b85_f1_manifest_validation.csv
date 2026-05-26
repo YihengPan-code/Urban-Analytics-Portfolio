@@ -1,0 +1,27 @@
+section,check_name,status,expected,observed,detail
+manifest,run_matrix_exists,PASS,outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv,exists,
+manifest,selected_forcing_days_exists,PASS,outputs/v12_surrogate/b8_5_multiforcing_preflight/selected_forcing_days.csv,exists,
+manifest,n24_cell_set_exists,PASS,outputs/v12_surrogate/b8_5_multiforcing_preflight/n24_cell_set_for_multiforcing.csv,exists,
+manifest,planned_rows,PASS,480,480,No rows executed.
+manifest,unique_cells,PASS,24,24,"TP_0037,TP_0059,TP_0088,TP_0098,TP_0115,TP_0141,TP_0154,TP_0254,TP_0301,TP_0326,TP_0366,TP_0409,TP_0433,TP_0492,TP_0542,TP_0565,TP_0575,TP_0627,TP_0676,TP_0773,TP_0835,TP_0857,TP_0960,TP_0986"
+manifest,selected_forcing_days_rows,PASS,2,2,"FD01_high_shortwave_hot_20260507,FD02_humid_hot_cloudy_or_diffuse_20260508"
+manifest,manifest_forcing_days,PASS,2,2,"FD01_high_shortwave_hot_20260507,FD02_humid_hot_cloudy_or_diffuse_20260508"
+manifest,manifest_hours_sgt,PASS,"10,12,13,15,16","10,12,13,15,16",
+manifest,manifest_scenarios,PASS,"base,overhead_as_canopy","base,overhead_as_canopy",
+manifest,source_solweig_execute_now_no,PASS,no,no,All manifest rows must remain execution-disabled.
+manifest,run_id_uniqueness,PASS,480,480,No duplicate run_id values allowed.
+manifest,expected_output_group_uniqueness,PASS,480,480,Each row must map to one output group.
+manifest,n24_unique_cells,PASS,24,24,N24 contract supplied by F0.
+package_artifact,configs/v12/systemb_b85_f1_execution_package.yaml,PASS,exists,exists,
+package_artifact,scripts/v12_b85_prepare_execution_package.py,PASS,exists,exists,
+package_artifact,scripts/v12_b85_validate_execution_package.py,PASS,exists,exists,
+package_artifact,scripts/qgis/v12_b85_qgis_solweig_execution_SKELETON.py,PASS,exists,exists,
+package_artifact,docs/v12/OpenHeat_SystemB_B8_5_execution_package_CN.md,PASS,exists,exists,
+package_artifact,outputs/v12_surrogate/b8_5_execution_package/b85_f1_manifest_validation.csv,PASS,exists,exists,
+package_artifact,outputs/v12_surrogate/b8_5_execution_package/b85_f1_required_asset_inventory.csv,PASS,exists,exists,
+package_artifact,outputs/v12_surrogate/b8_5_execution_package/b85_f1_qgis_parameter_contract.csv,PASS,exists,exists,
+package_artifact,outputs/v12_surrogate/b8_5_execution_package/b85_f1_expected_run_log_schema.csv,PASS,exists,exists,
+package_artifact,outputs/v12_surrogate/b8_5_execution_package/b85_f1_expected_aggregation_contract.csv,PASS,exists,exists,
+package_artifact,outputs/v12_surrogate/b8_5_execution_package/b85_f1_execution_readme.md,PASS,exists,exists,
+package_artifact,outputs/v12_surrogate/b8_5_execution_package/B8_5_F1_STATUS.md,PASS,exists,exists,
+git_safety,no_forbidden_files_touched,PASS,no changed forbidden files,none,Checks changed paths visible to git status under the OpenHeat subdirectory.
