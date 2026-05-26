@@ -1,0 +1,13 @@
+gate_id,gate_name,evidence_file,status,rationale,blocker_for_b9
+no_target_leakage,No target leakage in headline predictors,outputs/v12_surrogate/b8_model_card/feature_contract_summary.csv,PASS,Target-leakage token hits in role=feature physical_core columns: 0.,no
+physical_core_feature_contract,Physical-core feature contract,outputs/v12_surrogate/b8_model_card/feature_contract_summary.csv,PASS,115 physical_core features; prohibited hits=0; coordinate headline features=0.,no
+cell_grouped_performance,Cell-grouped primary-target performance,outputs/v12_surrogate/b8_model_card/split_family_decision_matrix.csv,PASS,Candidate is best by MAE on cell-grouped holdout and improves over featureless baseline.,no
+spatial_holdout_performance,Spatial holdout primary-target performance,outputs/v12_surrogate/b8_model_card/split_family_decision_matrix.csv,PASS,Candidate is best by MAE on spatial holdout and improves over featureless baseline.,no
+feature_bin_typology_extrapolation,Feature-bin typology extrapolation,outputs/v12_surrogate/b8_model_card/split_family_decision_matrix.csv,PARTIAL,Feature-bin evidence is weaker than cell/spatial holdouts and water bins were blocked/degenerate.,yes
+topk_prioritisation_signal,Top-k prioritisation signal,outputs/v12_surrogate/b8_model_card/split_family_decision_matrix.csv,PARTIAL,Mean cell/spatial Spearman=0.726; mean cell-level top-10% overlap=0.444. Diagnostic ranking signal only.,yes
+secondary_tmrt_target,Secondary absolute tmrt_p90_c target,outputs/v12_surrogate/b8_model_card/model_card_metrics_summary.csv,PARTIAL,"Candidate tmrt_p90_c MAE is 5.994 cell-grouped and 6.019 spatial, with weaker rank evidence than delta target.",no
+no_random_split_headline,No random row split used as headline evidence,outputs/v12_surrogate/b8_model_card/model_card_metrics_summary.csv,PASS,"B8.2 consumed cell-grouped, spatial, feature-bin, hour, and scenario holdouts only.",no
+no_local_wbgt_claim,No local WBGT claim,docs/v12/OpenHeat_SystemB_surrogate_model_card_CN.md,PASS,"Model-card text frames outputs as SOLWEIG-derived Tmrt modifier emulation, not local WBGT.",no
+no_risk_claim,No risk claim,docs/v12/OpenHeat_SystemB_surrogate_model_card_CN.md,PASS,Model-card text explicitly excludes risk maps and exposure/vulnerability claims.,no
+multi_forcing_stability,Multi-forcing stability,not_available,NOT_TESTED,Only the current N150 single-forcing setup is covered.,yes
+full_aoi_inference_readiness,Full AOI inference readiness,not_available,FAIL,"No AOI-wide predictions, final maps, or accepted multi-forcing gate exist in B8.3.",yes

@@ -1,0 +1,127 @@
+b8_model_card_version: systemb_surrogate_b8_3_model_card_v0_1
+feature_set: physical_core
+
+targets:
+  primary: delta_tmrt_p90_c
+  secondary: tmrt_p90_c
+retained_labels:
+  - m_rad_pct01
+
+inputs:
+  matrix: outputs/v12_surrogate/b8_dataset_audit/surrogate_label_feature_matrix.csv
+  feature_schema: outputs/v12_surrogate/b8_dataset_audit/feature_schema.csv
+  metrics: outputs/v12_surrogate/b8_model_benchmark/surrogate_model_metrics.csv
+  topk_overlap: outputs/v12_surrogate/b8_model_benchmark/topk_overlap_by_model.csv
+  stratified_error: outputs/v12_surrogate/b8_model_benchmark/stratified_error_by_feature_bin.csv
+  split_family_summary: outputs/v12_surrogate/b8_model_benchmark/split_family_summary.csv
+  benchmark_report: outputs/v12_surrogate/b8_model_benchmark/model_family_comparison_report.md
+  benchmark_status: outputs/v12_surrogate/b8_model_benchmark/B8_2_BENCHMARK_STATUS.md
+
+outputs:
+  model_card_dir: outputs/v12_surrogate/b8_model_card
+  metrics_summary: outputs/v12_surrogate/b8_model_card/model_card_metrics_summary.csv
+  promotion_gate_checklist: outputs/v12_surrogate/b8_model_card/promotion_gate_checklist.csv
+  split_family_decision_matrix: outputs/v12_surrogate/b8_model_card/split_family_decision_matrix.csv
+  feature_contract_summary: outputs/v12_surrogate/b8_model_card/feature_contract_summary.csv
+  decision_report: outputs/v12_surrogate/b8_model_card/model_card_decision_report.md
+  status: outputs/v12_surrogate/b8_model_card/B8_3_MODEL_CARD_STATUS.md
+  canonical_model_card: docs/v12/OpenHeat_SystemB_surrogate_model_card_CN.md
+
+dataset_contract:
+  expected_n_cells: 150
+  expected_scenarios:
+    - base
+    - overhead_as_canopy
+  expected_hours_sgt:
+    - 10
+    - 12
+    - 13
+    - 15
+    - 16
+  expected_n_rows: 1500
+  forcing_setup: single_forcing_setup
+
+candidate_selection:
+  primary_target: delta_tmrt_p90_c
+  required_best_split_families:
+    - cell_grouped_holdout
+    - spatial_holdout
+  diagnostic_split_families:
+    - feature_bin_holdout
+    - hour_holdout
+    - scenario_holdout
+  topk_aggregation_level: cell
+  topk_fraction: 0.10
+  min_supportive_spearman: 0.60
+  min_supportive_topk_overlap: 0.30
+
+feature_contract:
+  headline_role: feature
+  headline_predictor_tier: physical_core
+  optional_spatial_diagnostic_tier: spatial_diagnostic
+  prohibited_feature_tokens:
+    - exposure
+    - vulnerability
+    - risk
+    - social
+    - elderly
+    - preschool
+    - hawker
+    - bus_stop
+    - mrt
+    - sport_facility
+    - source
+    - note
+    - version
+    - name
+  target_leakage_tokens:
+    - wbgt
+    - tmrt
+    - delta_tmrt
+    - m_rad
+    - solweig
+    - target
+    - rank
+    - reference
+    - modifier
+  coordinate_tokens:
+    - lat
+    - lon
+    - centroid_x
+    - centroid_y
+    - x_svy21
+    - y_svy21
+  feature_families:
+    SVF:
+      - svf
+    shade:
+      - shade
+    building_density_height:
+      - building
+      - bldg
+      - height
+      - floor
+    vegetation:
+      - vegetation
+      - tree
+      - grass
+      - green
+      - ndvi
+      - park
+    water:
+      - water
+    road_hardscape:
+      - road
+      - hardscape
+      - impervious
+      - built
+      - pavement
+    overhead:
+      - overhead
+      - canopy
+
+promotion_gate:
+  candidate_for_internal_model_card_review: yes
+  approved_for_final_AOI_inference: no
+  recommended_next_gate: B8.5-F0 N24 x 2-3 forcing days
+  optional_hardening_gate: B8.3b optional model-card hardening if reviewers require
