@@ -1,0 +1,67 @@
+b85_preflight_version: systemb_b85_multiforcing_preflight_v0_1
+random_seed: 42
+lane: B8.5-F0
+branch: codex/b85-multiforcing-preflight
+
+scope:
+  preflight_only: true
+  qgis_execute_now: false
+  solweig_execute_now: false
+  create_rasters: false
+  create_aoi_predictions: false
+  create_local_wbgt: false
+  create_hazard_score: false
+  create_risk_score: false
+  create_system_ab_coupling: false
+
+design:
+  expected_n_cells: 24
+  min_forcing_days: 2
+  max_forcing_days: 3
+  scenarios:
+    - base
+    - overhead_as_canopy
+  recommended_hours_sgt:
+    - 10
+    - 12
+    - 13
+    - 15
+    - 16
+  min_station_hours_per_day: 20
+  max_missing_forcing_fraction: 0.25
+
+inputs:
+  active_dev_board: docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-26.md
+  model_card_cn: docs/v12/OpenHeat_SystemB_surrogate_model_card_CN.md
+  model_card_decision_report: outputs/v12_surrogate/b8_model_card/model_card_decision_report.md
+  promotion_gate_checklist: outputs/v12_surrogate/b8_model_card/promotion_gate_checklist.csv
+  n150_selected_cells: outputs/v12_systemb_n150_sample_design/n150_selected_cells.csv
+  n150_new_cells: outputs/v12_systemb_n150_sample_design/n150_new_cells.csv
+  n150_retained_n24_cells: outputs/v12_systemb_n150_sample_design/n150_retained_n24_cells.csv
+  n24_selected_cells_freeze: outputs/v12_systemb_n24_sample_design/n24_selected_cells_b2_2_human_qa_freeze.csv
+  n24_selected_cells: outputs/v12_systemb_n24_sample_design/n24_selected_cells.csv
+  n24_manifest_preflight: outputs/v12_systemb_n24_sample_design/n24_solweig_manifest_preflight.csv
+  n24_focus_tmrt_summary: outputs/v12_solweig_n24_execution/n24_focus_tmrt_summary.csv
+  n24_modifier_targets: outputs/v12_solweig_n24_execution/n24_modifier_targets_provisional.csv
+  n150_modifier_targets: outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv
+  n150_focus_tmrt_summary: outputs/v12_solweig_n150_execution/n150_focus_tmrt_summary_merged.csv
+  n150_base_vs_overhead_delta: outputs/v12_solweig_n150_execution/n150_base_vs_overhead_delta_merged.csv
+
+weather_sources:
+  al1h_residual_weather_full_period: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/residual_weather_merge_full_period.csv
+  al1h_ge31_miss_by_weather_regime_full_period: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/ge31_miss_by_weather_regime_full_period.csv
+  v11_live_chunks_glob: data/calibration/v11/live_chunks/*.csv.gz
+  v09_wbgt_station_pairs: data/calibration/v09_wbgt_station_pairs.csv
+  v09_historical_forecast_by_station_hourly: data/calibration/v09_historical_forecast_by_station_hourly.csv
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_5_multiforcing_preflight
+  canonical_note: docs/v12/OpenHeat_SystemB_B8_5_multiforcing_preflight_CN.md
+  candidate_forcing_day_inventory: outputs/v12_surrogate/b8_5_multiforcing_preflight/candidate_forcing_day_inventory.csv
+  selected_forcing_days: outputs/v12_surrogate/b8_5_multiforcing_preflight/selected_forcing_days.csv
+  n24_cell_set: outputs/v12_surrogate/b8_5_multiforcing_preflight/n24_cell_set_for_multiforcing.csv
+  run_matrix: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv
+  expected_outputs_contract: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_expected_outputs_contract.csv
+  stability_metrics_protocol: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_stability_metrics_protocol.md
+  qgis_execution_readme: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_qgis_execution_readme.md
+  status: outputs/v12_surrogate/b8_5_multiforcing_preflight/B8_5_F0_STATUS.md
