@@ -1,0 +1,376 @@
+lane: A-L1H.2b
+title: System A Level 1 high-tail integration and output contract
+generated_date: "2026-05-26"
+expected_branch: codex/systema-l1h2b-level1-integration
+acceptance_status: PASS
+decision_status: ACCEPT_DIAGNOSTIC_COMPANION_HOLD_OPERATIONAL_CLAIMS
+
+source_reports:
+  active_board: docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-26.md
+  residual_decomposition: outputs/v11_systema_l1_high_tail/residual_decomposition/high_tail_bias_report.md
+  weather_regime_partial: outputs/v11_systema_l1_high_tail/weather_regime_merge/weather_regime_bias_report.md
+  weather_regime_full_period: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/weather_regime_full_period_decision_report.md
+  formula_proxy_audit: outputs/v11_systema_l1_high_tail/formula_proxy_audit/formula_physics_audit_report.md
+  probability_threshold_calibration: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/probability_threshold_calibration_report.md
+  probability_threshold_status: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/A_L1H_2_STATUS.md
+
+outputs:
+  output_dir: outputs/v11_systema_l1_high_tail/level1_integration
+  chinese_doc: docs/v11/OpenHeat_SystemA_Level1_high_tail_integration_CN.md
+  evidence_ledger: systema_l1h_evidence_ledger.csv
+  output_contract: systema_l1h_output_contract.csv
+  claim_boundary_matrix: systema_l1h_claim_boundary_matrix.csv
+  decision_matrix: systema_l1h_decision_matrix.csv
+  station_regime_caveats: systema_l1h_station_regime_caveats.csv
+  next_gate_recommendations: systema_l1h_next_gate_recommendations.csv
+  report: systema_l1h_integration_report.md
+  status: A_L1H_2B_STATUS.md
+
+companion:
+  name: P_ge31
+  definition: "Retrospective station-held-out diagnostic companion for observed WBGT >= 31 C, generated from the existing M4_inertia_ridge score with isotonic_score_only calibration."
+  selected_candidate: M4_inertia_ridge + isotonic_score_only
+  validation: station_grouped_loso
+  brier: 0.052
+  pr_auc: 0.610
+  threshold: 0.309
+  precision: 0.678
+  recall: 0.765
+  f1: 0.719
+  csi: 0.561
+  current_companion_definition: "P_ge31 = M4_inertia_ridge model_score calibrated with isotonic_score_only under station_grouped_loso; selected diagnostic threshold about 0.309."
+  reliability_assessment: "Reliable enough for internal retrospective diagnostic use as a companion to WBGT_A; not reliable enough for official warning probability or prospective forecast claims."
+  high_tail_assessment: "ge31 capture is materially improved versus the fixed score 31 threshold, but high-tail compression and station/regime caveats remain; ge31 is not fully solved and ge33 remains exploratory."
+  a_l2_decision: "HOLD A-L2 until Level 1 high-tail evidence is closed and station-context residual work is explicitly opened."
+  a_l1h3_decision: "OPTIONAL separate A-L1H.3 review gate only if further high-tail improvement is requested; not implemented in A-L1H.2b."
+
+evidence_ledger_columns:
+  - evidence_id
+  - stage
+  - source_report
+  - status
+  - key_result
+  - supports_decision
+  - caveat
+  - safe_claim
+  - forbidden_claim
+
+evidence_ledger:
+  - evidence_id: A-L1H.0
+    stage: residual decomposition
+    source_report: outputs/v11_systema_l1_high_tail/residual_decomposition/high_tail_bias_report.md
+    status: PASS_DIAGNOSTIC
+    key_result: "M4 fixed_31 precision 0.669, recall 0.475, F1 0.556; observed ge31 rows were compressed below score 31 and station bias was visible, especially S142."
+    supports_decision: "Established that deterministic WBGT_A remains useful but under-captures high-tail events at the nominal fixed threshold."
+    caveat: "Retrospective OOF diagnostic only; weather columns were absent in this first decomposition."
+    safe_claim: "System A has retrospective WBGT_A temporal severity evidence with high-tail compression diagnostics."
+    forbidden_claim: "Do not claim validated local WBGT prediction, official warning probability, or prospective forecast skill."
+  - evidence_id: A-L1H.0b
+    stage: partial weather-regime merge
+    source_report: outputs/v11_systema_l1_high_tail/weather_regime_merge/weather_regime_bias_report.md
+    status: PASS_PARTIAL
+    key_result: "Weather merge retained 2700 of 6696 rows (40.3%); regime interaction was plausible_but_partial, with very-high radiation bins concentrating many ge31 misses."
+    supports_decision: "Motivated full-period weather-regime recovery before stronger regime claims."
+    caveat: "Partial-period matched rows only; precipitation missing; superseded for coverage by A-L1H.0c."
+    safe_claim: "Partial retrospective regime evidence suggested radiation-linked high-tail miss structure."
+    forbidden_claim: "Do not use A-L1H.0b alone as full-period regime proof or causal mechanism proof."
+  - evidence_id: A-L1H.0c
+    stage: full-period weather-regime merge
+    source_report: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/weather_regime_full_period_decision_report.md
+    status: PASS_FULL_PERIOD
+    key_result: "Recovered 6696 of 6696 rows (100.0%) across 27 stations; radiation_hot contained nearly all observed ge31 events and misses, while conditional enrichment remained mixed."
+    supports_decision: "Confirmed full-period retrospective regime context for high-tail misses without changing the model."
+    caveat: "Regime diagnostics are not causal proof and are not operational warning probabilities."
+    safe_claim: "Full-period weather-regime residual diagnostics support internal high-tail evidence review."
+    forbidden_claim: "Do not claim weather regimes validate local WBGT, explain causality, or complete risk mapping."
+  - evidence_id: A-L1H.1
+    stage: formula/proxy audit
+    source_report: outputs/v11_systema_l1_high_tail/formula_proxy_audit/formula_physics_audit_report.md
+    status: WEAK_OR_NEGATIVE
+    key_result: "Raw Stull/simple-globe formula and proxy candidates did not produce fixed_31 crossings; best raw proxies stayed below 31 C and had worse high-tail residual behavior."
+    supports_decision: "Kept formula-v2 out of the current contract and directed attention to score-to-event probability calibration."
+    caveat: "Advanced WBGT physics packages were unavailable or not validated; no Liljegren-style formula was faked."
+    safe_claim: "Formula/proxy audit did not justify replacing current WBGT_A score in Level 1."
+    forbidden_claim: "Do not claim formula-v2 is implemented, validated, or retroactively recalibrates System A."
+  - evidence_id: A-L1H.2
+    stage: probability threshold calibration
+    source_report: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/probability_threshold_calibration_report.md
+    status: PASS_CANDIDATE_PROBABILITY_COMPANION
+    key_result: "Best companion is M4_inertia_ridge + isotonic_score_only under station_grouped_loso: Brier about 0.052, PR-AUC about 0.610, threshold about 0.309, precision 0.678, recall 0.765, F1 0.719, CSI 0.561."
+    supports_decision: "Accept P_ge31 as a retrospective diagnostic companion while keeping WBGT_A score primary."
+    caveat: "Station-held-out retrospective OOF calibration only; not official warning probability and not prospective forecast skill."
+    safe_claim: "P_ge31 is a candidate diagnostic companion for internal retrospective ge31 review."
+    forbidden_claim: "Do not claim P_ge31 is an official warning probability, policy threshold, or prospective operational model."
+
+output_contract_columns:
+  - output_id
+  - output_name
+  - current_role
+  - definition
+  - source_or_generation
+  - allowed_use
+  - forbidden_use
+  - validation_basis
+  - caveat
+  - contract_decision
+
+output_contract:
+  - output_id: deterministic_score
+    output_name: WBGT_A_score or model_score
+    current_role: primary temporal severity diagnostic
+    definition: "Deterministic retrospective System A score, used as the main temporal WBGT_A severity signal."
+    source_or_generation: "Existing System A Level 1 OOF score, represented by model_score / prediction_wbgt_c in prior diagnostics."
+    allowed_use: "Background retrospective temporal severity diagnostic and anchor for companion P_ge31 interpretation."
+    forbidden_use: "Not local 100m WBGT, not official warning, not public alert, and not prospective forecast skill."
+    validation_basis: "A-L1H.0 residual decomposition and A-L1H.2 score-threshold baselines."
+    caveat: "High-tail compression remains visible near and above 31 C."
+    contract_decision: KEEP_PRIMARY_RETROSPECTIVE_SCORE
+  - output_id: p_ge31
+    output_name: P_ge31
+    current_role: retrospective diagnostic companion
+    definition: "Station-held-out score-to-event diagnostic probability for observed WBGT >= 31 C."
+    source_or_generation: "M4_inertia_ridge score calibrated by isotonic_score_only; validation station_grouped_loso."
+    allowed_use: "Internal retrospective ge31 high-tail review and companion flagging with threshold about 0.309."
+    forbidden_use: "Not official warning probability, not policy probability, not public alert probability, and not prospective skill."
+    validation_basis: "A-L1H.2 PASS_CANDIDATE_PROBABILITY_COMPANION; Brier 0.052, PR-AUC 0.610, F1 0.719, CSI 0.561."
+    caveat: "Reliability is station-held-out OOF only; station/regime caveats remain."
+    contract_decision: ACCEPT_DIAGNOSTIC_COMPANION
+  - output_id: p_ge31_threshold_operating_point
+    output_name: Optional threshold operating point
+    current_role: diagnostic operating point
+    definition: "Selected candidate threshold for P_ge31 around 0.309 from best_F1 station-held-out diagnostics."
+    source_or_generation: "A-L1H.2 threshold_operating_points selected_candidate_policy."
+    allowed_use: "Optional internal retrospective diagnostic flag, with precision about 0.678 and recall about 0.765."
+    forbidden_use: "Not final policy threshold, not operational warning trigger, and not a public-facing alert threshold."
+    validation_basis: "A-L1H.2 threshold calibration under station_grouped_loso."
+    caveat: "Policy threshold is not final and requires prospective metadata / lead-time evaluation before operations."
+    contract_decision: ACCEPT_OPTIONAL_DIAGNOSTIC_ONLY
+
+claim_boundary_columns:
+  - claim_id
+  - claim
+  - status
+  - allowed_wording
+  - required_qualifier
+  - forbidden_wording
+  - rationale
+  - next_gate
+
+claim_boundary_matrix:
+  - claim_id: retrospective_wbgta_temporal_severity
+    claim: retrospective diagnostic WBGT_A temporal severity
+    status: ALLOWED
+    allowed_wording: "calibrated hourly WBGT_A temporal severity diagnostic"
+    required_qualifier: "retrospective System A Level 1 context"
+    forbidden_wording: "validated local WBGT prediction"
+    rationale: "Deterministic score remains the primary temporal severity signal but has known high-tail compression."
+    next_gate: "Maintain in Level 1 contract; no new training in A-L1H.2b."
+  - claim_id: p_ge31_diagnostic_companion
+    claim: P_ge31 diagnostic companion
+    status: ALLOWED_WITH_QUALIFIER
+    allowed_wording: "retrospective diagnostic companion for observed WBGT >= 31 C"
+    required_qualifier: "M4 + isotonic_score_only, station_grouped_loso, internal retrospective use"
+    forbidden_wording: "official warning probability"
+    rationale: "A-L1H.2 improves ge31 event capture with calibrated existing scores."
+    next_gate: "Use as current companion; require prospective evaluation before operations."
+  - claim_id: official_warning_probability
+    claim: official warning probability
+    status: FORBIDDEN
+    allowed_wording: "none"
+    required_qualifier: "not applicable"
+    forbidden_wording: "P_ge31 is an official warning probability"
+    rationale: "No operational calibration, governance threshold, or prospective warning validation exists."
+    next_gate: "Prospective metadata and lead-time evaluation."
+  - claim_id: prospective_forecast_skill
+    claim: prospective forecast skill
+    status: FORBIDDEN_NOW
+    allowed_wording: "not yet evaluated prospectively"
+    required_qualifier: "retrospective OOF only"
+    forbidden_wording: "real-time heat risk forecast or proven prospective skill"
+    rationale: "A-L1H.2 uses station-held-out retrospective OOF calibration only."
+    next_gate: "Prospective forecast evaluation with explicit lead times."
+  - claim_id: local_100m_wbgt
+    claim: local 100m WBGT
+    status: FORBIDDEN
+    allowed_wording: "not a local 100m WBGT product"
+    required_qualifier: "System A temporal station-scale diagnostic"
+    forbidden_wording: "validated 100m-cell local WBGT prediction"
+    rationale: "System A Level 1 score is not a local-cell WBGT model."
+    next_gate: "Separate validated local WBGT study would be required."
+  - claim_id: station_context_causal_correction
+    claim: station-context causal correction
+    status: DEFERRED
+    allowed_wording: "station diagnostics remain to review"
+    required_qualifier: "S142/S139 caveats are diagnostic only"
+    forbidden_wording: "station context causally corrects WBGT"
+    rationale: "Station residual structure exists, but A-L2 is not started and no causal correction is implemented."
+    next_gate: "A-L2 only after explicit review gate."
+  - claim_id: system_ab_coupled_risk
+    claim: System A/B coupled risk
+    status: FORBIDDEN_NOW
+    allowed_wording: "future risk overlay after exposure and vulnerability are explicit"
+    required_qualifier: "System A and System B are not coupled in this lane"
+    forbidden_wording: "hazard map equals risk map or System A/B coupled risk is complete"
+    rationale: "A-L1H.2b does not touch System B, SOLWEIG, exposure, or vulnerability."
+    next_gate: "Separate System A/B coupling and risk design after current v1.1 gates."
+  - claim_id: ge33_event_probability
+    claim: ge33 event probability
+    status: EXPLORATORY_ONLY
+    allowed_wording: "ge33 remains exploratory"
+    required_qualifier: "low-support high-tail diagnostic"
+    forbidden_wording: "validated ge33 event probability"
+    rationale: "A-L1H.2 did not promote ge33; support is limited and may be station dominated."
+    next_gate: "More event support and separate review."
+  - claim_id: public_facing_alert
+    claim: public-facing alert
+    status: FORBIDDEN
+    allowed_wording: "none"
+    required_qualifier: "internal retrospective diagnostic only"
+    forbidden_wording: "public alert or warning trigger"
+    rationale: "No official warning probability, prospective validation, or governance threshold."
+    next_gate: "Operational governance plus prospective validation."
+
+decision_matrix_columns:
+  - decision_id
+  - question
+  - answer
+  - evidence
+  - caveat
+  - decision
+
+decision_matrix:
+  - decision_id: internal_retrospective_use
+    question: "Is Level 1 reliable enough for internal retrospective diagnostic use?"
+    answer: YES_WITH_BOUNDARIES
+    evidence: "A-L1H.0 through A-L1H.2 show consistent retrospective score, residual, regime, and P_ge31 diagnostics."
+    caveat: "Use only as internal retrospective diagnostic, not public warning."
+    decision: "Accept System A Level 1 current contract."
+  - decision_id: ge31_material_improvement
+    question: "Is ge31 high-tail capture materially improved?"
+    answer: YES
+    evidence: "A-L1H.2 selected P_ge31 threshold about 0.309 with recall 0.765, F1 0.719, CSI 0.561, improving on fixed score 31 threshold behavior."
+    caveat: "Improvement is station-held-out retrospective OOF only."
+    decision: "Accept P_ge31 as diagnostic companion."
+  - decision_id: ge31_fully_solved
+    question: "Is ge31 fully solved?"
+    answer: NO
+    evidence: "High-tail compression remains; S142/S139 and radiation/shortwave caveats remain."
+    caveat: "Misses and calibration gaps still exist."
+    decision: "Do not promote to official warning probability."
+  - decision_id: start_a_l2_now
+    question: "Should A-L2 start now?"
+    answer: NO
+    evidence: "A-L1H.2 explicitly says do not start A-L2 from this lane; station context remains a caveat, not an implemented correction."
+    caveat: "A-L2 may be reconsidered after explicit gate review."
+    decision: HOLD_A_L2
+  - decision_id: start_a_l1h3_now
+    question: "Should A-L1H.3 start now?"
+    answer: OPTIONAL_ONLY_BY_SEPARATE_GATE
+    evidence: "Current package accepts P_ge31 companion; high-tail regression is not implemented here."
+    caveat: "Only if user wants further high-tail improvement."
+    decision: "Do not start in A-L1H.2b."
+  - decision_id: require_prospective_evaluation
+    question: "Should prospective evaluation be required before operational claims?"
+    answer: YES
+    evidence: "All promoted evidence is retrospective OOF or source-report diagnostic evidence."
+    caveat: "No prospective lead-time skill is established."
+    decision: "Require prospective metadata / lead-time evaluation before operations."
+
+station_regime_caveat_columns:
+  - caveat_id
+  - topic
+  - evidence
+  - interpretation
+  - safe_claim
+  - forbidden_claim
+  - recommended_handling
+
+station_regime_caveats:
+  - caveat_id: station_s142
+    topic: S142
+    evidence: "A-L1H.0 showed S142 had high positive residual and many ge31 misses; A-L1H.2 selected P_ge31 still had recall 0.533 for S142 focus rows."
+    interpretation: "S142 remains a high-tail miss / underprediction caveat."
+    safe_claim: "S142 needs station-level diagnostic review."
+    forbidden_claim: "S142 is causally corrected or fully solved."
+    recommended_handling: "Track in model card and defer station-context correction to explicit A-L2 gate."
+  - caveat_id: station_s139
+    topic: S139
+    evidence: "A-L1H.0 found low ge31 support at S139; A-L1H.2 focus rows had one event and high false-alarm tendency."
+    interpretation: "S139 is low-support and unstable for station-specific conclusions."
+    safe_claim: "S139 evidence is a caveat, not a basis for broad claims."
+    forbidden_claim: "S139 proves calibration reliability or station causality."
+    recommended_handling: "Treat station-specific metrics as diagnostic only."
+  - caveat_id: radiation_hot
+    topic: radiation-hot regime
+    evidence: "A-L1H.0c found radiation_hot contained nearly all observed ge31 events and misses; A-L1H.2 showed P_ge31 bias was near zero in radiation_hot but still retrospective."
+    interpretation: "Radiation-hot regimes are important diagnostic contexts."
+    safe_claim: "Radiation-hot periods concentrate ge31 review burden."
+    forbidden_claim: "Radiation-hot is a proven causal mechanism or operational trigger."
+    recommended_handling: "Keep as caveat in report and future review gates."
+  - caveat_id: very_high_shortwave
+    topic: very high shortwave / shortwave_3h
+    evidence: "A-L1H.0c and A-L1H.2 both flagged very_high shortwave and shortwave_3h bins as ge31/miss-heavy diagnostic regimes."
+    interpretation: "Shortwave bins help explain where review is needed, not why events happen causally."
+    safe_claim: "Very-high shortwave regimes are retrospective diagnostics."
+    forbidden_claim: "Shortwave feature proves real-world causal heat-risk drivers."
+    recommended_handling: "Use for internal caveats, not claims."
+  - caveat_id: low_support
+    topic: low-support station/event caveats
+    evidence: "A-L1H.2 reliability bins and station rows include low-support pockets; A-L1H.1 advanced formula routes were unavailable."
+    interpretation: "Some metrics are unstable outside common ge31-support regimes."
+    safe_claim: "Low-support bins require caution."
+    forbidden_claim: "All stations and regimes have uniform reliability."
+    recommended_handling: "Surface low-support flags in model-card notes."
+  - caveat_id: ge33_exploratory
+    topic: ge33 exploratory caveat
+    evidence: "A-L1H.0 observed few ge33 rows; A-L1H.2 did not promote ge33 probability."
+    interpretation: "ge33 is insufficient for current promoted claims."
+    safe_claim: "ge33 remains exploratory."
+    forbidden_claim: "Validated ge33 event probability."
+    recommended_handling: "Require more support and separate review before any ge33 claim."
+
+next_gate_columns:
+  - gate_id
+  - recommendation
+  - decision
+  - rationale
+  - trigger
+  - blocked_until
+
+next_gate_recommendations:
+  - gate_id: accept_p_ge31_companion
+    recommendation: "ACCEPT A-L1H.2 P_ge31 as diagnostic companion."
+    decision: ACCEPT
+    rationale: "Best candidate M4 + isotonic_score_only has usable station-held-out retrospective reliability and improved ge31 operating-point behavior."
+    trigger: "Current A-L1H.2b package publication."
+    blocked_until: "No block for internal retrospective use."
+  - gate_id: hold_a_l2
+    recommendation: "HOLD A-L2."
+    decision: HOLD
+    rationale: "Station context remains diagnostic; A-L2 was explicitly out of scope and should not start from this integration task."
+    trigger: "Explicit user issue after Level 1 contract review."
+    blocked_until: "Separate A-L2 gate approval."
+  - gate_id: optional_a_l1h3
+    recommendation: "OPTIONAL A-L1H.3 high-tail regression review gate only if further high-tail improvement is desired."
+    decision: OPTIONAL
+    rationale: "P_ge31 companion materially improves ge31 capture but does not fully solve high tail."
+    trigger: "User requests more high-tail improvement after accepting current contract."
+    blocked_until: "Separate A-L1H.3 issue / branch."
+  - gate_id: prospective_eval
+    recommendation: "REQUIRE prospective metadata / lead-time evaluation before operational forecast claims."
+    decision: REQUIRE
+    rationale: "Current evidence is retrospective OOF; no prospective forecast skill has been evaluated."
+    trigger: "Any operational or public-facing claim."
+    blocked_until: "Prospective evaluation PASS."
+  - gate_id: current_contract
+    recommendation: "Use this integration report as the System A Level 1 current contract."
+    decision: ACCEPT
+    rationale: "It defines WBGT_A score as primary and P_ge31 as diagnostic companion with explicit boundaries."
+    trigger: "A-L1H.2b PASS."
+    blocked_until: "No block for documentation use."
+  - gate_id: no_broad_model_search
+    recommendation: "Do not try other models now unless a separate A-L1H.3 review gate is opened."
+    decision: HOLD
+    rationale: "This lane is integration / model-card / output-contract work, and A-L1H.2 already selected a diagnostic companion."
+    trigger: "Only after user asks for high-tail regression or model comparison."
+    blocked_until: "Separate scoped review."
