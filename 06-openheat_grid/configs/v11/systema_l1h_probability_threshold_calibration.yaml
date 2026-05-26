@@ -1,0 +1,109 @@
+lane: A-L1H.2
+description: System A L1H score-to-event probability and threshold calibration.
+
+inputs:
+  residual_analysis_input: outputs/v11_systema_l1_high_tail/residual_decomposition/residual_analysis_input.csv
+  residual_weather_merge: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/residual_weather_merge_full_period.csv
+  oof_predictions: outputs/v11_beta_calibration/hourly_max/v11_beta_oof_predictions.csv
+  formula_threshold_metrics: outputs/v11_systema_l1_high_tail/formula_proxy_audit/formula_threshold_metrics_31_33.csv
+
+schema:
+  station_col: station_id
+  timestamp_col: timestamp
+  date_col: date
+  hour_col: hour_sgt
+  fold_col: fold
+  cv_scheme_col: cv_scheme
+  target_col: official_wbgt_c
+  model_name_col: model_name
+  model_score_col: model_score
+  primary_cv_scheme: loso
+  required_regime_columns:
+    - combined_radiation_hot_regime
+    - shortwave_bin
+    - shortwave_3h_mean_bin
+  optional_regime_columns:
+    - temperature_bin
+    - humidity_bin
+    - wind_bin
+    - cloud_cover_bin
+    - direct_radiation_bin
+    - diffuse_radiation_bin
+
+models:
+  score_models:
+    - M4_inertia_ridge
+    - M7_compact_weather_ridge
+
+events:
+  primary:
+    id: ge31
+    event_col: obs_ge31
+    threshold_c: 31.0
+    report_label: P_ge31
+  secondary:
+    id: ge33
+    event_col: obs_ge33
+    threshold_c: 33.0
+    report_label: P_ge33_exploratory
+
+calibrators:
+  station_grouped_validation: true
+  min_train_rows: 100
+  min_isotonic_events: 10
+  min_isotonic_non_events: 50
+  empirical_bin_count: 10
+  probability_methods:
+    - id: empirical_score_bin
+      family: empirical_bin
+      diagnostic_only: false
+      description: Score-bin empirical event rate trained on other stations.
+    - id: logistic_score_only
+      family: logistic
+      features:
+        - score
+      diagnostic_only: false
+      description: Logistic probability calibration using existing score only.
+    - id: isotonic_score_only
+      family: isotonic
+      features:
+        - score
+      diagnostic_only: false
+      description: Isotonic probability calibration using existing score only.
+    - id: logistic_score_hour_diagnostic
+      family: logistic
+      features:
+        - score
+        - hour_sin
+        - hour_cos
+      diagnostic_only: true
+      description: Optional diagnostic logistic calibration using score plus SGT hour cycle.
+    - id: logistic_score_radiation_hot_diagnostic
+      family: logistic
+      features:
+        - score
+        - radiation_hot_flag
+      diagnostic_only: true
+      description: Optional diagnostic logistic calibration using score plus radiation-hot flag.
+
+analysis:
+  score_threshold_scan_start_c: 24.0
+  score_threshold_scan_stop_c: 34.0
+  score_threshold_scan_step_c: 0.05
+  probability_threshold_scan_start: 0.01
+  probability_threshold_scan_stop: 0.99
+  probability_threshold_scan_step: 0.01
+  fixed_probability_bin_step: 0.10
+  quantile_bin_count: 10
+  low_support_n: 30
+  recall_target: 0.90
+  precision_target: 0.70
+  selected_policy_operating_point: best_F1
+  radiation_hot_label: radiation_hot
+  very_high_label: very_high
+  focus_stations:
+    - S142
+    - S139
+
+outputs:
+  output_dir: outputs/v11_systema_l1_high_tail/probability_threshold_calibration
