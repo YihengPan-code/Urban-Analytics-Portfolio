@@ -1,0 +1,73 @@
+lane: A-L1H.0
+description: System A high-tail residual decomposition using existing OOF predictions only.
+
+inputs:
+  preferred_paths:
+    - outputs/v11_beta_calibration/hourly_max/v11_beta_oof_predictions.csv
+    - outputs/v11_beta_calibration/hourly_mean/v11_beta_oof_predictions.csv
+    - outputs/v11_beta_calibration/all_stations/v11_beta_oof_predictions.csv
+    - outputs/v11_beta_calibration/no_S142/v11_beta_oof_predictions.csv
+  candidate_globs:
+    - outputs/v11_beta_calibration/**/v11_beta_oof_predictions.csv
+    - outputs/v11_level1/**/oof*.csv
+    - outputs/v11_level1/**/predictions*.csv
+    - outputs/v11_level1/**/metrics*.csv
+    - outputs/v11_systema*/**/*prediction*.csv
+    - outputs/v11_systema*/**/*oof*.csv
+
+column_aliases:
+  target:
+    - official_wbgt_c
+    - observed_wbgt_c
+    - y_true
+    - target
+    - wbgt_observed_c
+    - official_hourly_max_wbgt_c
+    - official_hourly_mean_wbgt_c
+    - official_wbgt_c_max
+    - official_wbgt_c_mean
+  prediction:
+    - y_pred
+    - prediction
+    - model_score
+    - pred_wbgt_c
+    - wbgt_pred_c
+    - oof_pred
+    - score
+    - prediction_wbgt_c
+  model_name:
+    - model_name
+    - model
+    - estimator
+    - run_name
+  station:
+    - station_id
+    - station
+    - site_id
+  time:
+    - timestamp_sgt
+    - timestamp
+    - valid_time_sgt
+    - hour_sgt
+    - hour
+  weather:
+    - shortwave_radiation
+    - relative_humidity_2m
+    - wind_speed_10m
+    - temperature_2m
+    - cloud_cover
+    - precipitation
+    - shortwave_3h_mean
+
+analysis:
+  primary_models:
+    - M4_inertia_ridge
+  comparator_models:
+    - M7_compact_weather_ridge
+  observed_thresholds_c:
+    ge31: 31.0
+    ge33: 33.0
+  output_dir: outputs/v11_systema_l1_high_tail/residual_decomposition
+  status_path: outputs/v11_systema_l1_high_tail/A_L1H_LANE_STATUS.md
+  selected_target_preference: hourly_max
+  quantile_regime_min_rows_4_bins: 120
