@@ -1,0 +1,8 @@
+check,passed,notes,b2_status
+b1_report_exists,True,,PASS
+p90_provisional_primary_candidate,True,,PASS
+p90_not_canonical,True,,PASS
+next_action_says_b2,True,,PASS
+old_downgrade_wording_absent,True,,PASS
+decision_matrix_p90_status_ok,True,,PASS
+threshold_area_marked_missing_future_companion,True,,PASS
