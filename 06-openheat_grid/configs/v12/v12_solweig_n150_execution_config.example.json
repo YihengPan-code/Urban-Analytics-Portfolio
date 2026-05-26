@@ -1,0 +1,81 @@
+{
+  "run_matrix_path": "configs/v12/v12_solweig_n150_new_run_matrix.csv",
+  "full_matrix_path": "configs/v12/v12_solweig_n150_full_run_matrix.csv",
+  "selected_cells_path": "outputs/v12_systemb_n150_sample_design/n150_selected_cells.csv",
+  "new_cells_path": "outputs/v12_systemb_n150_sample_design/n150_new_cells.csv",
+  "retained_n24_cells_path": "outputs/v12_systemb_n150_sample_design/n150_retained_n24_cells.csv",
+  "n24_focus_summary_path": "outputs/v12_solweig_n24_execution/n24_focus_tmrt_summary.csv",
+  "n24_delta_path": "outputs/v12_solweig_n24_execution/n24_base_vs_overhead_delta.csv",
+  "n24_run_log_path": "outputs/v12_solweig_n24_execution/n24_solweig_run_log.csv",
+  "raw_output_root": "data/solweig/v12_n150_tiles/",
+  "summary_output_dir": "outputs/v12_solweig_n150_execution/",
+  "target_version": "systemb_target_family_v0_1_b5",
+  "reference_domain_version": "n150_training_future",
+  "primary_target": "tmrt_p90_c",
+  "primary_modifier_delta": "delta_tmrt_p90_c",
+  "normalized_modifier": "m_rad_pct01",
+  "scenarios": [
+    "base",
+    "overhead_as_canopy"
+  ],
+  "hours_sgt": [
+    10,
+    12,
+    13,
+    15,
+    16
+  ],
+  "hours": [
+    10,
+    12,
+    13,
+    15,
+    16
+  ],
+  "expected_new_runs": 1260,
+  "expected_full_rows_after_merge": 1500,
+  "expected_new_delta_rows": 630,
+  "expected_merged_delta_rows": 750,
+  "skip_completed": true,
+  "stop_if_first_10_failure_count_gt": 5,
+  "do_not_commit_raw_outputs": true,
+  "grid_feature_path": "data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.csv",
+  "building_dsm_path": "data/rasters/v10/dsm_buildings_2m_augmented_reviewed_heightqa.tif",
+  "vegetation_dsm_path": "data/rasters/v08/dsm_vegetation_2m_toapayoh.tif",
+  "overhead_vector_path": "data/features_3d/v10/overhead/overhead_structures_v10.geojson",
+  "forcing_paths_by_hour": {
+    "10": "data/solweig/v09_met_forcing_2026_05_07_S128_h10.txt",
+    "12": "data/solweig/v09_met_forcing_2026_05_07_S128_h12.txt",
+    "13": "data/solweig/v09_met_forcing_2026_05_07_S128_h13.txt",
+    "15": "data/solweig/v09_met_forcing_2026_05_07_S128_h15.txt",
+    "16": "data/solweig/v09_met_forcing_2026_05_07_S128_h16.txt"
+  },
+  "qgis_required": true,
+  "focus_cell_size_m": 100,
+  "tile_buffer_m": 100,
+  "raster_resolution_m": 2,
+  "crs": "EPSG:3414",
+  "preprocess": {
+    "wall_algorithm_id": "umep:Urban Geometry: Wall Height and Aspect",
+    "svf_algorithm_id": "umep:Urban Geometry: Sky View Factor",
+    "wall_input_limit_m": 3.0,
+    "trans_veg": 3,
+    "input_theight": 25.0,
+    "aniso": true,
+    "wall_scheme": false,
+    "kmeans": true,
+    "clusters": 5,
+    "input_svfheight": 1.0,
+    "overwrite_wall": false,
+    "overwrite_svf": false
+  },
+  "solweig_parameters": {
+    "INPUTMET_key": "INPUTMET",
+    "LEAF_START": 1,
+    "LEAF_END": 366,
+    "UTC": 8,
+    "TRANS_VEG": 3,
+    "INPUT_THEIGHT": 25.0,
+    "OUTPUT_TMRT": true
+  }
+}

@@ -1,0 +1,3457 @@
+{
+  "type": "FeatureCollection",
+  "name": "n150_review_points",
+  "crs_note": "WGS84 lon/lat point helpers derived from candidate-universe centroid columns; review helper only, not hazard/risk/SOLWEIG input.",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8571304851816,
+          1.34862835092078
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0745",
+        "selection_rank": 27,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "water_edge_or_blue_green_mixed",
+        "secondary_sampling_strata": "overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|water_edge_or_blue_green_mixed",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0139",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84005776573842,
+          1.3368717203444058
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0349",
+        "selection_rank": 30,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "grass_or_open_park",
+        "secondary_sampling_strata": "open_hardscape_high_svf|grass_or_open_park",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0431",
+        "replacement_candidate_2": "TP_0157",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8598262116649,
+          1.3522457802403334
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0864",
+        "selection_rank": 31,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "grass_or_open_park",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|grass_or_open_park",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0823",
+        "replacement_candidate_2": "TP_0228",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86162312083924,
+          1.333254107869127
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0257",
+        "selection_rank": 33,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "grass_or_open_park",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|grass_or_open_park|road_edge_or_high_road_fraction|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0228",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8409563267544,
+          1.337776082225164
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0379",
+        "selection_rank": 34,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "grass_or_open_park",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|grass_or_open_park|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0881",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85623196506228,
+          1.353150181379417
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0889",
+        "selection_rank": 36,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "dense_built_or_low_open_pixel",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85533331165018,
+          1.3432021815359
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0569",
+        "selection_rank": 38,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "max_extreme_probe_proxy",
+        "secondary_sampling_strata": "open_hardscape_high_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|max_extreme_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0373",
+        "replacement_candidate_2": "TP_0431",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84095629893814,
+          1.3287324366996809
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0089",
+        "selection_rank": 39,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "max_extreme_probe_proxy",
+        "secondary_sampling_strata": "open_hardscape_high_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|max_extreme_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0373",
+        "replacement_candidate_2": "TP_0431",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84544915062122,
+          1.3441066154245174
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0587",
+        "selection_rank": 41,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|water_edge_or_blue_green_mixed|road_edge_or_high_road_fraction",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0122",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86162308990193,
+          1.3305410144901968
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0170",
+        "selection_rank": 42,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0131",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84095635475953,
+          1.346819727081532
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0669",
+        "selection_rank": 57,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0881",
+        "replacement_candidate_2": "TP_0122",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86162331824028,
+          1.3504370312035692
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0808",
+        "selection_rank": 59,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|dense_built_or_low_open_pixel",
+        "auto_qa_flag": "geographically_isolated_edge_cell|overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0122",
+        "replacement_candidate_2": "TP_0228",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8427534680586,
+          1.3441066273849656
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0584",
+        "selection_rank": 61,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0131",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86252173098954,
+          1.3377759194434322
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0403",
+        "selection_rank": 63,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|water_edge_or_blue_green_mixed|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0131",
+        "replacement_candidate_2": "TP_0347",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8445505650607,
+          1.3386804328462016
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0412",
+        "selection_rank": 65,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "geographically_isolated_edge_cell",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85802883061828,
+          1.326923595292268
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0050",
+        "selection_rank": 70,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84185487595656,
+          1.3350629856689402
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0293",
+        "selection_rank": 77,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8418548915516,
+          1.3395848082714237
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0438",
+        "selection_rank": 78,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|dense_built_or_low_open_pixel",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.849043370909,
+          1.340489136981649
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0475",
+        "selection_rank": 81,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85623183849373,
+          1.3395847155188605
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0454",
+        "selection_rank": 86,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|road_edge_or_high_road_fraction|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "geographically_isolated_edge_cell|overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84814490430036,
+          1.3558633377482563
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0967",
+        "selection_rank": 87,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0823",
+        "replacement_candidate_2": "TP_0897",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85982599754296,
+          1.332349763521825
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0226",
+        "selection_rank": 89,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0256",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85533315896734,
+          1.3260192563506468
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0018",
+        "selection_rank": 106,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0131",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85713054681231,
+          1.354958901331806
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0948",
+        "selection_rank": 107,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0131",
+        "replacement_candidate_2": "TP_0228",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84005781029563,
+          1.3531502807543798
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0871",
+        "selection_rank": 108,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84994195482923,
+          1.34410658883664
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0592",
+        "selection_rank": 109,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|road_edge_or_high_road_fraction|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "geographically_isolated_edge_cell",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84724632882345,
+          1.35405461436749
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0908",
+        "selection_rank": 112,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0131",
+        "replacement_candidate_2": "TP_0122",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84814487686404,
+          1.3513415158531927
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0822",
+        "selection_rank": 115,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0373",
+        "replacement_candidate_2": "TP_0945",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86072449422724,
+          1.326923566734575
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0053",
+        "selection_rank": 120,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0080",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86162313116569,
+          1.334158472315439
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0286",
+        "selection_rank": 121,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "overhead_or_transport_structure",
+        "secondary_sampling_strata": "overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0139",
+        "replacement_candidate_2": "TP_0581",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85713044133654,
+          1.344106528996165
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0600",
+        "selection_rank": 126,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0881",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84634776915328,
+          1.3549589837684624
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0936",
+        "selection_rank": 129,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0881",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84724620099836,
+          1.3314455027825758
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0183",
+        "selection_rank": 131,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84185491661349,
+          1.3468197240867512
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0670",
+        "selection_rank": 132,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84005776819969,
+          1.3377760848687068
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0378",
+        "selection_rank": 133,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|max_extreme_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0431",
+        "replacement_candidate_2": "TP_0373",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8607245041782,
+          1.3278279312344103
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0082",
+        "selection_rank": 137,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85892760062112,
+          1.3477239682130788
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0718",
+        "selection_rank": 138,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0122",
+        "replacement_candidate_2": "TP_0881",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85982593007944,
+          1.3260192120690546
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0023",
+        "selection_rank": 140,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84904341714324,
+          1.3477240525499763
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0707",
+        "selection_rank": 141,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|dense_built_or_low_open_pixel",
+        "auto_qa_flag": "geographically_isolated_edge_cell",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0101",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8580290476264,
+          1.348628341913405
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0746",
+        "selection_rank": 148,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0945",
+        "replacement_candidate_2": "TP_0373",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85443469700078,
+          1.336871638368513
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0365",
+        "selection_rank": 149,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84005774121766,
+          1.3278280747343825
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0059",
+        "selection_rank": 2,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|max_extreme_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0431",
+        "replacement_candidate_2": "TP_0373",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84005774366224,
+          1.328732439325346
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0088",
+        "selection_rank": 3,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|max_extreme_probe_proxy",
+        "auto_qa_flag": "extreme_outlier_feature|overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0431",
+        "replacement_candidate_2": "TP_0373",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84904329630956,
+          1.328732398268949
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0098",
+        "selection_rank": 4,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85892745038076,
+          1.3332541375531193
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0254",
+        "selection_rank": 8,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|dense_built_or_low_open_pixel",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84904333639676,
+          1.3350629500236777
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0301",
+        "selection_rank": 9,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel",
+        "auto_qa_flag": "geographically_isolated_edge_cell",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0256",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8454491106292,
+          1.3359673350134982
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0326",
+        "selection_rank": 10,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": "geographically_isolated_edge_cell",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85713042383976,
+          1.3422978001792272
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0542",
+        "selection_rank": 15,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|water_edge_or_blue_green_mixed",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85173906971652,
+          1.3432022114359992
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0565",
+        "selection_rank": 16,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|road_edge_or_high_road_fraction|max_extreme_probe_proxy",
+        "auto_qa_flag": "geographically_isolated_edge_cell",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0373",
+        "replacement_candidate_2": "TP_0431",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86072467438272,
+          1.3432021267117755
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0575",
+        "selection_rank": 17,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|road_edge_or_high_road_fraction|max_extreme_probe_proxy",
+        "auto_qa_flag": "geographically_isolated_edge_cell|overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0431",
+        "replacement_candidate_2": "TP_0373",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.847246287685,
+          1.3468196991174683
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0676",
+        "selection_rank": 19,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": "overhead_semantics_ambiguous",
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84275346459437,
+          1.3432022629136326
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0555",
+        "selection_rank": 25,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|water_edge_or_blue_green_mixed",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0158",
+        "replacement_candidate_2": "TP_0431",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85713052917409,
+          1.353150172676759
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0890",
+        "selection_rank": 26,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "water_edge_or_blue_green_mixed",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|water_edge_or_blue_green_mixed|road_edge_or_high_road_fraction|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0131",
+        "replacement_candidate_2": "TP_0347",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8535361092986,
+          1.3332541880110325
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0248",
+        "selection_rank": 28,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "grass_or_open_park",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|grass_or_open_park|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84994201613335,
+          1.3531502329200058
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0882",
+        "selection_rank": 29,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "grass_or_open_park",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|grass_or_open_park|road_edge_or_high_road_fraction",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0826",
+        "replacement_candidate_2": "TP_0228",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84185488530726,
+          1.3377760792504996
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0380",
+        "selection_rank": 32,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "grass_or_open_park",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|grass_or_open_park",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0350",
+        "replacement_candidate_2": "TP_0826",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84814474644683,
+          1.3296367684147303
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0126",
+        "selection_rank": 35,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "road_edge_or_high_road_fraction",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|road_edge_or_high_road_fraction|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8409562961669,
+          1.327828072110505
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0060",
+        "selection_rank": 37,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "max_extreme_probe_proxy",
+        "secondary_sampling_strata": "open_hardscape_high_svf|water_edge_or_blue_green_mixed|road_edge_or_high_road_fraction|max_extreme_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0431",
+        "replacement_candidate_2": "TP_0373",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86162320364708,
+          1.3404890232525222
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0489",
+        "selection_rank": 40,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "max_extreme_probe_proxy",
+        "secondary_sampling_strata": "open_hardscape_high_svf|road_edge_or_high_road_fraction|max_extreme_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0431",
+        "replacement_candidate_2": "TP_0373",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85623198203452,
+          1.3549589100461006
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0947",
+        "selection_rank": 43,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0580",
+        "replacement_candidate_2": "TP_0881",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84455050779536,
+          1.3260193291489106
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0006",
+        "selection_rank": 44,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84365207465096,
+          1.354958996831645
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0933",
+        "selection_rank": 45,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0945",
+        "replacement_candidate_2": "TP_0174",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8652176058882,
+          1.353150079281037
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0899",
+        "selection_rank": 46,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0897",
+        "replacement_candidate_2": "TP_0823",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85263753132192,
+          1.3305411017088364
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0160",
+        "selection_rank": 47,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|water_edge_or_blue_green_mixed",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0347",
+        "replacement_candidate_2": "TP_0101",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85084046427504,
+          1.3368716668040492
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0361",
+        "selection_rank": 48,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0256",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85802898396832,
+          1.3422977912141485
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0543",
+        "selection_rank": 49,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|water_edge_or_blue_green_mixed",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0158",
+        "replacement_candidate_2": "TP_0431",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85084048351165,
+          1.339584760248178
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0448",
+        "selection_rank": 50,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|road_edge_or_high_road_fraction|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85263755947926,
+          1.33415855977129
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0276",
+        "selection_rank": 51,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8409563772996,
+          1.3540546424818265
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0901",
+        "selection_rank": 52,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|road_edge_or_high_road_fraction|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84365198354806,
+          1.3332542496619508
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0237",
+        "selection_rank": 53,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "background_feature_space_fill",
+        "secondary_sampling_strata": "background_feature_space_fill",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0288",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84275342320562,
+          1.3323498887349094
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0207",
+        "selection_rank": 54,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0174",
+        "replacement_candidate_2": "TP_0945",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84724630822666,
+          1.350437156796515
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0792",
+        "selection_rank": 55,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0823",
+        "replacement_candidate_2": "TP_0897",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8562318974002,
+          1.3459152664423215
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0657",
+        "selection_rank": 56,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0256",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84005777066255,
+          1.338680449386316
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0407",
+        "selection_rank": 58,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8571302674301,
+          1.3260192396226438
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0020",
+        "selection_rank": 60,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|water_edge_or_blue_green_mixed|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84005775591012,
+          1.3332542621803831
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0233",
+        "selection_rank": 62,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0262",
+        "replacement_candidate_2": "TP_0101",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85623188054142,
+          1.3441065376406385
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0599",
+        "selection_rank": 64,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0347",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86252183822096,
+          1.346819563198974
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0693",
+        "selection_rank": 66,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|road_edge_or_high_road_fraction|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8652173713028,
+          1.3350627924964027
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0319",
+        "selection_rank": 67,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|water_edge_or_blue_green_mixed|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0347",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8400577830021,
+          1.343202271873837
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0552",
+        "selection_rank": 68,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8571302760694,
+          1.3269236041546286
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0049",
+        "selection_rank": 69,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|water_edge_or_blue_green_mixed|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84724626719854,
+          1.3432022413306404
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0560",
+        "selection_rank": 71,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0101",
+        "replacement_candidate_2": "TP_0823",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84455064364916,
+          1.355863357191068
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0963",
+        "selection_rank": 72,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86342015777517,
+          1.3269235352209652
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0056",
+        "selection_rank": 73,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.856231746488,
+          1.3296367062621235
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0135",
+        "selection_rank": 74,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0131",
+        "replacement_candidate_2": "TP_0347",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86072471471584,
+          1.346819584189808
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0691",
+        "selection_rank": 75,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0347",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86431870102749,
+          1.326019159582181
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0028",
+        "selection_rank": 76,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0373",
+        "replacement_candidate_2": "TP_0174",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86072462411896,
+          1.3386803047131066
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0430",
+        "selection_rank": 79,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|grass_or_open_park",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0401",
+        "replacement_candidate_2": "TP_0823",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84814474105866,
+          1.3287324038545631
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0097",
+        "selection_rank": 80,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85982616272187,
+          1.3477239585445753
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0719",
+        "selection_rank": 82,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0347",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84994187574902,
+          1.332349850523879
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0215",
+        "selection_rank": 83,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84005777559338,
+          1.340489178401443
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0465",
+        "selection_rank": 84,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85982607503794,
+          1.3395846790679122
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0458",
+        "selection_rank": 85,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86072472481608,
+          1.3477239485424863
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0720",
+        "selection_rank": 88,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8553332069704,
+          1.331445443511387
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0192",
+        "selection_rank": 90,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85982602655436,
+          1.335062856901713
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0313",
+        "selection_rank": 91,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0897",
+        "replacement_candidate_2": "TP_0401",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85623192273091,
+          1.3486283595943451
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0744",
+        "selection_rank": 92,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84365201753909,
+          1.3413935303040696
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0498",
+        "selection_rank": 93,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0823",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86431881386318,
+          1.335062804056747
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0318",
+        "selection_rank": 94,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|water_edge_or_blue_green_mixed",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0101",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85263767287374,
+          1.3486283909505137
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0740",
+        "selection_rank": 95,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0823",
+        "replacement_candidate_2": "TP_0897",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85982594932192,
+          1.3278279410887908
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0081",
+        "selection_rank": 96,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85982622147318,
+          1.3531501445592125
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0893",
+        "selection_rank": 97,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0347",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8490432848911,
+          1.3269236691362878
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0040",
+        "selection_rank": 98,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.842753443858,
+          1.3377760759447117
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0381",
+        "selection_rank": 99,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|water_edge_or_blue_green_mixed|grass_or_open_park",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8643189274665,
+          1.3441064478635452
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0608",
+        "selection_rank": 100,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "road_edge_or_high_road_fraction",
+        "secondary_sampling_strata": "road_edge_or_high_road_fraction|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.849941839485,
+          1.3269236632298445
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0041",
+        "selection_rank": 101,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86342026741325,
+          1.335967179705055
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0346",
+        "selection_rank": 102,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84185490406566,
+          1.3432022662328336
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0554",
+        "selection_rank": 103,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0352",
+        "replacement_candidate_2": "TP_0262",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85443464308332,
+          1.330541086899756
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0162",
+        "selection_rank": 104,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84365195350765,
+          1.3260193330820584
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0005",
+        "selection_rank": 105,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0262",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85892761006504,
+          1.3486283325722206
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0747",
+        "selection_rank": 110,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0897",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85443463540174,
+          1.3296367223775631
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0133",
+        "selection_rank": 111,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85263754539103,
+          1.3323498307533912
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0218",
+        "selection_rank": 113,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0256",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85263766575072,
+          1.3477240265522108
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0711",
+        "selection_rank": 114,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0288",
+        "replacement_candidate_2": "TP_0945",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84994191824428,
+          1.3386804020636358
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0418",
+        "selection_rank": 116,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84365205173718,
+          1.3495328104027402
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0759",
+        "selection_rank": 117,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84634762581491,
+          1.3278280494653945
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0066",
+        "selection_rank": 118,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86162326604732,
+          1.345915209508595
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0663",
+        "selection_rank": 119,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84724628255825,
+          1.3459153346808548
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0647",
+        "selection_rank": 122,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0823",
+        "replacement_candidate_2": "TP_0080",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85802884856768,
+          1.3287323243242375
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0108",
+        "selection_rank": 123,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0347",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85533324712286,
+          1.3359672659622408
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0337",
+        "selection_rank": 124,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0347",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84455063948792,
+          1.3549589928126275
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0934",
+        "selection_rank": 125,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85353625026995,
+          1.3504371123787051
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0799",
+        "selection_rank": 127,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0617",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84365205936489,
+          1.351341539239423
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0817",
+        "selection_rank": 128,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0347",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85173910360548,
+          1.3477240335520304
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0710",
+        "selection_rank": 130,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85533336839772,
+          1.3495327323102195
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0772",
+        "selection_rank": 134,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0288",
+        "replacement_candidate_2": "TP_0174",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84365197978406,
+          1.3323498851127566
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0208",
+        "selection_rank": 135,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8607245740249,
+          1.3341584825470438
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0285",
+        "selection_rank": 136,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84544907088032,
+          1.3278280540612273
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0065",
+        "selection_rank": 139,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0347",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8454491550798,
+          1.3450109798810768
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0616",
+        "selection_rank": 142,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|water_edge_or_blue_green_mixed",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0352",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84365203271268,
+          1.3450109881929893
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0614",
+        "selection_rank": 143,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0080",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86342017964314,
+          1.328732264171024
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0114",
+        "selection_rank": 144,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|water_edge_or_blue_green_mixed|road_edge_or_high_road_fraction",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0122",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84095631560524,
+          1.3341586240950114
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0263",
+        "selection_rank": 145,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0101",
+        "replacement_candidate_2": "TP_0262",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85892765737977,
+          1.3531501542666569
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0892",
+        "selection_rank": 146,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0401",
+        "replacement_candidate_2": "TP_0580",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85802886654156,
+          1.3305410533296236
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0166",
+        "selection_rank": 147,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85623188896795,
+          1.3450109020448435
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0628",
+        "selection_rank": 150,
+        "selection_tier": "added126",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84634762108692,
+          1.326923684885006
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0037",
+        "selection_rank": 1,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0256",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8643187347976,
+          1.328732252994398
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0115",
+        "selection_rank": 5,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "water_edge_or_blue_green_mixed",
+        "secondary_sampling_strata": "water_edge_or_blue_green_mixed",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0139",
+        "replacement_candidate_2": "TP_0158",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8616230796035,
+          1.3296366500172372
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0141",
+        "selection_rank": 6,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84724619593015,
+          1.330541138232135
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0154",
+        "selection_rank": 7,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0199",
+        "replacement_candidate_2": "TP_0131",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8553332551697,
+          1.3368716304323829
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0366",
+        "selection_rank": 11,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0157",
+        "replacement_candidate_2": "TP_0373",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84185488842836,
+          1.3386804437643094
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0409",
+        "selection_rank": 12,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|overhead_or_transport_structure|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0090",
+        "replacement_candidate_2": "TP_0256",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86342030045,
+          1.3386802729201843
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0433",
+        "selection_rank": 13,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|water_edge_or_blue_green_mixed",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0347",
+        "replacement_candidate_2": "TP_0352",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86431888193306,
+          1.3404889904212471
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0492",
+        "selection_rank": 14,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|water_edge_or_blue_green_mixed|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85533332783652,
+          1.3450109103622216
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0627",
+        "selection_rank": 18,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel|mixed_upper_tail_probe_proxy",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0617",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85623193118585,
+          1.349532723964869
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0773",
+        "selection_rank": 20,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|water_edge_or_blue_green_mixed",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0062",
+        "replacement_candidate_2": "TP_0090",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85982620186316,
+          1.3513414159146908
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0835",
+        "selection_rank": 21,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|grass_or_open_park",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0401",
+        "replacement_candidate_2": "TP_0826",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.85353626521416,
+          1.3522458411182072
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0857",
+        "selection_rank": 22,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "shaded_canopy_low_svf",
+        "secondary_sampling_strata": "shaded_canopy_low_svf|street_canyon_or_wall_adjacent|dense_built_or_low_open_pixel",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0256",
+        "replacement_candidate_2": "TP_0062",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.84185494813082,
+          1.3558633682493673
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0960",
+        "selection_rank": 23,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf|covered_walkway_or_pedestrian_overhead",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0945",
+        "replacement_candidate_2": "TP_0157",
+        "review_helper_only": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.86521764134852,
+          1.3558631720661165
+        ]
+      },
+      "properties": {
+        "cell_id": "TP_0986",
+        "selection_rank": 24,
+        "selection_tier": "n24_seed",
+        "primary_sampling_stratum": "open_hardscape_high_svf",
+        "secondary_sampling_strata": "open_hardscape_high_svf",
+        "auto_qa_flag": NaN,
+        "quick_map_check_status": "pending",
+        "only_question": "Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?",
+        "replacement_candidate_1": "TP_0373",
+        "replacement_candidate_2": "TP_0945",
+        "review_helper_only": true
+      }
+    }
+  ]
+}

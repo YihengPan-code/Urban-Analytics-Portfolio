@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>N150 review points</name>
+    <Placemark>
+      <name>27 TP_0745</name>
+      <description>rank=27; tier=added126; primary=water_edge_or_blue_green_mixed; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0139</description>
+      <Point>
+        <coordinates>103.8571304851816,1.34862835092078,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>30 TP_0349</name>
+      <description>rank=30; tier=added126; primary=grass_or_open_park; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0431</description>
+      <Point>
+        <coordinates>103.84005776573842,1.3368717203444058,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>31 TP_0864</name>
+      <description>rank=31; tier=added126; primary=grass_or_open_park; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0823</description>
+      <Point>
+        <coordinates>103.8598262116649,1.3522457802403334,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>33 TP_0257</name>
+      <description>rank=33; tier=added126; primary=grass_or_open_park; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0228</description>
+      <Point>
+        <coordinates>103.86162312083924,1.333254107869127,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>34 TP_0379</name>
+      <description>rank=34; tier=added126; primary=grass_or_open_park; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0881</description>
+      <Point>
+        <coordinates>103.8409563267544,1.337776082225164,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>36 TP_0889</name>
+      <description>rank=36; tier=added126; primary=dense_built_or_low_open_pixel; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.85623196506228,1.353150181379417,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>38 TP_0569</name>
+      <description>rank=38; tier=added126; primary=max_extreme_probe_proxy; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0373</description>
+      <Point>
+        <coordinates>103.85533331165018,1.3432021815359,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>39 TP_0089</name>
+      <description>rank=39; tier=added126; primary=max_extreme_probe_proxy; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0373</description>
+      <Point>
+        <coordinates>103.84095629893814,1.3287324366996809,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>41 TP_0587</name>
+      <description>rank=41; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0122</description>
+      <Point>
+        <coordinates>103.84544915062122,1.3441066154245174,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>42 TP_0170</name>
+      <description>rank=42; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0131</description>
+      <Point>
+        <coordinates>103.86162308990193,1.3305410144901968,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>57 TP_0669</name>
+      <description>rank=57; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0881</description>
+      <Point>
+        <coordinates>103.84095635475953,1.346819727081532,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>59 TP_0808</name>
+      <description>rank=59; tier=added126; primary=shaded_canopy_low_svf; flags=geographically_isolated_edge_cell|overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0122</description>
+      <Point>
+        <coordinates>103.86162331824028,1.3504370312035692,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>61 TP_0584</name>
+      <description>rank=61; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0131</description>
+      <Point>
+        <coordinates>103.8427534680586,1.3441066273849656,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>63 TP_0403</name>
+      <description>rank=63; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0131</description>
+      <Point>
+        <coordinates>103.86252173098954,1.3377759194434322,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>65 TP_0412</name>
+      <description>rank=65; tier=added126; primary=shaded_canopy_low_svf; flags=geographically_isolated_edge_cell; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.8445505650607,1.3386804328462016,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>70 TP_0050</name>
+      <description>rank=70; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.85802883061828,1.326923595292268,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>77 TP_0293</name>
+      <description>rank=77; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.84185487595656,1.3350629856689402,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>78 TP_0438</name>
+      <description>rank=78; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.8418548915516,1.3395848082714237,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>81 TP_0475</name>
+      <description>rank=81; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.849043370909,1.340489136981649,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>86 TP_0454</name>
+      <description>rank=86; tier=added126; primary=shaded_canopy_low_svf; flags=geographically_isolated_edge_cell|overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85623183849373,1.3395847155188605,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>87 TP_0967</name>
+      <description>rank=87; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0823</description>
+      <Point>
+        <coordinates>103.84814490430036,1.3558633377482563,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>89 TP_0226</name>
+      <description>rank=89; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.85982599754296,1.332349763521825,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>106 TP_0018</name>
+      <description>rank=106; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0131</description>
+      <Point>
+        <coordinates>103.85533315896734,1.3260192563506468,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>107 TP_0948</name>
+      <description>rank=107; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0131</description>
+      <Point>
+        <coordinates>103.85713054681231,1.354958901331806,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>108 TP_0871</name>
+      <description>rank=108; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.84005781029563,1.3531502807543798,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>109 TP_0592</name>
+      <description>rank=109; tier=added126; primary=shaded_canopy_low_svf; flags=geographically_isolated_edge_cell; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84994195482923,1.34410658883664,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>112 TP_0908</name>
+      <description>rank=112; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0131</description>
+      <Point>
+        <coordinates>103.84724632882345,1.35405461436749,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>115 TP_0822</name>
+      <description>rank=115; tier=added126; primary=open_hardscape_high_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0373</description>
+      <Point>
+        <coordinates>103.84814487686404,1.3513415158531927,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>120 TP_0053</name>
+      <description>rank=120; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.86072449422724,1.326923566734575,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>121 TP_0286</name>
+      <description>rank=121; tier=added126; primary=overhead_or_transport_structure; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0139</description>
+      <Point>
+        <coordinates>103.86162313116569,1.334158472315439,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>126 TP_0600</name>
+      <description>rank=126; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.85713044133654,1.344106528996165,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>129 TP_0936</name>
+      <description>rank=129; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0881</description>
+      <Point>
+        <coordinates>103.84634776915328,1.3549589837684624,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>131 TP_0183</name>
+      <description>rank=131; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.84724620099836,1.3314455027825758,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>132 TP_0670</name>
+      <description>rank=132; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.84185491661349,1.3468197240867512,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>133 TP_0378</name>
+      <description>rank=133; tier=added126; primary=open_hardscape_high_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0431</description>
+      <Point>
+        <coordinates>103.84005776819969,1.3377760848687068,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>137 TP_0082</name>
+      <description>rank=137; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.8607245041782,1.3278279312344103,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>138 TP_0718</name>
+      <description>rank=138; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0122</description>
+      <Point>
+        <coordinates>103.85892760062112,1.3477239682130788,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>140 TP_0023</name>
+      <description>rank=140; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.85982593007944,1.3260192120690546,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>141 TP_0707</name>
+      <description>rank=141; tier=added126; primary=shaded_canopy_low_svf; flags=geographically_isolated_edge_cell; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84904341714324,1.3477240525499763,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>148 TP_0746</name>
+      <description>rank=148; tier=added126; primary=open_hardscape_high_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0945</description>
+      <Point>
+        <coordinates>103.8580290476264,1.348628341913405,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>149 TP_0365</name>
+      <description>rank=149; tier=added126; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.85443469700078,1.336871638368513,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>2 TP_0059</name>
+      <description>rank=2; tier=n24_seed; primary=open_hardscape_high_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0431</description>
+      <Point>
+        <coordinates>103.84005774121766,1.3278280747343825,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>3 TP_0088</name>
+      <description>rank=3; tier=n24_seed; primary=open_hardscape_high_svf; flags=extreme_outlier_feature|overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0431</description>
+      <Point>
+        <coordinates>103.84005774366224,1.328732439325346,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>4 TP_0098</name>
+      <description>rank=4; tier=n24_seed; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.84904329630956,1.328732398268949,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>8 TP_0254</name>
+      <description>rank=8; tier=n24_seed; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.85892745038076,1.3332541375531193,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>9 TP_0301</name>
+      <description>rank=9; tier=n24_seed; primary=shaded_canopy_low_svf; flags=geographically_isolated_edge_cell; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.84904333639676,1.3350629500236777,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>10 TP_0326</name>
+      <description>rank=10; tier=n24_seed; primary=shaded_canopy_low_svf; flags=geographically_isolated_edge_cell; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.8454491106292,1.3359673350134982,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>15 TP_0542</name>
+      <description>rank=15; tier=n24_seed; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.85713042383976,1.3422978001792272,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>16 TP_0565</name>
+      <description>rank=16; tier=n24_seed; primary=open_hardscape_high_svf; flags=geographically_isolated_edge_cell; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0373</description>
+      <Point>
+        <coordinates>103.85173906971652,1.3432022114359992,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>17 TP_0575</name>
+      <description>rank=17; tier=n24_seed; primary=open_hardscape_high_svf; flags=geographically_isolated_edge_cell|overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0431</description>
+      <Point>
+        <coordinates>103.86072467438272,1.3432021267117755,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>19 TP_0676</name>
+      <description>rank=19; tier=n24_seed; primary=shaded_canopy_low_svf; flags=overhead_semantics_ambiguous; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.847246287685,1.3468196991174683,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>25 TP_0555</name>
+      <description>rank=25; tier=added126; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0158</description>
+      <Point>
+        <coordinates>103.84275346459437,1.3432022629136326,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>26 TP_0890</name>
+      <description>rank=26; tier=added126; primary=water_edge_or_blue_green_mixed; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0131</description>
+      <Point>
+        <coordinates>103.85713052917409,1.353150172676759,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>28 TP_0248</name>
+      <description>rank=28; tier=added126; primary=grass_or_open_park; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.8535361092986,1.3332541880110325,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>29 TP_0882</name>
+      <description>rank=29; tier=added126; primary=grass_or_open_park; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0826</description>
+      <Point>
+        <coordinates>103.84994201613335,1.3531502329200058,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>32 TP_0380</name>
+      <description>rank=32; tier=added126; primary=grass_or_open_park; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0350</description>
+      <Point>
+        <coordinates>103.84185488530726,1.3377760792504996,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>35 TP_0126</name>
+      <description>rank=35; tier=added126; primary=road_edge_or_high_road_fraction; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84814474644683,1.3296367684147303,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>37 TP_0060</name>
+      <description>rank=37; tier=added126; primary=max_extreme_probe_proxy; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0431</description>
+      <Point>
+        <coordinates>103.8409562961669,1.327828072110505,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>40 TP_0489</name>
+      <description>rank=40; tier=added126; primary=max_extreme_probe_proxy; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0431</description>
+      <Point>
+        <coordinates>103.86162320364708,1.3404890232525222,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>43 TP_0947</name>
+      <description>rank=43; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0580</description>
+      <Point>
+        <coordinates>103.85623198203452,1.3549589100461006,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>44 TP_0006</name>
+      <description>rank=44; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.84455050779536,1.3260193291489106,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>45 TP_0933</name>
+      <description>rank=45; tier=added126; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0945</description>
+      <Point>
+        <coordinates>103.84365207465096,1.354958996831645,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>46 TP_0899</name>
+      <description>rank=46; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0897</description>
+      <Point>
+        <coordinates>103.8652176058882,1.353150079281037,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>47 TP_0160</name>
+      <description>rank=47; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0347</description>
+      <Point>
+        <coordinates>103.85263753132192,1.3305411017088364,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>48 TP_0361</name>
+      <description>rank=48; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.85084046427504,1.3368716668040492,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>49 TP_0543</name>
+      <description>rank=49; tier=added126; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0158</description>
+      <Point>
+        <coordinates>103.85802898396832,1.3422977912141485,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>50 TP_0448</name>
+      <description>rank=50; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85084048351165,1.339584760248178,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>51 TP_0276</name>
+      <description>rank=51; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85263755947926,1.33415855977129,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>52 TP_0901</name>
+      <description>rank=52; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.8409563772996,1.3540546424818265,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>53 TP_0237</name>
+      <description>rank=53; tier=added126; primary=background_feature_space_fill; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0288</description>
+      <Point>
+        <coordinates>103.84365198354806,1.3332542496619508,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>54 TP_0207</name>
+      <description>rank=54; tier=added126; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0174</description>
+      <Point>
+        <coordinates>103.84275342320562,1.3323498887349094,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>55 TP_0792</name>
+      <description>rank=55; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0823</description>
+      <Point>
+        <coordinates>103.84724630822666,1.350437156796515,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>56 TP_0657</name>
+      <description>rank=56; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.8562318974002,1.3459152664423215,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>58 TP_0407</name>
+      <description>rank=58; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84005777066255,1.338680449386316,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>60 TP_0020</name>
+      <description>rank=60; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.8571302674301,1.3260192396226438,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>62 TP_0233</name>
+      <description>rank=62; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0262</description>
+      <Point>
+        <coordinates>103.84005775591012,1.3332542621803831,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>64 TP_0599</name>
+      <description>rank=64; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85623188054142,1.3441065376406385,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>66 TP_0693</name>
+      <description>rank=66; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.86252183822096,1.346819563198974,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>67 TP_0319</name>
+      <description>rank=67; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0347</description>
+      <Point>
+        <coordinates>103.8652173713028,1.3350627924964027,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>68 TP_0552</name>
+      <description>rank=68; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.8400577830021,1.343202271873837,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>69 TP_0049</name>
+      <description>rank=69; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.8571302760694,1.3269236041546286,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>71 TP_0560</name>
+      <description>rank=71; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0101</description>
+      <Point>
+        <coordinates>103.84724626719854,1.3432022413306404,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>72 TP_0963</name>
+      <description>rank=72; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84455064364916,1.355863357191068,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>73 TP_0056</name>
+      <description>rank=73; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.86342015777517,1.3269235352209652,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>74 TP_0135</name>
+      <description>rank=74; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0131</description>
+      <Point>
+        <coordinates>103.856231746488,1.3296367062621235,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>75 TP_0691</name>
+      <description>rank=75; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0347</description>
+      <Point>
+        <coordinates>103.86072471471584,1.346819584189808,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>76 TP_0028</name>
+      <description>rank=76; tier=added126; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0373</description>
+      <Point>
+        <coordinates>103.86431870102749,1.326019159582181,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>79 TP_0430</name>
+      <description>rank=79; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0401</description>
+      <Point>
+        <coordinates>103.86072462411896,1.3386803047131066,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>80 TP_0097</name>
+      <description>rank=80; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84814474105866,1.3287324038545631,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>82 TP_0719</name>
+      <description>rank=82; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85982616272187,1.3477239585445753,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>83 TP_0215</name>
+      <description>rank=83; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.84994187574902,1.332349850523879,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>84 TP_0465</name>
+      <description>rank=84; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84005777559338,1.340489178401443,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>85 TP_0458</name>
+      <description>rank=85; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85982607503794,1.3395846790679122,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>88 TP_0720</name>
+      <description>rank=88; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.86072472481608,1.3477239485424863,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>90 TP_0192</name>
+      <description>rank=90; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.8553332069704,1.331445443511387,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>91 TP_0313</name>
+      <description>rank=91; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0897</description>
+      <Point>
+        <coordinates>103.85982602655436,1.335062856901713,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>92 TP_0744</name>
+      <description>rank=92; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.85623192273091,1.3486283595943451,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>93 TP_0498</name>
+      <description>rank=93; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84365201753909,1.3413935303040696,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>94 TP_0318</name>
+      <description>rank=94; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0101</description>
+      <Point>
+        <coordinates>103.86431881386318,1.335062804056747,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>95 TP_0740</name>
+      <description>rank=95; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0823</description>
+      <Point>
+        <coordinates>103.85263767287374,1.3486283909505137,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>96 TP_0081</name>
+      <description>rank=96; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.85982594932192,1.3278279410887908,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>97 TP_0893</name>
+      <description>rank=97; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0347</description>
+      <Point>
+        <coordinates>103.85982622147318,1.3531501445592125,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>98 TP_0040</name>
+      <description>rank=98; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.8490432848911,1.3269236691362878,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>99 TP_0381</name>
+      <description>rank=99; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.842753443858,1.3377760759447117,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>100 TP_0608</name>
+      <description>rank=100; tier=added126; primary=road_edge_or_high_road_fraction; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.8643189274665,1.3441064478635452,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>101 TP_0041</name>
+      <description>rank=101; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.849941839485,1.3269236632298445,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>102 TP_0346</name>
+      <description>rank=102; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.86342026741325,1.335967179705055,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>103 TP_0554</name>
+      <description>rank=103; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0352</description>
+      <Point>
+        <coordinates>103.84185490406566,1.3432022662328336,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>104 TP_0162</name>
+      <description>rank=104; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85443464308332,1.330541086899756,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>105 TP_0005</name>
+      <description>rank=105; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0262</description>
+      <Point>
+        <coordinates>103.84365195350765,1.3260193330820584,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>110 TP_0747</name>
+      <description>rank=110; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0897</description>
+      <Point>
+        <coordinates>103.85892761006504,1.3486283325722206,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>111 TP_0133</name>
+      <description>rank=111; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85443463540174,1.3296367223775631,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>113 TP_0218</name>
+      <description>rank=113; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.85263754539103,1.3323498307533912,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>114 TP_0711</name>
+      <description>rank=114; tier=added126; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0288</description>
+      <Point>
+        <coordinates>103.85263766575072,1.3477240265522108,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>116 TP_0418</name>
+      <description>rank=116; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84994191824428,1.3386804020636358,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>117 TP_0759</name>
+      <description>rank=117; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84365205173718,1.3495328104027402,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>118 TP_0066</name>
+      <description>rank=118; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84634762581491,1.3278280494653945,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>119 TP_0663</name>
+      <description>rank=119; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.86162326604732,1.345915209508595,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>122 TP_0647</name>
+      <description>rank=122; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0823</description>
+      <Point>
+        <coordinates>103.84724628255825,1.3459153346808548,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>123 TP_0108</name>
+      <description>rank=123; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0347</description>
+      <Point>
+        <coordinates>103.85802884856768,1.3287323243242375,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>124 TP_0337</name>
+      <description>rank=124; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85533324712286,1.3359672659622408,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>125 TP_0934</name>
+      <description>rank=125; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84455063948792,1.3549589928126275,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>127 TP_0799</name>
+      <description>rank=127; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.85353625026995,1.3504371123787051,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>128 TP_0817</name>
+      <description>rank=128; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84365205936489,1.351341539239423,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>130 TP_0710</name>
+      <description>rank=130; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85173910360548,1.3477240335520304,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>134 TP_0772</name>
+      <description>rank=134; tier=added126; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0288</description>
+      <Point>
+        <coordinates>103.85533336839772,1.3495327323102195,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>135 TP_0208</name>
+      <description>rank=135; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84365197978406,1.3323498851127566,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>136 TP_0285</name>
+      <description>rank=136; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.8607245740249,1.3341584825470438,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>139 TP_0065</name>
+      <description>rank=139; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.84544907088032,1.3278280540612273,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>142 TP_0616</name>
+      <description>rank=142; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.8454491550798,1.3450109798810768,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>143 TP_0614</name>
+      <description>rank=143; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0080</description>
+      <Point>
+        <coordinates>103.84365203271268,1.3450109881929893,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>144 TP_0114</name>
+      <description>rank=144; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0122</description>
+      <Point>
+        <coordinates>103.86342017964314,1.328732264171024,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>145 TP_0263</name>
+      <description>rank=145; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0101</description>
+      <Point>
+        <coordinates>103.84095631560524,1.3341586240950114,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>146 TP_0892</name>
+      <description>rank=146; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0401</description>
+      <Point>
+        <coordinates>103.85892765737977,1.3531501542666569,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>147 TP_0166</name>
+      <description>rank=147; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.85802886654156,1.3305410533296236,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>150 TP_0628</name>
+      <description>rank=150; tier=added126; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85623188896795,1.3450109020448435,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>1 TP_0037</name>
+      <description>rank=1; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.84634762108692,1.326923684885006,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>5 TP_0115</name>
+      <description>rank=5; tier=n24_seed; primary=water_edge_or_blue_green_mixed; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0139</description>
+      <Point>
+        <coordinates>103.8643187347976,1.328732252994398,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>6 TP_0141</name>
+      <description>rank=6; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.8616230796035,1.3296366500172372,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>7 TP_0154</name>
+      <description>rank=7; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0199</description>
+      <Point>
+        <coordinates>103.84724619593015,1.330541138232135,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>11 TP_0366</name>
+      <description>rank=11; tier=n24_seed; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0157</description>
+      <Point>
+        <coordinates>103.8553332551697,1.3368716304323829,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>12 TP_0409</name>
+      <description>rank=12; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0090</description>
+      <Point>
+        <coordinates>103.84185488842836,1.3386804437643094,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>13 TP_0433</name>
+      <description>rank=13; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0347</description>
+      <Point>
+        <coordinates>103.86342030045,1.3386802729201843,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>14 TP_0492</name>
+      <description>rank=14; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.86431888193306,1.3404889904212471,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>18 TP_0627</name>
+      <description>rank=18; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0617</description>
+      <Point>
+        <coordinates>103.85533332783652,1.3450109103622216,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>20 TP_0773</name>
+      <description>rank=20; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0062</description>
+      <Point>
+        <coordinates>103.85623193118585,1.349532723964869,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>21 TP_0835</name>
+      <description>rank=21; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0401</description>
+      <Point>
+        <coordinates>103.85982620186316,1.3513414159146908,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>22 TP_0857</name>
+      <description>rank=22; tier=n24_seed; primary=shaded_canopy_low_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0256</description>
+      <Point>
+        <coordinates>103.85353626521416,1.3522458411182072,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>23 TP_0960</name>
+      <description>rank=23; tier=n24_seed; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0945</description>
+      <Point>
+        <coordinates>103.84185494813082,1.3558633682493673,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>24 TP_0986</name>
+      <description>rank=24; tier=n24_seed; primary=open_hardscape_high_svf; flags=nan; question=Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?; replacement_1=TP_0373</description>
+      <Point>
+        <coordinates>103.86521764134852,1.3558631720661165,0</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

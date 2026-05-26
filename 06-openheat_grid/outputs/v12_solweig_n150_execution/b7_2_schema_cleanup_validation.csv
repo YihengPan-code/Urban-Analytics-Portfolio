@@ -1,0 +1,8 @@
+file,exists,expected_rows,observed_rows,had_hour,had_hour_sgt,changed,status,note
+outputs\v12_solweig_n150_execution\n150_new_solweig_run_log.csv,True,1260,1260,False,True,True,PASS,hour/hour_sgt present and consistent
+outputs\v12_solweig_n150_execution\n150_new_focus_tmrt_summary.csv,True,1260,1260,False,True,True,PASS,hour/hour_sgt present and consistent
+outputs\v12_solweig_n150_execution\n150_new_base_vs_overhead_delta.csv,True,630,630,False,True,True,PASS,hour/hour_sgt present and consistent
+outputs\v12_solweig_n150_execution\n150_focus_tmrt_summary_merged.csv,True,1500,1500,True,True,True,PASS,hour/hour_sgt present and consistent
+outputs\v12_solweig_n150_execution\n150_base_vs_overhead_delta_merged.csv,True,750,750,True,True,True,PASS,hour/hour_sgt present and consistent
+outputs\v12_solweig_n150_execution\n150_modifier_targets_b5.csv,True,1500,1500,True,True,True,PASS,hour/hour_sgt present and consistent
+outputs\v12_solweig_n150_execution\n150_reference_values_b5.csv,True,10,10,False,True,True,PASS,hour/hour_sgt present and consistent

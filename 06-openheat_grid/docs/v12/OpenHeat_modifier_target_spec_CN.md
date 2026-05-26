@@ -541,3 +541,37 @@ surrogate training
 hazard map
 risk-layer spatial product
 ```
+
+---
+
+# Sprint B5 Addendum - System B Target Freeze / Modifier Reference Definition
+
+**Status:** method frozen for next-scale use; N24 evidence only.  
+**Target version:** `systemb_target_family_v0_1_b5`
+
+B5 updates this earlier modifier target specification after the B4 N24 robustness re-audit. The current canonical naming is:
+
+```text
+primary_target = tmrt_p90_c
+primary_modifier_delta = delta_tmrt_p90_c
+normalized_modifier = m_rad_pct01
+reference_rule = same_hour_same_scenario_reference_domain_median
+percentile_rank_rule = rank_average_minus_1_over_n_minus_1
+```
+
+The B5 canonical rank rule is explicitly:
+
+```text
+m_rad_pct01 = (rank_average(delta_tmrt_p90_c) - 1) / (n_reference_cells - 1)
+```
+
+If `n_reference_cells = 1`, set `m_rad_pct01 = 0.5` and flag `insufficient_reference_domain`.
+
+Reference-domain versions are now named as:
+
+- `n24_internal_b3`: completed N24 cells only, for B4/B5 traceability, not final AOI-wide M_rad.
+- `n150_training_future`: future N150 executed SOLWEIG sample for training and validation.
+- `full_aoi_prediction_future`: future full-domain predicted cells after accepted surrogate inference.
+- `sensitivity_reference_optional`: optional shaded/typology reference sensitivity, not canonical in B5.
+
+B5 preserves the older N24 provisional percentile modifier only as legacy traceability. Use `m_rad_pct01` for B5-forward method checks. This specification still forbids treating System B target outputs as local WBGT, observed truth, risk, official warning, hazard_score, or completed System A/B coupling.

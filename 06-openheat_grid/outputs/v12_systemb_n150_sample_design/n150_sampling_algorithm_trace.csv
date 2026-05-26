@@ -1,0 +1,151 @@
+selection_rank,cell_id,selection_status,selection_tier,existing_solweig_label_status,quota_reason,lhs_or_greedy_reason,extreme_coverage_reason,sampling_feature_coverage_reason
+1,TP_0037,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+2,TP_0059,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+3,TP_0088,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+4,TP_0098,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+5,TP_0115,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+6,TP_0141,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+7,TP_0154,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+8,TP_0254,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+9,TP_0301,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+10,TP_0326,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+11,TP_0366,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+12,TP_0409,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+13,TP_0433,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+14,TP_0492,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+15,TP_0542,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+16,TP_0565,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+17,TP_0575,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+18,TP_0627,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+19,TP_0676,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+20,TP_0773,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+21,TP_0835,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+22,TP_0857,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+23,TP_0960,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+24,TP_0986,retained_n24,n24_seed,completed_n24,retained_frozen_b2_2_n24,,,continuity anchor retained from completed N24 labels
+25,TP_0555,selected_new,added126,pending_b7_new_run,quota_fill:open_hardscape_high_svf,,,broad diagnostic stratum coverage
+26,TP_0890,selected_new,added126,pending_b7_new_run,quota_fill:water_edge_or_blue_green_mixed,,,broad diagnostic stratum coverage
+27,TP_0745,selected_new,added126,pending_b7_new_run,quota_fill:water_edge_or_blue_green_mixed,,,broad diagnostic stratum coverage
+28,TP_0248,selected_new,added126,pending_b7_new_run,quota_fill:grass_or_open_park,,,broad diagnostic stratum coverage
+29,TP_0882,selected_new,added126,pending_b7_new_run,quota_fill:grass_or_open_park,,,broad diagnostic stratum coverage
+30,TP_0349,selected_new,added126,pending_b7_new_run,quota_fill:grass_or_open_park,,,broad diagnostic stratum coverage
+31,TP_0864,selected_new,added126,pending_b7_new_run,quota_fill:grass_or_open_park,,,broad diagnostic stratum coverage
+32,TP_0380,selected_new,added126,pending_b7_new_run,quota_fill:grass_or_open_park,,,broad diagnostic stratum coverage
+33,TP_0257,selected_new,added126,pending_b7_new_run,quota_fill:grass_or_open_park,,,broad diagnostic stratum coverage
+34,TP_0379,selected_new,added126,pending_b7_new_run,quota_fill:grass_or_open_park,,,broad diagnostic stratum coverage
+35,TP_0126,selected_new,added126,pending_b7_new_run,quota_fill:road_edge_or_high_road_fraction,,,broad diagnostic stratum coverage
+36,TP_0889,selected_new,added126,pending_b7_new_run,quota_fill:dense_built_or_low_open_pixel,,,broad diagnostic stratum coverage
+37,TP_0060,selected_new,added126,pending_b7_new_run,quota_fill:max_extreme_probe_proxy,,,broad diagnostic stratum coverage
+38,TP_0569,selected_new,added126,pending_b7_new_run,quota_fill:max_extreme_probe_proxy,,,broad diagnostic stratum coverage
+39,TP_0089,selected_new,added126,pending_b7_new_run,quota_fill:max_extreme_probe_proxy,,,broad diagnostic stratum coverage
+40,TP_0489,selected_new,added126,pending_b7_new_run,quota_fill:max_extreme_probe_proxy,,,broad diagnostic stratum coverage
+41,TP_0587,selected_new,added126,pending_b7_new_run,,,high_road_hardscape,forced feature-space edge coverage
+42,TP_0170,selected_new,added126,pending_b7_new_run,,,high_road_hardscape,forced feature-space edge coverage
+43,TP_0947,selected_new,added126,pending_b7_new_run,,,high_tree_gvi,forced feature-space edge coverage
+44,TP_0006,selected_new,added126,pending_b7_new_run,,,dense_built_high_density,forced feature-space edge coverage
+45,TP_0933,selected_new,added126,pending_b7_new_run,,,dense_built_high_density,forced feature-space edge coverage
+46,TP_0899,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+47,TP_0160,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+48,TP_0361,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+49,TP_0543,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+50,TP_0448,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+51,TP_0276,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+52,TP_0901,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+53,TP_0237,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+54,TP_0207,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+55,TP_0792,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+56,TP_0657,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+57,TP_0669,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+58,TP_0407,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+59,TP_0808,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+60,TP_0020,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+61,TP_0584,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+62,TP_0233,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+63,TP_0403,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+64,TP_0599,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+65,TP_0412,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+66,TP_0693,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+67,TP_0319,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+68,TP_0552,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+69,TP_0049,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+70,TP_0050,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+71,TP_0560,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+72,TP_0963,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+73,TP_0056,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+74,TP_0135,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+75,TP_0691,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+76,TP_0028,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+77,TP_0293,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+78,TP_0438,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+79,TP_0430,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+80,TP_0097,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+81,TP_0475,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+82,TP_0719,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+83,TP_0215,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+84,TP_0465,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+85,TP_0458,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+86,TP_0454,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+87,TP_0967,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+88,TP_0720,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+89,TP_0226,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+90,TP_0192,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+91,TP_0313,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+92,TP_0744,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+93,TP_0498,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+94,TP_0318,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+95,TP_0740,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+96,TP_0081,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+97,TP_0893,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+98,TP_0040,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+99,TP_0381,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+100,TP_0608,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+101,TP_0041,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+102,TP_0346,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+103,TP_0554,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+104,TP_0162,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+105,TP_0005,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+106,TP_0018,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+107,TP_0948,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+108,TP_0871,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+109,TP_0592,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+110,TP_0747,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+111,TP_0133,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+112,TP_0908,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+113,TP_0218,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+114,TP_0711,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+115,TP_0822,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+116,TP_0418,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+117,TP_0759,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+118,TP_0066,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+119,TP_0663,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+120,TP_0053,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+121,TP_0286,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+122,TP_0647,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+123,TP_0108,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+124,TP_0337,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+125,TP_0934,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+126,TP_0600,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+127,TP_0799,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+128,TP_0817,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+129,TP_0936,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+130,TP_0710,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+131,TP_0183,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+132,TP_0670,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+133,TP_0378,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+134,TP_0772,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+135,TP_0208,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+136,TP_0285,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+137,TP_0082,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+138,TP_0718,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+139,TP_0065,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+140,TP_0023,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+141,TP_0707,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+142,TP_0616,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+143,TP_0614,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+144,TP_0114,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+145,TP_0263,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+146,TP_0892,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+147,TP_0166,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+148,TP_0746,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+149,TP_0365,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage
+150,TP_0628,selected_new,added126,pending_b7_new_run,,qmc_lhs_nearest_with_diversity_penalty,,Latin Hypercube feature-space coverage

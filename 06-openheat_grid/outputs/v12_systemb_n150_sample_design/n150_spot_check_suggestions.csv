@@ -1,0 +1,16 @@
+cell_id,selection_rank,primary_sampling_stratum,auto_qa_flag_count,spot_check_reason
+TP_0088,3,open_hardscape_high_svf,2.0,highest automated QA risk among selected cells
+TP_0575,17,open_hardscape_high_svf,2.0,highest automated QA risk among selected cells
+TP_0808,59,shaded_canopy_low_svf,2.0,highest automated QA risk among selected cells
+TP_0454,86,shaded_canopy_low_svf,2.0,highest automated QA risk among selected cells
+TP_0059,2,open_hardscape_high_svf,1.0,highest automated QA risk among selected cells
+TP_0098,4,shaded_canopy_low_svf,1.0,highest automated QA risk among selected cells
+TP_0254,8,shaded_canopy_low_svf,1.0,highest automated QA risk among selected cells
+TP_0301,9,shaded_canopy_low_svf,1.0,highest automated QA risk among selected cells
+TP_0326,10,shaded_canopy_low_svf,1.0,highest automated QA risk among selected cells
+TP_0542,15,shaded_canopy_low_svf,1.0,highest automated QA risk among selected cells
+TP_0565,16,open_hardscape_high_svf,1.0,highest automated QA risk among selected cells
+TP_0676,19,shaded_canopy_low_svf,1.0,highest automated QA risk among selected cells
+TP_0745,27,water_edge_or_blue_green_mixed,1.0,highest automated QA risk among selected cells
+TP_0349,30,grass_or_open_park,1.0,highest automated QA risk among selected cells
+TP_0864,31,grass_or_open_park,1.0,highest automated QA risk among selected cells

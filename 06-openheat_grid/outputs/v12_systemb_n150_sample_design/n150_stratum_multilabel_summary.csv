@@ -1,0 +1,13 @@
+stratum,primary_count,secondary_multilabel_count,combined_primary_or_secondary_count,retained_n24_combined_count,selected_new_combined_count
+shaded_canopy_low_svf,114,123,123,16,107
+mixed_upper_tail_probe_proxy,0,69,69,4,65
+street_canyon_or_wall_adjacent,0,50,50,11,39
+covered_walkway_or_pedestrian_overhead,0,42,42,13,29
+dense_built_or_low_open_pixel,1,39,39,6,33
+overhead_or_transport_structure,1,37,37,8,29
+road_edge_or_high_road_fraction,2,25,25,4,21
+open_hardscape_high_svf,17,22,22,7,15
+water_edge_or_blue_green_mixed,3,20,20,5,15
+grass_or_open_park,7,10,10,1,9
+max_extreme_probe_proxy,4,9,9,4,5
+background_feature_space_fill,1,1,1,0,1

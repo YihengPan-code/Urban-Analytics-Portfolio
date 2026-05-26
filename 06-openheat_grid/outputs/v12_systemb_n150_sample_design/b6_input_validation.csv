@@ -1,0 +1,28 @@
+check,status,detail
+b5_report_exists,PASS,outputs/v12_systemb_target_freeze/sprint_b5_target_freeze_report.md
+b5_target_family_exists,PASS,outputs/v12_systemb_target_freeze/systemb_target_family_freeze.csv
+b5_reference_rules_exists,PASS,outputs/v12_systemb_target_freeze/systemb_modifier_reference_rules.md
+b5_schema_exists,PASS,outputs/v12_systemb_target_freeze/systemb_target_output_schema.csv
+b5_contract_exists,PASS,outputs/v12_systemb_target_freeze/systemb_surrogate_label_contract.csv
+b5_config_exists,PASS,configs/v12/systemb_target_freeze_config.example.yaml
+b5_reference_config_exists,PASS,configs/v12/systemb_modifier_reference_definition.example.yaml
+n24_selected_exists,PASS,outputs/v12_systemb_n24_sample_design/n24_selected_cells_b2_2_human_qa_freeze.csv
+n24_replacements_exists,PASS,outputs/v12_systemb_n24_sample_design/n24_human_qa_replacements.csv
+n24_replaced_out_exists,PASS,outputs/v12_systemb_n24_sample_design/n24_replaced_out_cells.csv
+n24_focus_exists,PASS,outputs/v12_solweig_n24_execution/n24_focus_tmrt_summary.csv
+n24_delta_exists,PASS,outputs/v12_solweig_n24_execution/n24_base_vs_overhead_delta.csv
+b3_report_exists,PASS,outputs/v12_solweig_n24_execution/sprint_b3_n24_solweig_execution_report.md
+b4_report_exists,PASS,outputs/v12_systemb_n24_target_robustness/sprint_b4_n24_target_robustness_report.md
+b5_report_status_pass,PASS,B5 report has Status PASS
+b5_target_family_has_tmrt_p90_c,PASS,tmrt_p90_c in target freeze
+b5_target_family_has_delta_tmrt_p90_c,PASS,delta_tmrt_p90_c in target freeze
+b5_target_family_has_m_rad_pct01,PASS,m_rad_pct01 in target freeze
+b5_reference_rules_include_m_rad_pct01,PASS,Reference rule includes m_rad_pct01 percentile-rank method
+n24_selected_unique_count_24,PASS,Unique N24 cells = 24
+n24_focus_rows_240,PASS,N24 focus rows = 240
+b3_report_status_pass,PASS,B3 report has Status PASS
+b4_report_status_pass,PASS,B4 report has Status PASS
+replacement_in_cells_in_n24,PASS,Missing replacement-in cells: []
+replaced_out_cells_absent_from_n24,PASS,Replaced-out cells present: []
+candidate_grid_table_with_cell_id_exists,PASS,Candidate sources: data/grid/v12/solweig_typology_cell_candidates.csv; data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.csv; data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.csv; data/grid/v10/toa_payoh_grid_v10_umep_morphology_with_veg.csv; data/grid/v10/toa_payoh_grid_v10_basic_morphology.csv
+eligible_candidate_universe_at_least_150,PASS,Eligible cells = 981

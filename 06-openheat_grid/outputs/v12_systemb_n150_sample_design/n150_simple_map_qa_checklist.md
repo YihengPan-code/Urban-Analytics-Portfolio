@@ -1,0 +1,170 @@
+# N150 simple map-QA checklist
+
+This is a quick map sanity pass, not validation. Default KEEP. Mark REPLACE only for obvious bad samples.
+
+- Selected total: 150
+- Retained N24: 24
+- New cells: 126
+- Auto-flagged cells: 51
+
+Only question: Is this obviously unsuitable, e.g. almost pure water, invalid geometry, pure rooftop/building body, AOI edge artifact, or clearly wrong type?
+
+## Auto-flagged cells
+
+| selection_rank | cell_id | selection_status | primary_sampling_stratum | auto_qa_flag | replacement_candidate_1 | quick_map_check_status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 27 | TP_0745 | selected_new | water_edge_or_blue_green_mixed | overhead_semantics_ambiguous | TP_0139 | pending |
+| 30 | TP_0349 | selected_new | grass_or_open_park | overhead_semantics_ambiguous | TP_0431 | pending |
+| 31 | TP_0864 | selected_new | grass_or_open_park | overhead_semantics_ambiguous | TP_0823 | pending |
+| 33 | TP_0257 | selected_new | grass_or_open_park | overhead_semantics_ambiguous | TP_0228 | pending |
+| 34 | TP_0379 | selected_new | grass_or_open_park | overhead_semantics_ambiguous | TP_0881 | pending |
+| 36 | TP_0889 | selected_new | dense_built_or_low_open_pixel | overhead_semantics_ambiguous | TP_0090 | pending |
+| 38 | TP_0569 | selected_new | max_extreme_probe_proxy | overhead_semantics_ambiguous | TP_0373 | pending |
+| 39 | TP_0089 | selected_new | max_extreme_probe_proxy | overhead_semantics_ambiguous | TP_0373 | pending |
+| 41 | TP_0587 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0122 | pending |
+| 42 | TP_0170 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0131 | pending |
+| 57 | TP_0669 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0881 | pending |
+| 59 | TP_0808 | selected_new | shaded_canopy_low_svf | geographically_isolated_edge_cell/overhead_semantics_ambiguous | TP_0122 | pending |
+| 61 | TP_0584 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0131 | pending |
+| 63 | TP_0403 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0131 | pending |
+| 65 | TP_0412 | selected_new | shaded_canopy_low_svf | geographically_isolated_edge_cell | TP_0617 | pending |
+| 70 | TP_0050 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 77 | TP_0293 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 78 | TP_0438 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0256 | pending |
+| 81 | TP_0475 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 86 | TP_0454 | selected_new | shaded_canopy_low_svf | geographically_isolated_edge_cell/overhead_semantics_ambiguous | TP_0617 | pending |
+| 87 | TP_0967 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0823 | pending |
+| 89 | TP_0226 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 106 | TP_0018 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0131 | pending |
+| 107 | TP_0948 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0131 | pending |
+| 108 | TP_0871 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 109 | TP_0592 | selected_new | shaded_canopy_low_svf | geographically_isolated_edge_cell | TP_0617 | pending |
+| 112 | TP_0908 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0131 | pending |
+| 115 | TP_0822 | selected_new | open_hardscape_high_svf | overhead_semantics_ambiguous | TP_0373 | pending |
+| 120 | TP_0053 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 121 | TP_0286 | selected_new | overhead_or_transport_structure | overhead_semantics_ambiguous | TP_0139 | pending |
+| 126 | TP_0600 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0256 | pending |
+| 129 | TP_0936 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0881 | pending |
+| 131 | TP_0183 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 132 | TP_0670 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 133 | TP_0378 | selected_new | open_hardscape_high_svf | overhead_semantics_ambiguous | TP_0431 | pending |
+| 137 | TP_0082 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0256 | pending |
+| 138 | TP_0718 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0122 | pending |
+| 140 | TP_0023 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 141 | TP_0707 | selected_new | shaded_canopy_low_svf | geographically_isolated_edge_cell | TP_0617 | pending |
+| 148 | TP_0746 | selected_new | open_hardscape_high_svf | overhead_semantics_ambiguous | TP_0945 | pending |
+| 149 | TP_0365 | selected_new | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 2 | TP_0059 | retained_n24 | open_hardscape_high_svf | overhead_semantics_ambiguous | TP_0431 | pending |
+| 3 | TP_0088 | retained_n24 | open_hardscape_high_svf | extreme_outlier_feature/overhead_semantics_ambiguous | TP_0431 | pending |
+| 4 | TP_0098 | retained_n24 | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 8 | TP_0254 | retained_n24 | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0256 | pending |
+| 9 | TP_0301 | retained_n24 | shaded_canopy_low_svf | geographically_isolated_edge_cell | TP_0062 | pending |
+| 10 | TP_0326 | retained_n24 | shaded_canopy_low_svf | geographically_isolated_edge_cell | TP_0256 | pending |
+| 15 | TP_0542 | retained_n24 | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+| 16 | TP_0565 | retained_n24 | open_hardscape_high_svf | geographically_isolated_edge_cell | TP_0373 | pending |
+| 17 | TP_0575 | retained_n24 | open_hardscape_high_svf | geographically_isolated_edge_cell/overhead_semantics_ambiguous | TP_0431 | pending |
+| 19 | TP_0676 | retained_n24 | shaded_canopy_low_svf | overhead_semantics_ambiguous | TP_0090 | pending |
+
+## Remaining cells
+
+| selection_rank | cell_id | selection_status | primary_sampling_stratum | auto_qa_flag | replacement_candidate_1 | quick_map_check_status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 25 | TP_0555 | selected_new | open_hardscape_high_svf | nan | TP_0158 | pending |
+| 26 | TP_0890 | selected_new | water_edge_or_blue_green_mixed | nan | TP_0131 | pending |
+| 28 | TP_0248 | selected_new | grass_or_open_park | nan | TP_0256 | pending |
+| 29 | TP_0882 | selected_new | grass_or_open_park | nan | TP_0826 | pending |
+| 32 | TP_0380 | selected_new | grass_or_open_park | nan | TP_0350 | pending |
+| 35 | TP_0126 | selected_new | road_edge_or_high_road_fraction | nan | TP_0617 | pending |
+| 37 | TP_0060 | selected_new | max_extreme_probe_proxy | nan | TP_0431 | pending |
+| 40 | TP_0489 | selected_new | max_extreme_probe_proxy | nan | TP_0431 | pending |
+| 43 | TP_0947 | selected_new | shaded_canopy_low_svf | nan | TP_0580 | pending |
+| 44 | TP_0006 | selected_new | shaded_canopy_low_svf | nan | TP_0090 | pending |
+| 45 | TP_0933 | selected_new | open_hardscape_high_svf | nan | TP_0945 | pending |
+| 46 | TP_0899 | selected_new | shaded_canopy_low_svf | nan | TP_0897 | pending |
+| 47 | TP_0160 | selected_new | shaded_canopy_low_svf | nan | TP_0347 | pending |
+| 48 | TP_0361 | selected_new | shaded_canopy_low_svf | nan | TP_0062 | pending |
+| 49 | TP_0543 | selected_new | open_hardscape_high_svf | nan | TP_0158 | pending |
+| 50 | TP_0448 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 51 | TP_0276 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 52 | TP_0901 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 53 | TP_0237 | selected_new | background_feature_space_fill | nan | TP_0288 | pending |
+| 54 | TP_0207 | selected_new | open_hardscape_high_svf | nan | TP_0174 | pending |
+| 55 | TP_0792 | selected_new | shaded_canopy_low_svf | nan | TP_0823 | pending |
+| 56 | TP_0657 | selected_new | shaded_canopy_low_svf | nan | TP_0090 | pending |
+| 58 | TP_0407 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 60 | TP_0020 | selected_new | shaded_canopy_low_svf | nan | TP_0090 | pending |
+| 62 | TP_0233 | selected_new | shaded_canopy_low_svf | nan | TP_0262 | pending |
+| 64 | TP_0599 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 66 | TP_0693 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 67 | TP_0319 | selected_new | shaded_canopy_low_svf | nan | TP_0347 | pending |
+| 68 | TP_0552 | selected_new | shaded_canopy_low_svf | nan | TP_0090 | pending |
+| 69 | TP_0049 | selected_new | shaded_canopy_low_svf | nan | TP_0062 | pending |
+| 71 | TP_0560 | selected_new | shaded_canopy_low_svf | nan | TP_0101 | pending |
+| 72 | TP_0963 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 73 | TP_0056 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 74 | TP_0135 | selected_new | shaded_canopy_low_svf | nan | TP_0131 | pending |
+| 75 | TP_0691 | selected_new | shaded_canopy_low_svf | nan | TP_0347 | pending |
+| 76 | TP_0028 | selected_new | open_hardscape_high_svf | nan | TP_0373 | pending |
+| 79 | TP_0430 | selected_new | shaded_canopy_low_svf | nan | TP_0401 | pending |
+| 80 | TP_0097 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 82 | TP_0719 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 83 | TP_0215 | selected_new | shaded_canopy_low_svf | nan | TP_0062 | pending |
+| 84 | TP_0465 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 85 | TP_0458 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 88 | TP_0720 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 90 | TP_0192 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 91 | TP_0313 | selected_new | shaded_canopy_low_svf | nan | TP_0897 | pending |
+| 92 | TP_0744 | selected_new | shaded_canopy_low_svf | nan | TP_0256 | pending |
+| 93 | TP_0498 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 94 | TP_0318 | selected_new | shaded_canopy_low_svf | nan | TP_0101 | pending |
+| 95 | TP_0740 | selected_new | shaded_canopy_low_svf | nan | TP_0823 | pending |
+| 96 | TP_0081 | selected_new | shaded_canopy_low_svf | nan | TP_0090 | pending |
+| 97 | TP_0893 | selected_new | shaded_canopy_low_svf | nan | TP_0347 | pending |
+| 98 | TP_0040 | selected_new | shaded_canopy_low_svf | nan | TP_0090 | pending |
+| 99 | TP_0381 | selected_new | shaded_canopy_low_svf | nan | TP_0062 | pending |
+| 100 | TP_0608 | selected_new | road_edge_or_high_road_fraction | nan | TP_0617 | pending |
+| 101 | TP_0041 | selected_new | shaded_canopy_low_svf | nan | TP_0062 | pending |
+| 102 | TP_0346 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 103 | TP_0554 | selected_new | shaded_canopy_low_svf | nan | TP_0352 | pending |
+| 104 | TP_0162 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 105 | TP_0005 | selected_new | shaded_canopy_low_svf | nan | TP_0262 | pending |
+| 110 | TP_0747 | selected_new | shaded_canopy_low_svf | nan | TP_0897 | pending |
+| 111 | TP_0133 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 113 | TP_0218 | selected_new | shaded_canopy_low_svf | nan | TP_0062 | pending |
+| 114 | TP_0711 | selected_new | open_hardscape_high_svf | nan | TP_0288 | pending |
+| 116 | TP_0418 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 117 | TP_0759 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 118 | TP_0066 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 119 | TP_0663 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 122 | TP_0647 | selected_new | shaded_canopy_low_svf | nan | TP_0823 | pending |
+| 123 | TP_0108 | selected_new | shaded_canopy_low_svf | nan | TP_0347 | pending |
+| 124 | TP_0337 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 125 | TP_0934 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 127 | TP_0799 | selected_new | shaded_canopy_low_svf | nan | TP_0090 | pending |
+| 128 | TP_0817 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 130 | TP_0710 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 134 | TP_0772 | selected_new | open_hardscape_high_svf | nan | TP_0288 | pending |
+| 135 | TP_0208 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 136 | TP_0285 | selected_new | shaded_canopy_low_svf | nan | TP_0256 | pending |
+| 139 | TP_0065 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 142 | TP_0616 | selected_new | shaded_canopy_low_svf | nan | TP_0062 | pending |
+| 143 | TP_0614 | selected_new | shaded_canopy_low_svf | nan | TP_0080 | pending |
+| 144 | TP_0114 | selected_new | shaded_canopy_low_svf | nan | TP_0122 | pending |
+| 145 | TP_0263 | selected_new | shaded_canopy_low_svf | nan | TP_0101 | pending |
+| 146 | TP_0892 | selected_new | shaded_canopy_low_svf | nan | TP_0401 | pending |
+| 147 | TP_0166 | selected_new | shaded_canopy_low_svf | nan | TP_0256 | pending |
+| 150 | TP_0628 | selected_new | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 1 | TP_0037 | retained_n24 | shaded_canopy_low_svf | nan | TP_0090 | pending |
+| 5 | TP_0115 | retained_n24 | water_edge_or_blue_green_mixed | nan | TP_0139 | pending |
+| 6 | TP_0141 | retained_n24 | shaded_canopy_low_svf | nan | TP_0256 | pending |
+| 7 | TP_0154 | retained_n24 | shaded_canopy_low_svf | nan | TP_0199 | pending |
+| 11 | TP_0366 | retained_n24 | open_hardscape_high_svf | nan | TP_0157 | pending |
+| 12 | TP_0409 | retained_n24 | shaded_canopy_low_svf | nan | TP_0090 | pending |
+| 13 | TP_0433 | retained_n24 | shaded_canopy_low_svf | nan | TP_0347 | pending |
+| 14 | TP_0492 | retained_n24 | shaded_canopy_low_svf | nan | TP_0062 | pending |
+| 18 | TP_0627 | retained_n24 | shaded_canopy_low_svf | nan | TP_0617 | pending |
+| 20 | TP_0773 | retained_n24 | shaded_canopy_low_svf | nan | TP_0062 | pending |
+| 21 | TP_0835 | retained_n24 | shaded_canopy_low_svf | nan | TP_0401 | pending |
+| 22 | TP_0857 | retained_n24 | shaded_canopy_low_svf | nan | TP_0256 | pending |
+| 23 | TP_0960 | retained_n24 | open_hardscape_high_svf | nan | TP_0945 | pending |
+| 24 | TP_0986 | retained_n24 | open_hardscape_high_svf | nan | TP_0373 | pending |

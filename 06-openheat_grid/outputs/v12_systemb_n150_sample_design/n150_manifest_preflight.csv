@@ -1,0 +1,14 @@
+check,status,detail
+n150_selected_unique_cells,PASS,selected cells = 150
+retained_n24_count,PASS,retained = 24
+new_selected_count,PASS,new = 126
+full_matrix_rows,PASS,rows = 1500
+new_matrix_rows,PASS,rows = 1260
+base_new_manifest_rows,PASS,rows = 630
+overhead_new_manifest_rows,PASS,rows = 630
+no_duplicate_run_id,PASS,run_id duplicate count = 0
+all_required_hours_present_for_new_cell_scenario,PASS,new cells have 5 hours per scenario
+replaced_out_absent,PASS,intersection = []
+all_raw_outputs_do_not_commit,PASS,all manifest rows marked do_not_commit_raw_output
+no_local_wbgt_hazard_risk_columns,PASS,forbidden columns = []
+no_system_a_fields,PASS,System A columns = []

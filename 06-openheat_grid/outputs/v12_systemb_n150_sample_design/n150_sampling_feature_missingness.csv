@@ -1,0 +1,13 @@
+feature,missing_count,missing_fraction,available_count
+svf_or_open_sky,0,0.0,981
+shade_fraction,0,0.0,981
+building_density,0,0.0,981
+building_height_or_canyon_proxy,0,0.0,981
+road_or_hardscape_fraction,0,0.0,981
+tree_or_gvi_fraction,0,0.0,981
+grass_fraction,0,0.0,981
+water_edge_or_water_fraction,0,0.0,981
+overhead_fraction,0,0.0,981
+impervious_or_built_fraction,0,0.0,981
+centroid_x_normalized,0,0.0,981
+centroid_y_normalized,0,0.0,981
