@@ -1,0 +1,65 @@
+lane: A-L1H.0b
+description: System A weather-regime residual merge using existing residual input and existing weather tables only.
+
+inputs:
+  residual_input: outputs/v11_systema_l1_high_tail/residual_decomposition/residual_analysis_input.csv
+  primary_oof_input: outputs/v11_beta_calibration/hourly_max/v11_beta_oof_predictions.csv
+  candidate_weather_paths:
+    - data/calibration/v11/v11_station_weather_pairs_hourly.csv
+    - data/calibration/v11/v11_station_weather_pairs_v091.csv
+    - data/calibration/v09_wbgt_station_pairs.csv
+    - data/calibration/v09_historical_forecast_by_station_hourly.csv
+    - outputs/v11_level1/reproduction/feature_matrix_hourly_max.csv
+    - outputs/v11_level1/feature_ablation/feature_matrix_hourly_max.csv
+  candidate_weather_globs:
+    - data/calibration/v11/**/*.csv
+    - data/calibration/v11/**/*.csv.gz
+    - outputs/v11_beta_formal/diagnostics_inputs/*.csv
+    - outputs/v11_beta_formal/**/*.csv
+    - outputs/v11_level1/**/*weather*.csv
+    - outputs/v11_level1/**/*feature_matrix_hourly_max.csv
+  max_candidate_size_mb: 25
+
+schema:
+  station_columns:
+    - station_id
+    - station
+    - station_id_om
+    - site_id
+  residual_time_columns:
+    - timestamp_sgt
+    - timestamp
+    - valid_time_sgt
+    - time_sgt
+    - hour_timestamp
+  weather_time_columns:
+    - timestamp_sgt
+    - time_sgt
+    - valid_time_sgt_hour
+    - valid_time_sgt
+    - timestamp
+    - valid_timestamp
+    - time
+  weather_columns:
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+    - cloud_cover
+    - precipitation
+    - direct_radiation
+    - diffuse_radiation
+  minimum_regime_columns:
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+
+analysis:
+  primary_model: M4_inertia_ridge
+  minimum_regime_column_count: 3
+  minimum_row_retention_rate: 0.30
+  quantile_regime_min_rows_4_bins: 120
+  output_dir: outputs/v11_systema_l1_high_tail/weather_regime_merge
