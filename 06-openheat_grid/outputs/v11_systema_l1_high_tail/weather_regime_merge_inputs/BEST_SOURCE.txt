@@ -1,0 +1,15 @@
+base: orig
+relative_path: outputs/v11_beta_formal/diagnostics_inputs/v11_pairs_14d_formal_20260524_40419_v091_diag.csv
+local_preflight_path: local_preflight_path_omitted
+exists: True
+size_bytes: 75254765
+readable: True
+row_count: 40419
+station_column: station_id
+time_column: timestamp_sgt
+weather_columns: temperature_2m|relative_humidity_2m|wind_speed_10m|shortwave_radiation|shortwave_3h_mean|cloud_cover|precipitation|direct_radiation|diffuse_radiation
+unique_weather_keys: 10476
+matched_residual_rows: 6696
+retention_rate: 1.0
+candidate_score: 1099.2569376573529
+error: 

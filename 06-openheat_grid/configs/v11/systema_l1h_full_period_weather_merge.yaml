@@ -1,0 +1,69 @@
+lane: A-L1H.0c
+description: Full-period System A L1H weather-regime residual merge using recovered compact weather features first.
+
+inputs:
+  residual_input: outputs/v11_systema_l1_high_tail/residual_decomposition/residual_analysis_input.csv
+  preferred_weather_source: outputs/v11_systema_l1_high_tail/weather_regime_merge_inputs/best_weather_feature_source.csv.gz
+  preflight_inventory: outputs/v11_systema_l1_high_tail/weather_regime_merge_inputs/weather_feature_recovery_preflight.csv
+  best_source_note: outputs/v11_systema_l1_high_tail/weather_regime_merge_inputs/BEST_SOURCE.txt
+  fallback_weather_paths:
+    - data/calibration/v09_historical_forecast_by_station_hourly.csv
+    - data/calibration/v09_wbgt_station_pairs.csv
+    - data/calibration/v11/live_chunks/wbgt_pairs_2026-05-24.csv.gz
+  max_source_size_mb: 25
+
+schema:
+  station_columns:
+    - station_id
+    - station
+    - station_id_om
+    - site_id
+  residual_time_columns:
+    - timestamp_sgt
+    - timestamp
+    - valid_time_sgt
+    - time_sgt
+    - hour_timestamp
+    - merge_hour
+  weather_time_columns:
+    - merge_hour
+    - timestamp_sgt
+    - time_sgt
+    - valid_time_sgt_hour
+    - valid_time_sgt
+    - timestamp
+    - valid_timestamp
+    - time
+  weather_columns:
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+    - cloud_cover
+    - precipitation
+    - direct_radiation
+    - diffuse_radiation
+  minimum_regime_columns:
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+
+analysis:
+  primary_model: M4_inertia_ridge
+  previous_a_l1h_0b_matched_rows: 2700
+  previous_a_l1h_0b_retention_rate: 0.4032258064516129
+  pass_retention_rate: 0.80
+  pass_event_coverage_rate: 0.80
+  partial_retention_rate: 0.40
+  minimum_regime_column_count: 3
+  quantile_regime_min_rows_4_bins: 120
+  minimum_combined_regime_rows: 20
+  minimum_combined_regime_observed_ge31: 5
+  supported_residual_range_c: 0.75
+  supported_miss_rate_range: 0.30
+
+outputs:
+  output_dir: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period
