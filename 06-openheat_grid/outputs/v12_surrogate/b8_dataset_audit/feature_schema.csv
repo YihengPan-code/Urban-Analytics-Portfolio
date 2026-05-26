@@ -1,0 +1,228 @@
+column_name,role,predictor_tier,dtype,non_null_count,missing_fraction,source_file_guess,notes
+run_id,non_predictor_metadata,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+source_run_id,non_predictor_metadata,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+cell_id,id,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,row/cell identity; not a model feature
+scenario,non_predictor_metadata,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+hour_sgt,non_predictor_metadata,excluded_metadata,Int64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+source,non_predictor_metadata,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+target_version,non_predictor_metadata,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,target-contract/modifier column excluded from B8.2 predictors
+reference_domain_version,non_predictor_metadata,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,target-contract/modifier column excluded from B8.2 predictors
+tmrt_p90_c,target,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,secondary physical surrogate target
+tmrt_ref_p90_c,forbidden_leakage,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,"target-, rank-, reference-, or SOLWEIG-like column excluded from selected features"
+delta_tmrt_p90_c,target,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,primary physical surrogate target
+rank_average_delta_tmrt_p90_c,forbidden_leakage,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,"target-, rank-, reference-, or SOLWEIG-like column excluded from selected features"
+n_reference_cells,forbidden_leakage,excluded_metadata,int64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,"target-, rank-, reference-, or SOLWEIG-like column excluded from selected features"
+m_rad_pct01,companion_label,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,retained label/diagnostic; not a model feature
+primary_modifier_delta,non_predictor_metadata,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,target-contract/modifier column excluded from B8.2 predictors
+normalized_modifier,non_predictor_metadata,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,target-contract/modifier column excluded from B8.2 predictors
+reference_rule,forbidden_leakage,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,"target-, rank-, reference-, or SOLWEIG-like column excluded from selected features"
+rank_rule,forbidden_leakage,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,"target-, rank-, reference-, or SOLWEIG-like column excluded from selected features"
+hour,non_predictor_metadata,excluded_metadata,int64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+tmrt_output_path,forbidden_leakage,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,"target-, rank-, reference-, or SOLWEIG-like column excluded from selected features"
+n_pixels,non_predictor_metadata,excluded_metadata,int64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+valid_pixel_count,non_predictor_metadata,excluded_metadata,int64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+tmrt_mean_c,companion_label,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,retained label/diagnostic; not a model feature
+tmrt_p50_c,forbidden_leakage,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,"target-, rank-, reference-, or SOLWEIG-like column excluded from selected features"
+tmrt_p75_c,companion_label,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,retained label/diagnostic; not a model feature
+tmrt_p95_c,companion_label,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,retained label/diagnostic; not a model feature
+tmrt_max_c,companion_label,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,retained label/diagnostic; not a model feature
+pct_pixels_tmrt_ge_40,companion_label,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,retained label/diagnostic; not a model feature
+pct_pixels_tmrt_ge_45,companion_label,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,retained label/diagnostic; not a model feature
+pct_pixels_tmrt_ge_50,companion_label,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,retained label/diagnostic; not a model feature
+pct_pixels_tmrt_ge_55,companion_label,excluded_metadata,float64,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,retained label/diagnostic; not a model feature
+selection_status,non_predictor_metadata,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+reuse_existing_n24_label,non_predictor_metadata,excluded_metadata,bool,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,metadata retained for audit/splits; excluded from B8.2 predictors
+row_id,id,excluded_metadata,object,1500,0.0,outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv,row/cell identity; not a model feature
+lat,non_predictor_metadata,spatial_diagnostic,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,spatial diagnostic coordinate; may be used only outside headline physical surrogate
+lon,non_predictor_metadata,spatial_diagnostic,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,spatial diagnostic coordinate; may be used only outside headline physical surrogate
+building_density,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+road_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+park_distance_m,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+elderly_proxy,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+outdoor_exposure_proxy,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+land_use_hint,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+centroid_x_svy21,non_predictor_metadata,spatial_diagnostic,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,spatial diagnostic coordinate; may be used only outside headline physical surrogate
+centroid_y_svy21,non_predictor_metadata,spatial_diagnostic,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,spatial diagnostic coordinate; may be used only outside headline physical surrogate
+cell_area_m2,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,constant or all-NaN column excluded from B8.2 predictors
+land_use_raw,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+land_use_fraction,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+gpr_area_weighted,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+nearest_park_name,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+large_park_distance_m,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+nearest_large_park_name,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+water_distance_m,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+nearest_water_name,non_predictor_metadata,excluded_metadata,object,120,0.92,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+max_building_height_m,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+elderly_proxy_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+outdoor_exposure_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+forecast_spatial_note,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+mean_building_height_m,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+tree_canopy_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+grass_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+water_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+built_up_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+ndvi_mean,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dynamic_world_tree_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dynamic_world_grass_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dynamic_world_water_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dynamic_world_built_up_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+ndvi_norm_for_greenery_proxy,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+greenery_fraction_beta,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+gvi_percent,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+gvi_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+height_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+tree_canopy_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+ndvi_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+svf,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+impervious_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+shade_fraction_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+impervious_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+impervious_fraction_old_beta,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+impervious_fraction_vector_component,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+impervious_fraction_dw_component,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+impervious_fraction_green_component,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+elderly_pct_65plus,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+children_pct_under5,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+subzone_area_weighted,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+dominant_subzone,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+dominant_planning_area,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+demographic_vulnerability_raw,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+demographic_vulnerability_score,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+bus_stop_score_raw,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+bus_stop_count,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+mrt_exit_score_raw,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+mrt_exit_count,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+sport_facility_score_raw,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+sport_facility_count,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+hawker_centre_score_raw,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+hawker_centre_count,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+eldercare_score_raw,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+eldercare_count,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+preschool_score_raw,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+preschool_count,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+outdoor_exposure_raw,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+node_vulnerability_raw,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+outdoor_exposure_score_v071,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+node_vulnerability_score,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+vulnerability_score_v071,non_predictor_metadata,excluded_nonphysical,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+risk_exposure_note_v071,non_predictor_metadata,excluded_nonphysical,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,exposure/vulnerability/risk/social field excluded from physical surrogate predictors
+svf_proxy_v07,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_proxy_v07,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+open_pixel_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+building_pixel_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+n_total_pixels,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,constant or all-NaN column excluded from B8.2 predictors
+n_open_pixels,feature,physical_core,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_umep_mean_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_umep_p10_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_umep_p90_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_10_16_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_13_15_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_peak_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1000_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1100_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1200_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1300_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1400_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1500_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1600_open_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_umep_mean_all_with_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dsm_mean_height_all,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dsm_max_height,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dsm_mean_height_buildings_only,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+umep_dsm_resolution_m,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,constant or all-NaN column excluded from B8.2 predictors
+umep_shadow_time_window,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,constant or all-NaN column excluded from B8.2 predictors
+veg_canopy_source,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+svf_umep_selected,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_selected,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_source_v08,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/provenance field excluded from B8.2 predictors
+shade_source_v08,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/provenance field excluded from B8.2 predictors
+umep_morphology_notes,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,constant or all-NaN column excluded from B8.2 predictors
+delta_svf_v08_minus_proxy,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+delta_shade_v08_minus_proxy,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+n_total_pixels_v10,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+n_building_pixels_v10,feature,physical_core,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+n_open_pixels_v10,feature,physical_core,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+building_pixel_fraction_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+open_pixel_fraction_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+building_area_m2_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dsm_building_height_mean_m_v10,feature,physical_core,float64,1340,0.10666666666666669,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dsm_building_height_p50_m_v10,feature,physical_core,float64,1340,0.10666666666666669,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dsm_building_height_p90_m_v10,feature,physical_core,float64,1340,0.10666666666666669,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+dsm_building_height_max_m_v10,feature,physical_core,float64,1340,0.10666666666666669,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_umep_mean_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_umep_p10_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_umep_p90_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_umep_mean_all_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_0800_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_0900_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1000_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1100_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1200_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1300_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1400_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1500_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1600_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1700_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1800_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_1900_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_10_16_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_13_15_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_umep_peak_open_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+umep_morphology_version,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+umep_includes_vegetation,non_predictor_metadata,excluded_metadata,bool,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,constant or all-NaN column excluded from B8.2 predictors
+veg_transmissivity_pct,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,constant or all-NaN column excluded from B8.2 predictors
+veg_trunk_zone_pct,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,constant or all-NaN column excluded from B8.2 predictors
+umep_shadow_date,non_predictor_metadata,excluded_metadata,int64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,constant or all-NaN column excluded from B8.2 predictors
+shade_interpretation,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+svf_v08_umep_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_v08_umep_veg,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+v10_building_density,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+v10_building_area_m2,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+v10_open_pixel_fraction,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+v10_building_height_mean_m,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+v10_building_height_max_m,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+v10_building_height_p50_m,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+v10_building_height_p90_m,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+building_density_v08,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+mean_building_height_m_v08,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+max_building_height_m_v08,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+svf_source_v10,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/provenance field excluded from B8.2 predictors
+shade_source_v10,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/provenance field excluded from B8.2 predictors
+building_source_v10,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/provenance field excluded from B8.2 predictors
+delta_svf_v10_minus_v08,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+delta_shade_v10_minus_v08,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_area_total_m2,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_weighted_shade_area_m2,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+n_overhead_features,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_area_covered_walkway_m2,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+n_covered_walkway,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+overhead_area_elevated_rail_m2,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+n_elevated_rail,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+overhead_area_elevated_road_m2,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+n_elevated_road,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_area_pedestrian_bridge_m2,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+n_pedestrian_bridge,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+overhead_area_viaduct_m2,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+n_viaduct,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+overhead_fraction_total,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_shade_proxy,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_fraction_covered_walkway,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_fraction_elevated_rail,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_fraction_elevated_road,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_fraction_pedestrian_bridge,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_fraction_viaduct,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+pedestrian_shelter_fraction,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+transport_deck_fraction,non_predictor_metadata,excluded_metadata,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,not in B8.2 physical-core predictor tier; excluded from headline predictors
+overhead_confounding_flag,feature,physical_core,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_interpretation,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+overhead_shade_proxy_cell_scope,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_shade_proxy_open_scope,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+overhead_shade_scope_method,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded
+shade_fraction_base_v10,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_overhead_sens,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+delta_shade_overhead_sens_minus_base,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_without_overhead_sens,feature,physical_core,float64,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,eligible B8.2 physical-core predictor
+shade_fraction_source_v10_delta,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/provenance field excluded from B8.2 predictors
+overhead_sensitivity_note,non_predictor_metadata,excluded_metadata,object,1500,0.0,data\grid\v10\toa_payoh_grid_v10_features_overhead_sensitivity.csv,source/version/note/name/method/interpretation or high-cardinality text metadata excluded

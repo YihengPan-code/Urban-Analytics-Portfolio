@@ -1,0 +1,146 @@
+b8_version: systemb_surrogate_b8_protocol_v0_1
+random_seed: 42
+pre_b811_feature_count: 195
+expected_n_cells: 150
+expected_n_rows: 1500
+expected_scenarios:
+  - base
+  - overhead_as_canopy
+expected_hours_sgt:
+  - 10
+  - 12
+  - 13
+  - 15
+  - 16
+target_version: systemb_target_family_v0_1_b5
+reference_domain_version: n150_training_future
+primary_target: delta_tmrt_p90_c
+secondary_target: tmrt_p90_c
+retained_modifier: m_rad_pct01
+min_feature_bin_train_cells: 30
+min_feature_bin_test_cells: 30
+companion_labels:
+  - tmrt_p75_c
+  - tmrt_p95_c
+  - tmrt_mean_c
+  - tmrt_max_c
+  - pct_pixels_tmrt_ge_40
+  - pct_pixels_tmrt_ge_45
+  - pct_pixels_tmrt_ge_50
+  - pct_pixels_tmrt_ge_55
+inputs:
+  required:
+    modifier_targets: outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv
+    focus_tmrt_summary: outputs/v12_solweig_n150_execution/n150_focus_tmrt_summary_merged.csv
+    base_vs_overhead_delta: outputs/v12_solweig_n150_execution/n150_base_vs_overhead_delta_merged.csv
+    overhead_features: data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.csv
+    umep_features: data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.csv
+    morphology_features: data/grid/v10/toa_payoh_grid_v10_umep_morphology_with_veg.csv
+  optional:
+    reference_values: outputs/v12_solweig_n150_execution/n150_reference_values_b5.csv
+    typology_candidates: data/grid/v12/solweig_typology_cell_candidates.csv
+outputs:
+  root_dir: outputs/v12_surrogate
+  audit_dir: outputs/v12_surrogate/b8_dataset_audit
+  validation_dir: outputs/v12_surrogate/b8_validation_protocol
+leakage_name_tokens:
+  - tmrt
+  - delta_tmrt
+  - m_rad
+  - rank
+  - reference
+  - solweig
+  - target_version
+  - reference_domain_version
+  - run_status
+  - success
+  - failed
+  - p90_c
+target_contract_columns:
+  - primary_modifier_delta
+  - normalized_modifier
+  - target_version
+  - reference_domain_version
+excluded_nonphysical_columns:
+  - elderly_proxy
+  - outdoor_exposure_proxy
+  - demographic_vulnerability_raw
+  - demographic_vulnerability_score
+  - bus_stop_score_raw
+  - mrt_exit_score_raw
+  - sport_facility_score_raw
+  - hawker_centre_score_raw
+  - eldercare_score_raw
+  - preschool_score_raw
+  - outdoor_exposure_raw
+  - node_vulnerability_raw
+  - outdoor_exposure_score_v071
+  - node_vulnerability_score
+  - vulnerability_score_v071
+  - risk_exposure_note_v071
+spatial_diagnostic_columns:
+  - lat
+  - lon
+  - centroid_x_svy21
+  - centroid_y_svy21
+physical_core_name_tokens:
+  - svf
+  - shade
+  - building
+  - height
+  - open
+  - tree
+  - grass
+  - water
+  - built
+  - ndvi
+  - road
+  - hardscape
+  - impervious
+  - overhead
+  - park_distance
+  - large_park_distance
+metadata_name_suffixes:
+  - _source
+  - _note
+  - _version
+  - _method
+  - _interpretation
+metadata_name_prefixes:
+  - nearest_
+spatial_coordinate_candidates:
+  - [centroid_x_svy21, centroid_y_svy21]
+  - [grid_x, grid_y]
+  - [x, y]
+  - [lon, lat]
+  - [longitude, latitude]
+feature_bin_families:
+  svf:
+    - svf_umep_selected
+    - svf_umep_mean_open_v10
+    - svf_umep_mean_all_v10
+    - svf
+  shade:
+    - shade_fraction_base_v10
+    - shade_fraction_umep_selected
+    - shade_fraction_umep_13_15_open_v10
+    - shade_fraction
+  overhead:
+    - overhead_fraction_total
+    - overhead_shade_proxy
+    - pedestrian_shelter_fraction
+    - transport_deck_fraction
+  water:
+    - water_fraction
+    - dynamic_world_water_fraction
+    - water_distance_m
+  road_hardscape:
+    - road_fraction
+    - impervious_fraction
+    - impervious_fraction_vector_component
+    - built_up_fraction
+  building_density:
+    - v10_building_density
+    - building_density
+    - building_pixel_fraction_v10
+    - dsm_building_height_mean_m_v10

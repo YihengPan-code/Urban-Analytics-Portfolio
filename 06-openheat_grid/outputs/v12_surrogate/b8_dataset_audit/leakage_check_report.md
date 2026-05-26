@@ -1,0 +1,259 @@
+# B8 Dataset Leakage Check
+
+Feature selection excludes target, target-derived, rank-derived, reference-domain, SOLWEIG-derived output columns, nonphysical/social fields, and metadata/provenance/constant fields.
+
+- Selected B8.2 physical-core predictor columns: 115
+- Excluded leakage-like columns: 7
+- Excluded nonphysical/social columns: 16
+- Excluded metadata/constant/contract columns: 92
+- Spatial diagnostic columns excluded from headline physical surrogate: 4
+- Leakage status for selected feature columns: PASS
+
+## Excluded Leakage-Like Columns
+
+- `tmrt_ref_p90_c`
+- `rank_average_delta_tmrt_p90_c`
+- `n_reference_cells`
+- `reference_rule`
+- `rank_rule`
+- `tmrt_output_path`
+- `tmrt_p50_c`
+
+## Excluded Nonphysical / Social Columns
+
+- `elderly_proxy`
+- `outdoor_exposure_proxy`
+- `demographic_vulnerability_raw`
+- `demographic_vulnerability_score`
+- `bus_stop_score_raw`
+- `mrt_exit_score_raw`
+- `sport_facility_score_raw`
+- `hawker_centre_score_raw`
+- `eldercare_score_raw`
+- `preschool_score_raw`
+- `outdoor_exposure_raw`
+- `node_vulnerability_raw`
+- `outdoor_exposure_score_v071`
+- `node_vulnerability_score`
+- `vulnerability_score_v071`
+- `risk_exposure_note_v071`
+
+## Excluded Metadata / Constant / Contract Columns
+
+- `run_id`
+- `source_run_id`
+- `cell_id`
+- `scenario`
+- `hour_sgt`
+- `source`
+- `target_version`
+- `reference_domain_version`
+- `tmrt_p90_c`
+- `tmrt_ref_p90_c`
+- `delta_tmrt_p90_c`
+- `rank_average_delta_tmrt_p90_c`
+- `n_reference_cells`
+- `m_rad_pct01`
+- `primary_modifier_delta`
+- `normalized_modifier`
+- `reference_rule`
+- `rank_rule`
+- `hour`
+- `tmrt_output_path`
+- `n_pixels`
+- `valid_pixel_count`
+- `tmrt_mean_c`
+- `tmrt_p50_c`
+- `tmrt_p75_c`
+- `tmrt_p95_c`
+- `tmrt_max_c`
+- `pct_pixels_tmrt_ge_40`
+- `pct_pixels_tmrt_ge_45`
+- `pct_pixels_tmrt_ge_50`
+- `pct_pixels_tmrt_ge_55`
+- `selection_status`
+- `reuse_existing_n24_label`
+- `row_id`
+- `land_use_hint`
+- `cell_area_m2`
+- `land_use_raw`
+- `land_use_fraction`
+- `gpr_area_weighted`
+- `nearest_park_name`
+- `nearest_large_park_name`
+- `nearest_water_name`
+- `elderly_proxy_source`
+- `outdoor_exposure_source`
+- `forecast_spatial_note`
+- `greenery_fraction_beta`
+- `gvi_percent`
+- `gvi_source`
+- `height_source`
+- `tree_canopy_source`
+- `ndvi_source`
+- `svf_source`
+- `shade_fraction_source`
+- `impervious_source`
+- `elderly_pct_65plus`
+- `children_pct_under5`
+- `subzone_area_weighted`
+- `dominant_subzone`
+- `dominant_planning_area`
+- `bus_stop_count`
+- `mrt_exit_count`
+- `sport_facility_count`
+- `hawker_centre_count`
+- `eldercare_count`
+- `preschool_count`
+- `n_total_pixels`
+- `umep_dsm_resolution_m`
+- `umep_shadow_time_window`
+- `veg_canopy_source`
+- `svf_source_v08`
+- `shade_source_v08`
+- `umep_morphology_notes`
+- `n_total_pixels_v10`
+- `umep_morphology_version`
+- `umep_includes_vegetation`
+- `veg_transmissivity_pct`
+- `veg_trunk_zone_pct`
+- `umep_shadow_date`
+- `shade_interpretation`
+- `svf_source_v10`
+- `shade_source_v10`
+- `building_source_v10`
+- `n_covered_walkway`
+- `n_elevated_rail`
+- `n_pedestrian_bridge`
+- `n_viaduct`
+- `pedestrian_shelter_fraction`
+- `transport_deck_fraction`
+- `overhead_interpretation`
+- `overhead_shade_scope_method`
+- `shade_fraction_source_v10_delta`
+- `overhead_sensitivity_note`
+
+## Spatial Diagnostic Columns
+
+- `lat`
+- `lon`
+- `centroid_x_svy21`
+- `centroid_y_svy21`
+
+## Selected Feature Columns
+
+- `building_density`
+- `road_fraction`
+- `park_distance_m`
+- `large_park_distance_m`
+- `water_distance_m`
+- `max_building_height_m`
+- `mean_building_height_m`
+- `tree_canopy_fraction`
+- `grass_fraction`
+- `water_fraction`
+- `built_up_fraction`
+- `ndvi_mean`
+- `dynamic_world_tree_fraction`
+- `dynamic_world_grass_fraction`
+- `dynamic_world_water_fraction`
+- `dynamic_world_built_up_fraction`
+- `ndvi_norm_for_greenery_proxy`
+- `svf`
+- `shade_fraction`
+- `impervious_fraction`
+- `impervious_fraction_old_beta`
+- `impervious_fraction_vector_component`
+- `impervious_fraction_dw_component`
+- `impervious_fraction_green_component`
+- `svf_proxy_v07`
+- `shade_fraction_proxy_v07`
+- `open_pixel_fraction`
+- `building_pixel_fraction`
+- `n_open_pixels`
+- `svf_umep_mean_open_with_veg`
+- `svf_umep_p10_open_with_veg`
+- `svf_umep_p90_open_with_veg`
+- `shade_fraction_umep_10_16_open_with_veg`
+- `shade_fraction_umep_13_15_open_with_veg`
+- `shade_fraction_umep_peak_open_with_veg`
+- `shade_fraction_umep_1000_open_with_veg`
+- `shade_fraction_umep_1100_open_with_veg`
+- `shade_fraction_umep_1200_open_with_veg`
+- `shade_fraction_umep_1300_open_with_veg`
+- `shade_fraction_umep_1400_open_with_veg`
+- `shade_fraction_umep_1500_open_with_veg`
+- `shade_fraction_umep_1600_open_with_veg`
+- `svf_umep_mean_all_with_veg`
+- `dsm_mean_height_all`
+- `dsm_max_height`
+- `dsm_mean_height_buildings_only`
+- `svf_umep_selected`
+- `shade_fraction_umep_selected`
+- `delta_svf_v08_minus_proxy`
+- `delta_shade_v08_minus_proxy`
+- `n_building_pixels_v10`
+- `n_open_pixels_v10`
+- `building_pixel_fraction_v10`
+- `open_pixel_fraction_v10`
+- `building_area_m2_v10`
+- `dsm_building_height_mean_m_v10`
+- `dsm_building_height_p50_m_v10`
+- `dsm_building_height_p90_m_v10`
+- `dsm_building_height_max_m_v10`
+- `svf_umep_mean_open_v10`
+- `svf_umep_p10_open_v10`
+- `svf_umep_p90_open_v10`
+- `svf_umep_mean_all_v10`
+- `shade_fraction_umep_0800_open_v10`
+- `shade_fraction_umep_0900_open_v10`
+- `shade_fraction_umep_1000_open_v10`
+- `shade_fraction_umep_1100_open_v10`
+- `shade_fraction_umep_1200_open_v10`
+- `shade_fraction_umep_1300_open_v10`
+- `shade_fraction_umep_1400_open_v10`
+- `shade_fraction_umep_1500_open_v10`
+- `shade_fraction_umep_1600_open_v10`
+- `shade_fraction_umep_1700_open_v10`
+- `shade_fraction_umep_1800_open_v10`
+- `shade_fraction_umep_1900_open_v10`
+- `shade_fraction_umep_10_16_open_v10`
+- `shade_fraction_umep_13_15_open_v10`
+- `shade_fraction_umep_peak_open_v10`
+- `svf_v08_umep_veg`
+- `shade_fraction_v08_umep_veg`
+- `v10_building_density`
+- `v10_building_area_m2`
+- `v10_open_pixel_fraction`
+- `v10_building_height_mean_m`
+- `v10_building_height_max_m`
+- `v10_building_height_p50_m`
+- `v10_building_height_p90_m`
+- `building_density_v08`
+- `mean_building_height_m_v08`
+- `max_building_height_m_v08`
+- `delta_svf_v10_minus_v08`
+- `delta_shade_v10_minus_v08`
+- `overhead_area_total_m2`
+- `overhead_weighted_shade_area_m2`
+- `n_overhead_features`
+- `overhead_area_covered_walkway_m2`
+- `overhead_area_elevated_rail_m2`
+- `overhead_area_elevated_road_m2`
+- `n_elevated_road`
+- `overhead_area_pedestrian_bridge_m2`
+- `overhead_area_viaduct_m2`
+- `overhead_fraction_total`
+- `overhead_shade_proxy`
+- `overhead_fraction_covered_walkway`
+- `overhead_fraction_elevated_rail`
+- `overhead_fraction_elevated_road`
+- `overhead_fraction_pedestrian_bridge`
+- `overhead_fraction_viaduct`
+- `overhead_confounding_flag`
+- `overhead_shade_proxy_cell_scope`
+- `overhead_shade_proxy_open_scope`
+- `shade_fraction_base_v10`
+- `shade_fraction_overhead_sens`
+- `delta_shade_overhead_sens_minus_base`
+- `shade_fraction_without_overhead_sens`

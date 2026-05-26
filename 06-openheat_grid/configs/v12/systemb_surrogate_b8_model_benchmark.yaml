@@ -1,0 +1,163 @@
+b8_benchmark_version: systemb_surrogate_b8_2_baseline_benchmark_v0_1
+random_seed: 42
+feature_set: physical_core
+max_categorical_cardinality: 20
+inner_cv_splits: 3
+grid_n_jobs: 1
+
+targets:
+  primary: delta_tmrt_p90_c
+  secondary: tmrt_p90_c
+retained_labels:
+  - m_rad_pct01
+
+inputs:
+  matrix: outputs/v12_surrogate/b8_dataset_audit/surrogate_label_feature_matrix.csv
+  feature_schema: outputs/v12_surrogate/b8_dataset_audit/feature_schema.csv
+  manifests:
+    cell_grouped_holdout: outputs/v12_surrogate/b8_validation_protocol/split_manifest_cell_grouped.csv
+    spatial_holdout: outputs/v12_surrogate/b8_validation_protocol/split_manifest_spatial.csv
+    feature_bin_holdout: outputs/v12_surrogate/b8_validation_protocol/split_manifest_feature_bin.csv
+    hour_holdout: outputs/v12_surrogate/b8_validation_protocol/split_manifest_hour_holdout.csv
+    scenario_holdout: outputs/v12_surrogate/b8_validation_protocol/split_manifest_scenario_holdout.csv
+
+outputs:
+  benchmark_dir: outputs/v12_surrogate/b8_model_benchmark
+  metrics: outputs/v12_surrogate/b8_model_benchmark/surrogate_model_metrics.csv
+  predictions: outputs/v12_surrogate/b8_model_benchmark/surrogate_predictions_oof.csv.gz
+  topk_overlap: outputs/v12_surrogate/b8_model_benchmark/topk_overlap_by_model.csv
+  stratified_error: outputs/v12_surrogate/b8_model_benchmark/stratified_error_by_feature_bin.csv
+  split_family_summary: outputs/v12_surrogate/b8_model_benchmark/split_family_summary.csv
+  report: outputs/v12_surrogate/b8_model_benchmark/model_family_comparison_report.md
+  status: outputs/v12_surrogate/b8_model_benchmark/B8_2_BENCHMARK_STATUS.md
+
+validation:
+  feature_bin_min_train_cells: 30
+  feature_bin_min_test_cells: 30
+  group_safe_split_families:
+    - cell_grouped_holdout
+    - spatial_holdout
+    - feature_bin_holdout
+  transfer_diagnostic_split_families:
+    - hour_holdout
+    - scenario_holdout
+  skip_feature_bin_statuses:
+    - BLOCKED
+    - BLOCKED_DEGENERATE
+    - DEGENERATE
+
+feature_contract:
+  headline_role: feature
+  headline_predictor_tier: physical_core
+  optional_spatial_diagnostic_tier: spatial_diagnostic
+  hard_block_tokens:
+    - tmrt
+    - delta_tmrt
+    - m_rad
+    - rank
+    - reference
+    - solweig
+    - target_version
+    - reference_domain_version
+    - run_status
+    - success
+    - failed
+    - output_path
+    - primary_modifier_delta
+    - normalized_modifier
+    - risk
+    - vulnerability
+    - exposure
+    - elderly
+    - preschool
+    - hawker
+    - bus_stop
+    - mrt
+    - sport_facility
+    - source
+    - note
+    - version
+    - interpretation
+  hard_block_prefixes:
+    - nearest_
+  hard_block_suffixes:
+    - _name
+
+models:
+  featureless_mean:
+    enabled: true
+  ridge:
+    alpha:
+      - 0.01
+      - 0.1
+      - 1.0
+      - 10.0
+      - 100.0
+  elasticnet:
+    alpha:
+      - 0.001
+      - 0.01
+      - 0.1
+      - 1.0
+    l1_ratio:
+      - 0.1
+      - 0.5
+      - 0.9
+  random_forest:
+    n_estimators: 80
+    max_depth:
+      - null
+      - 12
+    min_samples_leaf:
+      - 1
+    n_jobs: 1
+  extra_trees:
+    n_estimators: 80
+    max_depth:
+      - null
+      - 12
+    min_samples_leaf:
+      - 1
+    n_jobs: 1
+  hist_gradient_boosting:
+    max_iter:
+      - 100
+      - 300
+    learning_rate:
+      - 0.03
+      - 0.1
+    max_leaf_nodes:
+      - 31
+
+topk:
+  fractions:
+    - 0.10
+    - 0.20
+  min_n: 10
+
+stratification:
+  bin_policy: train_fold_tertiles
+  families:
+    SVF:
+      - svf_umep_selected
+      - svf_umep_mean_open_v10
+      - svf
+    shade:
+      - shade_fraction_base_v10
+      - shade_fraction_umep_selected
+      - shade_fraction
+    overhead:
+      - overhead_fraction_total
+      - overhead_shade_proxy
+    water:
+      - water_fraction
+      - dynamic_world_water_fraction
+      - water_distance_m
+    road_hardscape:
+      - road_fraction
+      - impervious_fraction
+      - built_up_fraction
+    building_density:
+      - v10_building_density
+      - building_density
+      - building_pixel_fraction_v10
