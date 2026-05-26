@@ -1,0 +1,6 @@
+replaced_cell_id,replacement_cell_id,selection_rank,reason,freeze_version,replacement_in_final_selected,replaced_cell_absent_from_run_matrix_required
+TP_0916,TP_0575,10,Human QA replacement. TP_0916 remains an optional v10-epsilon legacy overhead-saturated diagnostic note only and is not in the frozen N24 run matrix.,b2_2_human_qa_freeze,True,True
+TP_0828,TP_0301,13,Human QA replacement.,b2_2_human_qa_freeze,True,True
+TP_0802,TP_0773,14,Human QA replacement.,b2_2_human_qa_freeze,True,True
+TP_0058,TP_0141,17,TP_0058 is almost pure river/water surface. TP_0141 is a better water-edge / blue-green context cell: roughly 30% river and 70% land/grass.,b2_2_human_qa_freeze,True,True
+TP_0675,TP_0676,23,Human QA replacement.,b2_2_human_qa_freeze,True,True
