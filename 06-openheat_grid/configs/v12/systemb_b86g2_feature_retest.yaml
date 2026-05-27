@@ -1,0 +1,178 @@
+b86g2_version: systemb_b86g2_feature_retest_v0_1
+lane: B8.6g2_feature_upgraded_surrogate_retest
+branch: codex/b86g2-feature-upgraded-surrogate-retest
+random_seed: 42
+
+no_raster_io: true
+no_qgis_solweig: true
+no_aoi_prediction: true
+no_b9: true
+no_local_wbgt: true
+no_hazard_score: true
+no_risk_score: true
+no_system_a_b_coupling: true
+no_tmrt_to_wbgt_conversion: true
+no_observed_truth_claim: true
+no_causal_feature_importance_claim: true
+
+b86g_n150_feature_dataset_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n150_feature_dataset.csv
+b86g_feature_schema_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_schema.csv
+b86g_feature_quality_checks_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_quality_checks.csv
+b86g_feature_coverage_matrix_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_coverage_matrix.csv
+b86g_failure_context_join_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_failure_context_feature_join.csv
+f5_pairwise_label_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv
+b86d_combined_metrics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_combined_pipeline_metrics.csv
+b86d_oof_predictions_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_oof_predictions.csv
+b86f_aoi_readiness_path: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_aoi_preflight_readiness_matrix.csv
+
+n150_sampling_feature_matrix_path: outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+n150_candidate_universe_path: outputs/v12_systemb_n150_sample_design/n150_candidate_universe.csv
+b86d_anchor_diagnostics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_anchor_cell_diagnostics.csv
+b86d_neutral_diagnostics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_neutral_boundary_diagnostics.csv
+b86f_anchor_neutral_failure_path: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_anchor_neutral_failure_matrix.csv
+
+primary_target: delta_tmrt_p90_c
+companion_targets:
+  - delta_tmrt_mean_c
+  - delta_tmrt_p50_c
+  - delta_tmrt_p95_c
+neutral_threshold_c: 0.05
+expected_n150_cell_count: 150
+expected_label_rows: 1500
+expected_forcing_days: 2
+expected_hours: [10, 12, 13, 15, 16]
+
+split_families:
+  - forcing_day_holdout
+  - cell_group_holdout
+  - spatial_holdout
+  - typology_holdout
+  - hour_holdout
+
+feature_sets_to_test:
+  - b86d_baseline_without_b86g
+  - b86g_proxy_features_only
+  - b86g_vector_derived_compact_only
+  - b86g_proxy_plus_vector_compact
+  - b86g_no_status_columns
+  - b86g_high_priority_only
+  - b86g_all_safe_numeric
+
+models:
+  classifiers:
+    - logistic_regression
+    - random_forest_classifier
+    - hist_gradient_boosting_classifier
+  regressors:
+    - ridge
+    - elasticnet
+    - random_forest_regressor
+    - hist_gradient_boosting_regressor
+  logistic_regression:
+    max_iter: 1000
+  random_forest_classifier:
+    n_estimators: 36
+    max_depth: 7
+    min_samples_leaf: 2
+  hist_gradient_boosting_classifier:
+    max_iter: 60
+    learning_rate: 0.06
+    max_leaf_nodes: 31
+  ridge:
+    alpha: 1.0
+  elasticnet:
+    alpha: 0.001
+    l1_ratio: 0.5
+  random_forest_regressor:
+    n_estimators: 36
+    max_depth: 7
+    min_samples_leaf: 2
+  hist_gradient_boosting_regressor:
+    max_iter: 60
+    learning_rate: 0.06
+    max_leaf_nodes: 31
+
+validation:
+  cell_group_folds: 5
+  typology_min_test_cells: 5
+  typology_min_train_cells: 30
+  random_split_diagnostic: false
+  random_test_fraction: 0.2
+
+random_split_diagnostic: false
+
+baseline_feature_columns:
+  - svf_or_open_sky
+  - shade_fraction
+  - building_density
+  - building_height_or_canyon_proxy
+  - road_or_hardscape_fraction
+  - tree_or_gvi_fraction
+  - grass_fraction
+  - water_edge_or_water_fraction
+  - overhead_fraction
+  - impervious_or_built_fraction
+  - hour_sgt
+
+diagnostic_cells:
+  anchor_cells:
+    - TP_0037
+    - TP_0141
+    - TP_0433
+    - TP_0542
+    - TP_0857
+  known_neutral_cells:
+    - TP_0115
+    - TP_0301
+    - TP_0326
+    - TP_0366
+    - TP_0492
+    - TP_0565
+    - TP_0676
+    - TP_0960
+    - TP_0986
+  unstable_cells:
+    - TP_0059
+    - TP_0098
+    - TP_0154
+    - TP_0326
+    - TP_0409
+    - TP_0575
+    - TP_0773
+
+promotion_gate:
+  material_spearman_gain: 0.03
+  material_top10_gain: 0.03
+  false_promotion_reduction_min: 0.01
+  anchor_mae_worsening_tolerance: 0.05
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_6g2_feature_retest
+  input_inventory: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_input_inventory.csv
+  dataset_schema: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_dataset_schema.csv
+  feature_leakage_audit: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_feature_leakage_audit.csv
+  feature_set_registry: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_feature_set_registry.csv
+  modeling_dataset: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_modeling_dataset.csv
+  validation_splits: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_validation_splits.csv
+  single_stage_metrics: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_single_stage_metrics.csv
+  two_stage_metrics: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_two_stage_metrics.csv
+  combined_pipeline_metrics: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_combined_pipeline_metrics.csv
+  metrics_by_split: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_metrics_by_split.csv
+  metrics_by_spatial_bin: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_metrics_by_spatial_bin.csv
+  metrics_by_typology: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_metrics_by_typology.csv
+  metrics_by_hour: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_metrics_by_hour.csv
+  feature_ablation_metrics: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_feature_ablation_metrics.csv
+  proxy_vs_vector_feature_comparison: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_proxy_vs_vector_feature_comparison.csv
+  anchor_cell_diagnostics: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_anchor_cell_diagnostics.csv
+  neutral_boundary_diagnostics: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_neutral_boundary_diagnostics.csv
+  unstable_cell_diagnostics: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_unstable_cell_diagnostics.csv
+  worst_error_inventory: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_worst_error_inventory.csv
+  oof_predictions: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_oof_predictions.csv
+  baseline_comparison: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_baseline_comparison.csv
+  promotion_gate: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_promotion_gate.csv
+  aoi_preflight_readiness_matrix: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_aoi_preflight_readiness_matrix.csv
+  next_lane_decision_matrix: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_next_lane_decision_matrix.csv
+  model_card: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_model_card.md
+  report: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_report.md
+  status: outputs/v12_surrogate/b8_6g2_feature_retest/B8_6G2_STATUS.md
+  cn_doc: docs/v12/OpenHeat_SystemB_B8_6g2_feature_retest_CN.md
