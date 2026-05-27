@@ -1,0 +1,6 @@
+hour_sgt,path_display,file_exists,line_count,expected_line_count,header_matches,column_count_matches,data_row_count_matches,duplicate_rows,required_fields_present,date_hour_matches,validation_status,notes
+10,C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h10.txt,yes,3,3,yes,yes,yes,yes,yes,yes,PASS,schema and target date/hour validated
+12,C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h12.txt,yes,3,3,yes,yes,yes,yes,yes,yes,PASS,schema and target date/hour validated
+13,C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h13.txt,yes,3,3,yes,yes,yes,yes,yes,yes,PASS,schema and target date/hour validated
+15,C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h15.txt,yes,3,3,yes,yes,yes,yes,yes,yes,PASS,schema and target date/hour validated
+16,C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h16.txt,yes,3,3,yes,yes,yes,yes,yes,yes,PASS,schema and target date/hour validated

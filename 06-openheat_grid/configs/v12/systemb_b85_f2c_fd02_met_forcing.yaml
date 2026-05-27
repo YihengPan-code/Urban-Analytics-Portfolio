@@ -1,0 +1,105 @@
+met_forcing_recovery_version: systemb_b85_f2c_fd02_met_forcing_v0_1
+lane: B8.5-F2c
+branch: codex/b85-f2c-fd02-met-forcing
+generated_date: 2026-05-27
+
+scope:
+  met_forcing_recovery_generation_only: true
+  qgis_executed: false
+  solweig_executed: false
+  create_rasters: false
+  copy_rasters: false
+  open_rasters: false
+  copy_svf_zip: false
+  open_svf_zip: false
+  create_aoi_predictions: false
+  create_local_wbgt: false
+  create_hazard_score: false
+  create_risk_score: false
+  create_system_ab_coupling: false
+  stage_changes: false
+  commit_changes: false
+
+target_date: 2026-05-08
+target_station_id: S128
+target_hours_sgt:
+  - 10
+  - 12
+  - 13
+  - 15
+  - 16
+forcing_day_id: FD02_humid_hot_cloudy_or_diffuse_20260508
+
+local_met_output_root: C:/OpenHeat-local/solweig/met_forcing/b85_f2c
+write_local_met_files: true
+write_into_repo: false
+execute_qgis_or_solweig: false
+open_or_copy_rasters: false
+
+template_source_date: 2026-05-07
+template_station_id: S128
+template_relative_pattern: data/solweig/v09_met_forcing_{date_yyyymmdd}_{station_id}_h{hour_sgt:02d}.txt
+target_filename_pattern: v09_met_forcing_2026_05_08_S128_h{hour_sgt:02d}.txt
+upstream_typo_h16_relative_path: data/solweig/v09_met_foring_2026_05_08_S128_h16.txt
+normalized_h16_relative_path: data/solweig/v09_met_forcing_2026_05_08_S128_h16.txt
+
+template_search_roots:
+  - b8_worktree_project
+  - original_project
+  - openheat_local_solweig
+  - a_worktree_project
+
+candidate_roots:
+  - root_alias: b8_worktree_project
+    root_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid
+    root_kind: project_worktree
+    notes: Current B8 project subdirectory.
+  - root_alias: original_project
+    root_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid
+    root_kind: project_worktree
+    notes: Original project read-only candidate.
+  - root_alias: openheat_local_solweig
+    root_path: C:/OpenHeat-local/solweig
+    root_kind: local_solweig_asset_root
+    notes: Local-only SOLWEIG root.
+  - root_alias: a_worktree_project
+    root_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_al1h/06-openheat_grid
+    root_kind: project_worktree
+    notes: Optional A worktree read-only candidate.
+
+weather_sources:
+  - source_alias: v09_historical_forecast_by_station_hourly
+    path: data/calibration/v09_historical_forecast_by_station_hourly.csv
+    source_kind: station_hourly_forecast
+    preferred: true
+  - source_alias: v09_station_weather_pairs
+    path: data/calibration/v09_station_weather_pairs.csv
+    source_kind: station_weather_pairs_optional
+    preferred: false
+  - source_alias: v09_wbgt_station_pairs
+    path: data/calibration/v09_wbgt_station_pairs.csv
+    source_kind: wbgt_station_pairs_read_only
+    preferred: false
+  - source_alias: v11_l1h_residual_weather_merge
+    path: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/residual_weather_merge_full_period.csv
+    source_kind: residual_weather_merge_optional
+    preferred: false
+
+inputs:
+  f2b_status: outputs/v12_surrogate/b8_5_f2b_asset_recovery/B8_5_F2B_STATUS.md
+  f2b_missing_after_remap: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_missing_after_remap.csv
+  f2b_met_forcing_recovery_plan: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_met_forcing_recovery_plan.csv
+  selected_forcing_days: outputs/v12_surrogate/b8_5_multiforcing_preflight/selected_forcing_days.csv
+  f0_run_matrix: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_5_f2c_met_forcing
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B8_5_F2c_fd02_met_forcing_CN.md
+  source_inventory: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_source_inventory.csv
+  template_schema_inventory: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_template_schema_inventory.csv
+  fd02_weather_rows: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_fd02_weather_rows.csv
+  generated_met_forcing_manifest: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_generated_met_forcing_manifest.csv
+  met_forcing_validation: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_met_forcing_validation.csv
+  readiness_projection: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_readiness_projection.csv
+  next_remap_roots: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_next_remap_roots.yaml
+  status: outputs/v12_surrogate/b8_5_f2c_met_forcing/B8_5_F2C_STATUS.md

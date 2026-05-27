@@ -1,0 +1,42 @@
+b85_f2c_next_remap_roots_version: systemb_b85_f2c_next_remap_roots_v0_1
+lane: B8.5-F2c
+qgis_executed: no
+solweig_executed: no
+generated_met_files_commit_safe: no
+root_aliases:
+  - root_alias: b85_f2c_local_met_forcing
+    root_path: C:/OpenHeat-local/solweig/met_forcing/b85_f2c
+    root_kind: local_generated_met_forcing_root
+    commit_safe_to_reference: yes
+    notes: Local-only FD02 met forcing text root. Do not stage generated txt files.
+target_met_forcing_files:
+  - hour_sgt: 10
+    station_id: S128
+    date: 2026-05-08
+    local_output_path: C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h10.txt
+    sha256: d79b057f18a36344d4ae9077aab23d122ad7fb8a37d9facf2842e1a2654d7547
+    commit_safe: no
+  - hour_sgt: 12
+    station_id: S128
+    date: 2026-05-08
+    local_output_path: C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h12.txt
+    sha256: 5f77143dbf6230efdb12177fe852ecc42120b32877cc6435cf6260f62af13fdb
+    commit_safe: no
+  - hour_sgt: 13
+    station_id: S128
+    date: 2026-05-08
+    local_output_path: C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h13.txt
+    sha256: da034b050232f19475033f7511d4c17999daa19610b5683b8963435b7a9d1f6c
+    commit_safe: no
+  - hour_sgt: 15
+    station_id: S128
+    date: 2026-05-08
+    local_output_path: C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h15.txt
+    sha256: b08fb919f6481615160b03158b8eab83216ad6213e5893f8656fcde58cb743c2
+    commit_safe: no
+  - hour_sgt: 16
+    station_id: S128
+    date: 2026-05-08
+    local_output_path: C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h16.txt
+    sha256: 157c4d5222413002d50dec05c8cb5c189bd0c387129df839d0467f1d82bbb9af
+    commit_safe: no

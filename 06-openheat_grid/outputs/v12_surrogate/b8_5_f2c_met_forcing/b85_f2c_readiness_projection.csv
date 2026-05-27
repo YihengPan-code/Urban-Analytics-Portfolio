@@ -1,0 +1,2 @@
+forcing_day_id,total_runs,fd02_run_rows,validated_met_hours,validated_met_file_count,projected_ready_runs_if_output_root_created_and_qgis_check_passes,projected_ready_runs_after_fd02_met_generation,projected_file_assets_ready_after_fd02_met_generation,remaining_blockers,notes
+FD02_humid_hot_cloudy_or_diffuse_20260508,480,240,"h10,h12,h13,h15,h16",5,240,480,480,local_output_root_needs_create; qgis_algorithm_manual_check,Projection only; QGIS/SOLWEIG not run and local output root/manual QGIS checks remain outside this lane.
