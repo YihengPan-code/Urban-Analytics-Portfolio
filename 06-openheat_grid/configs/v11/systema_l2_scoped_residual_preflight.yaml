@@ -1,0 +1,143 @@
+{
+  "lane": "A-L2.1c",
+  "description": "Scoped station-level residual preflight model for System A L2 station context. Station-level n=27 only; no station-adjusted WBGT and no causal correction claim.",
+  "expected_branch": "codex/systema-l2-scoped-residual-preflight",
+  "expected_station_count": 27,
+  "inputs": {
+    "residual_summary": "outputs/v11_systema_l2_residual/identifiability_preflight/station_level_residual_summary.csv",
+    "probability_summary": "outputs/v11_systema_l2_residual/identifiability_preflight/station_level_probability_error_summary.csv",
+    "residual_stability_bootstrap": "outputs/v11_systema_l2_residual/identifiability_preflight/station_residual_stability_bootstrap.csv",
+    "feature_wide": "outputs/v11_systema_l2_residual/station_buffer_features_s1/station_buffer_feature_wide_s1.csv",
+    "feature_candidate_set": "outputs/v11_systema_l2_residual/station_feature_qa/station_feature_candidate_set.csv",
+    "residual_association_screen": "outputs/v11_systema_l2_residual/station_feature_qa/station_residual_association_screen.csv"
+  },
+  "outputs": {
+    "output_dir": "outputs/v11_systema_l2_residual/scoped_residual_preflight",
+    "input_table": "l2_scoped_model_input_table.csv",
+    "feature_sets": "l2_scoped_feature_sets.csv",
+    "null_baseline_metrics": "l2_scoped_null_baseline_metrics.csv",
+    "one_feature_metrics": "l2_scoped_one_feature_metrics.csv",
+    "ridge_metrics": "l2_scoped_ridge_metrics.csv",
+    "elasticnet_metrics": "l2_scoped_elasticnet_metrics.csv",
+    "permutation_null": "l2_scoped_permutation_null.csv",
+    "bootstrap_stability": "l2_scoped_bootstrap_stability.csv",
+    "predictions_loo": "l2_scoped_predictions_loo.csv",
+    "station_diagnostics": "l2_scoped_station_diagnostics.csv",
+    "decision_matrix": "l2_scoped_decision_matrix.csv",
+    "report": "l2_scoped_residual_preflight_report.md",
+    "status": "A_L2_1C_STATUS.md",
+    "cn_doc": "docs/v11/OpenHeat_SystemA_L2_scoped_residual_preflight_CN.md"
+  },
+  "targets": [
+    {
+      "target_column": "mean_context_adjusted_score_residual_c",
+      "target_label": "score residual",
+      "target_priority": "primary"
+    },
+    {
+      "target_column": "mean_context_adjusted_high_tail_residual_c",
+      "target_label": "high-tail residual",
+      "target_priority": "primary"
+    }
+  ],
+  "probability_error_cases": [
+    {
+      "probability_case_id": "current_companion_best_f1",
+      "case_label": "current companion best-F1"
+    },
+    {
+      "probability_case_id": "current_companion_recall90",
+      "case_label": "current companion recall90"
+    },
+    {
+      "probability_case_id": "recall_first_challenger_selected_policy",
+      "case_label": "recall-first challenger"
+    }
+  ],
+  "features": {
+    "primary_8": [
+      "building_footprint_fraction_250m",
+      "distance_to_park_or_green_m_250m",
+      "green_space_fraction_250m",
+      "landuse_entropy_250m",
+      "major_road_length_m_250m",
+      "road_density_m_per_ha_250m",
+      "distance_to_water_m_250m",
+      "water_fraction_250m"
+    ],
+    "water_sensitivity_replace": {
+      "remove": "water_fraction_250m",
+      "add": "water_fraction_100m"
+    },
+    "road_sensitivity_replace": {
+      "remove": "road_density_m_per_ha_250m",
+      "add": "road_density_m_per_ha_500m"
+    },
+    "road_length_sensitivity_replace": {
+      "remove": "road_density_m_per_ha_250m",
+      "add": "road_length_m_500m"
+    },
+    "compact_water_road": [
+      "distance_to_water_m_250m",
+      "water_fraction_250m",
+      "road_density_m_per_ha_250m",
+      "building_footprint_fraction_250m"
+    ],
+    "exploratory_sensitivity_only": [
+      "building_count_50m",
+      "building_footprint_fraction_50m"
+    ]
+  },
+  "models": {
+    "ridge_alphas": [0.01, 0.1, 1, 10, 100],
+    "elasticnet_alphas": [0.01, 0.1, 1, 10],
+    "elasticnet_l1_ratios": [0.1, 0.5, 0.9],
+    "elasticnet_max_iter": 100000,
+    "coefficient_nonzero_tolerance": 0.000001
+  },
+  "validation": {
+    "outer_cv": "leave-one-station-out",
+    "inner_cv": "leave-one-station-out",
+    "station_unit": "one row per station",
+    "no_hourly_pseudoreplication": true
+  },
+  "resampling": {
+    "permutation_iterations": 1000,
+    "permutation_seed": 21201,
+    "bootstrap_iterations": 1000,
+    "bootstrap_seed": 21202,
+    "permutation_scope": "best_non_null_model_per_primary_target_with_fixed_full_data_selected_hyperparameters",
+    "bootstrap_scope": "best_non_null_model_per_primary_target_with_fixed_full_data_selected_hyperparameters"
+  },
+  "decision_thresholds": {
+    "meaningful_mae_improvement_fraction": 0.05,
+    "meaningful_mae_improvement_abs_c": 0.02,
+    "permutation_p_threshold": 0.10,
+    "stable_positive_spearman_min": 0.10,
+    "max_no_s142_mae_degradation_fraction": 0.25
+  },
+  "key_stations": ["S142", "S139"],
+  "forbidden_feature_tokens": [
+    "station_id",
+    "official_wbgt",
+    "wbgt",
+    "residual",
+    "obs_ge31",
+    "obs_ge33",
+    "ge31",
+    "ge33",
+    "tmrt",
+    "solweig",
+    "systemb",
+    "system_b",
+    "hazard_score",
+    "risk_score"
+  ],
+  "claim_boundaries": [
+    "no station-adjusted WBGT",
+    "no station-context causal correction",
+    "no local 100m WBGT",
+    "no operational forecast claim",
+    "station context is residual explanation only"
+  ]
+}
