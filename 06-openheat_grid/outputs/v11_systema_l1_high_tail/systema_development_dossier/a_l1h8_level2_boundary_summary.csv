@@ -1,0 +1,6 @@
+boundary_item,current_status,statement,forbidden_output,future_option
+Level 2 role,EXPLANATORY_ONLY,Level 2 is explanatory only.,Operational correction model.,Protocol review after longer archive and better metadata.
+station-adjusted WBGT,FORBIDDEN,Level 2 does not produce station-adjusted WBGT.,station_adjusted_wbgt_c,None in current v1.1 frozen handoff.
+local 100 m WBGT,FORBIDDEN,Level 2 does not produce local 100 m WBGT.,local_wbgt_c,Requires a future explicitly scoped and validated lane.
+System B modifier,FORBIDDEN,Level 2 does not produce a System B modifier.,System A/B coupling output or delta_wbgt_cell,Separate future coupling protocol only if explicitly opened.
+future explanatory options,FUTURE_OPTION_ONLY,Longer archive and better station metadata/SVF/LCZ/siting data are future options.,Current correction or causal claim.,Use as explanatory evidence after formal scope review.

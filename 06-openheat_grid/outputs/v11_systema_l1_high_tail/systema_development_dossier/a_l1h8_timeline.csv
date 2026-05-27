@@ -1,0 +1,13 @@
+sequence,stage,lane,decision,evidence,next_state
+1,L1 residual decomposition / high-tail diagnostics,A-L1H.0,High-tail residual and ge31 miss behavior justified a focused Level 1 diagnostic lane.,"Residual decomposition, station/regime/bin/hour diagnostics, ge31 miss/hit/false-alarm inventories.",Use as historical diagnostic context only.
+2,formula/proxy audit,A-L1H.1,"Formula/proxy work stayed as companion audit, not retroactive recalibration.",Formula candidate and threshold metrics.,No contract change.
+3,probability / threshold calibration,A-L1H.2,Probability threshold behavior was useful as diagnostic evidence.,"Calibration metrics, threshold operating points, station/regime checks.",Feed L1H4 companion suite.
+4,high-tail benchmark,A-L1H.3,High-tail challenger benchmark informed but did not replace WBGT_A.,"Challenger overall, station, regime, threshold, reliability metrics.",No new production model in this handoff.
+5,Level 2 identifiability,A-L2.0,Station-context residual explanation warranted scoped preflight only.,Station residual stability and identifiability matrix.,Do not create correction layer.
+6,station feature QA,A-L2.1a/b,Station-local features are explanatory covariates with QA caveats.,Station buffer features and station feature QA summaries.,Use only in Level 2 explanatory sidecar.
+7,scoped residual preflight,A-L2.1c,Weak high-tail station-context signal; score residual not identifiable.,High-tail residual improvement about 6.5%; score residual about 1.7%; S142/S139 caveats.,Level 2 remains explanatory only.
+8,L1H4 probability companion,A-L1H.4,P_ge31 promising companion; P_ge33 exploratory; expected exceedance and intervals optional diagnostics.,"LOSO n=1674, ge31=204, ge33=15; P_ge31 Brier 0.052, ECE 0.018, PR-AUC 0.610.",Keep P_ge31 optional pending formal prospective snapshot.
+9,L1H5 contract,A-L1H.5,Hourly output contract frozen with wbgt_a_c as primary.,Model card and output contract v1.0.,Do not modify in L1H8.
+10,L1H6 prospective harness,A-L1H.6,Harness ready but waiting for formal snapshot.,A_L1H6_WAITING_FOR_FORMAL_SNAPSHOT; no valid snapshot found.,Rerun after formal snapshot freeze.
+11,L1H7 snapshot freezer,A-L1H.7,Freezer waits for real formal input.,A_L1H7_WAITING_FOR_FORMAL_INPUT; dry-run only; no plausible formal candidate.,Use write_snapshot only after reviewed real candidate passes checks.
+12,current state,A-L1H.8,System A frozen/waiting; dossier and handoff package complete.,"This development dossier consolidates evidence, contract, boundaries, waiting register, and re-entry prompt.","Future re-entry starts with formal snapshot, then A-L1H.6 evaluation."

@@ -1,0 +1,12 @@
+claim,decision,allowed_wording,forbidden_upgrade,rationale
+WBGT_A deterministic temporal baseline,ALLOWED,WBGT_A deterministic temporal baseline.,Validated local WBGT prediction.,A-L1H.5 freezes wbgt_a_c as primary calibrated hourly temporal baseline.
+P_ge31 optional diagnostic companion,ALLOWED_WITH_BOUNDARY,P_ge31 optional diagnostic companion.,Official warning probability.,A-L1H.4 retrospective evidence is promising but awaits formal prospective evaluation.
+retrospective LOSO evidence,ALLOWED,Retrospective station-held-out LOSO evidence.,Final prospective pass.,"LOSO is retrospective validation, not future frozen snapshot evidence."
+prospective harness ready,ALLOWED,Prospective evaluation harness ready and waiting for formal snapshot.,Prospective evaluation complete.,A-L1H.6 status is waiting because no formal snapshot exists.
+Level 2 explanatory weak signal,ALLOWED_WITH_BOUNDARY,Level 2 shows weak high-tail explanatory signal.,Station correction or causal driver proof.,A-L2.1c is explanatory only; score residual not identifiable.
+official warning probability,FORBIDDEN,None.,Official warning probability.,No operational governance or prospective promotion exists.
+station-adjusted WBGT,FORBIDDEN,None.,station_adjusted_wbgt_c.,A-L1H.5 and A-L2.1c explicitly forbid station correction.
+local 100m WBGT,FORBIDDEN,None.,local_wbgt_c or validated 100 m local WBGT.,System A Level 1 does not produce local cell WBGT.
+risk/hazard score,FORBIDDEN,None.,risk_score or hazard_score.,Risk requires explicit exposure/vulnerability; hazard score is out of current scope.
+System A/B coupling claim,FORBIDDEN,None.,System A/B coupling output.,A-L1H.5 excludes System B/SOLWEIG/Tmrt/cell-level fields.
+final prospective pass before formal snapshot,FORBIDDEN,Waiting for formal snapshot.,Final prospective pass.,A-L1H.6 and A-L1H.7 both wait for real frozen input.

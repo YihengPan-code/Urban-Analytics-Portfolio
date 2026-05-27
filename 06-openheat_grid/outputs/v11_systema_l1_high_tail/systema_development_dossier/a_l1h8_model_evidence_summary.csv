@@ -1,0 +1,10 @@
+evidence_item,current_decision,evidence,caveat,next_action
+P_ge31 optional companion,PROMISING_BUT_OPTIONAL,LOSO retrospective n=1674; ge31=204; Brier=0.052; ECE=0.018; PR-AUC=0.610; best_F1 recall=0.765.,Not an official warning probability and not prospectively promoted.,Evaluate against fixed_31 in future A-L1H.6 formal snapshot run.
+P_ge33,LOW_SUPPORT_EXPLORATORY,A-L1H.4 reports only 15 ge33 events.,Below promotion support threshold; station support uncertain.,Keep exploratory until at least 30 real ge33 events plus calibration evidence exist.
+Expected exceedance ge31,OPTIONAL_DIAGNOSTIC,A-L1H.4 deterministic score-gap expected exceedance MAE=0.100 C; positive-event MAE=0.779 C.,Magnitude diagnostic only; not corrected WBGT.,Report if contract column is populated in formal snapshot.
+Prediction intervals,OPTIONAL_DIAGNOSTIC,A-L1H.4 conformal 90% empirical coverage=0.898; mean width=2.869 C.,Retrospective coverage only; near-ge33 behavior weak.,Refresh coverage on formal snapshot when interval columns exist.
+S142 caveat,MONITORING_CAVEAT,S142 ge31 support=15; recall=0.533; miss_rate=0.467 under key companion diagnostics.,"Station diagnostic, not station correction.",Refresh caveat in prospective evaluation.
+S139 caveat,LOW_SUPPORT_MONITORING_CAVEAT,S139 ge31 support=1 and false-alarm-sensitive diagnostics.,Too little event support for station-specific reliability claim.,Refresh caveat with formal snapshot support counts.
+Level 2 high-tail residual,WEAK_EXPLANATORY_SIGNAL,A-L2.1c high-tail residual improvement about 6.5%; permutation p_mae about 0.053; p_spearman about 0.025.,Explanatory only; n=26/27 station constraints.,Do not promote to correction layer.
+Level 2 score residual,NOT_IDENTIFIABLE,A-L2.1c score residual improvement about 1.7%; p_mae about 0.142; p_spearman about 0.309.,Does not support station correction.,Keep score residual correction out of System A contract.
+Station correction,NO_STATION_CORRECTION,A-L1H.5 Level 2 boundary and A-L2.1c preflight both reject correction output.,No station-adjusted WBGT.,Longer archive and station metadata may be future explanatory options only.

@@ -1,0 +1,21 @@
+column_name,column_group,decision,description,allowed_use,forbidden_use
+timestamp_sgt,required,REQUIRED,SGT timestamp for each hourly row.,Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+timestamp_utc,required,REQUIRED,UTC timestamp matching timestamp_sgt.,Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+wbgt_a_c,required,REQUIRED,Primary deterministic calibrated hourly WBGT_A value.,Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+wbgt_a_model_id,required,REQUIRED,Deterministic model identifier.,Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+wbgt_a_version,required,REQUIRED,Contract/model version string.,Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+s_wbgt_ge31,required,REQUIRED,Deterministic ge31 severity derived from wbgt_a_c.,Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+s_wbgt_band_31_33,required,REQUIRED,"Deterministic band below_31, ge31_lt33, or ge33_plus derived from wbgt_a_c.",Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+source_forcing,required,REQUIRED,Forcing/source family used for the row.,Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+is_retrospective_or_prospective,required,REQUIRED,Retrospective/prospective row label.,Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+quality_flag,required,REQUIRED,Compact quality/provenance flag.,Frozen A-L1H.5 System A Level 1 hourly output contract.,"Public warning, risk score, hazard score, or local 100 m WBGT claim."
+p_ge31_optional,optional_companion,OPTIONAL_DIAGNOSTIC,Optional diagnostic P(WBGT >=31 C).,Internal retrospective/prospective diagnostic when metadata and gates are satisfied.,Official warning probability.
+p_ge33_optional,optional_companion,OPTIONAL_DIAGNOSTIC,Exploratory optional P(WBGT >=33 C).,Internal retrospective/prospective diagnostic when metadata and gates are satisfied.,Promoted severe warning probability under low event support.
+expected_exceedance_ge31_optional,optional_companion,OPTIONAL_DIAGNOSTIC,Optional expected exceedance above 31 C.,Internal retrospective/prospective diagnostic when metadata and gates are satisfied.,Corrected WBGT forecast.
+prediction_interval_low_optional,optional_companion,OPTIONAL_DIAGNOSTIC,Optional lower diagnostic interval bound.,Internal retrospective/prospective diagnostic when metadata and gates are satisfied.,Promoted operational claim without prospective validation.
+prediction_interval_high_optional,optional_companion,OPTIONAL_DIAGNOSTIC,Optional upper diagnostic interval bound.,Internal retrospective/prospective diagnostic when metadata and gates are satisfied.,Promoted operational claim without prospective validation.
+station_adjusted_wbgt_c,forbidden,FORBIDDEN,Forbidden station correction output.,None in System A Level 1 contract.,Must not appear in System A L1H8 outputs or future formal snapshot contract.
+local_wbgt_c,forbidden,FORBIDDEN,Forbidden local cell WBGT output.,None in System A Level 1 contract.,Must not appear in System A L1H8 outputs or future formal snapshot contract.
+delta_wbgt_cell,forbidden,FORBIDDEN,Forbidden cell-level WBGT delta.,None in System A Level 1 contract.,Must not appear in System A L1H8 outputs or future formal snapshot contract.
+risk_score,forbidden,FORBIDDEN,Forbidden risk score.,None in System A Level 1 contract.,Must not appear in System A L1H8 outputs or future formal snapshot contract.
+hazard_score,forbidden,FORBIDDEN,Forbidden hazard score.,None in System A Level 1 contract.,Must not appear in System A L1H8 outputs or future formal snapshot contract.

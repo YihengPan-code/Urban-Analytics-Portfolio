@@ -1,0 +1,257 @@
+lane: A-L1H.8
+description: System A development dossier and frozen handoff package.
+generated_date: 2026-05-27
+
+inputs:
+  active_board: docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-26.md
+  required_contract_sources:
+    - outputs/v11_systema_l1_high_tail/model_card_output_contract/A_L1H5_STATUS.md
+    - outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_systema_model_card.md
+    - outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_hourly_output_contract_v1.md
+  evidence_sources:
+    - lane_id: A-L1H.4
+      artifact_path: docs/v11/OpenHeat_SystemA_L1H4_prob_exceedance_suite_CN.md
+      artifact_role: cn_doc
+      required: false
+      key_result: P_ge31 companion promising; P_ge33 low support; no station correction.
+      claim_boundary: Companion diagnostics only; not official warning probability.
+      next_action: Use only as supporting evidence for frozen contract and future prospective evaluation.
+    - lane_id: A-L1H.4
+      artifact_path: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/A_L1H4_STATUS.md
+      artifact_role: status
+      required: true
+      key_result: A_L1H4_COMPANION_PROMISING; n=1674, ge31=204, ge33=15; best_F1 P_ge31 recall 0.765.
+      claim_boundary: P_ge31 optional diagnostic companion, not official warning probability.
+      next_action: Keep as retrospective LOSO evidence pending formal prospective snapshot.
+    - lane_id: A-L1H.4
+      artifact_path: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_report.md
+      artifact_role: report
+      required: true
+      key_result: Probability, expected exceedance, and interval diagnostics are available as companions.
+      claim_boundary: No station-adjusted WBGT, local 100 m WBGT, System A/B coupling, risk_score, or hazard_score.
+      next_action: Preserve evidence and evaluate only on future frozen snapshot.
+    - lane_id: A-L1H.5
+      artifact_path: docs/v11/OpenHeat_SystemA_L1H5_model_card_output_contract_CN.md
+      artifact_role: cn_doc
+      required: false
+      key_result: System A Level 1 output contract frozen.
+      claim_boundary: wbgt_a_c remains primary; optional companions remain diagnostics.
+      next_action: Do not modify contract decisions in A-L1H.8.
+    - lane_id: A-L1H.5
+      artifact_path: outputs/v11_systema_l1_high_tail/model_card_output_contract/A_L1H5_STATUS.md
+      artifact_role: status
+      required: true
+      key_result: A_L1H5_CONTRACT_PASS; primary output wbgt_a_c; Level 2 explanatory only.
+      claim_boundary: No station-adjusted WBGT, local 100 m WBGT, official warning probability, or risk/hazard score.
+      next_action: Treat as frozen source of truth for this dossier.
+    - lane_id: A-L1H.5
+      artifact_path: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_systema_model_card.md
+      artifact_role: model_card
+      required: true
+      key_result: Model card defines intended use, not-intended use, validation evidence, and failure modes.
+      claim_boundary: Calibrated hourly WBGT_A temporal baseline only.
+      next_action: Update only after future formal snapshot review.
+    - lane_id: A-L1H.5
+      artifact_path: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_hourly_output_contract_v1.md
+      artifact_role: output_contract
+      required: true
+      key_result: Required, optional, and forbidden hourly columns frozen.
+      claim_boundary: Optional companions do not replace wbgt_a_c.
+      next_action: Enforce contract during future snapshot and prospective evaluation.
+    - lane_id: A-L1H.6
+      artifact_path: docs/v11/OpenHeat_SystemA_L1H6_prospective_eval_harness_CN.md
+      artifact_role: cn_doc
+      required: false
+      key_result: Prospective evaluation harness documented.
+      claim_boundary: Harness waits for real formal snapshot and writes no fake metrics.
+      next_action: Rerun only after reviewed formal snapshot exists.
+    - lane_id: A-L1H.6
+      artifact_path: outputs/v11_systema_l1_high_tail/prospective_eval_harness/A_L1H6_STATUS.md
+      artifact_role: status
+      required: true
+      key_result: A_L1H6_WAITING_FOR_FORMAL_SNAPSHOT; snapshot found false.
+      claim_boundary: No promotion of P_ge31 and no prospective pass before snapshot.
+      next_action: Rerun after A-L1H.7 writes a reviewed formal snapshot.
+    - lane_id: A-L1H.6
+      artifact_path: outputs/v11_systema_l1_high_tail/prospective_eval_harness/a_l1h6_report.md
+      artifact_role: report
+      required: true
+      key_result: Required future schema and promotion gates are prepared.
+      claim_boundary: No official warning probability; metrics are internal diagnostics.
+      next_action: Use command in waiting register after snapshot freeze.
+    - lane_id: A-L1H.7
+      artifact_path: docs/v11/OpenHeat_SystemA_L1H7_formal_snapshot_freezer_CN.md
+      artifact_role: cn_doc
+      required: false
+      key_result: Formal snapshot freezer documented.
+      claim_boundary: Schema bridge only; no fake rows or metrics.
+      next_action: Switch to write_snapshot only when real candidate passes checks.
+    - lane_id: A-L1H.7
+      artifact_path: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/A_L1H7_STATUS.md
+      artifact_role: status
+      required: true
+      key_result: A_L1H7_WAITING_FOR_FORMAL_INPUT; no plausible formal candidate found.
+      claim_boundary: Dry-run freezer only; no archive collector changes.
+      next_action: Provide real compact formal input, run write_snapshot, then rerun A-L1H.6.
+    - lane_id: A-L1H.7
+      artifact_path: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_report.md
+      artifact_role: report
+      required: true
+      key_result: Candidate tables scanned; all current candidates are not formal snapshot schema.
+      claim_boundary: Do not use live-growing archive as formal pass.
+      next_action: Wait for real formal snapshot candidate with required schema and support.
+    - lane_id: A-L2.1c
+      artifact_path: docs/v11/OpenHeat_SystemA_L2_scoped_residual_preflight_CN.md
+      artifact_role: cn_doc
+      required: false
+      key_result: Scoped residual preflight documented.
+      claim_boundary: Level 2 is explanatory only.
+      next_action: Future station metadata/SVF/LCZ/siting work only in separately opened lane.
+    - lane_id: A-L2.1c
+      artifact_path: outputs/v11_systema_l2_residual/scoped_residual_preflight/A_L2_1C_STATUS.md
+      artifact_role: status
+      required: true
+      key_result: Weak high-tail station-context signal; score residual not identifiable.
+      claim_boundary: No station-adjusted WBGT and no local 100 m WBGT.
+      next_action: Keep Level 2 as explanatory sidecar.
+    - lane_id: A-L2.1c
+      artifact_path: outputs/v11_systema_l2_residual/scoped_residual_preflight/l2_scoped_residual_preflight_report.md
+      artifact_role: report
+      required: true
+      key_result: High-tail residual has weak signal; score residual remains null under n=27 constraints.
+      claim_boundary: Coefficients descriptive, not causal and not correction factors.
+      next_action: Longer archive and better station metadata may be reviewed later.
+    - lane_id: A-L1H.0
+      artifact_path: outputs/v11_systema_l1_high_tail/residual_decomposition/high_tail_bias_report.md
+      artifact_role: earlier_report
+      required: false
+      key_result: Residual decomposition and high-tail miss inventory established the System A high-tail lane.
+      claim_boundary: Diagnostic evidence only.
+      next_action: Inventory only; no recalibration in A-L1H.8.
+    - lane_id: A-L1H.0b
+      artifact_path: outputs/v11_systema_l1_high_tail/weather_regime_merge/A_L1H_0B_STATUS.md
+      artifact_role: earlier_status
+      required: false
+      key_result: Weather-regime merge supported high-tail diagnostics.
+      claim_boundary: Does not create local WBGT.
+      next_action: Inventory only.
+    - lane_id: A-L1H.0c
+      artifact_path: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/A_L1H_0C_STATUS.md
+      artifact_role: earlier_status
+      required: false
+      key_result: Full-period weather-regime merge extended diagnostic context.
+      claim_boundary: Does not change frozen contract.
+      next_action: Inventory only.
+    - lane_id: A-L1H.1
+      artifact_path: outputs/v11_systema_l1_high_tail/formula_proxy_audit/A_L1H_1_STATUS.md
+      artifact_role: earlier_status
+      required: false
+      key_result: Formula/proxy audit was a companion audit, not retroactive recalibration.
+      claim_boundary: No station-adjusted WBGT.
+      next_action: Inventory only.
+    - lane_id: A-L1H.2
+      artifact_path: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/A_L1H_2_STATUS.md
+      artifact_role: earlier_status
+      required: false
+      key_result: Probability/threshold calibration preceded L1H4 companion package.
+      claim_boundary: Diagnostic probability only.
+      next_action: Inventory only.
+    - lane_id: A-L1H.2b
+      artifact_path: outputs/v11_systema_l1_high_tail/level1_integration/A_L1H_2B_STATUS.md
+      artifact_role: earlier_status
+      required: false
+      key_result: Level 1 integration consolidated high-tail evidence and boundaries.
+      claim_boundary: No risk or hazard score.
+      next_action: Inventory only.
+    - lane_id: A-L1H.3
+      artifact_path: docs/v11/OpenHeat_SystemA_L1H3_high_tail_challenger_CN.md
+      artifact_role: earlier_doc
+      required: false
+      key_result: High-tail benchmark informed companion decisions.
+      claim_boundary: Benchmark evidence only.
+      next_action: Inventory only.
+    - lane_id: A-L1H.3
+      artifact_path: outputs/v11_systema_l1_high_tail/high_tail_challenger/A_L1H_3_STATUS.md
+      artifact_role: earlier_status
+      required: false
+      key_result: High-tail challenger benchmark completed before L1H4.
+      claim_boundary: No new production model in A-L1H.8.
+      next_action: Inventory only.
+    - lane_id: A-L2.0
+      artifact_path: outputs/v11_systema_l2_residual/identifiability_preflight/A_L2_0_STATUS.md
+      artifact_role: earlier_status
+      required: false
+      key_result: Identifiability preflight motivated scoped station-context checks.
+      claim_boundary: Preflight only.
+      next_action: Inventory only.
+    - lane_id: A-L2.1a
+      artifact_path: outputs/v11_systema_l2_residual/station_buffer_features_s1/A_L2_1A_S1_STATUS.md
+      artifact_role: earlier_status
+      required: false
+      key_result: Station feature source and buffer build created explanatory covariates.
+      claim_boundary: Features do not produce correction layer.
+      next_action: Inventory only.
+    - lane_id: A-L2.1b
+      artifact_path: outputs/v11_systema_l2_residual/station_feature_qa/A_L2_1B_STATUS.md
+      artifact_role: earlier_status
+      required: false
+      key_result: Station feature QA narrowed context feature interpretation.
+      claim_boundary: QA only; no causal or correction claim.
+      next_action: Inventory only.
+
+schema:
+  required_columns:
+    - timestamp_sgt
+    - timestamp_utc
+    - wbgt_a_c
+    - wbgt_a_model_id
+    - wbgt_a_version
+    - s_wbgt_ge31
+    - s_wbgt_band_31_33
+    - source_forcing
+    - is_retrospective_or_prospective
+    - quality_flag
+  optional_columns:
+    - p_ge31_optional
+    - p_ge33_optional
+    - expected_exceedance_ge31_optional
+    - prediction_interval_low_optional
+    - prediction_interval_high_optional
+  forbidden_columns:
+    - station_adjusted_wbgt_c
+    - local_wbgt_c
+    - delta_wbgt_cell
+    - risk_score
+    - hazard_score
+
+formal_snapshot:
+  why_needed: A frozen formal snapshot is required before prospective evaluation or any stronger companion claim.
+  minimum_prospective_rows: 200
+  minimum_ge31_events: 30
+  minimum_ge33_events_for_promotion: 30
+  candidate_paths:
+    - outputs/v11_archive_formal_beta/
+    - outputs/v11_systema_l1_high_tail/prospective_snapshot/
+    - outputs/v11_systema_l1_high_tail/formal_snapshot/
+    - outputs/v11_beta_formal/
+  l1h7_status: A_L1H7_WAITING_FOR_FORMAL_INPUT
+  l1h6_rerun_command: python scripts/v11_l1h6_run_prospective_eval_harness.py --config configs/v11/systema_l1h6_prospective_eval_harness.yaml
+  l1h7_write_snapshot_command: python scripts/v11_l1h7_run_formal_snapshot_freezer.py --config configs/v11/systema_l1h7_formal_snapshot_freezer.yaml
+
+outputs:
+  output_dir: outputs/v11_systema_l1_high_tail/systema_development_dossier
+  cn_doc: docs/v11/OpenHeat_SystemA_development_dossier_2026-05-27_CN.md
+  handoff_doc: docs/handoff/OpenHeat_SystemA_FROZEN_HANDOFF_2026-05-27_CN.md
+  evidence_inventory: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_evidence_inventory.csv
+  timeline: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_timeline.csv
+  lane_status_matrix: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_lane_status_matrix.csv
+  output_contract_summary: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_output_contract_summary.csv
+  model_evidence_summary: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_model_evidence_summary.csv
+  level2_boundary_summary: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_level2_boundary_summary.csv
+  formal_snapshot_waiting_register: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_formal_snapshot_waiting_register.csv
+  allowed_forbidden_claims: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_allowed_forbidden_claims.csv
+  future_reactivation_checklist: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_future_reactivation_checklist.md
+  codex_reentry_prompt: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_codex_reentry_prompt.md
+  architecture_diagram: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_systema_architecture_diagram.md
+  report: outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_report.md
+  status: outputs/v11_systema_l1_high_tail/systema_development_dossier/A_L1H8_STATUS.md
