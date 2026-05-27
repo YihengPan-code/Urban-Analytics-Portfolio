@@ -1,0 +1,268 @@
+b86d_version: systemb_b86d_two_stage_surrogate_v0_2
+lane: B8.6d_two_stage_surrogate_workflow_formalization
+branch: codex/b86d-two-stage-surrogate-workflow
+random_seed: 42
+max_runtime_mode: long
+
+guardrails:
+  no_raster_io: true
+  no_qgis_solweig: true
+  no_aoi_prediction: true
+  no_b9: true
+  no_local_wbgt: true
+  no_hazard_score: true
+  no_risk_score: true
+  no_system_a_b_coupling: true
+  no_tmrt_to_wbgt_conversion: true
+  no_observed_truth_claim: true
+  no_causal_feature_importance_claim: true
+
+expected:
+  rows: 1500
+  cells: 150
+  forcing_days: 2
+  hours: [10, 12, 13, 15, 16]
+
+inputs:
+  f5_pairwise_label_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv
+  b86c_dataset_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_hardened_surrogate_dataset.csv
+  b86c_feature_set_registry_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_feature_set_registry.csv
+  b86c_safe_feature_catalog_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_safe_feature_catalog.csv
+  b86c_rejected_feature_catalog_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_rejected_feature_catalog.csv
+  b86c_feature_set_model_metrics_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_feature_set_model_metrics.csv
+  b86c_two_stage_pretest_metrics_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_two_stage_pretest_metrics.csv
+  b86b_model_metrics_path: outputs/v12_surrogate/b8_6b_surrogate_promotion/b86b_model_metrics_by_split.csv
+
+targets:
+  primary_target: delta_tmrt_p90_c
+  companion_targets:
+    - delta_tmrt_mean_c
+    - delta_tmrt_p50_c
+    - delta_tmrt_p95_c
+  target_roles:
+    delta_tmrt_p90_c: hot-pocket / upper-tail target
+    delta_tmrt_mean_c: broad-area cooling
+    delta_tmrt_p50_c: typical cell cooling
+    delta_tmrt_p95_c: extreme pocket sensitivity
+
+neutral_thresholds_c: [0.03, 0.05, 0.10, 0.15]
+primary_neutral_threshold_c: 0.05
+
+feature_sets_to_test:
+  - b86b_baseline_features
+  - minimal_physics_interpretable
+  - overhead_shade
+  - built_canyon_svf
+  - baseline_plus_interactions
+  - full_safe_compact
+
+split_families:
+  - forcing_day_holdout
+  - cell_group_holdout
+  - spatial_holdout
+  - typology_holdout
+  - hour_holdout
+
+validation:
+  cell_group_folds: 5
+  typology_min_test_cells: 5
+  typology_min_train_cells: 30
+  random_split_diagnostic: false
+  random_test_fraction: 0.2
+
+models:
+  classifiers:
+    - logistic_regression
+    - balanced_logistic_regression
+    - random_forest_classifier
+    - hist_gradient_boosting_classifier
+  regressors:
+    - ridge
+    - elasticnet
+    - random_forest_regressor
+    - hist_gradient_boosting_regressor
+  logistic_regression:
+    max_iter: 1000
+  balanced_logistic_regression:
+    max_iter: 1000
+    class_weight: balanced
+  random_forest_classifier:
+    n_estimators: 60
+    max_depth: 7
+    min_samples_leaf: 2
+  hist_gradient_boosting_classifier:
+    max_iter: 90
+    learning_rate: 0.06
+    max_leaf_nodes: 31
+  ridge:
+    alpha: 1.0
+  elasticnet:
+    alpha: 0.001
+    l1_ratio: 0.5
+  random_forest_regressor:
+    n_estimators: 60
+    max_depth: 7
+    min_samples_leaf: 2
+  hist_gradient_boosting_regressor:
+    max_iter: 90
+    learning_rate: 0.06
+    max_leaf_nodes: 31
+
+feature_groups:
+  overhead_shade:
+    tokens: [overhead, shade]
+  built_canyon_svf:
+    tokens: [building, canyon, svf, sky, height, dsm, open_pixel]
+  vegetation_water:
+    tokens: [tree, gvi, grass, water, ndvi, greenery, park]
+  road_hardscape:
+    tokens: [road, hardscape, impervious, built]
+  typology_context:
+    tokens: [typology, land_use_hint]
+  interactions:
+    tokens: [_x_]
+
+feature_contract:
+  metadata_columns:
+    - row_id
+    - cell_id
+    - forcing_day_id
+    - scenario_context
+    - label_source
+    - legacy_single_forcing_comparison_source
+    - b86c_label_source
+    - target_definition
+    - notes
+    - primary_role
+    - secondary_roles
+    - in_n24_completed
+    - source_feature_completeness
+    - sampling_feature_completeness
+    - cell_id_predictor_status
+    - forcing_day_predictor_status
+    - claim_boundary
+  split_metadata_columns:
+    - cell_id
+    - forcing_day_id
+    - hour_sgt
+    - typology_label
+    - centroid_x
+    - centroid_y
+    - centroid_x_normalized
+    - centroid_y_normalized
+    - robust_anchor_flag
+    - neutral_boundary_flag
+    - unstable_review_flag
+  allowed_categorical_features:
+    - typology_label
+    - cu__land_use_hint
+  forbidden_predictor_tokens:
+    - tmrt
+    - delta_tmrt
+    - wbgt
+    - risk
+    - hazard
+    - score
+    - rank
+    - target
+    - output_path
+    - raster
+    - svfs
+    - tif
+    - tiff
+    - observed
+    - observation
+    - system_a
+    - wbgt_a
+    - source
+    - path
+    - status
+    - notes
+    - vulnerability
+    - exposure
+    - elderly
+    - children
+    - demographic
+    - bus_stop
+    - mrt
+    - sport
+    - hawker
+    - eldercare
+    - preschool
+    - node
+    - population
+  forbidden_predictor_columns:
+    - cell_id
+    - forcing_day_id
+    - row_id
+    - within_slice_rank
+    - rank_direction
+
+diagnostic_cells:
+  robust_priority_anchors:
+    - TP_0037
+    - TP_0141
+    - TP_0433
+    - TP_0542
+    - TP_0857
+  neutral_boundary_cells:
+    - TP_0115
+    - TP_0301
+    - TP_0326
+    - TP_0366
+    - TP_0492
+    - TP_0565
+    - TP_0676
+    - TP_0960
+    - TP_0986
+  unstable_review_cells:
+    - TP_0059
+    - TP_0098
+    - TP_0154
+    - TP_0326
+    - TP_0409
+    - TP_0575
+    - TP_0773
+  h10_caveat_hour: 10
+
+seed_stability_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+promotion_gate:
+  neutral_accuracy_min: 0.75
+  false_promotion_material_max: 0.10
+  supporting_spearman_material_gain: 0.03
+  supporting_top10_material_gain: 0.03
+  max_seed_std_neutral_accuracy: 0.06
+  max_seed_std_spearman: 0.08
+  anchor_mae_worsening_tolerance: 0.05
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_6d_two_stage_surrogate
+  input_inventory: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_input_inventory.csv
+  dataset_schema: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_dataset_schema.csv
+  two_stage_dataset: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_two_stage_dataset.csv
+  feature_set_registry: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_feature_set_registry.csv
+  validation_splits: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_validation_splits.csv
+  threshold_sweep_metrics: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_threshold_sweep_metrics.csv
+  stage1_classifier_metrics: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_stage1_classifier_metrics.csv
+  stage2_regressor_metrics: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_stage2_regressor_metrics.csv
+  combined_pipeline_metrics: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_combined_pipeline_metrics.csv
+  metrics_by_split: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_split.csv
+  metrics_by_target: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_target.csv
+  metrics_by_hour: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_hour.csv
+  metrics_by_typology: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_typology.csv
+  metrics_by_spatial_bin: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_spatial_bin.csv
+  seed_stability_metrics: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_seed_stability_metrics.csv
+  anchor_cell_diagnostics: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_anchor_cell_diagnostics.csv
+  neutral_boundary_diagnostics: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_neutral_boundary_diagnostics.csv
+  unstable_cell_diagnostics: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_unstable_cell_diagnostics.csv
+  worst_error_inventory: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_worst_error_inventory.csv
+  oof_predictions: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_oof_predictions.csv
+  feature_importance_diagnostics: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_feature_importance_diagnostics.csv
+  target_role_decision: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_target_role_decision.csv
+  promotion_gate: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_promotion_gate.csv
+  model_card: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_model_card.md
+  surrogate_workflow_v0_2: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_surrogate_workflow_v0_2.md
+  report: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_report.md
+  status: outputs/v12_surrogate/b8_6d_two_stage_surrogate/B8_6D_STATUS.md
+  cn_doc: docs/v12/OpenHeat_SystemB_B8_6d_two_stage_surrogate_CN.md
