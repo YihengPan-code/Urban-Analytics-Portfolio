@@ -1,0 +1,11 @@
+forcing_day_id,hour_sgt,mean_delta_c,p50_delta_c,p90_delta_c,p95_delta_c,min_delta_c,max_delta_c,pct_pixels_delta_lt_minus_1,pct_pixels_delta_lt_minus_5,pct_pixels_delta_gt_1,valid_overlap_pixels,status,notes
+FD01_high_shortwave_hot_20260507,10,-0.352866,0.000000,0.000000,0.000000,-13.786121,0.391582,2.782222,2.626667,0.000000,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT
+FD01_high_shortwave_hot_20260507,12,-0.668400,0.000000,0.000000,0.000000,-26.813847,0.426476,2.835556,2.617778,0.000000,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT
+FD01_high_shortwave_hot_20260507,13,-0.663888,0.000000,0.000000,0.000000,-26.959572,0.057655,2.728889,2.595556,0.000000,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT
+FD01_high_shortwave_hot_20260507,15,-0.612630,0.000000,0.000000,0.000000,-25.265110,0.008007,2.715556,2.462222,0.000000,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT
+FD01_high_shortwave_hot_20260507,16,-0.418743,0.000000,0.000000,0.000000,-17.501644,0.196892,2.551111,2.360000,0.000000,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT
+FD02_humid_hot_cloudy_or_diffuse_20260508,10,-0.035626,0.000000,0.000000,0.032559,-3.357981,2.545111,2.133333,0.000000,0.044444,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT
+FD02_humid_hot_cloudy_or_diffuse_20260508,12,-0.470792,0.000000,0.000000,0.000000,-19.587696,0.022667,2.688889,2.457778,0.000000,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT
+FD02_humid_hot_cloudy_or_diffuse_20260508,13,-0.598506,0.000000,0.000000,0.000000,-24.135750,0.013489,2.720000,2.595556,0.000000,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT
+FD02_humid_hot_cloudy_or_diffuse_20260508,15,-0.291853,0.000000,0.000000,0.000000,-11.950996,0.365795,2.662222,2.435556,0.000000,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT
+FD02_humid_hot_cloudy_or_diffuse_20260508,16,-0.355929,0.000000,0.000000,0.000000,-14.870770,0.475494,2.533333,2.360000,0.000000,22500,overhead_neutral,delta is overhead_as_canopy - base; not WBGT

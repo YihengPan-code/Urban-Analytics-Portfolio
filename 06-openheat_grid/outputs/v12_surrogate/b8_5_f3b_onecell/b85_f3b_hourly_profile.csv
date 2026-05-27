@@ -1,0 +1,21 @@
+forcing_day_id,scenario,hour_sgt,mean_c,p50_c,p90_c,p95_c,max_c,notes
+FD01_high_shortwave_hot_20260507,base,10,37.907881,34.145142,45.335340,46.096210,46.574692,one raster per forcing_day/scenario/hour for TP_0037
+FD01_high_shortwave_hot_20260507,base,12,50.555146,58.243296,61.744261,62.092192,62.319798,one raster per forcing_day/scenario/hour for TP_0037
+FD01_high_shortwave_hot_20260507,base,13,50.766133,57.573914,61.598778,62.174397,62.579208,one raster per forcing_day/scenario/hour for TP_0037
+FD01_high_shortwave_hot_20260507,base,15,47.501209,52.264091,59.555224,60.227086,60.808533,one raster per forcing_day/scenario/hour for TP_0037
+FD01_high_shortwave_hot_20260507,base,16,41.085257,36.815649,50.467068,51.216184,51.817322,one raster per forcing_day/scenario/hour for TP_0037
+FD01_high_shortwave_hot_20260507,overhead_as_canopy,10,37.555015,33.950687,44.895851,45.601213,46.552807,one raster per forcing_day/scenario/hour for TP_0037
+FD01_high_shortwave_hot_20260507,overhead_as_canopy,12,49.886746,57.722231,61.596094,61.877173,62.308121,one raster per forcing_day/scenario/hour for TP_0037
+FD01_high_shortwave_hot_20260507,overhead_as_canopy,13,50.102245,57.132648,61.245582,61.816008,62.564804,one raster per forcing_day/scenario/hour for TP_0037
+FD01_high_shortwave_hot_20260507,overhead_as_canopy,15,46.888578,41.186857,59.084558,59.810430,60.807812,one raster per forcing_day/scenario/hour for TP_0037
+FD01_high_shortwave_hot_20260507,overhead_as_canopy,16,40.666514,36.461889,49.993913,50.753836,51.814468,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,base,10,27.123008,27.332534,28.081336,28.508116,29.860762,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,base,12,43.372208,47.262140,51.947747,52.861736,53.459007,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,base,13,48.003849,53.093161,58.075171,58.936028,59.546646,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,base,15,37.146793,38.512045,42.953761,43.761915,44.370232,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,base,16,38.338900,34.674313,46.330681,47.057508,47.637039,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,overhead_as_canopy,10,27.087382,27.329103,27.957441,28.281956,29.860762,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,overhead_as_canopy,12,42.901416,46.773626,51.416779,52.274622,53.434177,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,overhead_as_canopy,13,47.405343,52.669868,57.567973,58.391335,59.527508,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,overhead_as_canopy,15,36.854940,34.388357,42.484601,43.261231,44.361141,one raster per forcing_day/scenario/hour for TP_0037
+FD02_humid_hot_cloudy_or_diffuse_20260508,overhead_as_canopy,16,37.982971,34.382612,45.872292,46.605883,47.632957,one raster per forcing_day/scenario/hour for TP_0037

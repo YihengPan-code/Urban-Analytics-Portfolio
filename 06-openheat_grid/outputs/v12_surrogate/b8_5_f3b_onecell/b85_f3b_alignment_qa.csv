@@ -1,0 +1,10 @@
+check_name,status,value,details
+all_20_rasters_opened,PASS,20/20,All expected local Tmrt rasters must open for content QA.
+all_rasters_same_crs,PASS,EPSG:3414,All rasters must have the same CRS before pixelwise deltas.
+all_rasters_same_shape,PASS,150x150,All rasters must have the same shape before pixelwise deltas.
+all_rasters_same_transform,PASS,"(29300.0, 2.0, 0.0, 34500.0, 0.0, -2.0)",All rasters must have the same transform before pixelwise deltas.
+all_rasters_same_nodata,PASS,-9999.0,All rasters must have the same nodata before pixelwise deltas.
+all_rasters_same_dtype,PASS,float32,All rasters must have the same dtype before pixelwise deltas.
+expected_pixel_count_consistency,PASS,22500,Pixel count should be identical for all 20 rasters.
+output_path_outside_git_worktree,PASS,C:/OpenHeat-local/solweig/b85_f1_tiles,Expected output paths must remain local-only and outside Git.
+no_raster_output_written_by_qa,PASS,no,QA writes only compact CSV/Markdown artifacts.
