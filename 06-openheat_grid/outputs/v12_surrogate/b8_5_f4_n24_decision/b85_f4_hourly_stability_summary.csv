@@ -1,0 +1,6 @@
+hour_sgt,spearman_fd01_fd02,sign_stability_fraction,top5_overlap,top10pct_overlap,top20pct_overlap,warn_count,high_severity_count,decision,notes
+10,0.657072,0.875000,0.400000,0.333333,0.400000,8,3,STABLE_WITH_CAVEAT,"h10 is usable only as caveated evidence: lower rank agreement, weaker top-k overlap, and low-sun-angle sensitivity."
+12,0.920276,1.000000,0.800000,1.000000,0.800000,4,0,CORE_STABLE,"Core-hour slice is stable across forcing days for rank order, sign, and top10pct overlap."
+13,0.967903,1.000000,0.800000,1.000000,0.800000,2,0,CORE_STABLE,"Core-hour slice is stable across forcing days for rank order, sign, and top10pct overlap."
+15,0.946160,1.000000,0.800000,1.000000,0.800000,3,0,CORE_STABLE,"Core-hour slice is stable across forcing days for rank order, sign, and top10pct overlap."
+16,0.992752,1.000000,1.000000,1.000000,1.000000,0,0,CORE_STABLE,"Core-hour slice is stable across forcing days for rank order, sign, and top10pct overlap."

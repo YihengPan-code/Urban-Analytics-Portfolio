@@ -1,0 +1,81 @@
+package_version: systemb_b85_f4_n24_decision_v0_1
+lane: B8.5-F4
+branch: codex/b85-f4-n24-decision-matrix
+generated_date: 2026-05-27
+
+scope:
+  compact_evidence_decision_matrix_only: true
+  qgis_executed_by_codex: false
+  solweig_executed_by_codex: false
+  create_rasters: false
+  copy_rasters: false
+  move_rasters: false
+  open_rasters: false
+  copy_svf_zip: false
+  open_svf_zip: false
+  create_local_wbgt: false
+  create_hazard_score: false
+  create_risk_score: false
+  create_aoi_predictions: false
+  create_system_ab_coupling: false
+  tmrt_to_wbgt_conversion: false
+  create_n150_manifest_or_runner: false
+  train_surrogate: false
+  call_this_b9: false
+  stage_changes: false
+  commit_changes: false
+
+f3c_status_path: outputs/v12_surrogate/b8_5_f3c_n24/B8_5_F3C_STATUS.md
+f3c_cell_hour_summary_path: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_cell_hour_summary.csv
+f3c_pairwise_delta_path: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_pairwise_delta_by_cell_hour.csv
+f3c_forcing_day_contrast_path: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_forcing_day_contrast_by_cell_hour.csv
+f3c_alignment_qa_path: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_alignment_qa.csv
+f3c_sanity_checks_path: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_sanity_checks.csv
+f3c_stability_summary_path: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_stability_summary.csv
+f3c_unstable_cell_inventory_path: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_unstable_cell_inventory.csv
+f3c_postrun_validation_path: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_postrun_validation.csv
+
+expected_run_count: 480
+expected_cell_count: 24
+core_hours_sgt: [12, 13, 15, 16]
+caveat_hours_sgt: [10]
+primary_target: delta_tmrt_p90_c
+secondary_targets:
+  - tmrt_p90_c
+  - delta_tmrt_mean_c
+  - delta_tmrt_p95_c
+robust_priority_top_k: [3, 5, 10]
+neutral_delta_abs_threshold_c: 0.05
+weak_delta_abs_threshold_c: 0.15
+strong_delta_abs_threshold_c: 0.5
+execute_qgis_or_solweig: false
+read_rasters: false
+write_rasters: false
+
+decision_thresholds:
+  core_min_spearman: 0.90
+  core_min_sign_stability_fraction: 1.00
+  core_min_top10pct_overlap: 1.00
+  core_min_top5_overlap: 0.80
+  caveat_min_spearman: 0.60
+  caveat_min_sign_stability_fraction: 0.85
+  high_rank_drift_threshold: 6
+  robust_min_top5_core_presence: 4
+  robust_min_top10_core_presence: 6
+  neutral_min_core_near_zero_count: 6
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_5_f4_n24_decision
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B8_5_F4_N24_decision_matrix_CN.md
+  hourly_stability_summary: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_hourly_stability_summary.csv
+  cell_stability_scorecard: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_cell_stability_scorecard.csv
+  robust_priority_cells: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_robust_priority_cells.csv
+  neutral_boundary_cells: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_neutral_boundary_cells.csv
+  unstable_priority_cells: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_unstable_priority_cells.csv
+  target_card_delta_tmrt_p90: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_target_card_delta_tmrt_p90.md
+  n150_readiness_recommendation: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_n150_readiness_recommendation.md
+  surrogate_role_decision: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_surrogate_role_decision.md
+  geometry_uncertainty_register: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_geometry_uncertainty_register.csv
+  decision_matrix: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_decision_matrix.csv
+  report: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_report.md
+  status: outputs/v12_surrogate/b8_5_f4_n24_decision/B8_5_F4_STATUS.md

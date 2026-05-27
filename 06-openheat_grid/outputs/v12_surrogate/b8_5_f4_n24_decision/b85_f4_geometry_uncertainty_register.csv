@@ -1,0 +1,9 @@
+uncertainty_item,status,implication,mitigation,claim_boundary
+overhead_as_canopy approximation,OPEN,"Scenario approximates overhead shade as canopy-like geometry, not actual installed infrastructure.",Keep target card framed as SOLWEIG-derived sensitivity evidence.,No causal claim about real installed overhead infrastructure.
+local-output-only rasters,CONTROLLED,"F4 consumes compact CSV summaries, while raster contents remain local-only.",Do not commit rasters; preserve F3c compact QA evidence.,No raster artifact is committed or redistributed.
+h10 low sun-angle instability,CAVEATED,h10 rank/top-k agreement is weaker than core hours.,Do not use h10 as an anchor hour for target-card or priority decisions.,h10 is caveated support only.
+neutral-boundary sign flips,CAVEATED,Small sign flips around zero can look like warming but are neutral-boundary behavior.,Separate near-zero flips from true instability candidates.,Near-zero flips are not warming evidence.
+DSM/SVF/path sensitivity,OPEN,Geometry and path assumptions can change local SOLWEIG Tmrt statistics.,Require typology and spatial holdouts before stronger surrogate claims.,No field-validated local WBGT or risk claim.
+cell transform differences across cells expected,CONTROLLED,Transforms differ by cell location but are internally consistent within each cell.,Preserve per-cell alignment QA rather than requiring cross-cell identical transforms.,Cell-local comparison only.
+raster not committed,CONTROLLED,Review relies on compact QA and summary tables.,Keep outputs CSV/Markdown only in Git.,No raster read/write/copy in F4.
+no field validation yet,OPEN,SOLWEIG-derived Tmrt modifier is not observed truth.,Add future field or independent validation before stronger claims.,"Not WBGT, not risk, not observed truth."

@@ -1,0 +1,10 @@
+cell_id,neutral_boundary_count,neutral_core_count,sign_flip_count,sign_flip_near_zero_count,median_delta_core_fd01,median_delta_core_fd02,caveats
+TP_0115,10,8,0,0,0.000000,0.000000,Many near-zero deltas; classify as stable neutral comparator.
+TP_0301,10,8,0,0,0.000000,0.000000,Many near-zero deltas; classify as stable neutral comparator.
+TP_0326,10,8,1,1,0.000000,0.000000,Near-zero sign flip; classify as neutral-boundary rather than warming.
+TP_0366,10,8,0,0,-0.019471,-0.024104,Many near-zero deltas; classify as stable neutral comparator.
+TP_0492,10,8,0,0,0.000000,0.000000,Many near-zero deltas; classify as stable neutral comparator.
+TP_0565,10,8,0,0,-0.014348,-0.017702,Many near-zero deltas; classify as stable neutral comparator.
+TP_0676,10,8,0,0,-0.021103,-0.015850,Many near-zero deltas; classify as stable neutral comparator.
+TP_0960,10,8,0,0,-0.004490,-0.009220,Many near-zero deltas; classify as stable neutral comparator.
+TP_0986,10,8,0,0,0.000000,0.000000,Many near-zero deltas; classify as stable neutral comparator.
