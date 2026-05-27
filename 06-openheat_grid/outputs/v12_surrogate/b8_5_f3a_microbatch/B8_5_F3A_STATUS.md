@@ -1,10 +1,10 @@
 # B8.5-F3a Status
 
-Generated: 2026-05-27 03:04:59
+Generated: 2026-05-27 03:21:01
 
 ## Status
 
-`READY_FOR_HUMAN_MICROBATCH`
+`MICRO_BATCH_EXECUTED_PASS`
 
 ## Branch
 
@@ -19,10 +19,10 @@ Micro-batch execution package and postrun validator only. Codex/Python did not r
 - Selected cell_id: `TP_0037`
 - Micro-batch run count: `4`
 - Pre-execution ready count: `4/4`
-- Postrun status: `NOT_RUN_YET`
+- Postrun status: `4/4_EXECUTED_OUTPUTS_VALID`
 - Local run log path expected: `C:/OpenHeat-local/solweig/b85_f3a_microbatch/run_logs/b85_f3a_microbatch_qgis_run_log.csv`
 - QGIS/SOLWEIG executed by Codex: `no`
-- Notes: Prepared only; no local human QGIS run log exists yet.
+- Notes: Human run log found and validated without opening raster contents.
 
 ## Files Created / Modified
 
