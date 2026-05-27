@@ -1,0 +1,62 @@
+lane: A-L1H.5
+description: System A Level 1 model card and hourly output contract finalization.
+generated_date: 2026-05-27
+
+inputs:
+  active_board: docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-26.md
+  l1h4_cn_doc: docs/v11/OpenHeat_SystemA_L1H4_prob_exceedance_suite_CN.md
+  l1h4_status: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/A_L1H4_STATUS.md
+  l1h4_report: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_report.md
+  l1h4_model_card: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_model_card.md
+  l1h4_output_contract_draft: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_output_contract_draft.md
+  l1h4_decision_matrix: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_decision_matrix.csv
+  l1h4_threshold_policy_metrics: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_threshold_policy_metrics.csv
+  l1h4_probability_model_metrics: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_probability_model_metrics.csv
+  l1h4_expected_exceedance_metrics: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_expected_exceedance_metrics.csv
+  l1h4_quantile_interval_metrics: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_quantile_interval_metrics.csv
+  l1h4_deterministic_baseline_metrics: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_deterministic_baseline_metrics.csv
+  l1h4_station_threshold_diagnostics: outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_station_threshold_diagnostics.csv
+  l2_cn_doc: docs/v11/OpenHeat_SystemA_L2_scoped_residual_preflight_CN.md
+  l2_status: outputs/v11_systema_l2_residual/scoped_residual_preflight/A_L2_1C_STATUS.md
+  l2_report: outputs/v11_systema_l2_residual/scoped_residual_preflight/l2_scoped_residual_preflight_report.md
+  prior_reports:
+    - outputs/v11_systema_l1_high_tail/A_L1H_LANE_STATUS.md
+    - outputs/v11_systema_l1_high_tail/residual_decomposition/high_tail_bias_report.md
+    - outputs/v11_systema_l1_high_tail/weather_regime_merge/A_L1H_0B_STATUS.md
+    - outputs/v11_systema_l1_high_tail/weather_regime_merge/weather_regime_bias_report.md
+    - outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/A_L1H_0C_STATUS.md
+    - outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/weather_regime_full_period_decision_report.md
+    - outputs/v11_systema_l1_high_tail/formula_proxy_audit/A_L1H_1_STATUS.md
+    - outputs/v11_systema_l1_high_tail/formula_proxy_audit/formula_physics_audit_report.md
+    - outputs/v11_systema_l1_high_tail/probability_threshold_calibration/A_L1H_2_STATUS.md
+    - outputs/v11_systema_l1_high_tail/probability_threshold_calibration/probability_threshold_calibration_report.md
+    - outputs/v11_systema_l1_high_tail/level1_integration/A_L1H_2B_STATUS.md
+    - outputs/v11_systema_l1_high_tail/level1_integration/systema_l1h_integration_report.md
+    - outputs/v11_systema_l1_high_tail/high_tail_challenger/A_L1H_3_STATUS.md
+    - outputs/v11_systema_l1_high_tail/high_tail_challenger/high_tail_challenger_report.md
+
+analysis:
+  primary_validation_method: station_grouped_loso
+  primary_probability_companion: isotonic_m4_score_ge31
+  deterministic_primary_score: wbgt_a_m4_score
+  deterministic_primary_model_id: M4_inertia_ridge
+  primary_output_column: wbgt_a_c
+  min_ge33_events_for_promotion: 30
+  focus_stations:
+    - S142
+    - S139
+
+outputs:
+  output_dir: outputs/v11_systema_l1_high_tail/model_card_output_contract
+  cn_doc: docs/v11/OpenHeat_SystemA_L1H5_model_card_output_contract_CN.md
+  evidence_inventory: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_evidence_inventory.csv
+  companion_decision_matrix: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_companion_decision_matrix.csv
+  output_schema: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_output_schema.csv
+  threshold_policy_register: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_threshold_policy_register.csv
+  station_caveat_register: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_station_caveat_register.csv
+  level2_boundary_register: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_level2_boundary_register.csv
+  prospective_evaluation_plan: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_prospective_evaluation_plan.md
+  model_card: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_systema_model_card.md
+  hourly_output_contract: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_hourly_output_contract_v1.md
+  report: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_report.md
+  status: outputs/v11_systema_l1_high_tail/model_card_output_contract/A_L1H5_STATUS.md

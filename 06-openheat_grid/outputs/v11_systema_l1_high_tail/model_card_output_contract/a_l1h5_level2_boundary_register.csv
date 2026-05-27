@@ -1,0 +1,6 @@
+boundary_item,decision,evidence,allowed_use,forbidden_use,next_action
+level2_role,EXPLANATORY_ONLY,A-L2.1c scoped residual preflight reviewed: outputs/v11_systema_l2_residual/scoped_residual_preflight/A_L2_1C_STATUS.md and outputs/v11_systema_l2_residual/scoped_residual_preflight/l2_scoped_residual_preflight_report.md.,Station-level residual explanation and caveat framing.,Hourly correction layer or operational forecast model.,Only proceed under separate A-L2 protocol review.
+high_tail_residual_signal,WEAK_EXPLANATORY_SIGNAL_NOT_CORRECTION,High-tail residual had weak station-context explanatory signal.,Explain why S142/S139 caveats remain monitored.,Correct wbgt_a_c or create station-adjusted WBGT.,Monitor prospectively; do not implement correction in L1H.5.
+score_residual,NOT_IDENTIFIABLE,A-L2.1c score residual target was not identifiable.,Document limitation.,Claim station context fixes Level 1 score residual.,No score residual correction model.
+station_adjusted_wbgt,FORBIDDEN,No promoted station correction model.,none,station_adjusted_wbgt_c output.,Keep forbidden in hourly output schema.
+local_cell_level_modifier,FORBIDDEN,No System B/SOLWEIG or 100 m cell features are used in System A Level 1.,none in this contract,local 100 m WBGT or System A/B coupling output.,"Future scoped lane only, not L1H.5."

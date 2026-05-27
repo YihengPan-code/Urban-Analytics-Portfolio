@@ -1,0 +1,25 @@
+column_name,column_group,type,description,allowed_use,forbidden_use
+timestamp_sgt,required,datetime_iso8601,SGT timestamp for the hourly row.,hour identity,missing or ambiguous timezone
+timestamp_utc,required,datetime_iso8601,UTC timestamp matching timestamp_sgt.,cross-system audit,timezone-free time key
+wbgt_a_c,required,float_celsius,Primary deterministic System A WBGT_A value.,calibrated hourly WBGT temporal baseline,local 100 m WBGT or official warning
+wbgt_a_model_id,required,string,Identifier for the deterministic WBGT_A model.,version traceability,hidden model substitution
+wbgt_a_version,required,string,Version string for the System A Level 1 contract/model artifact.,contract traceability,unversioned production use
+s_wbgt_ge31,required,float_or_integer,"Deterministic severity above the 31 C reference, derived from wbgt_a_c.",severity context,probability or risk score
+s_wbgt_band_31_33,required,categorical,"Band below_31, ge31_lt33, or ge33_plus derived from wbgt_a_c.",threshold context,public warning class
+source_forcing,required,string,Forcing/source family used to create the row.,provenance,undocumented live/archive mixing
+is_retrospective_or_prospective,required,categorical,Whether the row is retrospective or prospective.,evaluation separation,mixing retrospective and prospective rows
+quality_flag,required,string,Compact quality/provenance flag.,row quality audit,silent quality failures
+p_ge31_optional,optional_companion,float_0_1,Optional retrospective diagnostic P(WBGT >= 31 C).,internal diagnostic companion,official warning probability
+p_ge31_model_id_optional,optional_companion,string,Model id for p_ge31_optional.,traceability,unversioned probability
+p_ge31_threshold_policy_optional,optional_companion,string,Optional policy id used to interpret p_ge31_optional.,diagnostic threshold review,official public warning threshold
+p_ge33_optional,optional_companion,float_0_1,Exploratory optional P(WBGT >= 33 C).,low-support exploratory diagnostic,promoted severe warning probability
+expected_exceedance_ge31_optional,optional_companion,float_celsius,Optional expected exceedance above 31 C.,magnitude diagnostic,corrected WBGT value
+prediction_interval_low_optional,optional_companion,float_celsius,Optional lower interval bound for wbgt_a_c diagnostic uncertainty.,uncertainty diagnostic,guaranteed operational interval
+prediction_interval_high_optional,optional_companion,float_celsius,Optional upper interval bound for wbgt_a_c diagnostic uncertainty.,uncertainty diagnostic,guaranteed operational interval
+lead_time_hours_optional,optional_companion,integer_or_float,Optional lead time for prospective rows when available.,prospective evaluation audit,claim of forecast skill without validation
+cell_id,forbidden,string,Cell-level identifier is forbidden in System A Level 1 output.,none,local 100 m WBGT or System A/B coupling
+local_wbgt_c,forbidden,float_celsius,Local cell WBGT is forbidden.,none,validated local WBGT prediction
+delta_wbgt_cell,forbidden,float_celsius,Cell-level WBGT delta is forbidden.,none,SOLWEIG/Tmrt-as-WBGT conversion
+station_adjusted_wbgt_c,forbidden,float_celsius,Station-adjusted WBGT is forbidden.,none,station correction layer
+risk_score,forbidden,float,Risk score is forbidden.,none,completed risk model
+hazard_score,forbidden,float,Hazard score is forbidden.,none,completed hazard map
