@@ -1,0 +1,93 @@
+b86f_version: systemb_b86f_surrogate_closure_v0_1
+lane: B8.6f_surrogate_closure_megasuite
+branch: codex/b86f-surrogate-closure-megasuite
+random_seed: 42
+
+b86d_oof_predictions_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_oof_predictions.csv
+b86d_combined_metrics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_combined_pipeline_metrics.csv
+b86d_metrics_by_split_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_split.csv
+b86d_spatial_metrics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_spatial_bin.csv
+b86d_typology_metrics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_typology.csv
+b86d_anchor_diagnostics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_anchor_cell_diagnostics.csv
+b86d_neutral_diagnostics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_neutral_boundary_diagnostics.csv
+b86d_worst_error_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_worst_error_inventory.csv
+b86e_spatial_failure_path: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_spatial_holdout_failure_summary.csv
+b86e_spatial_bin_inventory_path: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_spatial_bin_failure_inventory.csv
+b86e_typology_spatial_path: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_typology_spatial_cross_failure.csv
+b86e_anchor_context_path: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_anchor_underprediction_context.csv
+b86e_neutral_context_path: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_neutral_false_promotion_context.csv
+b86e_feature_gap_register_path: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_feature_gap_register.csv
+b86e_safe_feature_catalog_path: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_safe_engineered_feature_catalog.csv
+b86e_safe_feature_probe_path: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_spatial_closure_probe_metrics.csv
+b86e_n300_v1_path: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_targeted_n300_candidate_design.csv
+n150_feature_matrix_path: outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+candidate_universe_path: outputs/v12_systemb_n150_sample_design/n150_candidate_universe.csv
+f5_pairwise_label_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv
+
+primary_target: delta_tmrt_p90_c
+neutral_threshold_c: 0.05
+anchor_cells: [TP_0037, TP_0141, TP_0433, TP_0542, TP_0857]
+known_neutral_cells: [TP_0115, TP_0301, TP_0326, TP_0366, TP_0492, TP_0565, TP_0676, TP_0960, TP_0986]
+known_unstable_cells: [TP_0059, TP_0098, TP_0154, TP_0326, TP_0409, TP_0575, TP_0773]
+n300_target_additional_count: 150
+n300_role_quota:
+  typology_gap_fill: 50
+  spatial_gap_fill: 30
+  anchor_like_replication: 25
+  neutral_boundary_replication: 25
+  sparse_feature_space: 10
+  control_cell: 10
+abstention_thresholds:
+  high_feature_distance_percentile: 0.90
+  weak_spatial_bin: true
+  low_typology_support_min_cells: 3
+  known_gap_family: true
+  high_false_promotion_context: true
+
+spatial_failure_spearman_threshold: 0.40
+spatial_failure_top10_threshold: 0.50
+neutral_false_promotion_warn_threshold: 0.20
+anchor_underprediction_mae_threshold: 0.25
+candidate_sparse_distance_percentile: 0.90
+
+no_raster_io: true
+no_qgis_solweig: true
+no_aoi_prediction: true
+no_b9: true
+guardrails:
+  no_raster_io: true
+  no_qgis_solweig: true
+  no_aoi_prediction: true
+  no_b9: true
+  no_local_wbgt: true
+  no_hazard_score: true
+  no_risk_score: true
+  no_system_a_b_coupling: true
+  no_tmrt_to_wbgt_conversion: true
+  no_observed_truth_claim: true
+  no_causal_feature_importance_claim: true
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_6f_surrogate_closure
+  input_inventory: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_input_inventory.csv
+  b86e_caveat_register: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_b86e_caveat_register.csv
+  failure_synthesis: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_failure_synthesis.csv
+  spatial_failure_decision_table: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_spatial_failure_decision_table.csv
+  anchor_neutral_failure_matrix: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_anchor_neutral_failure_matrix.csv
+  safe_feature_probe_verdict: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_safe_feature_probe_verdict.csv
+  n300_design_v1_audit: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_n300_design_v1_audit.csv
+  n300_role_quota_plan: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_n300_role_quota_plan.csv
+  targeted_n300_design_v2: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_targeted_n300_design_v2.csv
+  targeted_n300_design_review: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_targeted_n300_design_review.md
+  feature_acquisition_register: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_feature_acquisition_register.csv
+  feature_acquisition_spec: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_feature_acquisition_spec.md
+  abstention_rule_catalog: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_abstention_rule_catalog.csv
+  abstention_gate_metrics: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_abstention_gate_metrics.csv
+  scope_limited_surrogate_metrics: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_scope_limited_surrogate_metrics.csv
+  aoi_preflight_readiness_matrix: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_aoi_preflight_readiness_matrix.csv
+  next_lane_decision_matrix: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_next_lane_decision_matrix.csv
+  codex_prompt_b86g_feature_acquisition: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_codex_prompt_B86G_feature_acquisition.md
+  codex_prompt_b87_n300_pre: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_codex_prompt_B87_N300_PRE.md
+  report: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_report.md
+  status: outputs/v12_surrogate/b8_6f_surrogate_closure/B8_6F_STATUS.md
+  cn_doc: docs/v12/OpenHeat_SystemB_B8_6f_surrogate_closure_CN.md
