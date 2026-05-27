@@ -1,0 +1,9 @@
+check_name,status,value,details
+expected_run_count,PASS,3000/3000,F5 manifest must remain exactly 3000 rows.
+expected_cell_count,PASS,150,F5 manifest must remain exactly 150 cells.
+no_qgis_or_solweig_execution_by_codex,PASS,no,Codex/Python did not run QGIS/SOLWEIG.
+no_raster_image_or_array_output_written,PASS,no,"No raster, image, or large-array outputs are written."
+not_b9_not_wbgt_not_risk,PASS,prepared evidence only,"No B9, local WBGT, hazard_score, risk_score, or System A/B coupling output is created."
+no_forbidden_repo_files_changed,PASS,none,"Forbidden rasters, svfs.zip, raw archives, and large forecast CSVs must remain untouched."
+alignment_checks_pass,PASS,PASS,All alignment checks must pass.
+per_raster_sanity_fail_count,PASS,0,Per-raster sanity failures should be zero.

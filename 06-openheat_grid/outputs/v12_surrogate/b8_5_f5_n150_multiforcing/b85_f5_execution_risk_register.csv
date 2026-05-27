@@ -1,0 +1,10 @@
+risk_item,status,evidence,mitigation
+expected_run_count,PASS,150 cells x 2 forcing days x 5 hours x 2 scenarios = 3000,Runner refuses non-3000 manifests and non-150 cell count.
+expected_output_count,PASS,3000 expected Tmrt_average.tif outputs under C:/OpenHeat-local/solweig/b85_f1_tiles/b85_f5_n150/...,Postrun validator checks local run log and nonzero expected output files without opening raster contents.
+local_only_storage_estimate,WARN,3000 GeoTIFF outputs plus SOLWEIG auxiliaries; rough local-only estimate 0.3-2.0 GB depending compression and auxiliary files.,Do not commit rasters; monitor C:/OpenHeat-local free space before human execution.
+resume_and_fail_safe,PASS,"resume={'skip_successful_run_log_rows': True, 'skip_existing_valid_outputs': True}; fail_safe={'max_failures': 10, 'max_consecutive_failures': 5, 'stop_on_manifest_mismatch': True}",Runner skips successful existing outputs and stops on configured failure limits.
+f3b_console_bom_temp_wrapper_issue,PASS,"Manual instructions require utf-8-sig read, explicit __file__, sys.argv=[runner], cwd=runner.parent, and UTF-8 no-BOM local copy.",Preserve F3b/F3c QGIS Console hardening exactly.
+h10_caveat_from_f4,WARN,F4 found h10 weaker; h10 is retained for sensitivity review and not anchor evidence.,Stability summary flags h10 caveat separately.
+b86_single_forcing_blocker,PASS,B8.6 required N150 multi-forcing before promotion/B9.,F5 prepares the N150 multi-forcing execution package only.
+claim_boundary,PASS,not B9 / not risk / not WBGT / no Tmrt-to-WBGT conversion,"Docs, runner comments, reports, and statuses repeat these boundaries."
+no_raster_in_git,PASS,Expected outputs are local-only under C:/OpenHeat-local; forbidden-file check covers .tif/.tiff/svfs.zip/data/solweig.,Do not stage or commit rasters.

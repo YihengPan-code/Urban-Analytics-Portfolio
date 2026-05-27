@@ -1,0 +1,4 @@
+artifact,status,source,output,expected_rows,notes
+cell_hour_summary,PASS,outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_raster_stats.csv,outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_cell_hour_summary.csv,3000 after execution,Scenario-level compact Tmrt summaries; no WBGT conversion.
+pairwise_delta_by_cell_hour,PASS,outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_raster_stats.csv,outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv,1500 after execution,overhead_as_canopy - base by cell x forcing_day x hour.
+legacy_single_forcing_context,PREPARED,outputs/v12_solweig_n150_execution/n150_base_vs_overhead_delta_merged.csv,metadata only,0 merged into F5 labels before explicit comparison,Old N150 single-forcing labels are not mixed into new F5 labels.
