@@ -1,0 +1,15 @@
+qa_metric,qa_value,qa_status,notes
+station_count,27,PASS,Unique stations in S1 feature table.
+feature_count,48,PASS,Schema feature columns present in wide table.
+numeric_feature_count,44,PASS,Numeric features screened for collinearity and residual association.
+categorical_feature_count,4,PASS,Categorical landuse-majority features retained as metadata/profile context.
+max_missing_fraction,0.111111,PASS,S1 partial 50/100 m landuse fields remain excluded from the primary set.
+constant_feature_count,0,PASS,Constant features are not allowed into the small primary set.
+near_constant_feature_count,2,PASS,Near-constant features are excluded or kept only as metadata.
+high_collinearity_pair_count,50,PASS,Pairs with abs(Spearman) >= 0.80.
+near_duplicate_pair_count,27,PASS,Pairs with abs(Spearman) >= 0.90.
+high_collinearity_cluster_count,11,PASS,Unique clusters with at least one abs(Spearman) >= 0.80 edge.
+primary_candidate_feature_count,8,PASS,"Guardrail target is a small primary set, ideally <=8."
+decision_status,PASS_FEATURE_QA_READY_FOR_SCOPED_MODEL,PASS,QA gate status; no residual model was trained.
+model_training,none,PASS,Descriptive screens only.
+claim_boundaries,no model trained;no causal correction;no station-adjusted WBGT;no local 100m WBGT,PASS,"No causal correction, station-adjusted WBGT, or local 100m WBGT."

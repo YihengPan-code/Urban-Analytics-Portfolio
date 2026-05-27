@@ -1,0 +1,126 @@
+{
+  "lane": "A-L2.1b",
+  "description": "Station buffer feature QA, collinearity, buffer redundancy, and residual-readiness screen for future scoped station-level A-L2.1c preflight modelling.",
+  "expected_branch": "codex/systema-l2-station-feature-qa",
+  "expected_station_count": 27,
+  "inputs": {
+    "feature_wide": "outputs/v11_systema_l2_residual/station_buffer_features_s1/station_buffer_feature_wide_s1.csv",
+    "feature_schema": "outputs/v11_systema_l2_residual/station_buffer_features_s1/station_buffer_feature_schema_s1.csv",
+    "feature_qa_s1": "outputs/v11_systema_l2_residual/station_buffer_features_s1/station_buffer_feature_qa_s1.csv",
+    "residual_summary": "outputs/v11_systema_l2_residual/identifiability_preflight/station_level_residual_summary.csv",
+    "probability_summary": "outputs/v11_systema_l2_residual/identifiability_preflight/station_level_probability_error_summary.csv",
+    "residual_stability_bootstrap": "outputs/v11_systema_l2_residual/identifiability_preflight/station_residual_stability_bootstrap.csv"
+  },
+  "outputs": {
+    "output_dir": "outputs/v11_systema_l2_residual/station_feature_qa",
+    "qa_summary": "station_feature_qa_summary.csv",
+    "distribution_summary": "station_feature_distribution_summary.csv",
+    "collinearity_pairs": "station_feature_collinearity_pairs.csv",
+    "correlation_clusters": "station_feature_correlation_clusters.csv",
+    "buffer_redundancy": "station_feature_buffer_redundancy.csv",
+    "residual_association_screen": "station_residual_association_screen.csv",
+    "key_station_profiles": "station_context_profiles_key_stations.csv",
+    "candidate_set": "station_feature_candidate_set.csv",
+    "manual_review_table": "station_feature_manual_review_table.csv",
+    "qa_report": "station_feature_qa_report.md",
+    "status": "A_L2_1B_STATUS.md",
+    "cn_doc": "docs/v11/OpenHeat_SystemA_L2_station_feature_QA_CN.md"
+  },
+  "thresholds": {
+    "near_constant_top_fraction": 0.95,
+    "near_constant_unique_count": 2,
+    "robust_z_outlier_abs": 3.5,
+    "high_collinearity_abs_spearman": 0.80,
+    "near_duplicate_abs_spearman": 0.90,
+    "candidate_min_pairwise_n": 20,
+    "descriptive_abs_spearman": 0.35,
+    "bootstrap_iterations": 1000,
+    "bootstrap_seed": 21011,
+    "primary_candidate_max": 8
+  },
+  "residual_targets": [
+    {
+      "target_column": "mean_context_adjusted_score_residual_c",
+      "target_label": "score residual",
+      "target_priority": "primary"
+    },
+    {
+      "target_column": "mean_context_adjusted_high_tail_residual_c",
+      "target_label": "high-tail residual",
+      "target_priority": "primary"
+    }
+  ],
+  "probability_error_cases": [
+    {
+      "probability_case_id": "current_companion_best_f1",
+      "target_column": "mean_context_adjusted_probability_error_obs_minus_p",
+      "target_label": "current companion probability error",
+      "target_priority": "secondary"
+    },
+    {
+      "probability_case_id": "current_companion_recall90",
+      "target_column": "mean_context_adjusted_probability_error_obs_minus_p",
+      "target_label": "current companion recall90 probability error",
+      "target_priority": "secondary"
+    },
+    {
+      "probability_case_id": "recall_first_challenger_selected_policy",
+      "target_column": "mean_context_adjusted_probability_error_obs_minus_p",
+      "target_label": "recall-first challenger probability error",
+      "target_priority": "secondary"
+    }
+  ],
+  "key_stations": ["S142", "S139", "S137", "S128", "S145"],
+  "profile_feature_prefixes": [
+    "water_fraction_",
+    "distance_to_water_",
+    "green_space_fraction_",
+    "distance_to_park_or_green_",
+    "building_footprint_fraction_",
+    "road_density_",
+    "major_road_length_"
+  ],
+  "profile_exact_features": [
+    "landuse_majority_250m",
+    "landuse_majority_500m"
+  ],
+  "primary_candidate_preferences": [
+    "building_footprint_fraction_250m",
+    "green_space_fraction_250m",
+    "water_fraction_250m",
+    "distance_to_water_m_250m",
+    "road_density_m_per_ha_250m",
+    "major_road_length_m_250m",
+    "landuse_entropy_250m",
+    "distance_to_park_or_green_m_250m"
+  ],
+  "secondary_sensitivity_preferences": [
+    "building_footprint_fraction_500m",
+    "green_space_fraction_500m",
+    "water_fraction_500m",
+    "road_density_m_per_ha_500m",
+    "major_road_length_m_500m",
+    "landuse_entropy_500m",
+    "distance_to_major_road_m_250m",
+    "building_count_250m"
+  ],
+  "forbidden_feature_tokens": [
+    "station_id",
+    "official_wbgt",
+    "wbgt",
+    "residual",
+    "obs_ge31",
+    "obs_ge33",
+    "tmrt",
+    "solweig",
+    "systemb",
+    "hazard_score",
+    "risk_score"
+  ],
+  "claim_boundaries": [
+    "no model trained",
+    "no causal correction",
+    "no station-adjusted WBGT",
+    "no local 100m WBGT"
+  ]
+}

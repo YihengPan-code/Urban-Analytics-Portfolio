@@ -1,0 +1,151 @@
+station_id,station_present,station_name,n_ge31,mean_context_adjusted_score_residual_c,mean_context_adjusted_high_tail_residual_c,low_support_warning_flag,feature_column,feature_group,base_feature,buffer_m,station_value,station_q25,station_median,station_q75,station_iqr,iqr_position,comparison_note
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,building_footprint_fraction_100m,buildings,building_footprint_fraction,100,0.000000,0.028618,0.088608,0.197521,0.168903,-0.525,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,building_footprint_fraction_250m,buildings,building_footprint_fraction,250,0.057495,0.087796,0.164634,0.231237,0.143441,-0.747,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,building_footprint_fraction_500m,buildings,building_footprint_fraction,500,0.095770,0.073489,0.174224,0.231316,0.157827,-0.497,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,building_footprint_fraction_50m,buildings,building_footprint_fraction,50,0.000000,0.000000,0.025316,0.092361,0.092361,-0.274,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,distance_to_park_or_green_m_100m,green,distance_to_park_or_green_m,100,50.751432,0.000000,50.751432,212.343422,212.343422,0.000,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,distance_to_park_or_green_m_250m,green,distance_to_park_or_green_m,250,50.751432,0.000000,50.751432,212.343422,212.343422,0.000,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,distance_to_park_or_green_m_500m,green,distance_to_park_or_green_m,500,50.751432,0.000000,50.751432,212.343422,212.343422,0.000,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,distance_to_park_or_green_m_50m,green,distance_to_park_or_green_m,50,50.751432,0.000000,50.751432,212.343422,212.343422,0.000,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,distance_to_water_m_100m,water,distance_to_water_m,100,30.393194,55.582683,248.059739,332.522171,276.939488,-0.786,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,distance_to_water_m_250m,water,distance_to_water_m,250,30.393194,55.582683,248.059739,332.522171,276.939488,-0.786,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,distance_to_water_m_500m,water,distance_to_water_m,500,30.393194,55.582683,248.059739,332.522171,276.939488,-0.786,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,distance_to_water_m_50m,water,distance_to_water_m,50,30.393194,55.582683,248.059739,332.522171,276.939488,-0.786,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,green_space_fraction_100m,green,green_space_fraction,100,0.125000,0.000000,0.096154,0.409399,0.409399,0.070,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,green_space_fraction_250m,green,green_space_fraction,250,0.086242,0.009203,0.125761,0.375241,0.366039,-0.108,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,green_space_fraction_500m,green,green_space_fraction,500,0.119713,0.068554,0.131056,0.378544,0.309990,-0.037,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,green_space_fraction_50m,green,green_space_fraction,50,0.000000,0.000000,0.000000,0.660235,0.660235,0.000,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,landuse_majority_250m,landuse,landuse_majority,250,green_space,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.519
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,landuse_majority_500m,landuse,landuse_majority,500,green_space,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.593
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,major_road_length_m_100m,roads,major_road_length_m,100,0.000000,0.000000,188.072855,358.178350,358.178350,-0.525,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,major_road_length_m_250m,roads,major_road_length_m,250,0.000000,633.649645,1098.432385,1628.667547,995.017902,-1.104,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,major_road_length_m_500m,roads,major_road_length_m,500,595.808956,2617.836788,4499.686867,6008.559747,3390.722959,-1.151,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,major_road_length_m_50m,roads,major_road_length_m,50,0.000000,0.000000,0.000000,60.717599,60.717599,0.000,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,road_density_m_per_ha_100m,roads,road_density_m_per_ha,100,180.560117,276.368548,380.815403,493.369464,217.000916,-0.923,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,road_density_m_per_ha_250m,roads,road_density_m_per_ha,250,268.619930,298.020483,391.237210,437.430541,139.410058,-0.880,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,road_density_m_per_ha_500m,roads,road_density_m_per_ha,500,227.780081,232.027313,330.354512,427.769060,195.741746,-0.524,below_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,road_density_m_per_ha_50m,roads,road_density_m_per_ha,50,292.756344,215.689398,377.820033,515.904081,300.214683,-0.283,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,water_fraction_100m,water,water_fraction,100,0.000000,0.000000,0.000000,0.000000,0.000000,,same_as_station_median
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,water_fraction_250m,water,water_fraction,250,0.000000,0.000000,0.000000,0.005067,0.005067,0.000,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,water_fraction_500m,water,water_fraction,500,0.004789,0.000000,0.005529,0.025814,0.025814,-0.029,within_station_iqr
+S142,yes,Sentosa Palawan Green,15,0.772569,2.239617,False,water_fraction_50m,water,water_fraction,50,0.000000,0.000000,0.000000,0.000000,0.000000,,same_as_station_median
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,building_footprint_fraction_100m,buildings,building_footprint_fraction,100,0.028846,0.028618,0.088608,0.197521,0.168903,-0.354,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,building_footprint_fraction_250m,buildings,building_footprint_fraction,250,0.046559,0.087796,0.164634,0.231237,0.143441,-0.823,below_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,building_footprint_fraction_500m,buildings,building_footprint_fraction,500,0.077655,0.073489,0.174224,0.231316,0.157827,-0.612,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,building_footprint_fraction_50m,buildings,building_footprint_fraction,50,0.000000,0.000000,0.025316,0.092361,0.092361,-0.274,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,distance_to_park_or_green_m_100m,green,distance_to_park_or_green_m,100,311.182019,0.000000,50.751432,212.343422,212.343422,1.226,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,distance_to_park_or_green_m_250m,green,distance_to_park_or_green_m,250,311.182019,0.000000,50.751432,212.343422,212.343422,1.226,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,distance_to_park_or_green_m_500m,green,distance_to_park_or_green_m,500,311.182019,0.000000,50.751432,212.343422,212.343422,1.226,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,distance_to_park_or_green_m_50m,green,distance_to_park_or_green_m,50,311.182019,0.000000,50.751432,212.343422,212.343422,1.226,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,distance_to_water_m_100m,water,distance_to_water_m,100,336.792584,55.582683,248.059739,332.522171,276.939488,0.320,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,distance_to_water_m_250m,water,distance_to_water_m,250,336.792584,55.582683,248.059739,332.522171,276.939488,0.320,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,distance_to_water_m_500m,water,distance_to_water_m,500,336.792584,55.582683,248.059739,332.522171,276.939488,0.320,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,distance_to_water_m_50m,water,distance_to_water_m,50,336.792584,55.582683,248.059739,332.522171,276.939488,0.320,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,green_space_fraction_100m,green,green_space_fraction,100,0.000000,0.000000,0.096154,0.409399,0.409399,-0.235,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,green_space_fraction_250m,green,green_space_fraction,250,0.000000,0.009203,0.125761,0.375241,0.366039,-0.344,below_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,green_space_fraction_500m,green,green_space_fraction,500,0.042789,0.068554,0.131056,0.378544,0.309990,-0.285,below_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,green_space_fraction_50m,green,green_space_fraction,50,0.000000,0.000000,0.000000,0.660235,0.660235,0.000,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,landuse_majority_250m,landuse,landuse_majority,250,built_or_urban,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.519
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,landuse_majority_500m,landuse,landuse_majority,500,built_or_urban,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.593
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,major_road_length_m_100m,roads,major_road_length_m,100,391.185145,0.000000,188.072855,358.178350,358.178350,0.567,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,major_road_length_m_250m,roads,major_road_length_m,250,2203.352949,633.649645,1098.432385,1628.667547,995.017902,1.110,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,major_road_length_m_500m,roads,major_road_length_m,500,5839.818468,2617.836788,4499.686867,6008.559747,3390.722959,0.395,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,major_road_length_m_50m,roads,major_road_length_m,50,181.370174,0.000000,0.000000,60.717599,60.717599,2.987,above_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,road_density_m_per_ha_100m,roads,road_density_m_per_ha,100,372.670350,276.368548,380.815403,493.369464,217.000916,-0.038,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,road_density_m_per_ha_250m,roads,road_density_m_per_ha,250,350.776323,298.020483,391.237210,437.430541,139.410058,-0.290,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,road_density_m_per_ha_500m,roads,road_density_m_per_ha,500,236.274546,232.027313,330.354512,427.769060,195.741746,-0.481,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,road_density_m_per_ha_50m,roads,road_density_m_per_ha,50,403.390591,215.689398,377.820033,515.904081,300.214683,0.085,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,water_fraction_100m,water,water_fraction,100,0.000000,0.000000,0.000000,0.000000,0.000000,,same_as_station_median
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,water_fraction_250m,water,water_fraction,250,0.000000,0.000000,0.000000,0.005067,0.005067,0.000,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,water_fraction_500m,water,water_fraction,500,0.000000,0.000000,0.005529,0.025814,0.025814,-0.214,within_station_iqr
+S139,yes,Tuas Terminal Gateway,1,-0.310600,0.110892,True,water_fraction_50m,water,water_fraction,50,0.000000,0.000000,0.000000,0.000000,0.000000,,same_as_station_median
+S137,yes,Sakra Road,13,0.774637,1.347448,False,building_footprint_fraction_100m,buildings,building_footprint_fraction,100,0.019293,0.028618,0.088608,0.197521,0.168903,-0.410,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,building_footprint_fraction_250m,buildings,building_footprint_fraction,250,0.063395,0.087796,0.164634,0.231237,0.143441,-0.706,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,building_footprint_fraction_500m,buildings,building_footprint_fraction,500,0.024623,0.073489,0.174224,0.231316,0.157827,-0.948,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,building_footprint_fraction_50m,buildings,building_footprint_fraction,50,0.000000,0.000000,0.025316,0.092361,0.092361,-0.274,within_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,distance_to_park_or_green_m_100m,green,distance_to_park_or_green_m,100,264.238004,0.000000,50.751432,212.343422,212.343422,1.005,above_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,distance_to_park_or_green_m_250m,green,distance_to_park_or_green_m,250,264.238004,0.000000,50.751432,212.343422,212.343422,1.005,above_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,distance_to_park_or_green_m_500m,green,distance_to_park_or_green_m,500,264.238004,0.000000,50.751432,212.343422,212.343422,1.005,above_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,distance_to_park_or_green_m_50m,green,distance_to_park_or_green_m,50,264.238004,0.000000,50.751432,212.343422,212.343422,1.005,above_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,distance_to_water_m_100m,water,distance_to_water_m,100,368.688771,55.582683,248.059739,332.522171,276.939488,0.436,above_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,distance_to_water_m_250m,water,distance_to_water_m,250,368.688771,55.582683,248.059739,332.522171,276.939488,0.436,above_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,distance_to_water_m_500m,water,distance_to_water_m,500,368.688771,55.582683,248.059739,332.522171,276.939488,0.436,above_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,distance_to_water_m_50m,water,distance_to_water_m,50,368.688771,55.582683,248.059739,332.522171,276.939488,0.436,above_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,green_space_fraction_100m,green,green_space_fraction,100,0.000000,0.000000,0.096154,0.409399,0.409399,-0.235,within_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,green_space_fraction_250m,green,green_space_fraction,250,0.000000,0.009203,0.125761,0.375241,0.366039,-0.344,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,green_space_fraction_500m,green,green_space_fraction,500,0.062748,0.068554,0.131056,0.378544,0.309990,-0.220,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,green_space_fraction_50m,green,green_space_fraction,50,0.000000,0.000000,0.000000,0.660235,0.660235,0.000,within_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,landuse_majority_250m,landuse,landuse_majority,250,built_or_urban,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.519
+S137,yes,Sakra Road,13,0.774637,1.347448,False,landuse_majority_500m,landuse,landuse_majority,500,built_or_urban,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.593
+S137,yes,Sakra Road,13,0.774637,1.347448,False,major_road_length_m_100m,roads,major_road_length_m,100,188.072855,0.000000,188.072855,358.178350,358.178350,0.000,within_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,major_road_length_m_250m,roads,major_road_length_m,250,493.710411,633.649645,1098.432385,1628.667547,995.017902,-0.608,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,major_road_length_m_500m,roads,major_road_length_m,500,1096.068302,2617.836788,4499.686867,6008.559747,3390.722959,-1.004,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,major_road_length_m_50m,roads,major_road_length_m,50,76.873868,0.000000,0.000000,60.717599,60.717599,1.266,above_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,road_density_m_per_ha_100m,roads,road_density_m_per_ha,100,151.528531,276.368548,380.815403,493.369464,217.000916,-1.057,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,road_density_m_per_ha_250m,roads,road_density_m_per_ha,250,147.295741,298.020483,391.237210,437.430541,139.410058,-1.750,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,road_density_m_per_ha_500m,roads,road_density_m_per_ha,500,162.710701,232.027313,330.354512,427.769060,195.741746,-0.856,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,road_density_m_per_ha_50m,roads,road_density_m_per_ha,50,97.878849,215.689398,377.820033,515.904081,300.214683,-0.932,below_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,water_fraction_100m,water,water_fraction,100,0.000000,0.000000,0.000000,0.000000,0.000000,,same_as_station_median
+S137,yes,Sakra Road,13,0.774637,1.347448,False,water_fraction_250m,water,water_fraction,250,0.000000,0.000000,0.000000,0.005067,0.005067,0.000,within_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,water_fraction_500m,water,water_fraction,500,0.000000,0.000000,0.005529,0.025814,0.025814,-0.214,within_station_iqr
+S137,yes,Sakra Road,13,0.774637,1.347448,False,water_fraction_50m,water,water_fraction,50,0.000000,0.000000,0.000000,0.000000,0.000000,,same_as_station_median
+S128,yes,Bishan Street,11,0.121816,1.158280,False,building_footprint_fraction_100m,buildings,building_footprint_fraction,100,0.031746,0.028618,0.088608,0.197521,0.168903,-0.337,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,building_footprint_fraction_250m,buildings,building_footprint_fraction,250,0.259109,0.087796,0.164634,0.231237,0.143441,0.659,above_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,building_footprint_fraction_500m,buildings,building_footprint_fraction,500,0.196016,0.073489,0.174224,0.231316,0.157827,0.138,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,building_footprint_fraction_50m,buildings,building_footprint_fraction,50,0.000000,0.000000,0.025316,0.092361,0.092361,-0.274,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,distance_to_park_or_green_m_100m,green,distance_to_park_or_green_m,100,11.501454,0.000000,50.751432,212.343422,212.343422,-0.185,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,distance_to_park_or_green_m_250m,green,distance_to_park_or_green_m,250,11.501454,0.000000,50.751432,212.343422,212.343422,-0.185,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,distance_to_park_or_green_m_500m,green,distance_to_park_or_green_m,500,11.501454,0.000000,50.751432,212.343422,212.343422,-0.185,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,distance_to_park_or_green_m_50m,green,distance_to_park_or_green_m,50,11.501454,0.000000,50.751432,212.343422,212.343422,-0.185,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,distance_to_water_m_100m,water,distance_to_water_m,100,30.010074,55.582683,248.059739,332.522171,276.939488,-0.787,below_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,distance_to_water_m_250m,water,distance_to_water_m,250,30.010074,55.582683,248.059739,332.522171,276.939488,-0.787,below_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,distance_to_water_m_500m,water,distance_to_water_m,500,30.010074,55.582683,248.059739,332.522171,276.939488,-0.787,below_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,distance_to_water_m_50m,water,distance_to_water_m,50,30.010074,55.582683,248.059739,332.522171,276.939488,-0.787,below_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,green_space_fraction_100m,green,green_space_fraction,100,0.114286,0.000000,0.096154,0.409399,0.409399,0.044,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,green_space_fraction_250m,green,green_space_fraction,250,0.093117,0.009203,0.125761,0.375241,0.366039,-0.089,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,green_space_fraction_500m,green,green_space_fraction,500,0.173705,0.068554,0.131056,0.378544,0.309990,0.138,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,green_space_fraction_50m,green,green_space_fraction,50,0.214744,0.000000,0.000000,0.660235,0.660235,0.325,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,landuse_majority_250m,landuse,landuse_majority,250,transport,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.519
+S128,yes,Bishan Street,11,0.121816,1.158280,False,landuse_majority_500m,landuse,landuse_majority,500,transport,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.593
+S128,yes,Bishan Street,11,0.121816,1.158280,False,major_road_length_m_100m,roads,major_road_length_m,100,0.000000,0.000000,188.072855,358.178350,358.178350,-0.525,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,major_road_length_m_250m,roads,major_road_length_m,250,409.616008,633.649645,1098.432385,1628.667547,995.017902,-0.692,below_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,major_road_length_m_500m,roads,major_road_length_m,500,5907.835327,2617.836788,4499.686867,6008.559747,3390.722959,0.415,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,major_road_length_m_50m,roads,major_road_length_m,50,0.000000,0.000000,0.000000,60.717599,60.717599,0.000,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,road_density_m_per_ha_100m,roads,road_density_m_per_ha,100,178.733160,276.368548,380.815403,493.369464,217.000916,-0.931,below_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,road_density_m_per_ha_250m,roads,road_density_m_per_ha,250,203.779391,298.020483,391.237210,437.430541,139.410058,-1.345,below_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,road_density_m_per_ha_500m,roads,road_density_m_per_ha,500,303.271627,232.027313,330.354512,427.769060,195.741746,-0.138,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,road_density_m_per_ha_50m,roads,road_density_m_per_ha,50,356.854941,215.689398,377.820033,515.904081,300.214683,-0.070,within_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,water_fraction_100m,water,water_fraction,100,0.130159,0.000000,0.000000,0.000000,0.000000,,differs_from_zero_iqr_median
+S128,yes,Bishan Street,11,0.121816,1.158280,False,water_fraction_250m,water,water_fraction,250,0.056680,0.000000,0.000000,0.005067,0.005067,11.186,above_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,water_fraction_500m,water,water_fraction,500,0.037450,0.000000,0.005529,0.025814,0.025814,1.237,above_station_iqr
+S128,yes,Bishan Street,11,0.121816,1.158280,False,water_fraction_50m,water,water_fraction,50,0.144231,0.000000,0.000000,0.000000,0.000000,,differs_from_zero_iqr_median
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,building_footprint_fraction_100m,buildings,building_footprint_fraction,100,0.000000,0.028618,0.088608,0.197521,0.168903,-0.525,below_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,building_footprint_fraction_250m,buildings,building_footprint_fraction,250,0.050710,0.087796,0.164634,0.231237,0.143441,-0.794,below_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,building_footprint_fraction_500m,buildings,building_footprint_fraction,500,0.078822,0.073489,0.174224,0.231316,0.157827,-0.604,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,building_footprint_fraction_50m,buildings,building_footprint_fraction,50,0.012658,0.000000,0.025316,0.092361,0.092361,-0.137,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,distance_to_park_or_green_m_100m,green,distance_to_park_or_green_m,100,0.000000,0.000000,50.751432,212.343422,212.343422,-0.239,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,distance_to_park_or_green_m_250m,green,distance_to_park_or_green_m,250,0.000000,0.000000,50.751432,212.343422,212.343422,-0.239,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,distance_to_park_or_green_m_500m,green,distance_to_park_or_green_m,500,0.000000,0.000000,50.751432,212.343422,212.343422,-0.239,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,distance_to_park_or_green_m_50m,green,distance_to_park_or_green_m,50,0.000000,0.000000,50.751432,212.343422,212.343422,-0.239,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,distance_to_water_m_100m,water,distance_to_water_m,100,55.528190,55.582683,248.059739,332.522171,276.939488,-0.695,below_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,distance_to_water_m_250m,water,distance_to_water_m,250,55.528190,55.582683,248.059739,332.522171,276.939488,-0.695,below_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,distance_to_water_m_500m,water,distance_to_water_m,500,55.528190,55.582683,248.059739,332.522171,276.939488,-0.695,below_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,distance_to_water_m_50m,water,distance_to_water_m,50,55.528190,55.582683,248.059739,332.522171,276.939488,-0.695,below_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,green_space_fraction_100m,green,green_space_fraction,100,0.987382,0.000000,0.096154,0.409399,0.409399,2.177,above_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,green_space_fraction_250m,green,green_space_fraction,250,0.687627,0.009203,0.125761,0.375241,0.366039,1.535,above_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,green_space_fraction_500m,green,green_space_fraction,500,0.611465,0.068554,0.131056,0.378544,0.309990,1.550,above_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,green_space_fraction_50m,green,green_space_fraction,50,1.000000,0.000000,0.000000,0.660235,0.660235,1.515,above_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,landuse_majority_250m,landuse,landuse_majority,250,green_space,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.519
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,landuse_majority_500m,landuse,landuse_majority,500,green_space,,built_or_urban,,,,categorical; station-wide mode=built_or_urban; mode_fraction=0.593
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,major_road_length_m_100m,roads,major_road_length_m,100,0.000000,0.000000,188.072855,358.178350,358.178350,-0.525,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,major_road_length_m_250m,roads,major_road_length_m,250,2387.664376,633.649645,1098.432385,1628.667547,995.017902,1.296,above_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,major_road_length_m_500m,roads,major_road_length_m,500,6109.284167,2617.836788,4499.686867,6008.559747,3390.722959,0.475,above_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,major_road_length_m_50m,roads,major_road_length_m,50,0.000000,0.000000,0.000000,60.717599,60.717599,0.000,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,road_density_m_per_ha_100m,roads,road_density_m_per_ha,100,508.431465,276.368548,380.815403,493.369464,217.000916,0.588,above_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,road_density_m_per_ha_250m,roads,road_density_m_per_ha,250,407.030669,298.020483,391.237210,437.430541,139.410058,0.113,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,road_density_m_per_ha_500m,roads,road_density_m_per_ha,500,275.863792,232.027313,330.354512,427.769060,195.741746,-0.278,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,road_density_m_per_ha_50m,roads,road_density_m_per_ha,50,428.176587,215.689398,377.820033,515.904081,300.214683,0.168,within_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,water_fraction_100m,water,water_fraction,100,0.119874,0.000000,0.000000,0.000000,0.000000,,differs_from_zero_iqr_median
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,water_fraction_250m,water,water_fraction,250,0.312373,0.000000,0.000000,0.005067,0.005067,61.649,above_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,water_fraction_500m,water,water_fraction,500,0.253185,0.000000,0.005529,0.025814,0.025814,9.594,above_station_iqr
+S145,yes,MacRitchie Reservoir,8,-0.165699,0.884977,True,water_fraction_50m,water,water_fraction,50,0.000000,0.000000,0.000000,0.000000,0.000000,,same_as_station_median
