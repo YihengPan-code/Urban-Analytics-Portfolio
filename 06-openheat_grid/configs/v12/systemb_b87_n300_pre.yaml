@@ -1,0 +1,165 @@
+b87_version: systemb_b87_n300_pre_v0_1
+lane: B8.7_N300_PRE_plus_B8.6g3_true_vector_source_review
+branch: codex/b87-n300-pre-source-review
+random_seed: 42
+
+b86f_n300_v2_path: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_targeted_n300_design_v2.csv
+b86g_n300_feature_dataset_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n300_candidate_feature_dataset.csv
+b86g_feature_schema_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_schema.csv
+b86g_feature_coverage_matrix_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_coverage_matrix.csv
+b86g_feature_gap_closure_matrix_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_gap_closure_matrix.csv
+b86g_failure_context_join_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_failure_context_feature_join.csv
+b86g2_baseline_comparison_path: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_baseline_comparison.csv
+b86g2_aoi_readiness_path: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_aoi_preflight_readiness_matrix.csv
+n150_feature_matrix_path: outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+candidate_universe_path: outputs/v12_systemb_n150_sample_design/n150_candidate_universe.csv
+
+# Optional compact current-label cell sources used only to verify N300-v2 is outside N150.
+n150_selected_cells_path: outputs/v12_systemb_n150_sample_design/n150_selected_cells.csv
+b86g_n150_feature_dataset_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n150_feature_dataset.csv
+
+context_paths:
+  - docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-26.md
+  - docs/v12/OpenHeat_SystemB_B8_6f_surrogate_closure_CN.md
+  - docs/v12/OpenHeat_SystemB_B8_6g_feature_acquisition_CN.md
+  - docs/v12/OpenHeat_SystemB_B8_6g2_feature_retest_CN.md
+  - outputs/v12_surrogate/b8_6f_surrogate_closure/B8_6F_STATUS.md
+  - outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_report.md
+  - outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_targeted_n300_design_review.md
+  - outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_feature_acquisition_register.csv
+  - outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_feature_acquisition_spec.md
+  - outputs/v12_surrogate/b8_6g_feature_acquisition/B8_6G_STATUS.md
+  - outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_report.md
+  - outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_coverage_matrix.csv
+  - outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_gap_closure_matrix.csv
+  - outputs/v12_surrogate/b8_6g2_feature_retest/B8_6G2_STATUS.md
+  - outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_report.md
+  - outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_model_card.md
+  - outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_next_lane_decision_matrix.csv
+  - outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_anchor_cell_diagnostics.csv
+  - outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_neutral_boundary_diagnostics.csv
+
+expected_n300_candidate_count: 150
+expected_existing_n150_cell_count: 150
+required_n300_roles:
+  typology_gap_fill: 50
+  spatial_gap_fill: 30
+  anchor_like_replication: 25
+  neutral_boundary_replication: 25
+  sparse_feature_space: 10
+  control_cell: 10
+anchor_cells:
+  - TP_0037
+  - TP_0141
+  - TP_0433
+  - TP_0542
+  - TP_0857
+known_neutral_cells:
+  - TP_0115
+  - TP_0301
+  - TP_0326
+  - TP_0366
+  - TP_0492
+  - TP_0565
+  - TP_0676
+  - TP_0960
+  - TP_0986
+weak_spatial_bins:
+  - west_north
+  - west_south
+  - east_north
+  - east_south
+
+anchor_preferred_minimums:
+  TP_0857: 20
+  TP_0542: 20
+  TP_0141: 15
+  TP_0433: 15
+  TP_0037: 15
+
+spatial_bin_minimum: 25
+spatial_bin_maximum: 50
+sparse_p90_threshold: 0.90
+sparse_p95_threshold: 0.95
+neutral_group_min_count: 5
+neutral_min_groups_at_min_count: 3
+neutral_max_single_group_share: 0.40
+
+source_discovery_roots:
+  - data
+  - inputs
+  - outputs
+  - outputs/v12_surrogate
+  - outputs/v10_overhead_qa
+  - outputs/v10_dsm_audit
+  - outputs/v11_level1
+  - configs
+  - docs
+allowed_extensions:
+  - .csv
+  - .csv.gz
+  - .parquet
+  - .geojson
+  - .gpkg
+  - .shp
+  - .json
+  - .md
+forbidden_extensions:
+  - .tif
+  - .tiff
+  - .vrt
+  - .asc
+  - .img
+  - .nc
+  - .grib
+forbidden_roots:
+  - data/solweig
+  - data/rasters
+  - data/archive
+  - data/raw/buildings_v10
+source_inventory_max_metadata_bytes: 30000000
+
+no_raster_io: true
+no_qgis_solweig: true
+no_n300_manifest: true
+no_aoi_prediction: true
+no_b9: true
+no_local_wbgt: true
+no_hazard_score: true
+no_risk_score: true
+no_system_a_b_coupling: true
+no_tmrt_to_wbgt_conversion: true
+no_observed_truth_claim: true
+no_causal_feature_importance_claim: true
+
+output_dir: outputs/v12_surrogate/b8_7_n300_pre
+input_inventory_path: outputs/v12_surrogate/b8_7_n300_pre/b87_input_inventory.csv
+n300_v2_input_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_v2_input_audit.csv
+n300_design_freeze_candidates_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_design_freeze_candidates.csv
+n300_exclusion_register_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_exclusion_register.csv
+n300_role_balance_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_role_balance_audit.csv
+n300_spatial_balance_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_spatial_balance_audit.csv
+n300_typology_balance_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_typology_balance_audit.csv
+n300_anchor_replication_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_anchor_replication_audit.csv
+n300_neutral_replication_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_neutral_replication_audit.csv
+n300_sparse_feature_space_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_sparse_feature_space_audit.csv
+n300_control_cell_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_control_cell_audit.csv
+n300_feature_coverage_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_feature_coverage_audit.csv
+true_vector_source_inventory_path: outputs/v12_surrogate/b8_7_n300_pre/b87_true_vector_source_inventory.csv
+true_vector_source_gap_register_path: outputs/v12_surrogate/b8_7_n300_pre/b87_true_vector_source_gap_register.csv
+connected_shade_corridor_source_review_path: outputs/v12_surrogate/b8_7_n300_pre/b87_connected_shade_corridor_source_review.csv
+pedestrian_network_source_review_path: outputs/v12_surrogate/b8_7_n300_pre/b87_pedestrian_network_source_review.csv
+overhead_geometry_source_review_path: outputs/v12_surrogate/b8_7_n300_pre/b87_overhead_geometry_source_review.csv
+building_canyon_source_review_path: outputs/v12_surrogate/b8_7_n300_pre/b87_building_canyon_source_review.csv
+tree_building_interaction_source_review_path: outputs/v12_surrogate/b8_7_n300_pre/b87_tree_building_interaction_source_review.csv
+n300_manual_qa_checklist_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_manual_qa_checklist.csv
+n300_manual_qa_guide_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_manual_qa_guide.md
+n300_freeze_decision_matrix_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_freeze_decision_matrix.csv
+aoi_b9_boundary_matrix_path: outputs/v12_surrogate/b8_7_n300_pre/b87_aoi_b9_boundary_matrix.csv
+next_lane_decision_matrix_path: outputs/v12_surrogate/b8_7_n300_pre/b87_next_lane_decision_matrix.csv
+codex_prompt_b87b_path: outputs/v12_surrogate/b8_7_n300_pre/b87_codex_prompt_B87B_N300_execution_precheck.md
+codex_prompt_b86g3_path: outputs/v12_surrogate/b8_7_n300_pre/b87_codex_prompt_B86G3_true_vector_feature_acquisition.md
+codex_prompt_b86h_path: outputs/v12_surrogate/b8_7_n300_pre/b87_codex_prompt_B86H_scope_limited_dry_run.md
+report_path: outputs/v12_surrogate/b8_7_n300_pre/b87_report.md
+status_path: outputs/v12_surrogate/b8_7_n300_pre/B8_7_STATUS.md
+cn_doc_path: docs/v12/OpenHeat_SystemB_B8_7_N300_PRE_CN.md
