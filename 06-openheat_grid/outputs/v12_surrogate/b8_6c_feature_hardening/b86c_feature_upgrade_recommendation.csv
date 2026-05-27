@@ -1,0 +1,6 @@
+recommendation_area,evidence,failure_types,recommendation,b86d_action
+spatial_typology_generalisation,3 selected split families remain flagged.,missing-feature-likely|spatial-bin-out-of-domain|typology-out-of-domain,Harden compact morphology/shade/overhead representation before AOI-wide preflight; B9 remains blocked.,"Run B8.6d only as improved surrogate workflow review, not AOI-wide prediction."
+anchor_cells,Anchor underprediction rows: 17.,anchor-underprediction,"Inspect missing overhead/shade/canyon descriptors for robust anchors, especially high-cooling cells.",Keep anchors as diagnostics; do not use h10 alone as evidence.
+neutral_boundary,Neutral confusion rows: 29.,neutral-boundary-confusion,Preserve a neutral-boundary gate or two-stage workflow to avoid spuriously promoting near-zero cells.,Carry a two-stage pretest into B8.6d if it improves neutral and supporting holdouts.
+h10_caveat,h10 caveat rows: 1.,h10-low-sun-caveat,Report h10 separately from core hours; do not treat h10 as anchor proof.,Evaluate core-hour and h10 metrics separately.
+unstable_review_cells,Unstable review rows: 68.,target-role-mismatch|missing-feature-likely,Keep unstable cells as review inventory rather than promotion evidence.,Use unstable cells to audit label/feature role mismatch.

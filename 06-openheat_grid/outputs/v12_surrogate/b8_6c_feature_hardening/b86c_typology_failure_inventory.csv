@@ -1,0 +1,6 @@
+split_family,split_name,n_rows,n_cells,MAE,RMSE,R2,Spearman,top10pct_overlap,sign_accuracy,failure_type,claim_boundary
+typology_holdout,typology_civic_institutional,270,27,0.13850029059092323,0.19144136313223992,-2.3023154815965716,0.2093884190979132,0.0,0.5777777777777777,typology-out-of-domain,Split-bin diagnostic only; not AOI-wide prediction or observed truth.
+typology_holdout,typology_commercial,80,8,0.16704147842947598,0.28413677331752696,-0.04051032416582756,-0.1173786018791857,0.0,0.5,typology-out-of-domain,Split-bin diagnostic only; not AOI-wide prediction or observed truth.
+typology_holdout,typology_park_open_space,60,6,0.280919702423637,0.32006871186871666,-3.3862406959630276,0.6296017331065082,0.0,1.0,not-flagged,Split-bin diagnostic only; not AOI-wide prediction or observed truth.
+typology_holdout,typology_residential,650,65,0.12468591101738824,0.21593813879051021,0.1249218629639034,0.5006757940617931,0.42857142857142855,0.6338461538461538,not-flagged,Split-bin diagnostic only; not AOI-wide prediction or observed truth.
+typology_holdout,typology_transport,250,25,0.24946838032926785,0.4034609395503008,0.21230697963477407,0.6380655255846506,0.6666666666666666,0.764,not-flagged,Split-bin diagnostic only; not AOI-wide prediction or observed truth.

@@ -1,0 +1,5 @@
+split_family,split_name,n_rows,n_cells,MAE,RMSE,R2,Spearman,top10pct_overlap,sign_accuracy,failure_type,claim_boundary
+spatial_holdout,spatial_east_north,370,37,0.3227891120893933,0.6197072084563957,-0.11971743910635602,0.53497928217681,0.25,0.7567567567567568,not-flagged,Split-bin diagnostic only; not AOI-wide prediction or observed truth.
+spatial_holdout,spatial_east_south,380,38,0.13284043590074315,0.24155036674472685,0.16070326531182344,0.3795567541380217,0.25,0.631578947368421,spatial-bin-out-of-domain,Split-bin diagnostic only; not AOI-wide prediction or observed truth.
+spatial_holdout,spatial_west_north,350,35,0.1307922712614403,0.1962884823837854,-0.08238742594058479,0.289557525812245,0.5,0.68,not-flagged,Split-bin diagnostic only; not AOI-wide prediction or observed truth.
+spatial_holdout,spatial_west_south,400,40,0.16677523502188635,0.24686903221120543,-1.3996298426411449,0.4490442317048155,0.0,0.5775,spatial-bin-out-of-domain,Split-bin diagnostic only; not AOI-wide prediction or observed truth.
