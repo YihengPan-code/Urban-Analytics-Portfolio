@@ -1,0 +1,4 @@
+station_id,n_rows,n_ge31,n_ge33,fixed31_recall_ge31,fixed31_miss_rate_ge31,fixed31_false_alarm_ratio_ge31,p_ge31_best_F1_recall_ge31,p_ge31_best_F1_miss_rate_ge31,p_ge31_best_F1_false_alarm_ratio_ge31,caveat_status,headline,not_station_correction
+ALL,,,,,,,,,,WAITING_FOR_FORMAL_SNAPSHOT,No station metrics computed because no valid prospective snapshot exists.,yes
+S142,,,,,,,,,,WAITING_FOR_FORMAL_SNAPSHOT,No station metrics computed because no valid prospective snapshot exists.,yes
+S139,,,,,,,,,,WAITING_FOR_FORMAL_SNAPSHOT,No station metrics computed because no valid prospective snapshot exists.,yes

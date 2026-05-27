@@ -1,0 +1,15 @@
+metric_name,required_when_snapshot_valid,type,formula_or_definition,output_group,caveat
+n_rows,yes,integer,Count of prospective rows.,support,Rows must be explicitly labeled prospective.
+n_stations,yes,integer,Unique station_id count in numeric prospective rows.,support,Station support can be uneven.
+n_ge31,yes,integer,Count of official_wbgt_c >=31 C.,support,Minimum 30 for P_ge31 promotion review.
+n_ge33,yes,integer,Count of official_wbgt_c >=33 C.,support,Minimum 30 plus explicit calibration evidence before ge33 review.
+recall_ge31,yes,float,TP / (TP + FN) for official_wbgt_c >=31 C.,classification,Report for deterministic fixed_31 and optional P_ge31 policies separately.
+precision_ge31,yes,float,TP / (TP + FP) for official_wbgt_c >=31 C.,classification,Precision must be interpreted with false-alarm governance caveats.
+miss_rate_ge31,yes,float,FN / (TP + FN).,classification,High-tail misses remain the focus.
+false_alarm_ratio_ge31,yes,float,FP / (TP + FP).,classification,Not a public alert false-alarm guarantee.
+CSI_ge31,yes,float,TP / (TP + FP + FN).,classification,Internal diagnostic only.
+Brier_p_ge31_optional,if column present,float,Mean squared error between p_ge31_optional and observed ge31 event.,calibration,Does not make P_ge31 an official warning probability.
+ECE_p_ge31_optional,if column present,float,Fixed-width expected calibration error.,calibration,Bin-level calibration should be reviewed before stronger claims.
+high_tail_MAE_obs_ge31,yes,float_celsius,Mean absolute wbgt_a_c error on official_wbgt_c >=31 C rows.,deterministic,"Primary output remains wbgt_a_c, not local 100 m WBGT."
+expected_exceedance_MAE,if column present,float_celsius,"MAE against max(official_wbgt_c - 31, 0).",expected_exceedance,Not a corrected WBGT forecast.
+interval_empirical_coverage,if columns present,float,Share of rows where interval_low <= official_wbgt_c <= interval_high.,interval,Not an operational interval guarantee.

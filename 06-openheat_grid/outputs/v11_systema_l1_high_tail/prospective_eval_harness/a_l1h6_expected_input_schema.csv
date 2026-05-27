@@ -1,0 +1,18 @@
+column_name,required_or_optional,type,allowed_null,description,forbidden_interpretation,validation_check
+timestamp_sgt,required,datetime_iso8601,no,SGT timestamp for the hourly row.,timezone-free time key,column present; non-null in prospective rows; parseable as timestamp in downstream review
+timestamp_utc,required,datetime_iso8601,no,UTC timestamp matching timestamp_sgt.,ambiguous cross-system timestamp,column present; non-null in prospective rows; matches timestamp_sgt hour
+station_id,required,string,no,Official station identifier for prospective evaluation grouping.,station correction layer,column present; non-null; grouped station diagnostics can be refreshed
+official_wbgt_c,required,float_celsius,no,Observed official WBGT in Celsius used as the prospective evaluation target.,training target for new models in this lane,column present; numeric; defines ge31/ge33 observed events
+wbgt_a_c,required,float_celsius,no,Frozen System A deterministic WBGT_A primary output.,local 100 m WBGT or official warning,column present; numeric; fixed_31 baseline can be evaluated
+wbgt_a_model_id,required,string,no,Frozen deterministic model identifier.,hidden model substitution,column present; non-null frozen model metadata
+wbgt_a_version,required,string,no,Frozen contract/model artifact version.,unversioned prospective comparison,column present; non-null frozen version metadata
+is_retrospective_or_prospective,required,categorical,no,Row provenance label that separates retrospective and prospective rows.,mixing retrospective and prospective rows,column present; at least one prospective row for evaluation
+quality_flag,required,string,no,Compact quality/provenance flag for formal snapshot rows.,silent quality failures,column present; non-null compact provenance flag
+p_ge31_optional,optional,float_0_1,yes,Optional diagnostic probability for official WBGT >=31 C.,official warning probability,"if present, numeric within [0, 1]; metadata columns should be populated"
+p_ge31_model_id_optional,optional,string,yes,Optional model id for p_ge31_optional.,unversioned probability,"if p_ge31_optional present, non-null model id expected"
+p_ge31_threshold_policy_optional,optional,string,yes,Optional policy id for interpreting p_ge31_optional.,official public warning threshold,"if p_ge31_optional present, non-null policy id expected"
+p_ge33_optional,optional,float_0_1,yes,Exploratory optional probability for official WBGT >=33 C.,promoted severe warning probability,"if present, numeric within [0, 1]; remains exploratory"
+expected_exceedance_ge31_optional,optional,float_celsius,yes,Optional expected exceedance magnitude above 31 C.,corrected WBGT value,"if present, numeric expected exceedance against max(official_wbgt_c - 31, 0)"
+prediction_interval_low_optional,optional,float_celsius,yes,Optional lower diagnostic interval bound for wbgt_a_c.,guaranteed operational interval,"if present with high bound, numeric and <= high bound"
+prediction_interval_high_optional,optional,float_celsius,yes,Optional upper diagnostic interval bound for wbgt_a_c.,guaranteed operational interval,"if present with low bound, numeric and >= low bound"
+lead_time_hours_optional,optional,integer_or_float,yes,Optional lead time when the prospective row has forecast lead-time context.,claim of forecast skill without validation,"if forecast lead time exists, numeric lead time for stratified review"
