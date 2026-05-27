@@ -1,0 +1,6 @@
+feature_group,status,usable_sources,candidate_source_patterns,next_action
+water,BUILT_ALL_27,osm_station_context_water,osm_station_context_water.gpkg;osm_station_context_water.geojson;national_map_polygon.geojson,Proceed to A-L2.1b QA review for this group; do not train residual models in S1.
+green,BUILT_ALL_27,osm_station_context_green,osm_station_context_green.gpkg;osm_station_context_green.geojson;nparks_*.geojson,Proceed to A-L2.1b QA review for this group; do not train residual models in S1.
+roads,BUILT_ALL_27,osm_station_context_roads,osm_station_context_roads.gpkg;osm_station_context_roads.geojson;lta_*.geojson,Proceed to A-L2.1b QA review for this group; do not train residual models in S1.
+buildings,BUILT_ALL_27,osm_station_context_buildings,osm_station_context_buildings.gpkg;osm_station_context_buildings.geojson;mp2019_building_layer.geojson,Proceed to A-L2.1b QA review for this group; do not train residual models in S1.
+landuse,BUILT_ALL_27,osm_station_context_landuse,osm_station_context_landuse.gpkg;osm_station_context_landuse.geojson;mp2019_land_use.geojson,Proceed to A-L2.1b QA review for this group; do not train residual models in S1.

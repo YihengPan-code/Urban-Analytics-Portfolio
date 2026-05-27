@@ -1,0 +1,79 @@
+{
+  "lane": "A-L2.1a-S1",
+  "description": "Station-local spatial source acquisition and extraction gate for 27 NEA WBGT stations.",
+  "station_source": "data/calibration/v09_wbgt_station_pairs.csv",
+  "expected_station_count": 27,
+  "station_source_epsg": 4326,
+  "metric_buffer_epsg": 3414,
+  "buffers_m": [50, 100, 250, 500],
+  "sampling_step_m": {
+    "50": 5,
+    "100": 10,
+    "250": 20,
+    "500": 25
+  },
+  "source_roots": [
+    "C:/OpenHeat-local/station_context_sources/raw/osm",
+    "C:/OpenHeat-local/station_context_sources/raw/data_gov_sg",
+    "C:/OpenHeat-local/station_context_sources/processed"
+  ],
+  "source_extensions": [".gpkg", ".geojson"],
+  "expected_source_patterns": [
+    "osm_station_context_water.gpkg",
+    "osm_station_context_green.gpkg",
+    "osm_station_context_roads.gpkg",
+    "osm_station_context_buildings.gpkg",
+    "osm_station_context_landuse.gpkg",
+    "osm_station_context_water.geojson",
+    "osm_station_context_green.geojson",
+    "osm_station_context_roads.geojson",
+    "osm_station_context_buildings.geojson",
+    "osm_station_context_landuse.geojson",
+    "national_map_polygon.geojson",
+    "mp2019_building_layer.geojson",
+    "mp2019_land_use.geojson",
+    "nparks_*.geojson",
+    "lta_*.geojson"
+  ],
+  "major_highway_classes": [
+    "motorway",
+    "motorway_link",
+    "trunk",
+    "trunk_link",
+    "primary",
+    "primary_link",
+    "secondary",
+    "secondary_link",
+    "tertiary",
+    "tertiary_link"
+  ],
+  "feature_groups": ["water", "green", "roads", "buildings", "landuse"],
+  "forbidden_feature_tokens": [
+    "station_id",
+    "official_wbgt",
+    "wbgt",
+    "residual",
+    "obs_ge31",
+    "obs_ge33",
+    "tmrt",
+    "solweig",
+    "systemb",
+    "hazard_score",
+    "risk_score"
+  ],
+  "singapore_lat_bounds": [1.15, 1.50],
+  "singapore_lon_bounds": [103.55, 104.10],
+  "outputs": {
+    "output_dir": "outputs/v11_systema_l2_residual/station_buffer_features_s1",
+    "source_inventory": "station_context_source_acquisition_inventory.csv",
+    "source_normalization": "station_buffer_source_normalization.csv",
+    "feature_long": "station_buffer_feature_long_s1.csv",
+    "feature_wide": "station_buffer_feature_wide_s1.csv",
+    "feature_schema": "station_buffer_feature_schema_s1.csv",
+    "feature_qa": "station_buffer_feature_qa_s1.csv",
+    "missing_sources": "station_buffer_missing_sources_next_actions.csv",
+    "builder_report": "station_buffer_feature_builder_s1_report.md",
+    "status": "A_L2_1A_S1_STATUS.md",
+    "cn_doc": "docs/v11/OpenHeat_SystemA_L2_station_buffer_source_acquisition_CN.md"
+  }
+}

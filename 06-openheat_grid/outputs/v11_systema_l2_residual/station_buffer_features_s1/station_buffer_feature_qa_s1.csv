@@ -1,0 +1,14 @@
+qa_metric,qa_value,qa_status,notes
+station_count,27,PASS,Unique station centroids from v09 station pairs.
+buffer_count,4,PASS,Buffers: 50;100;250;500 m.
+station_crs,EPSG:4326,PASS,Station coordinates read as EPSG:4326 and projected to EPSG:3414 for metric buffers.
+metric_buffer_crs,EPSG:3414,PASS,SVY21 projection used before metric buffers/lengths.
+all_27_feature_groups,buildings;green;landuse;roads;water,PASS,Groups with at least one non-leakage all-27 feature.
+missing_fraction_max,0.111111,PASS,Maximum schema missing fraction.
+constant_feature_count,0,PASS,"Constant features are flagged for later QA, not removed here."
+source_count_readable,5,PASS,Readable local source files only; raw spatial layers remain outside repo.
+source_assumptions,CRS read from source metadata.,PASS,CRS/attribute assumptions captured in normalization inventory.
+forbidden_features,none,PASS,"No official WBGT, residual, event label, station_id predictive feature, System B, or SOLWEIG feature is emitted."
+raw_spatial_layers_written,none,PASS,Only compact CSV/Markdown summaries are written.
+model_training,none,PASS,No residual ML model was trained.
+toa_payoh_only_features,excluded,PASS,Toa Payoh-only/AOI-limited features remain excluded from all-27 station-context features.
