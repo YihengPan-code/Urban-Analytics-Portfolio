@@ -1,0 +1,61 @@
+readiness_final_version: systemb_b85_f2d_readiness_final_v0_1
+lane: B8.5-F2d
+branch: codex/b85-f2d-readiness-final
+generated_date: 2026-05-27
+
+scope:
+  readiness_rerun_only: true
+  qgis_executed: false
+  solweig_executed: false
+  create_rasters: false
+  copy_rasters: false
+  open_rasters: false
+  copy_svf_zip: false
+  open_svf_zip: false
+  create_aoi_predictions: false
+  create_local_wbgt: false
+  create_hazard_score: false
+  create_risk_score: false
+  create_system_ab_coupling: false
+  stage_changes: false
+  commit_changes: false
+
+run_matrix_path: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv
+f2b_remap_table_path: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_asset_remap_table.csv
+f2c_next_remap_roots_path: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_next_remap_roots.yaml
+local_output_root: C:/OpenHeat-local/solweig/b85_f1_tiles
+qgis_manual_check_path: C:/OpenHeat-local/solweig/qgis_checks/b85_solweig_algorithm_check.txt
+execute_qgis_or_solweig: false
+open_or_copy_rasters: false
+dry_run_only: true
+
+manifest_expectations:
+  rows: 480
+  cells: 24
+  forcing_days: 2
+  hours: 5
+  scenarios: 2
+
+root_aliases:
+  - root_alias: b8_worktree_project
+    root_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid
+    root_kind: project_worktree
+    role: existing_fd01_met_forcing
+    commit_safe_to_reference: yes
+    notes: Current B8 project subdirectory; FD01 met forcing text files already exist here.
+  - root_alias: original_project
+    root_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid
+    root_kind: project_worktree_alias
+    role: recovered_geometry_raster_svf_assets
+    commit_safe_to_reference: no
+    notes: F2b selected root alias for recovered cell geometry, raster tile, and svfs.zip assets; do not copy/open assets.
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_5_f2d_readiness_final
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B8_5_F2d_readiness_final_CN.md
+  root_inventory: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_root_inventory.csv
+  asset_status: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_asset_status.csv
+  run_readiness: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_run_readiness.csv
+  readiness_summary: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_readiness_summary.csv
+  execution_precheck_checklist: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_execution_precheck_checklist.md
+  status: outputs/v12_surrogate/b8_5_f2d_readiness_final/B8_5_F2D_STATUS.md

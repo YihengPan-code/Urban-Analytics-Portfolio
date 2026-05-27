@@ -1,0 +1,6 @@
+root_alias,root_path,root_kind,role,exists,is_dir,inside_current_git_worktree,outside_current_git_worktree,commit_safe_to_reference,status,notes
+b8_worktree_project,C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid,project_worktree,existing_fd01_met_forcing,yes,yes,yes,no,True,PASS,Current B8 project subdirectory; FD01 met forcing text files already exist here.
+original_project,C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid,project_worktree_alias,recovered_geometry_raster_svf_assets,yes,yes,no,yes,False,PASS,"F2b selected root alias for recovered cell geometry, raster tile, and svfs.zip assets; do not copy/open assets."
+b85_f2c_local_met_forcing,C:/OpenHeat-local/solweig/met_forcing/b85_f2c,local_generated_met_forcing_root,generated_fd02_met_forcing,yes,yes,no,yes,True,PASS,Local-only FD02 met forcing text root. Do not stage generated txt files.
+local_output_root,C:/OpenHeat-local/solweig/b85_f1_tiles,local_solweig_output_root,manual_qgis_solweig_output_target,yes,yes,no,yes,yes,PASS,Local output root exists and is outside the current Git worktree.
+qgis_manual_check_file,C:/OpenHeat-local/solweig/qgis_checks/b85_solweig_algorithm_check.txt,local_manual_check_file,human_qgis_algorithm_availability_check,yes,no,no,yes,yes,PASS,manual_check_status=PASS found in local check file.

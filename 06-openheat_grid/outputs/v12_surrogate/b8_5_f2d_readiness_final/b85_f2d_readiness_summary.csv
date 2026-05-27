@@ -1,0 +1,2 @@
+decision_status,manifest_status,manifest_rows,manifest_cells,manifest_forcing_days,manifest_hours,manifest_scenarios,file_assets_ready_count,total_run_count,ready_for_manual_qgis_count,output_root_status,output_root_exists,output_root_outside_git_worktree,qgis_manual_check_status,remaining_blockers,qgis_solweig_executed,rasters_created_copied_opened,svfs_zip_copied_opened,dry_run_only,created_at
+READY_FOR_MANUAL_QGIS,PASS,480,24,2,5,2,480,480,480,PASS,yes,yes,PASS,none,no,no,no,yes,2026-05-27 02:40:59
