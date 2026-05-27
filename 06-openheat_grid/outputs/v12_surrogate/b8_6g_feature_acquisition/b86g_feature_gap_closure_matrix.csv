@@ -1,0 +1,10 @@
+gap_family,B8.6f_priority,B8.6g_source_found,feature_computed,proxy_only,n150_coverage,n300_coverage,addresses_failure_modes,closure_status,recommended_next_lane
+pedestrian-accessible shaded fraction,high,True,True,True,1.0,1.0,neutral-false-promotion|anchor-underprediction|feature-distribution-shift,PARTIAL_PROXY_ONLY,B8.6g2/B8.6f2 feature-upgraded compact retest
+connected shade corridor / shade continuity,high,False,False,False,0.0,0.0,spatial-bin-out-of-domain|anchor-underprediction|sample-support-low,NOT_AVAILABLE_REQUIRES_SOURCE,B8.7-N300-PRE or acquire missing vector source
+overhead geometry shape descriptors,high,True,True,False,1.0,1.0,feature-distribution-shift|target-role-mismatch,CLOSED_WITH_VECTOR_FEATURE,B8.6g2/B8.6f2 feature-upgraded compact retest
+sunlit-hot-pocket area fraction,high,True,True,True,1.0,1.0,neutral-false-promotion|target-role-mismatch|spatial-bin-out-of-domain,PARTIAL_PROXY_ONLY,B8.6g2/B8.6f2 feature-upgraded compact retest
+local boundary / edge context,medium,True,True,True,1.0,1.0,east_south_neutral_false_promotion|feature-distribution-shift,PARTIAL_PROXY_ONLY,B8.6g2/B8.6f2 feature-upgraded compact retest
+neighbourhood-scale context,medium,True,True,True,1.0,1.0,spatial-bin-out-of-domain|sample-support-low,PARTIAL_PROXY_ONLY,B8.6g2/B8.6f2 feature-upgraded compact retest
+tree/building shadow interaction,high,True,True,True,1.0,1.0,anchor-underprediction|feature-distribution-shift,PARTIAL_PROXY_ONLY,B8.6g2/B8.6f2 feature-upgraded compact retest
+canyon orientation / height roughness,high,True,True,True,1.0,1.0,anchor-underprediction|spatial-bin-out-of-domain,PARTIAL_PROXY_ONLY,B8.6g2/B8.6f2 feature-upgraded compact retest
+typology-specific geometry,medium,True,True,True,1.0,1.0,target-role-mismatch|sample-support-low|feature-distribution-shift,PARTIAL_PROXY_ONLY,B8.6g2/B8.6f2 feature-upgraded compact retest

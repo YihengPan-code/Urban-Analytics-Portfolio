@@ -1,0 +1,11 @@
+check_name,status,severity,evidence
+n150_row_count,PASS,high,rows=150 expected=150
+n300_row_count,PASS,high,rows=150 expected=150
+n150_duplicate_cell_id,PASS,high,duplicates=0
+n300_duplicate_cell_id,PASS,high,duplicates=0
+forbidden_column_tokens,PASS,high,n150=[]; n300=[]
+feature_version_present,PASS,high,version=b86g_v0_1
+numeric_fraction_ranges,PASS,medium,out_of_range=[]
+family_null_coverage,PASS,info,"[{'feature_family': 'pedestrian-accessible shaded fraction', 'n150_coverage_fraction': 1.0, 'n300_coverage_fraction': 1.0}, {'feature_family': 'connected shade corridor / shade continuity', 'n150_coverage_fraction': 0.0, 'n300_coverage_fraction': 0.0}, {'feature_family': 'overhead geometry shape descriptors', 'n150_coverage_fraction': 1.0, 'n300_coverage_fraction': 1.0}, {'feature_family': 'sunlit-hot-pocket area fraction', 'n150_coverage_fraction': 1.0, 'n300_coverage_fraction': 1.0}, {'feature_family': 'local boundary / edge context', 'n150_coverage_fraction': 1.0, 'n300_coverage_fraction': 1.0}, {'feature_family': 'neighbourhood-scale context', 'n150_coverage_fraction': 1.0, 'n300_coverage_fraction': 1.0}, {'feature_family': 'tree/building shadow interaction', 'n150_coverage_fraction': 1.0, 'n300_coverage_fraction': 1.0}, {'feature_family': 'canyon orientation / height roughness', 'n150_coverage_fraction': 1.0, 'n300_coverage_fraction': 1.0}, {'feature_family': 'typology-specific geometry', 'n150_coverage_fraction': 1.0, 'n300_coverage_fraction': 1.0}]"
+source_status_distribution,PASS,info,ped_access_source_status:{'COMPACT_VECTOR_DERIVED_PROXY': 150} | shade_corridor_source_status:{'NOT_AVAILABLE_REQUIRES_PEDESTRIAN_SHADE_NETWORK': 150} | overhead_shape_source_status:{'COMPACT_VECTOR_DERIVED_NO_PERIMETER': 150} | boundary_edge_source_status:{'COMPACT_PROXY_ONLY': 150} | neighbourhood_context_source_status:{'CENTROID_RADIUS_CONTEXT': 150} | canyon_source_status:{'LIMITED_COMPACT_HEIGHT_PROXY_NO_AXIS': 150}
+no_target_columns_used,PASS,high,target/leakage token scan completed

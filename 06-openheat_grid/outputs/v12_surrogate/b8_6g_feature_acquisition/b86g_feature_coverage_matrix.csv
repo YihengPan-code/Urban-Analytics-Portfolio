@@ -1,0 +1,10 @@
+feature_family,n150_coverage_fraction,n300_coverage_fraction,n_non_null_features,source_status,proxy_status,production_candidate_status,blocked_reason,recommended_next_action
+pedestrian-accessible shaded fraction,1.0,1.0,2,COMPACT_VECTOR_DERIVED_PROXY,STRONG_COMPACT_VECTOR_PROXY,candidate_after_retest,proxy-only; requires formal feature-upgraded retest before promotion,use in B8.6g2/B8.6f2 diagnostic retest
+connected shade corridor / shade continuity,0.0,0.0,0,NOT_AVAILABLE_REQUIRES_PEDESTRIAN_SHADE_NETWORK,NOT_AVAILABLE,not_ready,required vector/compact source not available,acquire missing vector source before retest
+overhead geometry shape descriptors,1.0,1.0,3,COMPACT_VECTOR_DERIVED_NO_PERIMETER,VECTOR_DERIVED_COMPACT,candidate_after_retest,,use in B8.6g2/B8.6f2 diagnostic retest
+sunlit-hot-pocket area fraction,1.0,1.0,2,COMPUTED,PROXY_ONLY,candidate_after_retest,proxy-only; requires formal feature-upgraded retest before promotion,use in B8.6g2/B8.6f2 diagnostic retest
+local boundary / edge context,1.0,1.0,3,COMPACT_PROXY_ONLY,PROXY_ONLY,candidate_after_retest,proxy-only; requires formal feature-upgraded retest before promotion,use in B8.6g2/B8.6f2 diagnostic retest
+neighbourhood-scale context,1.0,1.0,3,CENTROID_RADIUS_CONTEXT,PROXY_ONLY,candidate_after_retest,proxy-only; requires formal feature-upgraded retest before promotion,use in B8.6g2/B8.6f2 diagnostic retest
+tree/building shadow interaction,1.0,1.0,2,COMPUTED,PROXY_ONLY,candidate_after_retest,proxy-only; requires formal feature-upgraded retest before promotion,use in B8.6g2/B8.6f2 diagnostic retest
+canyon orientation / height roughness,1.0,1.0,2,LIMITED_COMPACT_HEIGHT_PROXY_NO_AXIS,PROXY_ONLY,candidate_after_retest,proxy-only; requires formal feature-upgraded retest before promotion,use in B8.6g2/B8.6f2 diagnostic retest
+typology-specific geometry,1.0,1.0,3,COMPUTED,PROXY_ONLY,candidate_after_retest,proxy-only; requires formal feature-upgraded retest before promotion,use in B8.6g2/B8.6f2 diagnostic retest

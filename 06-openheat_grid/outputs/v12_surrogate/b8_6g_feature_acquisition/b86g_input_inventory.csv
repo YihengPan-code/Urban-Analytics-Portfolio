@@ -1,0 +1,13 @@
+input_key,path,exists,extension,file_size_bytes,row_count,column_count,required_columns,missing_required_columns,read_status,safety_status
+b86f_feature_acquisition_register_path,outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_feature_acquisition_register.csv,True,.csv,6395,9.0,14.0,feature_family|priority|minimum_output_schema,,READ_OK,SAFE_TO_INSPECT
+b86f_feature_acquisition_spec_path,outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_feature_acquisition_spec.md,True,.md,5267,,,,,TEXT_METADATA_ONLY,SAFE_TO_INSPECT
+b86f_n300_v2_path,outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_targeted_n300_design_v2.csv,True,.csv,99291,150.0,15.0,cell_id|primary_role|spatial_bin|typology,,READ_OK,SAFE_TO_INSPECT
+b86f_failure_synthesis_path,outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_failure_synthesis.csv,True,.csv,3789,6.0,8.0,failure_mode|affected_bins_or_cells|next_action,,READ_OK,SAFE_TO_INSPECT
+b86f_anchor_neutral_matrix_path,outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_anchor_neutral_failure_matrix.csv,True,.csv,8410,20.0,13.0,cell_id|diagnostic_role|failure_type|severity,,READ_OK,SAFE_TO_INSPECT
+b86d_oof_predictions_path,outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_oof_predictions.csv,True,.csv,3851638,7310.0,27.0,cell_id|split_family|true_delta|pred_combined_delta,,READ_OK,SAFE_TO_INSPECT
+b86d_combined_metrics_path,outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_combined_pipeline_metrics.csv,True,.csv,8981823,8064.0,46.0,feature_set|split_family|MAE|top10pct_overlap,,READ_OK,SAFE_TO_INSPECT
+b86d_anchor_diagnostics_path,outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_anchor_cell_diagnostics.csv,True,.csv,6611,21.0,12.0,cell_id|split_family|MAE|failure_type,,READ_OK,SAFE_TO_INSPECT
+b86d_neutral_diagnostics_path,outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_neutral_boundary_diagnostics.csv,True,.csv,11256,39.0,14.0,cell_id|split_family|false_promotion_rate|failure_type,,READ_OK,SAFE_TO_INSPECT
+n150_feature_matrix_path,outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv,True,.csv,492061,981.0,45.0,cell_id|centroid_x|centroid_y|typology_label,,READ_OK,SAFE_TO_INSPECT
+candidate_universe_path,outputs/v12_systemb_n150_sample_design/n150_candidate_universe.csv,True,.csv,4159910,986.0,244.0,cell_id|centroid_x|centroid_y|typology_label,,READ_OK,SAFE_TO_INSPECT
+f5_pairwise_label_path,outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv,True,.csv,405931,1500.0,14.0,cell_id|forcing_day_id|hour_sgt|delta_tmrt_p90_c,,READ_OK,SAFE_TO_INSPECT

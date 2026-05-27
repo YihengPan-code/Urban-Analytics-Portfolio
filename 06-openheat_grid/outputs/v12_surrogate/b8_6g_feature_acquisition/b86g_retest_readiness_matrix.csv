@@ -1,0 +1,4 @@
+readiness_item,status,evidence,allowed_action
+high_priority_feature_coverage,PARTIAL_RETEST_ONLY,strong_or_non_proxy_high_priority_families=2; coverage_ready_high_priority=5; proxy_ready=4,B8.6g2/B8.6f2 compact feature-upgraded retest only; no AOI prediction.
+targeted_n300_pre,TARGETED_N300_PRE_STILL_RECOMMENDED,B8.6g does not create new SOLWEIG labels and shade-corridor/network sources remain unavailable.,B8.7-N300-PRE design freeze only; no SOLWEIG execution.
+aoi_or_b9,NOT_READY,B8.6g only acquires features and does not run validation retest or AOI preflight.,keep AOI/B9 blocked.
