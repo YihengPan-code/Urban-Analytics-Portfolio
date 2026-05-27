@@ -1,0 +1,147 @@
+lane: A-L1H.4
+description: System A Level 1 probabilistic / exceedance companion suite.
+
+inputs:
+  residual_weather_merge: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/residual_weather_merge_full_period.csv
+  beta_oof_predictions: outputs/v11_beta_calibration/hourly_max/v11_beta_oof_predictions.csv
+  probability_predictions_oof: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/probability_predictions_oof.csv.gz
+  high_tail_challenger_predictions: outputs/v11_systema_l1_high_tail/high_tail_challenger/challenger_oof_predictions.csv.gz
+  l2_status: outputs/v11_systema_l2_residual/scoped_residual_preflight/A_L2_1C_STATUS.md
+  l2_report: outputs/v11_systema_l2_residual/scoped_residual_preflight/l2_scoped_residual_preflight_report.md
+
+schema:
+  station_col: station_id
+  timestamp_col: timestamp
+  date_col: date
+  hour_col: hour_sgt
+  fold_col: fold
+  cv_scheme_col: cv_scheme
+  target_col: official_wbgt_c
+  primary_cv_scheme: loso
+  secondary_cv_scheme: time_block
+
+baseline:
+  primary_model_name: M4_inertia_ridge
+  primary_score_col: m4_score
+  comparator_model_name: M7_compact_weather_ridge
+  comparator_score_col: m7_score
+  v09_model_name: M0_raw_proxy
+  v09_score_col: wbgt_proxy_v09_c
+
+events:
+  ge31:
+    threshold_c: 31.0
+    event_col: ge31
+    exceedance_col: exceedance_ge31_c
+    report_label: P_ge31
+  ge33:
+    threshold_c: 33.0
+    event_col: ge33
+    exceedance_col: exceedance_ge33_c
+    report_label: P_ge33_exploratory
+
+features:
+  safe_numeric:
+    - m4_score
+    - m7_score
+    - wbgt_proxy_v09_c
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+    - cloud_cover
+    - direct_radiation
+    - diffuse_radiation
+    - precipitation
+    - hour_sin
+    - hour_cos
+    - radiation_hot_flag
+    - shortwave_very_high_flag
+    - shortwave_3h_very_high_flag
+  score_only:
+    - m4_score
+
+probability_models:
+  logistic_P_ge31_safe_features:
+    family: sklearn_logistic_regression
+    diagnostic_only: false
+    feature_set: safe_numeric
+    c_grid:
+      - 0.5
+      - 1.0
+    class_weight_grid:
+      - none
+      - balanced
+  platt_m4_score_ge31:
+    family: sklearn_logistic_regression
+    diagnostic_only: false
+    feature_set: score_only
+    c_grid:
+      - 1.0
+    class_weight_grid:
+      - none
+  isotonic_m4_score_ge31:
+    family: sklearn_isotonic_regression
+    diagnostic_only: false
+    feature_set: score_only
+
+expected_exceedance_models:
+  two_part_best_p_ridge_ge31:
+    family: p_ge31_times_positive_ridge
+    feature_set: safe_numeric
+    ridge_alpha: 1.0
+  direct_ridge_ge31:
+    family: direct_nonnegative_ridge
+    feature_set: safe_numeric
+    ridge_alpha: 1.0
+  deterministic_score_gap_m4_ge31:
+    family: deterministic_score_gap
+
+interval_models:
+  conformal_m4_residual:
+    family: conformal_absolute_residual
+  quantile_gbr_safe_features:
+    family: sklearn_gradient_boosting_quantile
+    feature_set: safe_numeric
+    n_estimators: 80
+    max_depth: 2
+    learning_rate: 0.05
+
+validation:
+  primary_method: station_grouped_loso
+  secondary_method: blocked_time
+  random_seed: 1104
+  min_train_rows: 100
+  min_train_events: 10
+  min_train_non_events: 50
+  min_positive_exceedance_rows: 10
+  min_ge33_events_for_probability: 30
+
+analysis:
+  score_threshold_scan_start_c: 24.0
+  score_threshold_scan_stop_c: 34.0
+  score_threshold_scan_step_c: 0.05
+  probability_threshold_scan_start: 0.01
+  probability_threshold_scan_stop: 0.99
+  probability_threshold_scan_step: 0.01
+  fixed_probability_bin_step: 0.10
+  quantile_bin_count: 10
+  low_support_n: 30
+  recall_target: 0.90
+  precision_target: 0.70
+  focus_stations:
+    - S142
+    - S139
+  radiation_hot_label: radiation_hot
+  very_high_label: very_high
+  near_threshold_band_c: 0.5
+  promising_min_recall_delta: 0.05
+  promising_max_false_alarm_ratio: 0.50
+  promising_min_precision: 0.55
+  acceptable_brier: 0.08
+  acceptable_ece: 0.05
+
+outputs:
+  output_dir: outputs/v11_systema_l1_high_tail/prob_exceedance_suite
+  cn_doc: docs/v11/OpenHeat_SystemA_L1H4_prob_exceedance_suite_CN.md
