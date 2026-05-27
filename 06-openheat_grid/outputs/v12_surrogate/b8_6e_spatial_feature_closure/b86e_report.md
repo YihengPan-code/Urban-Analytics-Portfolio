@@ -118,7 +118,7 @@ This is candidate design only. It is not a SOLWEIG manifest, QGIS runner, N300 e
 
 ## 11. Recommendation
 
-- B8.6f: run a narrow improved-workflow lane only if reviewers accept the safe non-coordinate engineered features and require the same spatial/typology/cell-group holdouts.
+- B8.6f: run a narrow improved-workflow lane only if reviewers accept the safe non-coordinate engineered features as diagnostic candidates, not as validated spatial-closure features; require the same spatial/typology/cell-group holdouts.
 - Targeted N300: recommended if reviewers agree current compact features cannot close spatial failure; use the candidate design as a review list only.
 - External feature acquisition: prioritize connected shade continuity, pedestrian-accessible shade, hot-pocket/open-sun fraction, and canyon orientation or roughness.
 - AOI preflight: no-go until spatial holdout and neutral false-promotion are materially improved.
