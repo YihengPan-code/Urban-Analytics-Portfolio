@@ -1,0 +1,124 @@
+lane: A-L2.0
+description: System A station-context residual identifiability preflight.
+
+inputs:
+  residual_weather_merge: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/residual_weather_merge_full_period.csv
+  probability_predictions_oof: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/probability_predictions_oof.csv.gz
+  threshold_operating_points: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/threshold_operating_points.csv
+  threshold_by_station: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/threshold_by_station.csv
+  station_regime_caveats: outputs/v11_systema_l1_high_tail/level1_integration/systema_l1h_station_regime_caveats.csv
+  challenger_oof_predictions: outputs/v11_systema_l1_high_tail/high_tail_challenger/challenger_oof_predictions.csv.gz
+  challenger_threshold_metrics: outputs/v11_systema_l1_high_tail/high_tail_challenger/challenger_threshold_metrics.csv
+  challenger_by_station: outputs/v11_systema_l1_high_tail/high_tail_challenger/challenger_by_station.csv
+  challenger_pairwise_vs_current_companion: outputs/v11_systema_l1_high_tail/high_tail_challenger/challenger_pairwise_vs_current_companion.csv
+  station_grid_mapping: outputs/v11_level1/pairing_audit/station_grid_mapping.csv
+  v09_station_pairs: data/calibration/v09_wbgt_station_pairs.csv
+  v09_station_weather: data/calibration/v09_historical_forecast_by_station_hourly.csv
+  v11_live_chunk: data/calibration/v11/live_chunks/wbgt_pairs_2026-05-24.csv.gz
+  grid_v10_basic_morphology: data/grid/v10/toa_payoh_grid_v10_basic_morphology.csv
+  grid_v10_umep_features: data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.csv
+  data_stations_dir: data/stations
+
+schema:
+  station_col: station_id
+  timestamp_col: timestamp
+  date_col: date
+  hour_col: hour_sgt
+  fold_col: fold
+  cv_scheme_col: cv_scheme
+  primary_cv_scheme: loso
+  target_col: official_wbgt_c
+  model_name_col: model_name
+  model_score_col: model_score
+  residual_col: score_residual_c
+  event_ge31_col: obs_ge31
+  event_ge33_col: obs_ge33
+
+baselines:
+  current_companion:
+    model_name: M4_inertia_ridge
+    calibrator_id: isotonic_score_only
+    selected_operating_point: selected_candidate_policy
+    fallback_operating_point: best_F1
+    recall90_operating_point: recall_90
+    fallback_best_f1_threshold: 0.309
+  recall_first_challenger:
+    candidate_id: cost_sensitive_logistic_score_weather
+    selected_operating_point: selected_candidate_policy
+    fallback_operating_point: best_F1
+
+analysis:
+  event_threshold_c: 31.0
+  exploratory_event_threshold_c: 33.0
+  low_support_n_rows: 30
+  low_support_n_events: 10
+  bootstrap_iterations: 1000
+  random_seed: 20260527
+  residual_signal_threshold_c: 0.10
+  probability_signal_threshold: 0.03
+  miss_rate_signal_threshold: 0.20
+  min_stable_station_count: 3
+  min_station_feature_count: 3
+  min_feature_station_coverage: 20
+  min_stations_for_rank_association: 10
+  compute_descriptive_rank_association: true
+  radiation_hot_label: radiation_hot
+  very_high_label: very_high
+  focus_stations:
+    - S142
+    - S139
+  context_columns:
+    - combined_radiation_hot_regime
+    - shortwave_bin
+    - shortwave_3h_mean_bin
+    - hour_sgt
+  station_metadata_columns:
+    - station_name
+    - station_town_center
+    - station_lat
+    - station_lon
+  forcing_pairing_columns:
+    - nearest_grid_cell
+    - nearest_grid_distance_m
+    - morphology_representativeness
+    - cell_id
+    - station_to_openmeteo_coord_delta_deg
+    - n_stations_sharing_openmeteo_coord
+  station_nearest_morphology_columns:
+    - station_nearest_grid_svf
+    - station_nearest_grid_shade_fraction
+    - station_nearest_grid_tree_canopy_fraction
+    - station_nearest_grid_ndvi_mean
+    - station_nearest_grid_gvi_percent
+    - station_nearest_grid_road_fraction
+    - station_nearest_grid_building_density
+    - station_nearest_grid_park_distance_m
+    - station_nearest_grid_water_distance_m
+    - station_nearest_grid_land_use_hint
+  grid_morphology_columns:
+    - svf
+    - shade_fraction
+    - tree_canopy_fraction
+    - ndvi_mean
+    - gvi_percent
+    - road_fraction
+    - building_density
+    - mean_building_height_m
+    - max_building_height_m
+    - open_pixel_fraction_v10
+    - building_pixel_fraction_v10
+    - svf_umep_mean_open_v10
+    - shade_fraction_umep_13_15_open_v10
+  forbidden_feature_tokens:
+    - official_wbgt
+    - heat_stress_category
+    - residual
+    - obs_ge
+    - target
+    - tmrt
+    - solweig
+    - systemb
+    - forecast_live
+
+outputs:
+  output_dir: outputs/v11_systema_l2_residual/identifiability_preflight
