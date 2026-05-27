@@ -1,0 +1,37 @@
+check_name,status,value,details
+all_rasters_opened_successfully,PASS,4/4,All expected Tmrt_average.tif files must open for content QA.
+expected_run_count,PASS,4/4,Manifest row count must match expected_run_count.
+postrun_validation_passed,PASS,true,F3a POST should already show 4/4 output validation.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_base_h13:valid_pixel_count_gt_0,PASS,22500,Raster must contain at least one valid Tmrt pixel.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_base_h13:nodata_fraction_lt_0_5,PASS,0.000000,Nodata fraction should remain below 0.5.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_base_h13:min_max_plausible,PASS,34.893349..62.579208,Configured plausible range is 15-80 C.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_base_h13:p90_ge_p50,PASS,"p50=57.573914, p90=61.598778",Percentile ordering sanity check.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_base_h13:p95_ge_p90,PASS,"p90=61.598778, p95=62.174397",Percentile ordering sanity check.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_base_h13:parent_folder_hour_matches_expected,PASS,13,Uses parent-folder hour parsing because Tmrt_average.tif does not encode hour.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_overhead_h13:valid_pixel_count_gt_0,PASS,22500,Raster must contain at least one valid Tmrt pixel.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_overhead_h13:nodata_fraction_lt_0_5,PASS,0.000000,Nodata fraction should remain below 0.5.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_overhead_h13:min_max_plausible,PASS,34.893349..62.564804,Configured plausible range is 15-80 C.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_overhead_h13:p90_ge_p50,PASS,"p50=57.132648, p90=61.245582",Percentile ordering sanity check.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_overhead_h13:p95_ge_p90,PASS,"p90=61.245582, p95=61.816008",Percentile ordering sanity check.
+b85_f3a_FD01_high_shortwave_hot_20260507_TP_0037_overhead_h13:parent_folder_hour_matches_expected,PASS,13,Uses parent-folder hour parsing because Tmrt_average.tif does not encode hour.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_base_h13:valid_pixel_count_gt_0,PASS,22500,Raster must contain at least one valid Tmrt pixel.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_base_h13:nodata_fraction_lt_0_5,PASS,0.000000,Nodata fraction should remain below 0.5.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_base_h13:min_max_plausible,PASS,34.764782..59.546646,Configured plausible range is 15-80 C.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_base_h13:p90_ge_p50,PASS,"p50=53.093161, p90=58.075171",Percentile ordering sanity check.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_base_h13:p95_ge_p90,PASS,"p90=58.075171, p95=58.936028",Percentile ordering sanity check.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_base_h13:parent_folder_hour_matches_expected,PASS,13,Uses parent-folder hour parsing because Tmrt_average.tif does not encode hour.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_overhead_h13:valid_pixel_count_gt_0,PASS,22500,Raster must contain at least one valid Tmrt pixel.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_overhead_h13:nodata_fraction_lt_0_5,PASS,0.000000,Nodata fraction should remain below 0.5.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_overhead_h13:min_max_plausible,PASS,34.764782..59.527508,Configured plausible range is 15-80 C.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_overhead_h13:p90_ge_p50,PASS,"p50=52.669868, p90=57.567973",Percentile ordering sanity check.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_overhead_h13:p95_ge_p90,PASS,"p90=57.567973, p95=58.391335",Percentile ordering sanity check.
+b85_f3a_FD02_humid_hot_cloudy_or_diffuse_20260508_TP_0037_overhead_h13:parent_folder_hour_matches_expected,PASS,13,Uses parent-folder hour parsing because Tmrt_average.tif does not encode hour.
+FD01_high_shortwave_hot_20260507:overhead_delta_not_nan,PASS,22500,overhead_as_canopy - base delta must have valid overlap pixels.
+FD02_humid_hot_cloudy_or_diffuse_20260508:overhead_delta_not_nan,PASS,22500,overhead_as_canopy - base delta must have valid overlap pixels.
+FD01_high_shortwave_hot_20260507:base_and_overhead_paths_distinct,PASS,true,Base and overhead_as_canopy raster paths must not alias.
+FD02_humid_hot_cloudy_or_diffuse_20260508:base_and_overhead_paths_distinct,PASS,true,Base and overhead_as_canopy raster paths must not alias.
+base:fd01_and_fd02_paths_distinct,PASS,true,FD01 and FD02 raster paths must not alias within scenario.
+overhead_as_canopy:fd01_and_fd02_paths_distinct,PASS,true,FD01 and FD02 raster paths must not alias within scenario.
+no_forbidden_repo_files_changed,PASS,,"Forbidden rasters, svfs.zip, raw archives, and large forecast CSVs must remain untouched."
+no_qgis_or_solweig_execution,PASS,False,This lane is read-only raster content QA.
+no_raster_image_or_array_output_written,PASS,False,"No GeoTIFF, PNG, image, or large array output is written."

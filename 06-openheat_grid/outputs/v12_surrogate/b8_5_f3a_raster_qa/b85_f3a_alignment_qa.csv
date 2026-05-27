@@ -1,0 +1,8 @@
+check_name,status,value,details
+all_4_rasters_have_same_shape,PASS,150x150,Shape comparison uses height x width.
+all_4_rasters_have_same_crs,PASS,EPSG:3414,CRS must match before pixelwise deltas.
+all_4_rasters_have_same_transform,PASS,"(29300.0, 2.0, 0.0, 34500.0, 0.0, -2.0)",Transform must match before pixelwise deltas.
+all_4_rasters_have_same_nodata_dtype,PASS,-9999.0|float32,Nodata and dtype should be consistent across the micro-batch.
+expected_pixel_count_consistency,PASS,22500,Pixel count should be identical for the four local rasters.
+output_path_outside_git_worktree,PASS,C:/OpenHeat-local/solweig/b85_f1_tiles,Local SOLWEIG raster paths should remain outside the Git worktree and under local_output_root.
+no_raster_output_written,PASS,False,QA writes only CSV/Markdown control artifacts.

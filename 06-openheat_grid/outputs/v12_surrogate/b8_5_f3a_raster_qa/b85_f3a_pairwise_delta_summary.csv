@@ -1,0 +1,3 @@
+forcing_day_id,mean_delta_c,p50_delta_c,p90_delta_c,p95_delta_c,max_delta_c,min_delta_c,pct_pixels_delta_lt_minus_1,pct_pixels_delta_lt_minus_5,pct_pixels_delta_gt_1,valid_overlap_pixels,delta_direction_status,notes
+FD01_high_shortwave_hot_20260507,-0.663888,0.000000,0.000000,0.000000,0.057655,-26.959572,2.728889,2.595556,0.000000,22500,overhead_neutral,overhead_as_canopy_minus_base; sensitivity_delta_not_exact_overhead_physics
+FD02_humid_hot_cloudy_or_diffuse_20260508,-0.598506,0.000000,0.000000,0.000000,0.013489,-24.135750,2.720000,2.595556,0.000000,22500,overhead_neutral,overhead_as_canopy_minus_base; sensitivity_delta_not_exact_overhead_physics
