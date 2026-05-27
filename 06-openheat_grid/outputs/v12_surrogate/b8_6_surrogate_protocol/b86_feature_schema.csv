@@ -1,0 +1,43 @@
+column_name,role,predictor_tier,dtype,non_null_count,missing_fraction,include_in_baseline,leakage_status,notes
+row_id,id,excluded_identifier,object,750,0.0,False,PASS,Group identifier only; never a numeric predictor.
+cell_id,id,excluded_identifier,object,750,0.0,False,PASS,Group identifier only; never a numeric predictor.
+hour_sgt,hour_feature,hour_aware,Int64,750,0.0,True,PASS,Allowed only for hour-aware baseline models; hour_holdout remains mandatory.
+scenario_context,metadata,excluded_metadata,object,750,0.0,False,PASS,Metadata retained for traceability/splits.
+source,metadata,excluded_metadata,object,750,0.0,False,PASS,Metadata retained for traceability/splits.
+label_source,metadata,excluded_metadata,object,750,0.0,False,PASS,Metadata retained for traceability/splits.
+target_definition,metadata,excluded_metadata,object,750,0.0,False,PASS,Metadata retained for traceability/splits.
+tmrt_p90_c,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+tmrt_p90_c_base,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+tmrt_p90_c_overhead_as_canopy,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+delta_tmrt_mean_c,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+delta_tmrt_p75_c,forbidden_leakage,excluded_leakage,float64,750,0.0,False,PASS_EXCLUDED,Blocked by target/leakage name contract.
+delta_tmrt_p90_c,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+delta_tmrt_p95_c,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+delta_tmrt_max_c,forbidden_leakage,excluded_leakage,float64,750,0.0,False,PASS_EXCLUDED,Blocked by target/leakage name contract.
+delta_pct_pixels_ge_40,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+delta_pct_pixels_ge_45,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+delta_pct_pixels_ge_50,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+delta_pct_pixels_ge_55,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+m_rad_pct01,target_or_companion_label,excluded_target,float64,750,0.0,False,PASS_EXCLUDED,SOLWEIG-derived label/target context; excluded from predictors.
+typology_label,metadata,excluded_metadata,object,750,0.0,False,PASS,Metadata retained for traceability/splits.
+primary_role,metadata,excluded_metadata,object,120,0.84,False,PASS,Metadata retained for traceability/splits.
+secondary_roles,metadata,excluded_metadata,object,105,0.86,False,PASS,Metadata retained for traceability/splits.
+in_n24_completed,metadata,excluded_metadata,bool,750,0.0,False,PASS,Metadata retained for traceability/splits.
+source_feature_completeness,metadata,excluded_metadata,float64,750,0.0,False,PASS,Metadata retained for traceability/splits.
+sampling_feature_completeness,metadata,excluded_metadata,float64,750,0.0,False,PASS,Metadata retained for traceability/splits.
+centroid_x,metadata,spatial_diagnostic_only,float64,750,0.0,False,PASS,"Coordinate metadata for spatial holdout only, not a prediction target or headline predictor."
+centroid_y,metadata,spatial_diagnostic_only,float64,750,0.0,False,PASS,"Coordinate metadata for spatial holdout only, not a prediction target or headline predictor."
+centroid_x_normalized,metadata,spatial_diagnostic_only,float64,750,0.0,False,PASS,"Coordinate metadata for spatial holdout only, not a prediction target or headline predictor."
+centroid_y_normalized,metadata,spatial_diagnostic_only,float64,750,0.0,False,PASS,"Coordinate metadata for spatial holdout only, not a prediction target or headline predictor."
+svf_or_open_sky,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+shade_fraction,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+building_density,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+building_height_or_canyon_proxy,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+road_or_hardscape_fraction,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+tree_or_gvi_fraction,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+grass_fraction,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+water_edge_or_water_fraction,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+overhead_fraction,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+impervious_or_built_fraction,feature,physical_core,float64,750,0.0,True,PASS,Compact physical feature selected for B8.6 baseline.
+feature_source,metadata,excluded_metadata,object,750,0.0,False,PASS,Metadata retained for traceability/splits.
+forcing_setup,metadata,excluded_metadata,object,750,0.0,False,PASS,Metadata retained for traceability/splits.

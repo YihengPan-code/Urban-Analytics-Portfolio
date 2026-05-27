@@ -1,0 +1,164 @@
+b86_version: systemb_b86_surrogate_protocol_v0_1
+random_seed: 42
+lane: B8.6_surrogate_protocol_baseline_gate
+branch: codex/b86-surrogate-protocol-baseline
+
+expected:
+  n150_cells: 150
+  n150_pairwise_rows: 750
+  hours_sgt: [10, 12, 13, 15, 16]
+  scenario_context: overhead_as_canopy_minus_base
+
+targets:
+  primary: delta_tmrt_p90_c
+  secondary:
+    - tmrt_p90_c
+    - delta_tmrt_mean_c
+    - delta_tmrt_p95_c
+    - m_rad_pct01
+  neutral_delta_abs_threshold_c: 0.05
+
+inputs:
+  scan_roots:
+    - outputs/v12_surrogate
+    - outputs/v12_solweig_n150_execution
+    - outputs/v12_systemb_n150_sample_design
+    - configs/v12
+    - docs/v12
+  label_candidates:
+    pairwise_delta: outputs/v12_solweig_n150_execution/n150_base_vs_overhead_delta_merged.csv
+    focus_tmrt_summary: outputs/v12_solweig_n150_execution/n150_focus_tmrt_summary_merged.csv
+    modifier_targets: outputs/v12_solweig_n150_execution/n150_modifier_targets_b5.csv
+    b8_surrogate_matrix: outputs/v12_surrogate/b8_dataset_audit/surrogate_label_feature_matrix.csv
+  feature_candidates:
+    sample_feature_matrix: outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+    sample_feature_schema: outputs/v12_systemb_n150_sample_design/n150_sampling_feature_schema.csv
+    b8_surrogate_matrix: outputs/v12_surrogate/b8_dataset_audit/surrogate_label_feature_matrix.csv
+    b8_feature_schema: outputs/v12_surrogate/b8_dataset_audit/feature_schema.csv
+  n24_bridge:
+    f4_status: outputs/v12_surrogate/b8_5_f4_n24_decision/B8_5_F4_STATUS.md
+    robust_priority_cells: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_robust_priority_cells.csv
+    neutral_boundary_cells: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_neutral_boundary_cells.csv
+    unstable_priority_cells: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_unstable_priority_cells.csv
+    decision_matrix: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_decision_matrix.csv
+    target_card: outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_target_card_delta_tmrt_p90.md
+    pairwise_delta_n24: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_pairwise_delta_by_cell_hour.csv
+
+feature_contract:
+  source_preference:
+    - sample_feature_matrix
+    - b8_surrogate_matrix
+  baseline_feature_columns:
+    - svf_or_open_sky
+    - shade_fraction
+    - building_density
+    - building_height_or_canyon_proxy
+    - road_or_hardscape_fraction
+    - tree_or_gvi_fraction
+    - grass_fraction
+    - water_edge_or_water_fraction
+    - overhead_fraction
+    - impervious_or_built_fraction
+  metadata_columns:
+    - cell_id
+    - typology_label
+    - primary_role
+    - secondary_roles
+    - in_n24_completed
+    - source_feature_completeness
+    - sampling_feature_completeness
+    - centroid_x
+    - centroid_y
+    - centroid_x_normalized
+    - centroid_y_normalized
+  coordinate_pairs:
+    - [centroid_x, centroid_y]
+    - [centroid_x_normalized, centroid_y_normalized]
+    - [centroid_x_svy21, centroid_y_svy21]
+    - [lon, lat]
+  hour_feature: hour_sgt
+  blocked_feature_name_tokens:
+    - tmrt
+    - delta_tmrt
+    - m_rad
+    - rank
+    - reference
+    - solweig
+    - wbgt
+    - hazard
+    - risk
+    - vulnerability
+    - exposure
+    - output_path
+    - run_status
+    - success
+    - failed
+
+validation:
+  cell_group_folds: 5
+  typology_min_test_cells: 8
+  typology_min_train_cells: 30
+  random_test_fraction: 0.2
+  main_split_families:
+    - cell_group_holdout
+    - spatial_holdout
+    - typology_holdout
+    - hour_holdout
+  diagnostic_split_families:
+    - random_split
+  future_required_split_families:
+    - forcing_day_holdout
+    - scenario_holdout
+
+baseline:
+  models:
+    - dummy_mean
+    - linear_regression
+    - ridge
+    - elasticnet
+    - random_forest_regressor
+    - hist_gradient_boosting_regressor
+  random_forest:
+    n_estimators: 60
+    max_depth: 8
+    min_samples_leaf: 2
+  hist_gradient_boosting:
+    max_iter: 120
+    learning_rate: 0.06
+    max_leaf_nodes: 31
+  elasticnet:
+    alpha: 0.001
+    l1_ratio: 0.5
+  ridge:
+    alpha: 1.0
+  top_k_fraction: 0.1
+  promising_min_mae_improvement_fraction: 0.05
+
+n24_bridge:
+  robust_priority_anchor_cells:
+    - TP_0857
+    - TP_0141
+    - TP_0433
+    - TP_0542
+    - TP_0037
+  h10_caveat: h10 is caveated and is not priority-anchor evidence.
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_6_surrogate_protocol
+  input_inventory: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_input_inventory.csv
+  label_source_inventory: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_label_source_inventory.csv
+  feature_source_inventory: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_feature_source_inventory.csv
+  surrogate_dataset: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_surrogate_dataset.csv
+  feature_schema: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_feature_schema.csv
+  target_schema: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_target_schema.csv
+  validation_splits: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_validation_splits.csv
+  baseline_model_metrics: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_baseline_model_metrics.csv
+  holdout_metrics: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_holdout_metrics.csv
+  target_sensitivity_metrics: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_target_sensitivity_metrics.csv
+  n24_stress_validation_bridge: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_n24_stress_validation_bridge.csv
+  surrogate_decision_matrix: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_surrogate_decision_matrix.csv
+  promotion_gate: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_promotion_gate.md
+  model_card_draft: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_model_card_draft.md
+  report: outputs/v12_surrogate/b8_6_surrogate_protocol/b86_report.md
+  status: outputs/v12_surrogate/b8_6_surrogate_protocol/B8_6_STATUS.md
+  cn_doc: docs/v12/OpenHeat_SystemB_B8_6_surrogate_protocol_CN.md
