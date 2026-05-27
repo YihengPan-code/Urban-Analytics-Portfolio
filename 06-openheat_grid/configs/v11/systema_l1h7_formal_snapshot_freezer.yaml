@@ -1,0 +1,64 @@
+lane: A-L1H.7
+description: System A formal snapshot freezer and schema bridge.
+generated_date: 2026-05-27
+
+l1h5_output_schema_path: outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_output_schema.csv
+l1h6_required_schema_path: outputs/v11_systema_l1_high_tail/prospective_eval_harness/a_l1h6_expected_input_schema.csv
+l1h6_status_path: outputs/v11_systema_l1_high_tail/prospective_eval_harness/A_L1H6_STATUS.md
+
+candidate_search_roots:
+  - outputs/v11_archive_formal_beta/
+  - outputs/v11_systema_l1_high_tail/prospective_snapshot/
+  - outputs/v11_systema_l1_high_tail/formal_snapshot/
+  - outputs/v11_beta_formal/
+  - outputs/v11_level1/prospective_eval/
+
+allowed_compact_extensions:
+  - .csv
+  - .csv.gz
+  - .parquet
+
+output_freeze_root: outputs/v11_systema_l1_high_tail/formal_snapshot/
+freeze_mode_default: dry_run
+freeze_mode: dry_run
+
+minimum_prospective_rows: 200
+minimum_ge31_events: 30
+minimum_ge33_events_for_promotion: 30
+
+large_file_guard_bytes: 50000000
+snapshot_id_prefix: systema_l1h7_formal_snapshot
+claim_boundary: "System A formal snapshot freezer only: no model training, no archive collector changes, no station-adjusted WBGT, no local 100 m WBGT, no official warning probability, no risk/hazard score, no System B coupling, and no fake rows."
+
+skip_path_patterns:
+  - forecast_live
+  - hourly_grid_heatstress_forecast
+  - .zip
+  - data/archive
+  - data\archive
+  - data/raw
+  - data\raw
+  - data/solweig
+  - data\solweig
+  - data/rasters
+  - data\rasters
+  - solweig
+  - systemb
+  - v12_
+
+outputs:
+  output_dir: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer
+  cn_doc: docs/v11/OpenHeat_SystemA_L1H7_formal_snapshot_freezer_CN.md
+  input_inventory: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_input_inventory.csv
+  candidate_table_inventory: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_candidate_table_inventory.csv
+  column_mapping_candidates: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_column_mapping_candidates.csv
+  required_schema_check: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_required_schema_check.csv
+  forbidden_column_check: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_forbidden_column_check.csv
+  freeze_readiness_check: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_freeze_readiness_check.csv
+  snapshot_manifest_schema: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_snapshot_manifest_schema.csv
+  snapshot_command_template: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_snapshot_command_template.md
+  downstream_l1h6_rerun_instructions: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_downstream_l1h6_rerun_instructions.md
+  frozen_snapshot_manifest: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_frozen_snapshot_manifest.csv
+  frozen_snapshot_validation: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_frozen_snapshot_validation.csv
+  report: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_report.md
+  status: outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/A_L1H7_STATUS.md

@@ -1,0 +1,17 @@
+field_name,type,required,description
+snapshot_id,string,yes,Stable identifier for the freeze attempt or written snapshot.
+created_at,datetime_utc,yes,UTC creation timestamp for the manifest row.
+source_table_path,path,when_candidate_exists,Compact source candidate table path.
+frozen_table_path,path,when_written,Written frozen CSV.GZ/Parquet path when freeze_mode=write_snapshot.
+n_rows,integer,when_candidate_exists,Total source row count.
+n_prospective_rows,integer,when_candidate_exists,Prospective rows identified by provenance label.
+n_stations,integer,when_candidate_exists,Distinct station IDs in prospective rows.
+n_ge31,integer,when_candidate_exists,Official WBGT >=31 C events in prospective rows.
+n_ge33,integer,when_candidate_exists,Official WBGT >=33 C events in prospective rows.
+wbgt_a_model_id,string,yes,Frozen WBGT_A model identifier values.
+wbgt_a_version,string,yes,Frozen WBGT_A version values.
+p_ge31_model_id,string,if_present,Optional P_ge31 model identifier values when present.
+source_sha256,sha256,if_feasible,Checksum of the source compact table.
+frozen_sha256,sha256,when_written,Checksum of the written frozen table.
+status,categorical,yes,A-L1H.7 decision status.
+claim_boundary,string,yes,Snapshot-freezer claim boundary.

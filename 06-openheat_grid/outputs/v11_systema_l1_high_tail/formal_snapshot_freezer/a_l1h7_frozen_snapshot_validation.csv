@@ -1,0 +1,2 @@
+validation_target,check_id,check_group,check_status,detail
+,formal_candidate_available,availability,WAITING,No plausible formal snapshot candidate was found.

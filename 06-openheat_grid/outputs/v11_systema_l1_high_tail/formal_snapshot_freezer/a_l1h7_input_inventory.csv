@@ -1,0 +1,10 @@
+input_id,input_role,path,exists,file_type,bytes,searched,notes
+l1h5_output_schema_path,configured_dependency,outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_output_schema.csv,True,.csv,3387,no,A-L1H.5/A-L1H.6 dependency; read for schema/status context only.
+l1h6_required_schema_path,configured_dependency,outputs/v11_systema_l1_high_tail/prospective_eval_harness/a_l1h6_expected_input_schema.csv,True,.csv,3413,no,A-L1H.5/A-L1H.6 dependency; read for schema/status context only.
+l1h6_status_path,configured_dependency,outputs/v11_systema_l1_high_tail/prospective_eval_harness/A_L1H6_STATUS.md,True,.md,2290,no,A-L1H.5/A-L1H.6 dependency; read for schema/status context only.
+candidate_search_root_1,configured_candidate_root,outputs/v11_archive_formal_beta,False,directory,,no,Searched only for allowed compact CSV/CSV.GZ/Parquet files.
+candidate_search_root_2,configured_candidate_root,outputs/v11_systema_l1_high_tail/prospective_snapshot,False,directory,,no,Searched only for allowed compact CSV/CSV.GZ/Parquet files.
+candidate_search_root_3,configured_candidate_root,outputs/v11_systema_l1_high_tail/formal_snapshot,False,directory,,no,Searched only for allowed compact CSV/CSV.GZ/Parquet files.
+candidate_search_root_4,configured_candidate_root,outputs/v11_beta_formal,False,directory,,no,Searched only for allowed compact CSV/CSV.GZ/Parquet files.
+candidate_search_root_5,configured_candidate_root,outputs/v11_level1/prospective_eval,True,directory,,yes,Searched only for allowed compact CSV/CSV.GZ/Parquet files.
+candidate_tables_scanned,derived_inventory_count,,,,,yes,6

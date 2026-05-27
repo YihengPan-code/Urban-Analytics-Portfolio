@@ -1,0 +1,2 @@
+snapshot_id,created_at,source_table_path,frozen_table_path,n_rows,n_prospective_rows,n_stations,n_ge31,n_ge33,wbgt_a_model_id,wbgt_a_version,p_ge31_model_id,source_sha256,frozen_sha256,status,claim_boundary
+systema_l1h7_formal_snapshot_20260527T171215Z,2026-05-27T17:12:15Z,,,,,,,,,,,,,A_L1H7_WAITING_FOR_FORMAL_INPUT,"System A formal snapshot freezer only: no model training, no archive collector changes, no station-adjusted WBGT, no local 100 m WBGT, no official warning probability, no risk/hazard score, no System B coupling, and no fake rows."
