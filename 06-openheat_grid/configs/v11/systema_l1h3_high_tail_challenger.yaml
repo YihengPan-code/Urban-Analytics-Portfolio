@@ -1,0 +1,148 @@
+lane: A-L1H.3
+description: System A Level 1 high-tail challenger benchmark for retrospective ge31 capture.
+
+inputs:
+  residual_weather_merge: outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/residual_weather_merge_full_period.csv
+  probability_predictions_oof: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/probability_predictions_oof.csv.gz
+  threshold_operating_points: outputs/v11_systema_l1_high_tail/probability_threshold_calibration/threshold_operating_points.csv
+  output_contract: outputs/v11_systema_l1_high_tail/level1_integration/systema_l1h_output_contract.csv
+
+schema:
+  station_col: station_id
+  timestamp_col: timestamp
+  date_col: date
+  hour_col: hour_sgt
+  fold_col: fold
+  cv_scheme_col: cv_scheme
+  target_col: official_wbgt_c
+  model_name_col: model_name
+  model_score_col: model_score
+  primary_cv_scheme: loso
+
+events:
+  primary:
+    id: ge31
+    event_col: obs_ge31
+    threshold_c: 31.0
+    report_label: P_ge31
+  exploratory_ge33:
+    id: ge33
+    event_col: obs_ge33
+    threshold_c: 33.0
+    report_label: P_ge33_exploratory
+
+baselines:
+  current_companion_model: M4_inertia_ridge
+  current_companion_calibrator: isotonic_score_only
+  fixed_score_models:
+    - M4_inertia_ridge
+    - M7_compact_weather_ridge
+
+features:
+  numeric_weather:
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+    - cloud_cover
+  logistic_weather:
+    - model_score
+    - hour_sin
+    - hour_cos
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+    - cloud_cover
+    - radiation_hot_flag
+    - shortwave_very_high_flag
+    - shortwave_3h_very_high_flag
+  score_plus_regime:
+    - model_score
+    - hour_sin
+    - hour_cos
+    - radiation_hot_flag
+  residual_correction:
+    - model_score
+    - hour_sin
+    - hour_cos
+    - temperature_2m
+    - relative_humidity_2m
+    - wind_speed_10m
+    - shortwave_radiation
+    - shortwave_3h_mean
+    - cloud_cover
+    - radiation_hot_flag
+
+challengers:
+  cost_sensitive_logistic_score_weather:
+    family: weighted_logistic
+    diagnostic_only: false
+    feature_set: logistic_weather
+    positive_weight_grid:
+      - balanced
+      - 2.0
+      - 4.0
+    ridge_grid:
+      - 0.0001
+  logistic_score_plus_regime_diagnostic:
+    family: weighted_logistic
+    diagnostic_only: true
+    feature_set: score_plus_regime
+    positive_weight_grid:
+      - 1.0
+      - balanced
+      - 2.0
+    ridge_grid:
+      - 0.0001
+  high_tail_residual_correction:
+    family: residual_correction_isotonic
+    diagnostic_only: false
+    feature_set: residual_correction
+    support_score_threshold_grid:
+      - 29.5
+      - 30.0
+    ridge_grid:
+      - 0.1
+    correction_cap_c:
+      - 2.5
+  hist_gradient_boosting_small:
+    family: sklearn_hist_gradient_boosting
+    diagnostic_only: true
+    feature_set: logistic_weather
+    implementation_status: not_run_dependency_unavailable
+
+validation:
+  primary_method: station_grouped_loso
+  inner_method: station_grouped_loso_on_training_stations
+  min_train_rows: 100
+  min_train_events: 10
+  min_train_non_events: 50
+  random_seed: 1103
+
+analysis:
+  probability_threshold_scan_start: 0.01
+  probability_threshold_scan_stop: 0.99
+  probability_threshold_scan_step: 0.01
+  score_threshold_scan_start_c: 24.0
+  score_threshold_scan_stop_c: 34.0
+  score_threshold_scan_step_c: 0.05
+  fixed_probability_bin_step: 0.10
+  quantile_bin_count: 10
+  low_support_n: 30
+  recall_target: 0.90
+  precision_target: 0.70
+  selected_policy_operating_point: best_F1
+  radiation_hot_label: radiation_hot
+  very_high_label: very_high
+  focus_stations:
+    - S142
+    - S139
+  promotion_min_precision: 0.60
+  promotion_max_brier_delta: 0.010
+  promotion_max_ece_delta: 0.020
+
+outputs:
+  output_dir: outputs/v11_systema_l1_high_tail/high_tail_challenger
