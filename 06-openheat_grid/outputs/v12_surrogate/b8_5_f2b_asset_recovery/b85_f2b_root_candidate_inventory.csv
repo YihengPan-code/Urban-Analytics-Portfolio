@@ -1,0 +1,5 @@
+root_alias,root_kind,root_path_display,root_exists,root_parent_exists,commit_safe_to_reference,matched_missing_assets,matched_file_assets,selected_missing_assets,notes
+b8_worktree_project,project_worktree,<b8_worktree_project>,yes,yes,yes,0,0,0,Current B8 project subdirectory; reports should prefer alias plus relative path.
+original_project,project_worktree,<original_project>,yes,yes,no,217,217,217,"Original project worktree candidate; use only as local alias reference, do not copy assets."
+openheat_local_solweig,local_solweig_asset_root,C:/OpenHeat-local/solweig,no,no,yes,0,0,0,Local-only SOLWEIG execution convention outside Git.
+openheat_local_root,local_asset_root,C:/OpenHeat-local,no,yes,yes,0,0,0,Local-only asset root outside Git.

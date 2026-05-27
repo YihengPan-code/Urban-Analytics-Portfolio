@@ -1,0 +1,70 @@
+asset_recovery_remap_version: systemb_b85_f2b_asset_recovery_remap_v0_1
+lane: B8.5-F2b
+branch: codex/b85-f2b-asset-recovery-remap
+generated_date: 2026-05-27
+
+scope:
+  asset_discovery_remap_readiness_only: true
+  qgis_executed: false
+  solweig_executed: false
+  create_rasters: false
+  copy_rasters: false
+  copy_svf_zip: false
+  create_symlinks_or_junctions: false
+  create_aoi_predictions: false
+  create_local_wbgt: false
+  create_hazard_score: false
+  create_risk_score: false
+  create_system_ab_coupling: false
+  stage_changes: false
+  commit_changes: false
+
+f2a_missing_assets_path: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_missing_assets.csv
+f2a_run_readiness_path: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_asset_readiness_by_run.csv
+f2a_summary_path: outputs/v12_surrogate/b8_5_f2_asset_readiness/b85_f2_asset_readiness_summary.csv
+f0_run_matrix_path: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv
+f1_required_asset_inventory_path: outputs/v12_surrogate/b8_5_execution_package/b85_f1_required_asset_inventory.csv
+
+candidate_roots:
+  - root_alias: b8_worktree_project
+    root_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid
+    root_kind: project_worktree
+    commit_safe_to_reference: yes
+    notes: Current B8 project subdirectory; reports should prefer alias plus relative path.
+  - root_alias: original_project
+    root_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid
+    root_kind: project_worktree
+    commit_safe_to_reference: no
+    notes: Original project worktree candidate; use only as local alias reference, do not copy assets.
+  - root_alias: openheat_local_solweig
+    root_path: C:/OpenHeat-local/solweig
+    root_kind: local_solweig_asset_root
+    commit_safe_to_reference: yes
+    notes: Local-only SOLWEIG execution convention outside Git.
+  - root_alias: openheat_local_root
+    root_path: C:/OpenHeat-local
+    root_kind: local_asset_root
+    commit_safe_to_reference: yes
+    notes: Local-only asset root outside Git.
+
+user_configured_extra_roots: []
+
+local_output_root_expected: C:/OpenHeat-local/solweig/b85_f1_tiles
+create_local_output_root: false
+copy_assets: false
+create_symlinks_or_junctions: false
+execute_qgis_or_solweig: false
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_5_f2b_asset_recovery
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B8_5_F2b_asset_recovery_remap_CN.md
+  root_candidate_inventory: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_root_candidate_inventory.csv
+  by_missing_asset: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_asset_recovery_by_missing_asset.csv
+  remap_table: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_asset_remap_table.csv
+  missing_after_remap: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_missing_after_remap.csv
+  run_readiness_after_remap: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_run_readiness_after_remap.csv
+  readiness_delta_summary: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_readiness_delta_summary.csv
+  local_output_root_plan: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_local_output_root_plan.csv
+  met_forcing_recovery_plan: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_met_forcing_recovery_plan.csv
+  manual_remap_checklist: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_manual_remap_checklist.md
+  status: outputs/v12_surrogate/b8_5_f2b_asset_recovery/B8_5_F2B_STATUS.md

@@ -1,0 +1,2 @@
+local_output_root_alias,local_output_root_display,exists,parent_exists,inside_git_worktree,create_local_output_root,human_command_if_missing,notes
+openheat_local_solweig/b85_f1_tiles,C:/OpenHeat-local/solweig/b85_f1_tiles,no,no,no,no,New-Item -ItemType Directory -Force -Path 'C:/OpenHeat-local/solweig/b85_f1_tiles',Local-only manual QGIS output root; this script did not create it.

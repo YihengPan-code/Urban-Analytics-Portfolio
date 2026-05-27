@@ -1,0 +1,8 @@
+asset_type,logical_name,original_expected_path,selected_root_alias,selected_relative_path,selected_path_exists,remap_status,commit_safe,can_use_for_manual_execution,notes
+qgis_algorithm_manual_check,solweig_algorithm_id_hint,umep:Outdoor Thermal Comfort: SOLWEIG,,,no,manual_check_required,no,no,QGIS/UMEP algorithm availability must be checked manually.
+local_output_root,manual_local_raw_output_root,C:/OpenHeat-local/solweig/b85_f1_tiles,,,no,local_output_root_needs_create,no,no,Local-only output root must be created by a human outside Git.
+met_forcing_file,FD02_humid_hot_cloudy_or_diffuse_20260508_h10,data/solweig/v09_met_forcing_2026_05_08_S128_h10.txt,,,no,still_missing,no,no,Root-alias remap only; do not copy or stage assets.
+met_forcing_file,FD02_humid_hot_cloudy_or_diffuse_20260508_h12,data/solweig/v09_met_forcing_2026_05_08_S128_h12.txt,,,no,still_missing,no,no,Root-alias remap only; do not copy or stage assets.
+met_forcing_file,FD02_humid_hot_cloudy_or_diffuse_20260508_h13,data/solweig/v09_met_forcing_2026_05_08_S128_h13.txt,,,no,still_missing,no,no,Root-alias remap only; do not copy or stage assets.
+met_forcing_file,FD02_humid_hot_cloudy_or_diffuse_20260508_h15,data/solweig/v09_met_forcing_2026_05_08_S128_h15.txt,,,no,still_missing,no,no,Root-alias remap only; do not copy or stage assets.
+met_forcing_file,FD02_humid_hot_cloudy_or_diffuse_20260508_h16,data/solweig/v09_met_forcing_2026_05_08_S128_h16.txt,,,no,still_missing,no,no,Root-alias remap only; do not copy or stage assets.
