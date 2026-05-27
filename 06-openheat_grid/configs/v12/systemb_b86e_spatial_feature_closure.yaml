@@ -1,0 +1,204 @@
+b86e_version: systemb_b86e_spatial_feature_closure_v0_1
+lane: B8.6e_spatial_failure_feature_gap_closure
+branch: codex/b86e-spatial-feature-gap-closure
+random_seed: 42
+
+b86d_oof_predictions_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_oof_predictions.csv
+b86d_combined_metrics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_combined_pipeline_metrics.csv
+b86d_spatial_metrics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_spatial_bin.csv
+b86d_typology_metrics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_metrics_by_typology.csv
+b86d_anchor_diagnostics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_anchor_cell_diagnostics.csv
+b86d_neutral_diagnostics_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_neutral_boundary_diagnostics.csv
+b86d_worst_error_path: outputs/v12_surrogate/b8_6d_two_stage_surrogate/b86d_worst_error_inventory.csv
+b86c_safe_feature_catalog_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_safe_feature_catalog.csv
+b86c_rejected_feature_catalog_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_rejected_feature_catalog.csv
+b86c_feature_group_registry_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_feature_group_registry.csv
+b86c_feature_set_registry_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_feature_set_registry.csv
+b86c_hardened_dataset_path: outputs/v12_surrogate/b8_6c_feature_hardening/b86c_hardened_surrogate_dataset.csv
+f5_pairwise_label_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv
+n150_feature_matrix_path: outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+candidate_universe_path: outputs/v12_systemb_n150_sample_design/n150_candidate_universe.csv
+
+primary_target: delta_tmrt_p90_c
+neutral_threshold_c: 0.05
+spatial_failure_spearman_threshold: 0.40
+spatial_failure_top10_threshold: 0.50
+neutral_false_promotion_warn_threshold: 0.20
+sample_support_low_cell_threshold: 10
+
+selected_workflow:
+  feature_set: full_safe_compact
+  neutral_threshold_c: 0.05
+  classifier: logistic_regression
+  regressor: ridge
+
+anchor_cells:
+  - TP_0037
+  - TP_0141
+  - TP_0433
+  - TP_0542
+  - TP_0857
+known_neutral_cells:
+  - TP_0115
+  - TP_0301
+  - TP_0326
+  - TP_0366
+  - TP_0492
+  - TP_0565
+  - TP_0676
+  - TP_0960
+  - TP_0986
+known_unstable_cells:
+  - TP_0059
+  - TP_0098
+  - TP_0154
+  - TP_0326
+  - TP_0409
+  - TP_0575
+  - TP_0773
+
+no_raster_io: true
+no_qgis_solweig: true
+no_aoi_prediction: true
+no_b9: true
+guardrails:
+  no_raster_io: true
+  no_qgis_solweig: true
+  no_aoi_prediction: true
+  no_b9: true
+  no_local_wbgt: true
+  no_hazard_score: true
+  no_risk_score: true
+  no_system_a_b_coupling: true
+  no_tmrt_to_wbgt_conversion: true
+  no_observed_truth_claim: true
+  no_causal_feature_importance_claim: true
+
+validation:
+  split_families:
+    - spatial_holdout
+    - typology_holdout
+    - cell_group_holdout
+  cell_group_folds: 5
+  typology_min_test_cells: 5
+  typology_min_train_cells: 30
+  coordinate_bins: 4
+
+feature_contract:
+  allowed_categorical_features:
+    - typology_label
+    - cu__typology_label
+    - cu__land_use_hint
+    - b86e__centroid_x_qbin
+    - b86e__centroid_y_qbin
+  coordinate_diagnostic_columns:
+    - centroid_x
+    - centroid_y
+    - centroid_x_normalized
+    - centroid_y_normalized
+    - b86e__centroid_x_qbin
+    - b86e__centroid_y_qbin
+  forbidden_predictor_columns:
+    - cell_id
+    - forcing_day_id
+    - row_id
+    - within_slice_rank
+    - rank_direction
+  forbidden_predictor_tokens:
+    - tmrt
+    - delta_tmrt
+    - wbgt
+    - risk
+    - hazard
+    - score
+    - rank
+    - target
+    - output_path
+    - raster
+    - svfs
+    - tif
+    - tiff
+    - observed
+    - observation
+    - system_a
+    - wbgt_a
+    - source
+    - path
+    - status
+    - notes
+    - vulnerability
+    - exposure
+    - elderly
+    - children
+    - demographic
+    - bus_stop
+    - mrt
+    - sport
+    - hawker
+    - eldercare
+    - preschool
+    - node
+    - population
+
+engineered_features:
+  coordinate_bins: 4
+  epsilon: 0.000001
+  physical_interactions:
+    b86e__overhead_x_svf:
+      - overhead_fraction
+      - svf_or_open_sky
+    b86e__overhead_x_shade:
+      - overhead_fraction
+      - shade_fraction
+    b86e__shade_x_hour:
+      - shade_fraction
+      - hour_sgt
+    b86e__svf_x_hour:
+      - svf_or_open_sky
+      - hour_sgt
+    b86e__building_density_x_svf:
+      - building_density
+      - svf_or_open_sky
+    b86e__tree_x_shade:
+      - tree_or_gvi_fraction
+      - shade_fraction
+    b86e__hardscape_x_low_shade:
+      - road_or_hardscape_fraction
+      - shade_fraction
+
+targeted_sampling:
+  max_additional_cells: 150
+  problem_typology_tokens:
+    - transport
+    - park
+    - residential
+    - hdb
+    - overhead
+    - water
+  sparse_distance_percentile: 0.90
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_6e_spatial_feature_closure
+  input_inventory: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_input_inventory.csv
+  failure_joined_dataset: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_failure_joined_dataset.csv
+  spatial_holdout_failure_summary: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_spatial_holdout_failure_summary.csv
+  spatial_bin_failure_inventory: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_spatial_bin_failure_inventory.csv
+  typology_spatial_cross_failure: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_typology_spatial_cross_failure.csv
+  worst_cell_error_context: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_worst_cell_error_context.csv
+  anchor_underprediction_context: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_anchor_underprediction_context.csv
+  neutral_false_promotion_context: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_neutral_false_promotion_context.csv
+  feature_distribution_shift: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_feature_distribution_shift.csv
+  feature_coverage_matrix: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_feature_coverage_matrix.csv
+  feature_gap_register: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_feature_gap_register.csv
+  domain_distance_metrics: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_domain_distance_metrics.csv
+  safe_engineered_feature_catalog: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_safe_engineered_feature_catalog.csv
+  safe_engineered_feature_dataset: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_safe_engineered_feature_dataset.csv
+  spatial_closure_probe_metrics: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_spatial_closure_probe_metrics.csv
+  targeted_n300_candidate_design: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_targeted_n300_candidate_design.csv
+  targeted_n300_rationale: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_targeted_n300_rationale.md
+  b86f_recommendation: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_b86f_recommendation.md
+  aoi_preflight_prerequisites: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_aoi_preflight_prerequisites.md
+  decision_matrix: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_decision_matrix.csv
+  report: outputs/v12_surrogate/b8_6e_spatial_feature_closure/b86e_report.md
+  status: outputs/v12_surrogate/b8_6e_spatial_feature_closure/B8_6E_STATUS.md
+  cn_doc: docs/v12/OpenHeat_SystemB_B8_6e_spatial_feature_closure_CN.md
