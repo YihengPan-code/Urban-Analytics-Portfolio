@@ -1,0 +1,12 @@
+model,target,feature,importance,normalized_abs_importance,method,diagnostic_boundary
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,overhead_fraction,0.08080521012020193,0.19891313586141438,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,building_density,0.07845322381428267,0.1931233981586404,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,shade_fraction,0.055170462436621465,0.13580967952274559,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,road_or_hardscape_fraction,0.04375604893444868,0.10771153114396399,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,svf_or_open_sky,0.04324053653551471,0.10644252648826347,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,tree_or_gvi_fraction,0.03275343733508343,0.0806270897739173,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,building_height_or_canyon_proxy,0.03134065578137826,0.07714933371441789,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,impervious_or_built_fraction,0.01772032851037076,0.043621025268654606,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,hour_sgt,0.015352161052246635,0.03779145543473302,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,grass_fraction,0.005213973918915728,0.012834913750838266,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.
+hist_gradient_boosting_regressor,delta_tmrt_p90_c,water_edge_or_water_fraction,0.002427616117063607,0.005975910882411127,permutation_importance_neg_mae,Non-causal model diagnostic only; does not prove real-world heat-risk drivers.

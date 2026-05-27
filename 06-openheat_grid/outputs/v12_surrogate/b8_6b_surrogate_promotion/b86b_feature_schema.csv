@@ -1,0 +1,42 @@
+column_name,role,include_in_model,dtype,non_null_count,missing_fraction,leakage_guard_status,notes
+row_id,id_or_group_metadata,False,object,1500,0.0,PASS_EXCLUDED,Group identifier only; never a numeric predictor.
+cell_id,id_or_group_metadata,False,object,1500,0.0,PASS_EXCLUDED,Group identifier only; never a numeric predictor.
+forcing_day_id,forcing_day_metadata,False,object,1500,0.0,PASS_EXCLUDED,Allowed for diagnostics only; excluded from primary evidence models including forcing-day holdout.
+hour_sgt,predictor,True,int64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+scenario_context,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+base_tmrt_p90_c,target_or_forbidden_leakage,False,float64,1500,0.0,PASS_EXCLUDED,"Target-derived, rank, or forbidden claim-boundary column; excluded from predictors."
+overhead_tmrt_p90_c,target_or_forbidden_leakage,False,float64,1500,0.0,PASS_EXCLUDED,"Target-derived, rank, or forbidden claim-boundary column; excluded from predictors."
+delta_tmrt_mean_c,target_or_forbidden_leakage,False,float64,1500,0.0,PASS_EXCLUDED,"Target-derived, rank, or forbidden claim-boundary column; excluded from predictors."
+delta_tmrt_p50_c,target_or_forbidden_leakage,False,float64,1500,0.0,PASS_EXCLUDED,"Target-derived, rank, or forbidden claim-boundary column; excluded from predictors."
+delta_tmrt_p90_c,target_or_forbidden_leakage,False,float64,1500,0.0,PASS_EXCLUDED,"Target-derived, rank, or forbidden claim-boundary column; excluded from predictors."
+delta_tmrt_p95_c,target_or_forbidden_leakage,False,float64,1500,0.0,PASS_EXCLUDED,"Target-derived, rank, or forbidden claim-boundary column; excluded from predictors."
+within_slice_rank,target_or_forbidden_leakage,False,int64,1500,0.0,PASS_EXCLUDED,"Target-derived, rank, or forbidden claim-boundary column; excluded from predictors."
+rank_direction,target_or_forbidden_leakage,False,object,1500,0.0,PASS_EXCLUDED,"Target-derived, rank, or forbidden claim-boundary column; excluded from predictors."
+label_source,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+legacy_single_forcing_comparison_source,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+b86b_label_source,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+target_definition,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+notes,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+typology_label,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+primary_role,metadata,False,object,240,0.84,PASS_EXCLUDED,Traceability or split metadata only.
+secondary_roles,metadata,False,object,210,0.86,PASS_EXCLUDED,Traceability or split metadata only.
+in_n24_completed,metadata,False,bool,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+source_feature_completeness,metadata,False,float64,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+sampling_feature_completeness,metadata,False,float64,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+centroid_x,spatial_split_metadata,False,float64,1500,0.0,PASS_EXCLUDED,"Used for spatial holdout construction only, not a predictor."
+centroid_y,spatial_split_metadata,False,float64,1500,0.0,PASS_EXCLUDED,"Used for spatial holdout construction only, not a predictor."
+centroid_x_normalized,spatial_split_metadata,False,float64,1500,0.0,PASS_EXCLUDED,"Used for spatial holdout construction only, not a predictor."
+centroid_y_normalized,spatial_split_metadata,False,float64,1500,0.0,PASS_EXCLUDED,"Used for spatial holdout construction only, not a predictor."
+svf_or_open_sky,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+shade_fraction,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+building_density,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+building_height_or_canyon_proxy,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+road_or_hardscape_fraction,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+tree_or_gvi_fraction,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+grass_fraction,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+water_edge_or_water_fraction,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+overhead_fraction,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+impervious_or_built_fraction,predictor,True,float64,1500,0.0,PASS,Compact non-target predictor; hour_sgt is included only in hour-aware models and tested by hour holdout.
+feature_source,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+forcing_day_predictor_status,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
+cell_id_predictor_status,metadata,False,object,1500,0.0,PASS_EXCLUDED,Traceability or split metadata only.
