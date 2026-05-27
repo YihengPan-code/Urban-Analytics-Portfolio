@@ -1,0 +1,144 @@
+package_version: systemb_b85_f3c_n24_full_execution_v0_1
+lane: B8.5-F3c
+branch: codex/b85-f3c-n24-full-execution
+generated_date: 2026-05-27
+
+scope:
+  n24_full_execution_package_only: true
+  qgis_executed_by_codex: false
+  solweig_executed_by_codex: false
+  create_rasters: false
+  copy_rasters: false
+  move_rasters: false
+  open_rasters_in_preparation: false
+  copy_svf_zip: false
+  open_svf_zip: false
+  create_aoi_predictions: false
+  create_local_wbgt: false
+  create_hazard_score: false
+  create_risk_score: false
+  create_system_ab_coupling: false
+  tmrt_to_wbgt_conversion: false
+  n150_or_full_aoi: false
+  stage_changes: false
+  commit_changes: false
+
+source_run_matrix_path: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv
+f2d_readiness_path: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_run_readiness.csv
+expected_cell_count: 24
+expected_run_count: 480
+forcing_days:
+  - FD01_high_shortwave_hot_20260507
+  - FD02_humid_hot_cloudy_or_diffuse_20260508
+hours_sgt:
+  - 10
+  - 12
+  - 13
+  - 15
+  - 16
+scenarios:
+  - base
+  - overhead_as_canopy
+local_runner_copy_root: C:/OpenHeat-local/solweig/b85_f3c_n24
+local_run_log_path: C:/OpenHeat-local/solweig/b85_f3c_n24/run_logs/b85_f3c_n24_qgis_run_log.csv
+local_solweig_output_root: C:/OpenHeat-local/solweig/b85_f1_tiles
+expected_output_group_prefix: b85_f3c_n24
+execute_qgis_or_solweig: false
+repo_runner_dry_run: true
+write_raster_outputs_from_python: false
+qa_read_raster_content_after_manual_execution: true
+thresholds_c:
+  - 35
+  - 40
+  - 45
+  - 50
+  - 55
+  - 60
+plausible_tmrt_min_c: 15
+plausible_tmrt_max_c: 85
+
+resume:
+  skip_successful_run_log_rows: true
+  skip_existing_valid_outputs: true
+
+fail_safe:
+  max_failures: 5
+  max_consecutive_failures: 3
+  stop_on_manifest_mismatch: true
+
+timing:
+  use_perf_counter_seconds: true
+  log_duration_seconds: true
+
+inputs:
+  active_dev_board: docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-26.md
+  f2d_status: outputs/v12_surrogate/b8_5_f2d_readiness_final/B8_5_F2D_STATUS.md
+  f2d_run_readiness: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_run_readiness.csv
+  f0_run_matrix: outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv
+  f3b_status: outputs/v12_surrogate/b8_5_f3b_onecell/B8_5_F3B_STATUS.md
+  f3b_report: outputs/v12_surrogate/b8_5_f3b_onecell/b85_f3b_onecell_report.md
+  f3b_runner: scripts/qgis/v12_b85_f3b_onecell_qgis_runner.py
+  qgis_manual_check_path: C:/OpenHeat-local/solweig/qgis_checks/b85_solweig_algorithm_check.txt
+
+asset_templates:
+  geometry_raster_svf_root: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/solweig/v12_n24_tiles
+  focus_geojson_name: focus_cell.geojson
+  dsm_buildings_name: dsm_buildings_tile.tif
+  dem_name: dsm_dem_flat_tile.tif
+  vegetation_base_name: dsm_vegetation_tile_base.tif
+  vegetation_overhead_name: dsm_vegetation_tile_overhead_as_canopy.tif
+  wall_height_name: wall_height.tif
+  wall_aspect_name: wall_aspect.tif
+  svf_base_zip: svf_base/svfs.zip
+  svf_overhead_zip: svf_overhead_as_canopy/svfs.zip
+
+met_forcing_templates:
+  FD01_high_shortwave_hot_20260507: data/solweig/v09_met_forcing_2026_05_07_S128_h{hour:02d}.txt
+  FD02_humid_hot_cloudy_or_diffuse_20260508: C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h{hour:02d}.txt
+
+qgis_execution:
+  runner_script: scripts/qgis/v12_b85_f3c_n24_qgis_runner.py
+  dry_run_default: true
+  qgis_algorithm_id_hint: "umep:Outdoor Thermal Comfort: SOLWEIG"
+  do_not_run_n150: true
+  do_not_run_full_aoi: true
+  do_not_change_scientific_target: true
+  do_not_commit_rasters: true
+  n24_480_only: true
+  require_local_copy_for_real_execution: true
+  manifest_from_config: true
+
+solweig_parameters:
+  INPUTMET_key: INPUTMET
+  LEAF_START: 1
+  LEAF_END: 366
+  UTC: 8
+  TRANS_VEG: 3
+  INPUT_THEIGHT: 25.0
+  OUTPUT_TMRT: true
+  OUTPUT_KDOWN: false
+  OUTPUT_KUP: false
+  OUTPUT_LDOWN: false
+  OUTPUT_LUP: false
+  OUTPUT_SH: false
+  OUTPUT_TREEPLANTER: false
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_5_f3c_n24
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B8_5_F3c_N24_full_execution_CN.md
+  manifest: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_n24_manifest.csv
+  pre_execution_asset_check: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_pre_execution_asset_check.csv
+  expected_run_log_schema: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_expected_run_log_schema.csv
+  manual_qgis_run_instructions: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_manual_qgis_run_instructions.md
+  postrun_validation: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_postrun_validation.csv
+  raster_inventory: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_raster_inventory.csv
+  raster_stats: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_raster_stats.csv
+  cell_hour_summary: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_cell_hour_summary.csv
+  pairwise_delta_by_cell_hour: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_pairwise_delta_by_cell_hour.csv
+  forcing_day_contrast_by_cell_hour: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_forcing_day_contrast_by_cell_hour.csv
+  alignment_qa: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_alignment_qa.csv
+  sanity_checks: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_sanity_checks.csv
+  stability_summary: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_stability_summary.csv
+  unstable_cell_inventory: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_unstable_cell_inventory.csv
+  n24_report: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_n24_report.md
+  status: outputs/v12_surrogate/b8_5_f3c_n24/B8_5_F3C_STATUS.md

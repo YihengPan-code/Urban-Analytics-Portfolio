@@ -1,0 +1,17 @@
+column_name,dtype,required,allowed_values_or_format,description
+run_id,string,yes,unique 480-row F3c manifest run_id,Primary N24 run key.
+cell_id,string,yes,TP_####,N24 cell identifier.
+forcing_day_id,string,yes,FD01_high_shortwave_hot_20260507|FD02_humid_hot_cloudy_or_diffuse_20260508,Forcing day key.
+date,date,yes,YYYY-MM-DD,Forcing day date in Singapore local time.
+hour_sgt,integer,yes,10|12|13|15|16,Execution hour in Singapore Standard Time.
+scenario,string,yes,base|overhead_as_canopy,SOLWEIG scenario.
+started_at,datetime,yes,ISO-8601 local timestamp,Manual QGIS attempt start time.
+completed_at,datetime,yes,ISO-8601 local timestamp,Manual QGIS attempt completion time.
+duration_seconds,float,yes,perf_counter elapsed seconds,Wall duration measured by time.perf_counter.
+status,string,yes,success|skipped_success_existing_output|failed|blocked|dry_run,Manual execution or resume status.
+error_message,string,no,free text,Error details when status is failed or blocked.
+qgis_algorithm_id,string,yes,QGIS processing algorithm id,QGIS/SOLWEIG algorithm used by the local-only runner.
+expected_output_dir,string,yes,C:/OpenHeat-local/solweig/b85_f1_tiles/...,Local-only SOLWEIG output directory.
+expected_tmrt_path,string,yes,.../Tmrt_average.tif,Expected Tmrt raster path for existence/size validation.
+expected_output_paths,string,yes,semicolon-separated local-only paths,Expected output paths recorded by the runner.
+notes,string,no,free text,Manual-review comments and resume notes.

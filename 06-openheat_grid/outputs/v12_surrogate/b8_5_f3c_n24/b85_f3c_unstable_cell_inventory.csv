@@ -1,0 +1,18 @@
+cell_id,hour_sgt,instability_reason,severity,details
+TP_0037,10,top_k_disagreement,REVIEW,FD01_rank=5; FD02_rank=7; rank_drift=2; FD01_delta=-0.439489; FD02_delta=-0.123895
+TP_0059,10,high_rank_drift;top_k_disagreement,REVIEW,FD01_rank=11; FD02_rank=5; rank_drift=6; FD01_delta=-0.207947; FD02_delta=-0.139517
+TP_0098,10,high_rank_drift;sign_flip,HIGH,FD01_rank=9; FD02_rank=23; rank_drift=14; FD01_delta=-0.288849; FD02_delta=0.009154
+TP_0141,10,top_k_disagreement,REVIEW,FD01_rank=3; FD02_rank=6; rank_drift=3; FD01_delta=-0.784488; FD02_delta=-0.130893
+TP_0326,10,sign_flip,HIGH,FD01_rank=20; FD02_rank=22; rank_drift=2; FD01_delta=0.000000; FD02_delta=0.002966
+TP_0409,10,high_rank_drift;sign_flip,HIGH,FD01_rank=8; FD02_rank=24; rank_drift=16; FD01_delta=-0.318773; FD02_delta=0.010121
+TP_0433,10,high_rank_drift;top_k_disagreement,REVIEW,FD01_rank=2; FD02_rank=10; rank_drift=8; FD01_delta=-0.792708; FD02_delta=-0.074098
+TP_0575,10,top_k_disagreement,REVIEW,FD01_rank=7; FD02_rank=4; rank_drift=3; FD01_delta=-0.407164; FD02_delta=-0.228634
+TP_0773,10,top_k_disagreement,REVIEW,FD01_rank=6; FD02_rank=2; rank_drift=4; FD01_delta=-0.413436; FD02_delta=-0.282356
+TP_0037,12,top_k_disagreement,REVIEW,FD01_rank=10; FD02_rank=5; rank_drift=5; FD01_delta=-0.148167; FD02_delta=-0.530968
+TP_0154,12,high_rank_drift,REVIEW,FD01_rank=6; FD02_rank=13; rank_drift=7; FD01_delta=-0.268623; FD02_delta=-0.216909
+TP_0409,12,top_k_disagreement,REVIEW,FD01_rank=4; FD02_rank=9; rank_drift=5; FD01_delta=-0.456961; FD02_delta=-0.286667
+TP_0575,12,high_rank_drift,REVIEW,FD01_rank=13; FD02_rank=7; rank_drift=6; FD01_delta=-0.106363; FD02_delta=-0.476241
+TP_0037,13,top_k_disagreement,REVIEW,FD01_rank=7; FD02_rank=5; rank_drift=2; FD01_delta=-0.353196; FD02_delta=-0.507198
+TP_0409,13,top_k_disagreement,REVIEW,FD01_rank=5; FD02_rank=8; rank_drift=3; FD01_delta=-0.407042; FD02_delta=-0.418423
+TP_0037,15,top_k_disagreement,REVIEW,FD01_rank=6; FD02_rank=5; rank_drift=1; FD01_delta=-0.470666; FD02_delta=-0.469160
+TP_0409,15,high_rank_drift;top_k_disagreement,REVIEW,FD01_rank=4; FD02_rank=12; rank_drift=8; FD01_delta=-0.543750; FD02_delta=-0.189654

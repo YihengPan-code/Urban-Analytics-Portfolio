@@ -1,0 +1,151 @@
+check_name,status,value,details
+all_480_rasters_opened,PASS,480/480,All expected local Tmrt rasters must open for content QA.
+TP_0037:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0037:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0037:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0037:same_transform,PASS,"(29300.0, 2.0, 0.0, 34500.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0037:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0037:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0059:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0059:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0059:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0059:same_transform,PASS,"(28600.0, 2.0, 0.0, 34600.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0059:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0059:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0088:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0088:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0088:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0088:same_transform,PASS,"(28600.0, 2.0, 0.0, 34700.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0088:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0088:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0098:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0098:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0098:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0098:same_transform,PASS,"(29600.0, 2.0, 0.0, 34700.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0098:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0098:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0115:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0115:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0115:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0115:same_transform,PASS,"(31300.0, 2.0, 0.0, 34700.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0115:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0115:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0141:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0141:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0141:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0141:same_transform,PASS,"(31000.0, 2.0, 0.0, 34800.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0141:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0141:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0154:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0154:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0154:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0154:same_transform,PASS,"(29400.0, 2.0, 0.0, 34900.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0154:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0154:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0254:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0254:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0254:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0254:same_transform,PASS,"(30700.0, 2.0, 0.0, 35200.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0254:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0254:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0301:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0301:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0301:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0301:same_transform,PASS,"(29600.0, 2.0, 0.0, 35400.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0301:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0301:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0326:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0326:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0326:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0326:same_transform,PASS,"(29200.0, 2.0, 0.0, 35500.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0326:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0326:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0366:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0366:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0366:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0366:same_transform,PASS,"(30300.0, 2.0, 0.0, 35600.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0366:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0366:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0409:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0409:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0409:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0409:same_transform,PASS,"(28800.0, 2.0, 0.0, 35800.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0409:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0409:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0433:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0433:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0433:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0433:same_transform,PASS,"(31200.0, 2.0, 0.0, 35800.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0433:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0433:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0492:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0492:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0492:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0492:same_transform,PASS,"(31300.0, 2.0, 0.0, 36000.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0492:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0492:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0542:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0542:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0542:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0542:same_transform,PASS,"(30500.0, 2.0, 0.0, 36200.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0542:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0542:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0565:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0565:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0565:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0565:same_transform,PASS,"(29900.0, 2.0, 0.0, 36300.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0565:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0565:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0575:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0575:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0575:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0575:same_transform,PASS,"(30900.0, 2.0, 0.0, 36300.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0575:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0575:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0627:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0627:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0627:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0627:same_transform,PASS,"(30300.0, 2.0, 0.0, 36500.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0627:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0627:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0676:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0676:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0676:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0676:same_transform,PASS,"(29400.0, 2.0, 0.0, 36700.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0676:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0676:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0773:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0773:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0773:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0773:same_transform,PASS,"(30400.0, 2.0, 0.0, 37000.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0773:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0773:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0835:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0835:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0835:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0835:same_transform,PASS,"(30800.0, 2.0, 0.0, 37200.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0835:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0835:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0857:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0857:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0857:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0857:same_transform,PASS,"(30100.0, 2.0, 0.0, 37300.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0857:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0857:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0960:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0960:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0960:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0960:same_transform,PASS,"(28800.0, 2.0, 0.0, 37700.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0960:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0960:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+TP_0986:opened_raster_count,PASS,20/20,Each N24 cell must have 20 rasters.
+TP_0986:same_crs,PASS,EPSG:3414,Rasters within each cell must share crs.
+TP_0986:same_shape,PASS,150x150,Rasters within each cell must share shape.
+TP_0986:same_transform,PASS,"(31400.0, 2.0, 0.0, 37700.0, 0.0, -2.0)",Rasters within each cell must share transform.
+TP_0986:same_nodata,PASS,-9999.0,Rasters within each cell must share nodata.
+TP_0986:same_dtype,PASS,float32,Rasters within each cell must share dtype.
+all_cells_same_crs,PASS,EPSG:3414,"Across cells, crs should match."
+all_cells_same_dtype,PASS,float32,"Across cells, dtype should match."
+all_cells_transform_may_differ,PASS,24 distinct transforms,"Across cells, transform may differ; within-cell transform identity is checked separately."
+output_path_outside_git_worktree,PASS,C:/OpenHeat-local/solweig/b85_f1_tiles,Expected output paths must remain local-only and outside Git.
+no_raster_output_written_by_qa,PASS,no,QA writes no raster/image/array outputs.
