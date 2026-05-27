@@ -1,0 +1,2 @@
+feature_a,feature_b,spearman_r,abs_spearman,n_pairwise_non_null,screening_threshold_abs_spearman,status,notes
+,,,,0,0.8,NO_NUMERIC_FEATURE_PAIRS,Screening only; no modelling performed. Fewer than two numeric feature columns have at least 10 non-null stations.

@@ -1,0 +1,87 @@
+{
+  "lane": "A-L2.1a",
+  "description": "System A station-local buffer context feature builder for 27 NEA WBGT stations.",
+  "station_sources": {
+    "v09_station_pairs": "data/calibration/v09_wbgt_station_pairs.csv",
+    "station_grid_mapping": "outputs/v11_level1/pairing_audit/station_grid_mapping.csv",
+    "l2_preflight_inventory": "outputs/v11_systema_l2_residual/identifiability_preflight/station_context_input_inventory.csv",
+    "data_stations_dir": "data/stations"
+  },
+  "spatial_discovery": {
+    "roots": [
+      "data/features",
+      "data/features_3d",
+      "data/grid",
+      "data/raw",
+      "data/sample",
+      "data/rasters"
+    ],
+    "exclude_path_parts": [
+      "data/archive",
+      "data/solweig",
+      "data/raw/buildings_v10"
+    ],
+    "inventory_extensions": [
+      ".csv",
+      ".geojson",
+      ".gpkg",
+      ".shp",
+      ".tif",
+      ".tiff"
+    ],
+    "max_geojson_inventory_bytes": 25000000
+  },
+  "crs": {
+    "station_source_epsg": 4326,
+    "metric_buffer_epsg": 3414
+  },
+  "buffers_m": [
+    50,
+    100,
+    250,
+    500
+  ],
+  "analysis": {
+    "expected_station_count": 27,
+    "min_non_null_for_correlation": 10,
+    "spearman_abs_threshold": 0.8,
+    "high_missing_thresholds": [
+      0.2,
+      0.5,
+      0.8
+    ],
+    "forbidden_feature_tokens": [
+      "station_id",
+      "official_wbgt",
+      "wbgt",
+      "residual",
+      "obs_ge31",
+      "obs_ge33",
+      "tmrt",
+      "solweig",
+      "systemb",
+      "hazard_score",
+      "risk_score"
+    ],
+    "singapore_lat_bounds": [
+      1.15,
+      1.50
+    ],
+    "singapore_lon_bounds": [
+      103.55,
+      104.10
+    ]
+  },
+  "outputs": {
+    "output_dir": "outputs/v11_systema_l2_residual/station_buffer_features",
+    "source_inventory": "station_context_source_inventory.csv",
+    "feature_long": "station_buffer_feature_long.csv",
+    "feature_wide": "station_buffer_feature_wide.csv",
+    "feature_schema": "station_buffer_feature_schema.csv",
+    "feature_qa": "station_buffer_feature_qa.csv",
+    "feature_missingness": "station_buffer_feature_missingness.csv",
+    "feature_collinearity": "station_buffer_feature_collinearity_screen.csv",
+    "builder_report": "station_buffer_feature_builder_report.md",
+    "status": "A_L2_1A_STATUS.md"
+  }
+}
