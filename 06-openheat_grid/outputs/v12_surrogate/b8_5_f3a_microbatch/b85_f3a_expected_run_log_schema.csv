@@ -1,0 +1,15 @@
+column_name,dtype,required,allowed_values_or_format,description
+run_id,string,yes,unique F3a manifest run_id,Primary micro-batch run key.
+cell_id,string,yes,TP_####,Focus cell identifier.
+forcing_day_id,string,yes,FD01_high_shortwave_hot_20260507|FD02_humid_hot_cloudy_or_diffuse_20260508,Selected forcing day key.
+date,date,yes,YYYY-MM-DD,Forcing day date in Singapore local time.
+hour_sgt,integer,yes,13,Execution hour in Singapore Standard Time.
+scenario,string,yes,base|overhead_as_canopy,SOLWEIG scenario.
+started_at,datetime,yes,ISO-8601 local timestamp,Manual QGIS attempt start time.
+completed_at,datetime,yes,ISO-8601 local timestamp,Manual QGIS attempt completion time.
+status,string,yes,dry_run|success|failed|skipped|blocked,Manual execution status; repo-tracked runner defaults to dry_run.
+error_message,string,no,free text,Error details only when status is failed or blocked.
+expected_output_dir,string,yes,C:/OpenHeat-local/solweig/b85_f1_tiles/...,Local-only SOLWEIG output directory; never Git-tracked.
+expected_tmrt_path,string,yes,C:/OpenHeat-local/solweig/b85_f1_tiles/.../Tmrt_average.tif,Expected Tmrt raster path for existence/size validation only.
+expected_output_paths,string,yes,semicolon-separated local-only paths,Expected output paths recorded by the QGIS runner.
+notes,string,no,free text,Manual-review comments.

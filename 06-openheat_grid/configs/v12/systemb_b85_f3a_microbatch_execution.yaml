@@ -1,0 +1,99 @@
+microbatch_execution_version: systemb_b85_f3a_microbatch_execution_v0_1
+lane: B8.5-F3a
+branch: codex/b85-f3a-microbatch-execution
+generated_date: 2026-05-27
+
+scope:
+  microbatch_execution_package_only: true
+  qgis_executed_by_codex: false
+  solweig_executed_by_codex: false
+  create_rasters: false
+  copy_rasters: false
+  open_rasters: false
+  copy_svf_zip: false
+  open_svf_zip: false
+  create_aoi_predictions: false
+  create_local_wbgt: false
+  create_hazard_score: false
+  create_risk_score: false
+  create_system_ab_coupling: false
+  stage_changes: false
+  commit_changes: false
+  dry_run_default_for_repo_runner: true
+
+microbatch:
+  preferred_cell_id: TP_0037
+  fallback_rule: first_ready_cell_from_f2d_if_preferred_missing
+  forcing_days:
+    - FD01_high_shortwave_hot_20260507
+    - FD02_humid_hot_cloudy_or_diffuse_20260508
+  hour_sgt: 13
+  scenarios:
+    - base
+    - overhead_as_canopy
+  expected_run_count: 4
+  local_run_log_root: C:/OpenHeat-local/solweig/b85_f3a_microbatch/run_logs
+  local_run_log_path: C:/OpenHeat-local/solweig/b85_f3a_microbatch/run_logs/b85_f3a_microbatch_qgis_run_log.csv
+  local_runner_copy_root: C:/OpenHeat-local/solweig/b85_f3a_microbatch
+  local_solweig_output_root: C:/OpenHeat-local/solweig/b85_f1_tiles
+  output_group_prefix: b85_f3a_microbatch
+
+inputs:
+  active_dev_board: docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-26.md
+  f2d_status: outputs/v12_surrogate/b8_5_f2d_readiness_final/B8_5_F2D_STATUS.md
+  f2d_readiness_summary: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_readiness_summary.csv
+  f2d_run_readiness: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_run_readiness.csv
+  f1_qgis_parameter_contract: outputs/v12_surrogate/b8_5_execution_package/b85_f1_qgis_parameter_contract.csv
+  f1_qgis_skeleton: scripts/qgis/v12_b85_qgis_solweig_execution_SKELETON.py
+  qgis_manual_check_path: C:/OpenHeat-local/solweig/qgis_checks/b85_solweig_algorithm_check.txt
+
+asset_templates:
+  geometry_raster_svf_root: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/solweig/v12_n24_tiles
+  focus_geojson_name: focus_cell.geojson
+  dsm_buildings_name: dsm_buildings_tile.tif
+  dem_name: dsm_dem_flat_tile.tif
+  vegetation_base_name: dsm_vegetation_tile_base.tif
+  vegetation_overhead_name: dsm_vegetation_tile_overhead_as_canopy.tif
+  wall_height_name: wall_height.tif
+  wall_aspect_name: wall_aspect.tif
+  svf_base_zip: svf_base/svfs.zip
+  svf_overhead_zip: svf_overhead_as_canopy/svfs.zip
+
+met_forcing_paths:
+  FD01_high_shortwave_hot_20260507: data/solweig/v09_met_forcing_2026_05_07_S128_h13.txt
+  FD02_humid_hot_cloudy_or_diffuse_20260508: C:/OpenHeat-local/solweig/met_forcing/b85_f2c/v09_met_forcing_2026_05_08_S128_h13.txt
+
+qgis_execution:
+  runner_script: scripts/qgis/v12_b85_f3a_microbatch_qgis_runner.py
+  dry_run_default: true
+  qgis_algorithm_id_hint: "umep:Outdoor Thermal Comfort: SOLWEIG"
+  do_not_run_full_480: true
+  do_not_change_scientific_target: true
+  do_not_commit_rasters: true
+  require_local_copy_for_real_execution: true
+  manifest_from_config: true
+
+solweig_parameters:
+  INPUTMET_key: INPUTMET
+  LEAF_START: 1
+  LEAF_END: 366
+  UTC: 8
+  TRANS_VEG: 3
+  INPUT_THEIGHT: 25.0
+  OUTPUT_TMRT: true
+  OUTPUT_KDOWN: false
+  OUTPUT_KUP: false
+  OUTPUT_LDOWN: false
+  OUTPUT_LUP: false
+  OUTPUT_SH: false
+  OUTPUT_TREEPLANTER: false
+
+outputs:
+  out_dir: outputs/v12_surrogate/b8_5_f3a_microbatch
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B8_5_F3a_microbatch_execution_CN.md
+  manifest: outputs/v12_surrogate/b8_5_f3a_microbatch/b85_f3a_microbatch_manifest.csv
+  pre_execution_asset_check: outputs/v12_surrogate/b8_5_f3a_microbatch/b85_f3a_pre_execution_asset_check.csv
+  expected_run_log_schema: outputs/v12_surrogate/b8_5_f3a_microbatch/b85_f3a_expected_run_log_schema.csv
+  manual_qgis_run_instructions: outputs/v12_surrogate/b8_5_f3a_microbatch/b85_f3a_manual_qgis_run_instructions.md
+  postrun_validation: outputs/v12_surrogate/b8_5_f3a_microbatch/b85_f3a_postrun_validation.csv
+  status: outputs/v12_surrogate/b8_5_f3a_microbatch/B8_5_F3A_STATUS.md
