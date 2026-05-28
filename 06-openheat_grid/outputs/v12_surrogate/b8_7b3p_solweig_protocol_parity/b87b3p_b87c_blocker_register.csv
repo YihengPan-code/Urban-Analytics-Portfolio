@@ -1,0 +1,2 @@
+blocker_id,blocker_status,severity,description,required_action,claim_boundary
+none,NO_BLOCKER,none,No final-ML or planned-N300 protocol blocker found by compact evidence audit.,Proceed only with B8.7b.4 protocol_id and parity assertions.,B8.7b.3p protocol/source parity audit only; no QGIS/SOLWEIG; no raster pixel read; no raster write/copy/move; no svfs.zip open; no run-ready manifest/runner; no AOI/B9/WBGT/risk/hazard/exposure/vulnerability/System A-B coupling.

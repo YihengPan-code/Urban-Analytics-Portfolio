@@ -1,0 +1,151 @@
+b87b3p_version: systemb_b87b3p_solweig_protocol_parity_v0_1
+lane: B8.7b.3p
+branch: codex/b87b3p-solweig-protocol-parity-audit
+generated_date: 2026-05-28
+
+scope:
+  protocol_source_parity_audit_only: true
+  qgis_executed_by_codex: false
+  solweig_executed_by_codex: false
+  create_rasters: false
+  copy_rasters: false
+  move_rasters: false
+  write_rasters: false
+  read_raster_pixels: false
+  open_svf_zip: false
+  create_run_ready_manifest: false
+  create_runner: false
+  create_local_runner: false
+  create_aoi_outputs: false
+  create_b9_outputs: false
+  create_wbgt_outputs: false
+  create_risk_outputs: false
+  stage_changes: false
+  commit_changes: false
+
+canonical_planned_protocol_id: B87C_PLANNED_QA_DSM_V08_CDSM_V07_GRID_SCENARIO_SVF_FLATDEM_NOLC_FD01_FD02_H10_12_13_15_16
+final_n150_protocol_id: F5_N150_QA_DSM_V08_CDSM_PER_TILE_SCENARIO_SVF_FLATDEM_NOLC_FD01_FD02_H10_12_13_15_16
+
+canonical_sources:
+  building_dsm_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/rasters/v10/dsm_buildings_2m_augmented_reviewed_heightqa.tif
+  building_dsm_version_status: qa_corrected_final
+  vegetation_cdsm_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/rasters/v08/dsm_vegetation_2m_toapayoh.tif
+  vegetation_cdsm_version_status: likely_final_base_vegetation_dsm
+  grid_geometry_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/grid/toa_payoh_grid_v07_features.geojson
+  base_svf_source_or_generation_method: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/rasters/v10/umep_svf_with_veg/SkyViewFactor.tif full-AOI source only; B87C must materialize per-tile SOLWEIG SVF from base geometry
+  overhead_svf_source_or_generation_method: scenario-specific per-tile SOLWEIG SVF to generate from building DSM plus max(existing vegetation DSM, overhead canopy); must not reuse base SVF
+  overhead_layer_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/features_3d/v10/overhead/overhead_structures_v10.geojson
+  overhead_as_canopy_rule: max(existing vegetation DSM, overhead canopy)
+  dem_mode: flat generated tile convention
+  landcover_mode: INPUT_LC=None; USE_LC_BUILD=false
+  tile_extent_m: 100m focus cell plus buffer
+  tile_buffer_m: 100
+  tile_resolution_m: 2
+  per_cell_asset_layout: TP_xxxx/focus_cell.geojson, dsm_buildings_tile.tif, dsm_dem_flat_tile.tif, dsm_vegetation_tile_base.tif, dsm_vegetation_tile_overhead_as_canopy.tif, wall_height.tif, wall_aspect.tif, svf_base/svfs.zip, svf_overhead_as_canopy/svfs.zip
+  svf_artifact_type: planned scenario-specific per-tile svfs.zip generated from locked full-AOI sources
+  qgis_umep_algorithm_id: "umep:Outdoor Thermal Comfort: SOLWEIG"
+  forcing_day_ids: [FD01_high_shortwave_hot_20260507, FD02_humid_hot_cloudy_or_diffuse_20260508]
+  hours_sgt: [10, 12, 13, 15, 16]
+  scenarios: [base, overhead_as_canopy]
+  output_target_extraction_convention: SOLWEIG Tmrt_average.tif summarized to p90 and paired by cell x forcing_day x hour
+  postrun_label_extraction_convention: overhead_as_canopy minus base compact CSV labels
+  pairwise_delta_formula: delta_tmrt_p90_c = overhead_as_canopy - base
+
+inputs:
+  b87b3_status: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/B8_7B3_STATUS.md
+  b87b3_report: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/b87b3_report.md
+  b87b3_version_lock_decision: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/b87b3_version_lock_decision.csv
+  b87b3_svf_scenario_model: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/b87b3_svf_scenario_model.csv
+  b87b3_canonical_source_set: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/b87b3_canonical_source_set.csv
+  b87b3_overhead_source_inventory: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/b87b3_overhead_source_inventory.csv
+  b87b3_header_metadata: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/b87b3_header_metadata.csv
+  b87b3_grid_source_audit: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/b87b3_grid_source_audit.csv
+  f5_pairwise_label: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv
+  f5_status: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/B8_5_F5_STATUS.md
+  f5_config: configs/v12/systemb_b85_f5_n150_multiforcing.yaml
+  f5_manifest: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_n150_manifest.csv
+  f5_pre_execution_asset_check: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pre_execution_asset_check.csv
+  f5_postrun_validation: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_postrun_validation.csv
+  f5_label_merge_plan: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_label_merge_plan.csv
+  f5_raster_inventory: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_raster_inventory.csv
+  f3a_status: outputs/v12_surrogate/b8_5_f3a_microbatch/B8_5_F3A_STATUS.md
+  f3a_config: configs/v12/systemb_b85_f3a_microbatch_execution.yaml
+  f3a_manifest: outputs/v12_surrogate/b8_5_f3a_microbatch/b85_f3a_microbatch_manifest.csv
+  f3b_status: outputs/v12_surrogate/b8_5_f3b_onecell/B8_5_F3B_STATUS.md
+  f3b_config: configs/v12/systemb_b85_f3b_onecell_fullslice.yaml
+  f3b_manifest: outputs/v12_surrogate/b8_5_f3b_onecell/b85_f3b_onecell_manifest.csv
+  f3c_status: outputs/v12_surrogate/b8_5_f3c_n24/B8_5_F3C_STATUS.md
+  f3c_config: configs/v12/systemb_b85_f3c_n24_full_execution.yaml
+  f3c_manifest: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_n24_manifest.csv
+  f3c_pairwise_label: outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_pairwise_delta_by_cell_hour.csv
+  f4_status: outputs/v12_surrogate/b8_5_f4_n24_decision/B8_5_F4_STATUS.md
+  f2b_asset_remap_table: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_asset_remap_table.csv
+  f2d_asset_status: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_asset_status.csv
+  f1_config: configs/v12/systemb_b85_f1_execution_package.yaml
+  n24_execution_config: configs/v12/v12_solweig_n24_execution_config.example.json
+  n150_execution_config: configs/v12/v12_solweig_n150_execution_config.example.json
+  v12_typology_config: configs/v12/v12_solweig_typology_config.example.json
+  b87b_config: configs/v12/systemb_b87b_n300_execution_precheck.yaml
+  b87b_status: outputs/v12_surrogate/b8_7b_n300_execution_precheck/B8_7B_STATUS.md
+  b87b_report: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_report.md
+  b87b_new_candidate_sample_index: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_new_candidate_sample_index.csv
+  b87b_run_plan_preview: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_run_plan_preview.csv
+  b86g3_n300_design_v4_source_reviewed: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_design_v4_source_reviewed.csv
+  b86b_label_source_inventory: outputs/v12_surrogate/b8_6b_surrogate_promotion/b86b_label_source_inventory.csv
+  b86b_surrogate_dataset: outputs/v12_surrogate/b8_6b_surrogate_promotion/b86b_surrogate_dataset.csv
+  source_recovery_note: docs/v12/v10_SOLWEIG_source_of_truth_recovery_note_CN.md
+  b7_n150_runner: scripts/qgis/v12_b7_n150_run_solweig_new_from_manifest.py
+  b3_n24_runner: scripts/qgis/v12_b3_n24_run_solweig_from_manifest.py
+
+search_roots:
+  - configs/v10
+  - configs/v12
+  - scripts
+  - scripts/qgis
+  - docs/v10
+  - docs/v12
+  - docs/handoff
+  - outputs/v12_surrogate
+  - outputs/v12_systemb
+  - outputs/v10
+  - outputs/v11
+
+search_terms:
+  - v10_epsilon
+  - v10_gamma
+  - B8.5
+  - F1
+  - F2
+  - F2b
+  - F2d
+  - F3
+  - F4
+  - F5
+  - N8
+  - N24
+  - N50
+  - N150
+  - N300
+  - manifest
+  - run_log
+  - pairwise_delta
+  - svfs.zip
+  - svf_base
+  - svf_overhead
+  - overhead_as_canopy
+  - dsm_dem_flat_tile
+  - dsm_buildings
+  - dsm_vegetation
+  - reviewed_heightqa
+  - overhead_structures
+  - INPUT_LC
+  - USE_LC_BUILD
+  - forcing_day
+  - FD02
+  - hour_sgt
+  - scenario
+
+outputs:
+  output_dir: outputs/v12_surrogate/b8_7b3p_solweig_protocol_parity
+  cn_doc_path: docs/v12/OpenHeat_SystemB_B8_7b3p_SOLWEIG_protocol_parity_CN.md
+
