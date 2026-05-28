@@ -1,6 +1,6 @@
 # B8.7b.1 Manual Local Root Instructions
 
-Mode: `AUTO_DISCOVERY_ONLY`
+Mode: `MANUAL_INPUT_FOUND`
 
 Fill a manual local-root CSV only if automatic metadata discovery cannot resolve the local asset roots.
 

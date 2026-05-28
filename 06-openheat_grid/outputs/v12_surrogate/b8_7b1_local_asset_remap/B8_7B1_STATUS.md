@@ -6,14 +6,14 @@ Scope: local asset readiness and path remap only; no QGIS/SOLWEIG and no run-rea
 
 ## Key results
 
-- manual local roots found: `no`
-- roots resolved count: `10`
+- manual local roots found: `yes`
+- roots resolved count: `12`
 - new candidate count: `150`
 - cell_tile_folder resolved count: `0`
 - SVF/DSM/CDSM/DEM/landcover ready counts: `0/0/0/0/0`
 - met forcing readiness: `150/150`
-- output root status: `0/150`
-- missing / ambiguous asset headline: `waiting=1050; missing=0; ambiguous=0`
+- output root status: `150/150`
+- missing / ambiguous asset headline: `waiting=900; missing=0; ambiguous=0`
 - no-raster-touch audit headline: `PASS: no raster read/write/copy/open; no QGIS/SOLWEIG; no manifest/runner`
 - AOI/B9 status: `AOI_PREFLIGHT_BLOCKED / B9_BLOCKED`
 - recommended next lane: `B8.7b.2_local_asset_fix`

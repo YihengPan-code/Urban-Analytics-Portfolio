@@ -12,7 +12,7 @@ B8.7b passed the 150 new-candidate count, 150 existing labelled N150 count, 300 
 
 ## 3. Local root discovery
 
-Manual local roots found: `no`. Roots resolved by metadata: `10`. Required root gaps: `2`.
+Manual local roots found: `yes`. Roots resolved by metadata: `12`. Required root gaps: `0`.
 
 ## 4. Manual local root template status
 
@@ -32,7 +32,7 @@ Ready cells: `0/150`. SVF/DSM/CDSM/DEM/landcover ready counts: `0/0/0/0/0`.
 
 ## 8. Missing / ambiguous asset register
 
-waiting=1050; missing=0; ambiguous=0
+waiting=900; missing=0; ambiguous=0
 
 ## 9. B8.7c prerequisite checklist
 
