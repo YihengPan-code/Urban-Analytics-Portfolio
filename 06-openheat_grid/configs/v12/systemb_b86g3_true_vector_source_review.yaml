@@ -1,0 +1,102 @@
+b86g3_version: systemb_b86g3_true_vector_source_review_v0_1
+lane: B8.6g3_true_vector_source_review_and_B8.7a_closeout
+branch: codex/b86g3-true-vector-source-review
+random_seed: 42
+
+b87a_v3_design_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_n300_design_v3_patched.csv
+b87a_patch_log_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_candidate_patch_log.csv
+b87a_freeze_readiness_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_freeze_readiness_matrix.csv
+b87a_manual_input_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/manual_inputs/b87a_manual_candidate_review.csv
+b87_true_vector_source_inventory_path: outputs/v12_surrogate/b8_7_n300_pre/b87_true_vector_source_inventory.csv
+b87_true_vector_gap_register_path: outputs/v12_surrogate/b8_7_n300_pre/b87_true_vector_source_gap_register.csv
+b86g_source_inventory_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_source_inventory.csv
+b86g_vector_source_readiness_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_vector_source_readiness.csv
+b86g_feature_gap_closure_matrix_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_gap_closure_matrix.csv
+b86g_n150_feature_dataset_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n150_feature_dataset.csv
+n150_feature_matrix_path: outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+candidate_universe_path: outputs/v12_systemb_n150_sample_design/n150_candidate_universe.csv
+
+expected_n300_count: 150
+source_review_cells:
+  - TP_0103
+  - TP_0104
+  - TP_0464
+kept_manual_cells:
+  - TP_0159
+  - TP_0519
+replaced_water_cells:
+  - TP_0830
+  - TP_0858
+  - TP_0943
+
+source_discovery_roots:
+  - data
+  - inputs
+  - outputs
+  - outputs/v12_surrogate
+  - outputs/v10_overhead_qa
+  - outputs/v10_dsm_audit
+  - outputs/v11_level1
+  - configs
+  - docs
+allowed_extensions:
+  - .csv
+  - .csv.gz
+  - .parquet
+  - .geojson
+  - .gpkg
+  - .shp
+  - .json
+  - .md
+forbidden_extensions:
+  - .tif
+  - .tiff
+  - .vrt
+  - .asc
+  - .img
+  - .nc
+  - .grib
+forbidden_roots:
+  - data/solweig
+  - data/rasters
+  - data/archive
+  - data/raw/buildings_v10
+source_inventory_max_metadata_bytes: 30000000
+
+no_raster_io: true
+no_qgis_solweig: true
+no_n300_manifest: true
+no_aoi_prediction: true
+no_b9: true
+no_local_wbgt: true
+no_hazard_score: true
+no_risk_score: true
+no_system_a_b_coupling: true
+no_tmrt_to_wbgt_conversion: true
+no_observed_truth_claim: true
+no_causal_feature_importance_claim: true
+
+output_dir: outputs/v12_surrogate/b8_6g3_true_vector_source_review
+input_inventory_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_input_inventory.csv
+source_inventory_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_source_inventory.csv
+true_vector_source_readiness_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_true_vector_source_readiness.csv
+connected_shade_corridor_review_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_connected_shade_corridor_review.csv
+pedestrian_network_review_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_pedestrian_network_review.csv
+covered_walkway_review_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_covered_walkway_review.csv
+building_canyon_review_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_building_canyon_review.csv
+tree_building_interaction_review_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_tree_building_interaction_review.csv
+overhead_geometry_review_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_overhead_geometry_review.csv
+water_park_edge_review_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_water_park_edge_review.csv
+manual_source_review_closeout_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_manual_source_review_closeout.csv
+n300_design_v4_source_reviewed_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_design_v4_source_reviewed.csv
+n300_v4_diff_vs_b87a_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_v4_diff_vs_b87a.csv
+execution_precheck_readiness_matrix_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_execution_precheck_readiness_matrix.csv
+aoi_b9_blocker_matrix_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_aoi_b9_blocker_matrix.csv
+source_gap_register_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_source_gap_register.csv
+next_lane_decision_matrix_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_next_lane_decision_matrix.csv
+codex_prompt_b87b_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_codex_prompt_B87B_N300_execution_precheck.md
+codex_prompt_b86g4_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_codex_prompt_B86G4_external_vector_acquisition.md
+codex_prompt_b87c_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_codex_prompt_B87C_N300_QGIS_execution_package.md
+report_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_report.md
+status_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/B8_6G3_STATUS.md
+cn_doc_path: docs/v12/OpenHeat_SystemB_B8_6g3_true_vector_source_review_CN.md

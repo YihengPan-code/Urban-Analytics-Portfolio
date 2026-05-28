@@ -1,0 +1,2 @@
+cell_id,change_type,paired_cell_id,diff_note,claim_boundary
+TP_0159|TP_0519|TP_0464|TP_0104|TP_0103,metadata_only_source_review_closeout,,B8.6g3 did not replace rows; it added source-review metadata and caveats to B8.7a v3.,"B8.6g3 true-vector source review and B8.7a closeout only; not B9, not AOI-wide prediction, not local WBGT, not hazard_score or risk_score, not exposure/vulnerability scoring, not observed truth, not causal feature importance, no raster, no QGIS/SOLWEIG, no N300 execution manifest, no Tmrt-to-WBGT conversion, and no System A/B coupling."
