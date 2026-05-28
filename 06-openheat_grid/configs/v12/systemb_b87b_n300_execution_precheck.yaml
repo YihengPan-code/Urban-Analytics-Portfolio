@@ -1,0 +1,64 @@
+b87b_precheck_version: systemb_b87b_n300_execution_precheck_v0_1
+lane: B8.7b
+branch: codex/b87b-n300-execution-precheck
+generated_date: 2026-05-28
+
+b86g3_n300_v4_design_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_design_v4_source_reviewed.csv
+b86g3_execution_precheck_matrix_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_execution_precheck_readiness_matrix.csv
+b86g3_closeout_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_manual_source_review_closeout.csv
+b86g3_aoi_b9_blocker_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_aoi_b9_blocker_matrix.csv
+b86g3_true_vector_source_readiness_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_true_vector_source_readiness.csv
+b86g_n300_feature_dataset_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n300_candidate_feature_dataset.csv
+b86g_feature_schema_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_feature_schema.csv
+n150_feature_matrix_path: outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+n150_selected_cells_path: outputs/v12_systemb_n150_sample_design/n150_selected_cells.csv
+f5_pairwise_label_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv
+f5_manifest_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_n150_manifest.csv
+f5_pre_execution_asset_check_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pre_execution_asset_check.csv
+f5_postrun_validation_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_postrun_validation.csv
+f5_expected_run_log_schema_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_expected_run_log_schema.csv
+f5_status_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/B8_5_F5_STATUS.md
+f2b_asset_remap_table_path: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_asset_remap_table.csv
+f2b_root_candidate_inventory_path: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_root_candidate_inventory.csv
+f2b_run_readiness_after_remap_path: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_run_readiness_after_remap.csv
+f2d_asset_status_path: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_asset_status.csv
+f2d_root_inventory_path: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_root_inventory.csv
+b87a_patched_design_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_n300_design_v3_patched.csv
+b87a_diff_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_n300_design_v3_diff_vs_b87.csv
+b87a_freeze_readiness_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_freeze_readiness_matrix.csv
+b87_design_freeze_candidates_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_design_freeze_candidates.csv
+
+output_dir: outputs/v12_surrogate/b8_7b_n300_execution_precheck
+cn_doc_path: docs/v12/OpenHeat_SystemB_B8_7b_N300_execution_precheck_CN.md
+
+expected_new_candidate_count: 150
+expected_existing_n150_count: 150
+expected_total_n300_count: 300
+expected_forcing_days: 2
+expected_hours_per_day: 5
+expected_scenarios:
+  - base
+  - overhead_as_canopy
+planned_additional_solweig_run_count: 3000
+
+source_review_caveat_cells:
+  - TP_0103
+  - TP_0104
+  - TP_0464
+  - TP_0159
+  - TP_0519
+excluded_water_cells:
+  - TP_0830
+  - TP_0858
+  - TP_0943
+
+local_run_log_candidates:
+  - C:/OpenHeat-local/solweig/b85_f5_n150/run_logs/b85_f5_n150_qgis_run_log.csv
+
+no_raster_io: true
+no_qgis_solweig: true
+no_run_ready_manifest: true
+no_qgis_runner: true
+no_aoi_prediction: true
+no_b9: true
+local_audit_only: true
