@@ -1,0 +1,63 @@
+b87b1_local_asset_remap_version: systemb_b87b1_local_asset_remap_v0_1
+lane: B8.7b.1
+branch: codex/b87b1-local-asset-remap-readiness
+generated_date: 2026-05-28
+
+b87b_new_candidate_sample_index_path: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_new_candidate_sample_index.csv
+b87b_cell_asset_readiness_path: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_cell_asset_readiness.csv
+b87b_local_path_remap_audit_path: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_local_path_remap_audit.csv
+b87b_run_plan_preview_path: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_run_plan_preview.csv
+b87b_pre_manifest_schema_preview_path: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_pre_manifest_schema_preview.csv
+b86g3_n300_v4_design_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_design_v4_source_reviewed.csv
+f5_pairwise_label_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv
+f5_status_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/B8_5_F5_STATUS.md
+f5_pre_execution_asset_check_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pre_execution_asset_check.csv
+f5_manifest_path: outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_n150_manifest.csv
+f2b_root_candidate_inventory_path: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_root_candidate_inventory.csv
+f2b_asset_remap_table_path: outputs/v12_surrogate/b8_5_f2b_asset_recovery/b85_f2b_asset_remap_table.csv
+f2d_root_inventory_path: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_root_inventory.csv
+f2d_asset_status_path: outputs/v12_surrogate/b8_5_f2d_readiness_final/b85_f2d_asset_status.csv
+f2c_generated_met_forcing_manifest_path: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_generated_met_forcing_manifest.csv
+f2c_next_remap_roots_path: outputs/v12_surrogate/b8_5_f2c_met_forcing/b85_f2c_next_remap_roots.yaml
+
+output_dir: outputs/v12_surrogate/b8_7b1_local_asset_remap
+cn_doc_path: docs/v12/OpenHeat_SystemB_B8_7b1_local_asset_remap_CN.md
+manual_local_root_input_path: outputs/v12_surrogate/b8_7b1_local_asset_remap/manual_inputs/b87b1_manual_local_roots.csv
+
+expected_new_candidate_count: 150
+required_asset_kinds:
+  - cell_tile_folder
+  - svf
+  - dsm
+  - cdsm
+  - dem
+  - landcover
+  - met_forcing
+  - qgis_manual_check
+  - output_root
+
+prior_local_root_candidates:
+  - C:/OpenHeat-local/solweig/b85_f1_tiles
+  - C:/OpenHeat-local/solweig/met_forcing/b85_f2c
+  - C:/OpenHeat-local/solweig/qgis_checks
+  - C:/OpenHeat-local/solweig/b85_f5_n150
+  - C:/OpenHeat-local/solweig/b87c_n300
+  - C:/OpenHeat-local/solweig/b87c_n300/assets
+
+local_root_scan_paths:
+  - outputs/v12_surrogate
+  - outputs/v12_systemb_n150_sample_design
+  - outputs/v12_systemb_n24_sample_design
+  - configs/v12
+  - scripts
+  - docs/v12
+  - docs/handoff
+
+no_raster_io: true
+metadata_only: true
+no_qgis_solweig: true
+no_run_ready_manifest: true
+no_qgis_runner: true
+no_aoi_prediction: true
+no_b9: true
+local_asset_readiness_only: true

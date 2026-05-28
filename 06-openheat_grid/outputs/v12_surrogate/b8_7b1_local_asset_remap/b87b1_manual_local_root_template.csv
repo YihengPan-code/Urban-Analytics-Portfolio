@@ -1,0 +1,9 @@
+root_key,local_root_path,required,description,user_status,notes
+b87c_n300_asset_root,C:/OpenHeat-local/solweig/b87c_n300/assets,yes,N300 new-cell asset root containing per-cell tile folders.,unknown,Set to use only after verifying locally by metadata/path listing.
+b87c_n300_output_root,C:/OpenHeat-local/solweig/b87c_n300,yes,Local-only future output root for B8.7c; B8.7b.1 must not create it.,unknown,"Use only as a selected root, not as authorization to run SOLWEIG."
+b85_f1_tiles_root,C:/OpenHeat-local/solweig/b85_f1_tiles,no,Prior B8.5-F1/F5 local output/tile root that may hold reusable references.,unknown,Metadata reference only; do not copy raster outputs into Git.
+b85_f2c_met_forcing_root,C:/OpenHeat-local/solweig/met_forcing/b85_f2c,yes,Prior local-only FD02 met forcing text root reused by F5.,unknown,Check file names and existence only.
+qgis_manual_check_root,C:/OpenHeat-local/solweig/qgis_checks,yes,Manual QGIS/UMEP availability check folder.,unknown,This lane reads metadata only and does not run QGIS.
+prior_f5_run_log_root,C:/OpenHeat-local/solweig/b85_f5_n150,no,Prior F5 local-only run-log root for context.,unknown,Do not commit raw local logs.
+optional_existing_cell_asset_map_csv,,no,Optional compact CSV mapping cell_id to local asset folders.,unknown,"If provided, keep it compact and metadata-only."
+optional_tile_index_csv,,no,Optional compact tile index CSV for per-cell folders.,unknown,Do not include raster contents or large raw exports.
