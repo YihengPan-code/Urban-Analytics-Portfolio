@@ -195,16 +195,18 @@ validation:
   random_split_diagnostic_only: true
 
 prediction_output_policy:
-  save_models:
-    - context_mean
-    - extra_trees
-    - random_forest
-    - hist_gradient_boosting
-  save_feature_sets:
-    - b87e_original_main
-    - pruned_low_missing_low_corr
-    - context_residual_two_stage
-    - old_to_new_robust_pruned
+  save_pairs:
+    - b87e_original_main|context_mean
+    - b87e_original_main|extra_trees
+    - b87e_original_main|hist_gradient_boosting
+    - no_coordinates_no_design_flags|random_forest
+    - context_plus_physical_core|extra_trees
+  holdout_split_families:
+    - old_to_new_generalization
+    - new_to_old_diagnostic
+    - spatial_bin_holdout
+    - typology_holdout
+    - primary_role_holdout
 
 promotion_gate:
   meaningful_group_mae_margin: 0.010

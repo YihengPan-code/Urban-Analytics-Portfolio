@@ -1,0 +1,2 @@
+next_lane,decision,b87f_status,promotion_decision,aoi_preflight_gate,claim_boundary
+B87F2_feature_patch_and_B86g4_true_vector_source_acquisition,RECOMMENDED,B87F_EXTRA_TREES_REMAINS_CANDIDATE_NO_PROMOTION,NO_AOI_PREFLIGHT,BLOCKED_NO_AOI_PREFLIGHT,"Surrogate/emulator of SOLWEIG simulated Tmrt deltas only; not observed truth, not WBGT, not AOI/B9 inference, not hazard or risk mapping, not exposure/vulnerability output, and not causal feature-importance evidence."
