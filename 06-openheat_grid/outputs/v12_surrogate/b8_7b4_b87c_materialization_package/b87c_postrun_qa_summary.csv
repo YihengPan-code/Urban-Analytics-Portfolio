@@ -1,5 +1,5 @@
 qa_item,observed,status,note
 manifest_rows,3000,PASS,
-missing_tmrt_outputs,3000,REVIEW,Expected before SOLWEIG run.
-run_log_status_counts,{},INFO,
+missing_tmrt_outputs,0,PASS,Expected before SOLWEIG run.
+run_log_status_counts,"{""dry_run"": 920, ""skipped_completed"": 20, ""success"": 3300}",INFO,
 git_hygiene,see b87c_git_hygiene_guard.csv,CHECK,Do not copy heavy local assets to Git.

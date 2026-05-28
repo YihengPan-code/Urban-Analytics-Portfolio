@@ -1,6 +1,6 @@
 # B8.7b.4 + B87C Materialization Execution Package Report
 
-Status: `B87B4_DIAGNOSTIC_ONLY`
+Status: `B87B4_MATERIALIZATION_COMPLETE_READY_FOR_B87C_RUN`
 
 ## 1. Why this follows B8.7b.3
 
@@ -14,13 +14,13 @@ dsm=LOCKED; cdsm_base_vegetation=LOCKED; grid_geometry=LOCKED; svf_base_full=LOC
 
 - Candidate cells: `150`
 - Local asset root: `C:/OpenHeat-local/solweig/b87c_n300/assets`
-- Base ready cells: `0`
-- Overhead ready cells: `0`
+- Base ready cells: `150`
+- Overhead ready cells: `150`
 - Current non-ready assets are documented in `b87b4_materialization_blocker_register.csv`.
 
 ## 4. SVF materialization status
 
-SVF/svfs.zip ready cell-scenarios: `0/300`. Base and overhead SVF are scenario-specific. The overhead scenario must not reuse base SVF.
+SVF/svfs.zip ready cell-scenarios: `300/300`. Base and overhead SVF are scenario-specific. The overhead scenario must not reuse base SVF.
 
 ## 5. Manifest status
 
@@ -32,11 +32,11 @@ Local runner inventory rows: `5`. Repo runners default to `RUN_ENABLED=False` an
 
 ## 7. QGIS full-stage execution
 
-Run QGIS materialization first, then rebuild the manifest and localize the refreshed manifest copy. After manifest audit shows no `not_ready` rows, run SOLWEIG stages in order: `smoke`, `pilot_5`, `pilot_20`, `full_150`.
+B87C materialization is now missing-only and per-cell cached. Run QGIS materialization for `remaining` missing assets first, then rebuild the manifest and audit readiness. Shared DSM/DEM/CDSM/wall assets are not regenerated per scenario; base and overhead SVF remain scenario-specific. After manifest audit shows no `not_ready` rows, run SOLWEIG stages in order: `smoke`, `pilot_5`, `pilot_20`, `full_150`.
 
 ## 8. Resume/failure plan
 
-Use `resume_key` and `expected_tmrt_path`. The runner skips existing readable Tmrt outputs and writes compact logs under `C:/OpenHeat-local/solweig/b87c_n300/run_logs`.
+Existing partial assets must be preserved. Use `resume_key` and `expected_tmrt_path`. The materialization runner skips existing non-empty local assets unless `overwrite_existing_assets` is explicitly true, and writes compact progress logs under `C:/OpenHeat-local/solweig/b87c_n300/run_logs`.
 
 ## 9. Postrun QA
 

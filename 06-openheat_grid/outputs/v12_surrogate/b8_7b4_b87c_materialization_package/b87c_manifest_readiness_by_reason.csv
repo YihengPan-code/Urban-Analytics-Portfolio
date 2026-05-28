@@ -1,0 +1,2 @@
+not_ready_reason,row_count,claim_boundary
+none,0,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.

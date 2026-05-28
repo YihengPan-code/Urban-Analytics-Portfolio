@@ -27,6 +27,7 @@ import csv
 import importlib.util
 import json
 import math
+import re
 import shutil
 from collections import Counter, defaultdict
 from datetime import date, datetime
@@ -238,6 +239,45 @@ def path_metadata(path: Path) -> dict[str, Any]:
     }
 
 
+def file_ready(path: Path) -> bool:
+    """Return true only for existing non-empty files."""
+    try:
+        return path.exists() and path.is_file() and path.stat().st_size > 0
+    except OSError:
+        return False
+
+
+def file_state(path: Path) -> str:
+    """Classify one expected file without opening raster/SVF payloads."""
+    if not path.exists():
+        return "missing"
+    if file_ready(path):
+        return "ready"
+    return "needs_review"
+
+
+def asset_ready_status(path: Path, missing_status: str) -> str:
+    state = file_state(path)
+    if state == "ready":
+        return "READY"
+    if state == "needs_review":
+        return "NEEDS_REVIEW_NONEMPTY_FILE_REQUIRED"
+    return missing_status
+
+
+def materialization_dry_run(cfg: dict[str, Any]) -> bool:
+    return bool(cfg.get("dry_run", True)) or not bool(cfg.get("run_enabled", False))
+
+
+def overwrite_existing_assets(cfg: dict[str, Any]) -> bool:
+    return bool(cfg.get("overwrite_existing_assets", False))
+
+
+def configured_scenarios(cfg: dict[str, Any]) -> list[str]:
+    scenarios = cfg.get("scenarios") or cfg.get("expected_scenarios") or ["base", "overhead_as_canopy"]
+    return [str(scenario) for scenario in scenarios]
+
+
 def write_input_inventory(cfg: dict[str, Any]) -> list[dict[str, Any]]:
     out = output_dir(cfg)
     path_items = [
@@ -438,7 +478,7 @@ def write_materialization_plan(cfg: dict[str, Any]) -> tuple[list[dict[str, Any]
     for cand in candidate_rows(cfg):
         cell_id = cand["cell_id"]
         paths = asset_paths(cfg, cell_id)
-        for scenario in cfg["expected_scenarios"]:
+        for scenario in configured_scenarios(cfg):
             cdsm = scenario_cdsm_path(paths, scenario)
             svf = scenario_svf_zip(paths, scenario)
             scenario_rows.append(
@@ -554,9 +594,16 @@ def write_focus_cells(cfg: dict[str, Any]) -> list[dict[str, Any]]:
             collection: dict[str, Any] = {"type": "FeatureCollection", "features": [feature]}
             if crs:
                 collection["crs"] = crs
-            paths["focus_cell_geojson"].write_text(json.dumps(collection, ensure_ascii=False, indent=2), encoding="utf-8")
-            status = "CREATED_OR_REFRESHED"
-            note = "focus cell vector copied from locked grid source"
+            if file_ready(paths["focus_cell_geojson"]) and not overwrite_existing_assets(cfg):
+                status = "ALREADY_EXISTS"
+                note = "missing-only mode preserved existing focus cell vector"
+            elif file_state(paths["focus_cell_geojson"]) == "needs_review" and not overwrite_existing_assets(cfg):
+                status = "NEEDS_REVIEW"
+                note = "existing focus cell path is empty or not a file; not overwritten"
+            else:
+                paths["focus_cell_geojson"].write_text(json.dumps(collection, ensure_ascii=False, indent=2), encoding="utf-8")
+                status = "CREATED"
+                note = "focus cell vector copied from locked grid source"
         else:
             status = "MISSING_GRID_FEATURE"
             note = "cell_id not found in locked grid GeoJSON"
@@ -603,16 +650,25 @@ def write_local_forcing_files(cfg: dict[str, Any]) -> list[dict[str, Any]]:
             continue
         record = build_umep_record(weather, slot["date"], hour)
         line = " ".join(format_umep_value(record[col]) for col in UMEP_COLUMNS)
-        out_path.write_text(f"{UMEP_HEADER}\n{line}\n{line}\n", encoding="utf-8")
+        if file_ready(out_path) and not overwrite_existing_assets(cfg):
+            status = "ALREADY_EXISTS"
+            note = "missing-only mode preserved existing local forcing file"
+        elif file_state(out_path) == "needs_review" and not overwrite_existing_assets(cfg):
+            status = "NEEDS_REVIEW"
+            note = "existing forcing path is empty or not a file; not overwritten"
+        else:
+            out_path.write_text(f"{UMEP_HEADER}\n{line}\n{line}\n", encoding="utf-8")
+            status = "CREATED"
+            note = "single-hour two-row UMEP file generated locally from compact forecast CSV"
         rows.append(
             {
                 "forcing_day_id": slot["forcing_day_id"],
                 "date": slot["date"],
                 "hour_sgt": hour,
                 "forcing_path": slash(out_path),
-                "status": "CREATED_OR_REFRESHED",
+                "status": status,
                 "station_id": station,
-                "note": "single-hour two-row UMEP file generated locally from compact forecast CSV",
+                "note": note,
                 "claim_boundary": CLAIM_BOUNDARY,
             }
         )
@@ -679,6 +735,8 @@ def format_umep_value(value: float | int) -> str:
 
 
 def try_python_raster_materialization(cfg: dict[str, Any]) -> list[dict[str, Any]]:
+    if materialization_dry_run(cfg):
+        return []
     if not geospatial_ready():
         return []
     # Optional path for machines with rasterio/geopandas. The current Codex
@@ -749,6 +807,20 @@ def try_python_raster_materialization(cfg: dict[str, Any]) -> list[dict[str, Any
             rows.append({"cell_id": cell_id, "status": "MISSING_GRID_FEATURE", "note": ""})
             continue
         paths = asset_paths(cfg, cell_id)
+        raster_targets = [
+            paths["dsm"],
+            paths["dem"],
+            paths["cdsm_base"],
+            paths["overhead_canopy"],
+            paths["cdsm_overhead"],
+        ]
+        target_states = {path: file_state(path) for path in raster_targets}
+        if all(state == "ready" for state in target_states.values()) and not overwrite_existing_assets(cfg):
+            rows.append({"cell_id": cell_id, "status": "NON_SVF_RASTERS_ALREADY_EXIST", "note": "missing_only_skip"})
+            continue
+        if any(state == "needs_review" for state in target_states.values()) and not overwrite_existing_assets(cfg):
+            rows.append({"cell_id": cell_id, "status": "NON_SVF_RASTERS_NEED_REVIEW", "note": "empty_or_nonfile_target_present"})
+            continue
         focus = match.iloc[[0]].copy()
         tile_geom = focus.geometry.iloc[0].buffer(buffer_m)
         bounds = tile_geom.bounds
@@ -764,16 +836,25 @@ def try_python_raster_materialization(cfg: dict[str, Any]) -> list[dict[str, Any
             if shapes:
                 oh_arr = rasterize(shapes, out_shape=b_arr.shape, transform=transform, fill=0.0, dtype="float32")
         dem = np.zeros_like(b_arr, dtype="float32")
-        write_raster(paths["dsm"], b_arr, transform, crs)
-        write_raster(paths["dem"], dem, transform, crs)
-        write_raster(paths["cdsm_base"], v_arr, transform, crs)
-        write_raster(paths["overhead_canopy"], oh_arr, transform, crs)
-        write_raster(paths["cdsm_overhead"], np.maximum(v_arr, oh_arr), transform, crs)
-        focus.to_file(paths["focus_cell_geojson"], driver="GeoJSON")
-        gpd.GeoDataFrame({"cell_id": [cell_id]}, geometry=[tile_geom], crs=crs).to_file(
-            paths["tile_boundary_buffered_geojson"], driver="GeoJSON"
-        )
-        rows.append({"cell_id": cell_id, "status": "NON_SVF_RASTERS_CREATED", "note": "python_rasterio_path"})
+        raster_payloads = {
+            paths["dsm"]: b_arr,
+            paths["dem"]: dem,
+            paths["cdsm_base"]: v_arr,
+            paths["overhead_canopy"]: oh_arr,
+            paths["cdsm_overhead"]: np.maximum(v_arr, oh_arr),
+        }
+        created = 0
+        for target, payload in raster_payloads.items():
+            if overwrite_existing_assets(cfg) or file_state(target) == "missing":
+                write_raster(target, payload, transform, crs)
+                created += 1
+        if overwrite_existing_assets(cfg) or file_state(paths["focus_cell_geojson"]) == "missing":
+            focus.to_file(paths["focus_cell_geojson"], driver="GeoJSON")
+        if overwrite_existing_assets(cfg) or file_state(paths["tile_boundary_buffered_geojson"]) == "missing":
+            gpd.GeoDataFrame({"cell_id": [cell_id]}, geometry=[tile_geom], crs=crs).to_file(
+                paths["tile_boundary_buffered_geojson"], driver="GeoJSON"
+            )
+        rows.append({"cell_id": cell_id, "status": "NON_SVF_RASTERS_CREATED", "note": f"python_rasterio_missing_only_created={created}"})
     return rows
 
 
@@ -806,7 +887,11 @@ def run_materialization_driver(cfg: dict[str, Any]) -> list[dict[str, Any]]:
     log_rows: list[dict[str, Any]] = []
     focus_rows = write_focus_cells(cfg)
     forcing_rows = write_local_forcing_files(cfg)
-    raster_rows = try_python_raster_materialization(cfg) if cfg.get("allow_local_raster_write", False) else []
+    raster_rows = (
+        try_python_raster_materialization(cfg)
+        if cfg.get("allow_local_raster_write", False) and not materialization_dry_run(cfg)
+        else []
+    )
     raster_created = {row["cell_id"] for row in raster_rows if row.get("status") == "NON_SVF_RASTERS_CREATED"}
     for row in focus_rows:
         log_rows.append(
@@ -844,18 +929,22 @@ def run_materialization_driver(cfg: dict[str, Any]) -> list[dict[str, Any]]:
             ("overhead_canopy_tile", paths["overhead_canopy"]),
             ("cdsm_overhead_as_canopy_tile", paths["cdsm_overhead"]),
         ]:
-            if cell_id in raster_created and path.exists():
+            if cell_id in raster_created and file_ready(path):
                 status = "CREATED_BY_PYTHON_RASTERIO"
                 runtime = "python_rasterio"
                 note = ""
-            elif path.exists():
+            elif file_ready(path):
                 status = "EXISTS_LOCAL"
                 runtime = "audit"
                 note = ""
+            elif file_state(path) == "needs_review":
+                status = "NEEDS_REVIEW_NONEMPTY_FILE_REQUIRED"
+                runtime = "audit"
+                note = "target path exists but is empty or not a file; missing-only mode will not overwrite it"
             else:
                 status = "PENDING_QGIS_RASTER_MATERIALIZATION"
                 runtime = "qgis_runner_required"
-                note = "Codex runtime lacks rasterio/geopandas or raster materialization was not safe here"
+                note = "Codex package run is dry/safe by default; use QGIS materialization for missing rasters"
             log_rows.append(
                 {
                     "cell_id": cell_id,
@@ -878,7 +967,7 @@ def run_materialization_driver(cfg: dict[str, Any]) -> list[dict[str, Any]]:
                     "scenario": scenario,
                     "task_name": "scenario_svf_svfs_zip",
                     "target_path": slash(svf_path),
-                    "status": "READY" if svf_path.exists() else "PENDING_QGIS_SVF_GENERATION",
+                    "status": asset_ready_status(svf_path, "PENDING_QGIS_SVF_GENERATION"),
                     "runtime_used": "qgis_umep_processing",
                     "note": "Do not fabricate svfs.zip from full-AOI SVF",
                     "claim_boundary": CLAIM_BOUNDARY,
@@ -924,7 +1013,7 @@ def asset_inventory_rows(cfg: dict[str, Any]) -> list[dict[str, Any]]:
                     "size_bytes": meta["size_bytes"],
                     "local_only": "true",
                     "repo_side_forbidden": "true" if asset_type in {"raster", "svf_zip"} else "false",
-                    "status": "READY" if meta["exists"] == "true" else missing_asset_status(asset_name),
+                    "status": asset_ready_status(path, missing_asset_status(asset_name)),
                     "claim_boundary": CLAIM_BOUNDARY,
                 }
             )
@@ -946,14 +1035,14 @@ def readiness_rows(cfg: dict[str, Any]) -> list[dict[str, Any]]:
     for cand in candidate_rows(cfg):
         cell_id = cand["cell_id"]
         paths = asset_paths(cfg, cell_id)
-        focus_ready = paths["focus_cell_geojson"].exists()
-        dsm_ready = paths["dsm"].exists()
-        dem_ready = paths["dem"].exists()
-        base_cdsm_ready = paths["cdsm_base"].exists()
-        overhead_cdsm_ready = paths["cdsm_overhead"].exists()
-        wall_ready = paths["wall_height"].exists() and paths["wall_aspect"].exists()
-        base_svf_ready = paths["svf_base_zip"].exists()
-        overhead_svf_ready = paths["svf_overhead_zip"].exists()
+        focus_ready = file_ready(paths["focus_cell_geojson"])
+        dsm_ready = file_ready(paths["dsm"])
+        dem_ready = file_ready(paths["dem"])
+        base_cdsm_ready = file_ready(paths["cdsm_base"])
+        overhead_cdsm_ready = file_ready(paths["cdsm_overhead"])
+        wall_ready = file_ready(paths["wall_height"]) and file_ready(paths["wall_aspect"])
+        base_svf_ready = file_ready(paths["svf_base_zip"])
+        overhead_svf_ready = file_ready(paths["svf_overhead_zip"])
         base_ready = all([focus_ready, dsm_ready, dem_ready, base_cdsm_ready, wall_ready, base_svf_ready])
         overhead_ready = all([focus_ready, dsm_ready, dem_ready, overhead_cdsm_ready, wall_ready, overhead_svf_ready])
         rows.append(
@@ -996,7 +1085,7 @@ def svf_status_rows(cfg: dict[str, Any]) -> list[dict[str, Any]]:
                     "scenario": scenario,
                     "svf_path_or_zip": slash(svf_path),
                     "exists": bool_text(svf_path.exists()),
-                    "status": "READY" if svf_path.exists() else "PENDING_QGIS_SVF_GENERATION",
+                    "status": asset_ready_status(svf_path, "PENDING_QGIS_SVF_GENERATION"),
                     "svf_rule": "scenario_specific; overhead_as_canopy must not reuse base SVF",
                     "claim_boundary": CLAIM_BOUNDARY,
                 }
@@ -1010,7 +1099,7 @@ def blocker_rows(cfg: dict[str, Any]) -> list[dict[str, Any]]:
     missing = [dep for dep, status in deps.items() if status == "missing"]
     readiness = readiness_rows(cfg)
     svf = svf_status_rows(cfg)
-    if missing:
+    if missing and any(row["cell_materialization_status"] == "PENDING_QGIS_RASTER_AND_SVF_MATERIALIZATION" for row in readiness):
         rows.append(
             {
                 "blocker_id": "PYTHON_GEOSPATIAL_DEPS_MISSING",
@@ -1061,12 +1150,76 @@ def blocker_rows(cfg: dict[str, Any]) -> list[dict[str, Any]]:
     return rows
 
 
+def group_readiness_status(paths: list[Path]) -> str:
+    states = [file_state(path) for path in paths]
+    if all(state == "ready" for state in states):
+        return "ready"
+    if any(state == "needs_review" for state in states):
+        return "needs_review"
+    return "missing"
+
+
+def latest_local_progress_counts(cfg: dict[str, Any]) -> dict[str, dict[str, int]]:
+    """Read compact QGIS progress logs when present; missing logs yield zeros."""
+    log_root = local_path(cfg, "local_run_log_root")
+    progress_files = sorted(log_root.glob("b87b4_qgis_materialization_progress*.csv")) if log_root.exists() else []
+    counts: dict[str, dict[str, int]] = defaultdict(lambda: {"skipped_existing_count": 0, "newly_created_count": 0, "failed_count": 0})
+    for progress_path in progress_files:
+        for row in read_rows(progress_path):
+            cell_id = str(row.get("cell_id", ""))
+            if not cell_id:
+                continue
+            for key in ["skipped_existing_count", "newly_created_count", "failed_count"]:
+                try:
+                    counts[cell_id][key] = max(counts[cell_id][key], int(float(row.get(key, 0) or 0)))
+                except ValueError:
+                    pass
+    return counts
+
+
+def materialization_progress_rows(cfg: dict[str, Any]) -> list[dict[str, Any]]:
+    local_counts = latest_local_progress_counts(cfg)
+    rows = []
+    for cand in candidate_rows(cfg):
+        cell_id = cand["cell_id"]
+        paths = asset_paths(cfg, cell_id)
+        shared_paths = [
+            paths["focus_cell_geojson"],
+            paths["dsm"],
+            paths["dem"],
+            paths["cdsm_base"],
+            paths["overhead_canopy"],
+            paths["cdsm_overhead"],
+        ]
+        wall_paths = [paths["wall_height"], paths["wall_aspect"]]
+        base_svf_paths = [paths["svf_base_zip"]]
+        overhead_svf_paths = [paths["svf_overhead_zip"]]
+        all_paths = shared_paths + wall_paths + base_svf_paths + overhead_svf_paths
+        counts = local_counts[cell_id]
+        rows.append(
+            {
+                "cell_id": cell_id,
+                "shared_assets_status": group_readiness_status(shared_paths),
+                "wall_status": group_readiness_status(wall_paths),
+                "base_svf_status": group_readiness_status(base_svf_paths),
+                "overhead_svf_status": group_readiness_status(overhead_svf_paths),
+                "all_ready": bool_text(all(file_ready(path) for path in all_paths)),
+                "skipped_existing_count": counts["skipped_existing_count"] or sum(1 for path in all_paths if file_ready(path)),
+                "newly_created_count": counts["newly_created_count"],
+                "failed_count": counts["failed_count"],
+                "claim_boundary": CLAIM_BOUNDARY,
+            }
+        )
+    return rows
+
+
 def write_materialization_audit(cfg: dict[str, Any]) -> None:
     out = output_dir(cfg)
     inventory = asset_inventory_rows(cfg)
     readiness = readiness_rows(cfg)
     svf = svf_status_rows(cfg)
     blockers = blocker_rows(cfg)
+    progress = materialization_progress_rows(cfg)
     write_rows(
         out / "b87b4_materialized_asset_inventory.csv",
         inventory,
@@ -1113,31 +1266,61 @@ def write_materialization_audit(cfg: dict[str, Any]) -> None:
         blockers,
         ["blocker_id", "severity", "status", "scope", "details", "resolution_path", "claim_boundary"],
     )
+    write_rows(
+        out / "b87b4_materialization_progress_by_cell.csv",
+        progress,
+        [
+            "cell_id",
+            "shared_assets_status",
+            "wall_status",
+            "base_svf_status",
+            "overhead_svf_status",
+            "all_ready",
+            "skipped_existing_count",
+            "newly_created_count",
+            "failed_count",
+            "claim_boundary",
+        ],
+    )
+
+
+def scenario_materialization_status(paths: dict[str, Path], scenario: str) -> tuple[str, str, str]:
+    cdsm = scenario_cdsm_path(paths, scenario)
+    svf_zip = scenario_svf_zip(paths, scenario)
+    required = {
+        "focus_cell_geojson": paths["focus_cell_geojson"],
+        "dsm_buildings_tile": paths["dsm"],
+        "flat_dem_tile": paths["dem"],
+        "scenario_cdsm_tile": cdsm,
+        "wall_height": paths["wall_height"],
+        "wall_aspect": paths["wall_aspect"],
+        "scenario_svf_svfs_zip": svf_zip,
+    }
+    missing = [name for name, path in required.items() if file_state(path) == "missing"]
+    needs_review = [name for name, path in required.items() if file_state(path) == "needs_review"]
+    if not missing and not needs_review:
+        return "READY", "pending_run", "ready"
+    if needs_review:
+        return "NEEDS_REVIEW_MATERIALIZED_ASSET", "not_ready", "needs_review:" + ",".join(needs_review)
+    if missing == ["scenario_svf_svfs_zip"]:
+        return "PENDING_QGIS_SVF_GENERATION", "not_ready", "missing_scenario_svf"
+    if set(missing).issubset({"wall_height", "wall_aspect", "scenario_svf_svfs_zip"}):
+        return "PENDING_QGIS_WALL_AND_SVF_GENERATION", "not_ready", "missing_wall_or_svf:" + ",".join(missing)
+    return "PENDING_QGIS_RASTER_AND_SVF_MATERIALIZATION", "not_ready", "missing_assets:" + ",".join(missing)
 
 
 def build_manifest_rows(cfg: dict[str, Any]) -> list[dict[str, Any]]:
-    readiness = {row["cell_id"]: row for row in readiness_rows(cfg)}
     slots = forcing_slots(cfg)
     rows = []
     for cand in candidate_rows(cfg):
         cell_id = cand["cell_id"]
         paths = asset_paths(cfg, cell_id)
-        cell_readiness = readiness[cell_id]
         for slot in slots:
-            for scenario in cfg["expected_scenarios"]:
+            for scenario in configured_scenarios(cfg):
                 output_dir_path = local_path(cfg, "local_output_root") / slot["forcing_day_id"] / cell_id / scenario / f"h{int(slot['hour_sgt']):02d}"
                 cdsm = scenario_cdsm_path(paths, scenario)
                 svf_zip = scenario_svf_zip(paths, scenario)
-                ready = cell_readiness["base_asset_ready"] == "true" if scenario == "base" else cell_readiness["overhead_asset_ready"] == "true"
-                if ready:
-                    mat_status = "READY"
-                    run_status = "pending_run"
-                elif all([paths["dsm"].exists(), paths["dem"].exists(), cdsm.exists(), paths["wall_height"].exists(), paths["wall_aspect"].exists()]) and not svf_zip.exists():
-                    mat_status = "PENDING_QGIS_SVF_GENERATION"
-                    run_status = "not_ready"
-                else:
-                    mat_status = "PENDING_QGIS_RASTER_AND_SVF_MATERIALIZATION"
-                    run_status = "not_ready"
+                mat_status, run_status, not_ready_reason = scenario_materialization_status(paths, scenario)
                 run_id = f"B87C_{slot['forcing_day_id']}_{cell_id}_{scenario}_h{int(slot['hour_sgt']):02d}"
                 rows.append(
                     {
@@ -1158,6 +1341,7 @@ def build_manifest_rows(cfg: dict[str, Any]) -> list[dict[str, Any]]:
                         "run_status_initial": run_status,
                         "resume_key": f"{cell_id}|{slot['forcing_day_id']}|h{int(slot['hour_sgt']):02d}|{scenario}",
                         "materialization_status": mat_status,
+                        "not_ready_reason": not_ready_reason,
                         "notes": "SOLWEIG Tmrt only; no WBGT/risk/AOI/B9; local-only paths may reference rasters outside Git.",
                     }
                 )
@@ -1185,6 +1369,7 @@ def write_manifest(cfg: dict[str, Any]) -> list[dict[str, Any]]:
         "run_status_initial",
         "resume_key",
         "materialization_status",
+        "not_ready_reason",
         "notes",
     ]
     write_rows(out / "b87c_manifest.csv", rows, fields)
@@ -1239,8 +1424,8 @@ def write_resume_strategy(cfg: dict[str, Any], manifest_rows: list[dict[str, Any
         {
             "resume_rule": "stage_filter",
             "field_or_path": "STAGE",
-            "action": "Run smoke, pilot_5, pilot_20, or full_150 by candidate order.",
-            "default": "smoke in repo runner; user may set full_150 in local copy",
+            "action": "Run remaining, smoke, pilot_5, pilot_20, full_150, or all by candidate order/readiness.",
+            "default": "remaining in materialization runner; smoke in SOLWEIG runner",
             "claim_boundary": CLAIM_BOUNDARY,
         },
         {
@@ -1258,10 +1443,13 @@ def write_manifest_audit(cfg: dict[str, Any], manifest_rows: list[dict[str, Any]
     out = output_dir(cfg)
     rows = manifest_rows or read_rows(out / "b87c_manifest.csv")
     counts = Counter(row["scenario"] for row in rows)
+    materialization_counts = Counter(row.get("materialization_status", "") for row in rows)
+    not_ready_reasons = Counter(row.get("not_ready_reason", "") for row in rows if row.get("run_status_initial") == "not_ready")
     cells = {row["cell_id"] for row in rows}
     days = {row["forcing_day_id"] for row in rows}
     hours = {row["hour_sgt"] for row in rows}
     not_ready = sum(1 for row in rows if str(row.get("run_status_initial")) == "not_ready")
+    ready_rows = sum(1 for row in rows if str(row.get("run_status_initial")) == "pending_run")
     repo_heavy = [
         row
         for row in rows
@@ -1275,10 +1463,23 @@ def write_manifest_audit(cfg: dict[str, Any], manifest_rows: list[dict[str, Any]
         audit_row("hour_count", len(hours), cfg["expected_hours_per_day"], len(hours) == int(cfg["expected_hours_per_day"])),
         audit_row("base_run_count", counts.get("base", 0), 1500, counts.get("base", 0) == 1500),
         audit_row("overhead_run_count", counts.get("overhead_as_canopy", 0), 1500, counts.get("overhead_as_canopy", 0) == 1500),
+        audit_row("ready_rows", ready_rows, cfg["expected_total_runs"], ready_rows == int(cfg["expected_total_runs"]), "Rows become ready after missing local assets are materialized."),
         audit_row("not_ready_rows", not_ready, 0, not_ready == 0, "Rows may be not_ready until QGIS materialization has run."),
+        audit_row("materialization_status_counts", json.dumps(materialization_counts, sort_keys=True), "READY only", not_ready == 0, "Current manifest readiness state from local assets."),
         audit_row("repo_heavy_path_references", len(repo_heavy), 0, len(repo_heavy) == 0, "Manifest must reference local-only heavy paths."),
     ]
     write_rows(out / "b87c_manifest_audit.csv", audit_rows, ["check_name", "observed", "expected", "status", "note", "claim_boundary"])
+    reason_rows = [
+        {
+            "not_ready_reason": reason,
+            "row_count": count,
+            "claim_boundary": CLAIM_BOUNDARY,
+        }
+        for reason, count in sorted(not_ready_reasons.items())
+    ]
+    if not reason_rows:
+        reason_rows = [{"not_ready_reason": "none", "row_count": 0, "claim_boundary": CLAIM_BOUNDARY}]
+    write_rows(out / "b87c_manifest_readiness_by_reason.csv", reason_rows, ["not_ready_reason", "row_count", "claim_boundary"])
     return audit_rows
 
 
@@ -1300,6 +1501,33 @@ def audit_row(name: str, observed: Any, expected: Any, passed: bool, note: str =
     }
 
 
+def assignment_value(text: str, name: str) -> str | None:
+    match = re.search(rf"^{name}\s*=\s*(.+?)\s*$", text, flags=re.MULTILINE)
+    return match.group(1) if match else None
+
+
+def replace_assignment(text: str, name: str, value: str) -> str:
+    pattern = rf"^{name}\s*=.*$"
+    replacement = f"{name} = {value}"
+    if re.search(pattern, text, flags=re.MULTILINE):
+        return re.sub(pattern, replacement, text, count=1, flags=re.MULTILINE)
+    return text
+
+
+def local_runner_text(src_text: str, dst: Path) -> tuple[str, dict[str, str]]:
+    preserved: dict[str, str] = {}
+    existing_text = dst.read_text(encoding="utf-8") if dst.exists() else ""
+    for switch in ["RUN_ENABLED", "DRY_RUN"]:
+        existing_value = assignment_value(existing_text, switch)
+        if existing_value is not None:
+            src_text = replace_assignment(src_text, switch, existing_value)
+            preserved[switch] = existing_value
+        else:
+            preserved[switch] = assignment_value(src_text, switch) or ""
+    src_text = replace_assignment(src_text, "LOCAL_CONTEXT", "True")
+    return src_text, preserved
+
+
 def localize_runners(cfg: dict[str, Any]) -> list[dict[str, Any]]:
     out = output_dir(cfg)
     setup_local_roots(cfg)
@@ -1312,20 +1540,29 @@ def localize_runners(cfg: dict[str, Any]) -> list[dict[str, Any]]:
         (repo_root() / "scripts/qgis/v12_b87b4_qgis_svf_materialization_runner.py", runner_root / "v12_b87b4_qgis_svf_materialization_runner_LOCAL.py"),
         (repo_root() / "scripts/qgis/v12_b87c_qgis_solweig_n300_runner.py", runner_root / "v12_b87c_qgis_solweig_n300_runner_LOCAL.py"),
     ]
+    timestamp = datetime.now().strftime("%Y%m%dT%H%M%S")
     for src, dst in copies:
         text = src.read_text(encoding="utf-8")
-        text = text.replace("LOCAL_CONTEXT = False", "LOCAL_CONTEXT = True")
-        text = text.replace("RUN_ENABLED = False", "RUN_ENABLED = False")
-        text = text.replace("DRY_RUN = True", "DRY_RUN = True")
+        backup_path = ""
+        if dst.exists():
+            backup = dst.with_name(f"{dst.stem}_backup_{timestamp}{dst.suffix}")
+            shutil.copyfile(dst, backup)
+            backup_path = slash(backup)
+        text, preserved = local_runner_text(text, dst)
+        local_config = manifest_root / "systemb_b87b4_b87c_materialization_package.local.yaml"
+        local_manifest = manifest_root / "b87c_manifest.local.csv"
+        text = replace_assignment(text, "DEFAULT_CONFIG_PATH", f'Path(r"{slash(local_config)}")')
+        text = replace_assignment(text, "DEFAULT_MANIFEST_PATH", f'Path(r"{slash(local_manifest)}")')
         dst.write_text(text, encoding="utf-8")
         rows.append(
             {
                 "runner_item": dst.name,
                 "repo_source": slash(src),
                 "local_path": slash(dst),
-                "status": "LOCAL_COPY_CREATED",
-                "run_enabled_default": "false",
-                "dry_run_default": "true",
+                "status": "LOCAL_COPY_CREATED_WITH_BACKUP" if backup_path else "LOCAL_COPY_CREATED",
+                "run_enabled_default": preserved.get("RUN_ENABLED", ""),
+                "dry_run_default": preserved.get("DRY_RUN", ""),
+                "backup_path": backup_path,
                 "claim_boundary": CLAIM_BOUNDARY,
             }
         )
@@ -1344,13 +1581,14 @@ def localize_runners(cfg: dict[str, Any]) -> list[dict[str, Any]]:
                 "status": "LOCAL_COPY_CREATED",
                 "run_enabled_default": "",
                 "dry_run_default": "",
+                "backup_path": "",
                 "claim_boundary": CLAIM_BOUNDARY,
             }
         )
     write_rows(
         out / "b87c_local_runner_inventory.csv",
         rows,
-        ["runner_item", "repo_source", "local_path", "status", "run_enabled_default", "dry_run_default", "claim_boundary"],
+        ["runner_item", "repo_source", "local_path", "status", "run_enabled_default", "dry_run_default", "backup_path", "claim_boundary"],
     )
     return rows
 
@@ -1378,18 +1616,20 @@ Status: package created, SOLWEIG not run by Codex.
 3. In the QGIS Python Console, paste the snippet from `b87c_qgis_console_execution_snippet.py`.
 4. First run the local materialization runner:
    `{local_path(cfg, 'local_runner_root') / 'v12_b87b4_qgis_svf_materialization_runner_LOCAL.py'}`
-5. Keep `DRY_RUN=True` for the first pass. Then set `RUN_ENABLED=True` and `DRY_RUN=False` inside the local copy.
-6. After materialization, re-run `scripts/v12_b87c_manifest_builder.py` and then `scripts/v12_b87c_runner_localizer.py` so ready/not_ready statuses and the local manifest copy refresh.
-7. Run `scripts/v12_b87c_manifest_audit.py` and confirm there are no `not_ready` rows.
-8. Run the local SOLWEIG runner:
+5. Keep `DRY_RUN=True` for the first pass. Then set `RUN_ENABLED=True` and `DRY_RUN=False` inside the local copy, and set the local config switches to `run_enabled=true` and `dry_run=false`.
+6. Use materialization `STAGE="remaining"` to continue missing-only from existing assets. Shared DSM/DEM/CDSM/wall assets are per-cell cached; base and overhead SVF remain scenario-specific.
+7. After materialization, re-run `scripts/v12_b87c_manifest_builder.py` and then `scripts/v12_b87c_manifest_audit.py` so ready/not_ready statuses refresh from current local assets.
+8. Re-run `scripts/v12_b87c_runner_localizer.py` only if the refreshed local manifest copy or runner copy is needed; existing local RUN_ENABLED/DRY_RUN switches are preserved and local runner backups are written.
+9. Run the local SOLWEIG runner:
    `{local_path(cfg, 'local_runner_root') / 'v12_b87c_qgis_solweig_n300_runner_LOCAL.py'}`
-9. Use stages in order: `smoke`, `pilot_5`, `pilot_20`, then `full_150`.
+10. Use SOLWEIG stages in order: `smoke`, `pilot_5`, `pilot_20`, then `full_150`.
 
 Safety boundaries:
 
 - Local-only raster/SVF writes under `{cfg['local_root']}` only.
 - No repo raster writes.
 - No AOI/B9/WBGT/risk/hazard/exposure/vulnerability outputs.
+- Existing partial assets must be preserved; missing-only materialization skips existing non-empty files.
 - `overhead_as_canopy` must use its own `svfs.zip`; do not reuse base SVF.
 """
     write_text(out / "b87c_qgis_execution_instructions.md", instructions)
@@ -1634,11 +1874,11 @@ Local runner inventory rows: `{len(runner_inv)}`. Repo runners default to `RUN_E
 
 ## 7. QGIS full-stage execution
 
-Run QGIS materialization first, then rebuild the manifest and localize the refreshed manifest copy. After manifest audit shows no `not_ready` rows, run SOLWEIG stages in order: `smoke`, `pilot_5`, `pilot_20`, `full_150`.
+B87C materialization is now missing-only and per-cell cached. Run QGIS materialization for `remaining` missing assets first, then rebuild the manifest and audit readiness. Shared DSM/DEM/CDSM/wall assets are not regenerated per scenario; base and overhead SVF remain scenario-specific. After manifest audit shows no `not_ready` rows, run SOLWEIG stages in order: `smoke`, `pilot_5`, `pilot_20`, `full_150`.
 
 ## 8. Resume/failure plan
 
-Use `resume_key` and `expected_tmrt_path`. The runner skips existing readable Tmrt outputs and writes compact logs under `{cfg['local_run_log_root']}`.
+Existing partial assets must be preserved. Use `resume_key` and `expected_tmrt_path`. The materialization runner skips existing non-empty local assets unless `overwrite_existing_assets` is explicitly true, and writes compact progress logs under `{cfg['local_run_log_root']}`.
 
 ## 9. Postrun QA
 
