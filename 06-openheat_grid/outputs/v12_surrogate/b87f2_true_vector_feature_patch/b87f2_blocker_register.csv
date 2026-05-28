@@ -1,0 +1,3 @@
+blocker_id,status,notes,claim_boundary
+connected_shade_corridor,ACTIVE,B87F2 stop/go gate,"Surrogate/emulator of SOLWEIG simulated Tmrt deltas only; not observed truth, not WBGT, not AOI/B9 inference, not hazard or risk mapping, not exposure/vulnerability output, and not causal feature-importance evidence."
+tree_building_interaction,ACTIVE,B87F2 stop/go gate,"Surrogate/emulator of SOLWEIG simulated Tmrt deltas only; not observed truth, not WBGT, not AOI/B9 inference, not hazard or risk mapping, not exposure/vulnerability output, and not causal feature-importance evidence."

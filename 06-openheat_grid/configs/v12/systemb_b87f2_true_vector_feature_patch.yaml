@@ -1,0 +1,261 @@
+lane: B87F2_true_vector_feature_patch
+branch: codex/b87f2-true-vector-feature-patch
+generated_date: 2026-05-28
+
+scope:
+  surrogate_emulator_only: true
+  run_qgis: false
+  run_solweig: false
+  read_rasters: false
+  write_rasters: false
+  copy_rasters: false
+  create_aoi_prediction: false
+  create_b9_output: false
+  create_wbgt_conversion: false
+  create_hazard_map: false
+  create_risk_map: false
+  causal_feature_importance_claim: false
+  observed_truth_claim: false
+  stage_changes: false
+  commit_changes: false
+
+n300_label_path: outputs/v12_surrogate/b87d_n300_label_integration/b87d_n300_pairwise_delta_by_cell_hour.csv
+b87e_feature_matrix_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_matrix.csv
+b87e_feature_schema_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_schema.csv
+b87e_model_metrics_summary_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_model_metrics_summary.csv
+b87f_baseline_metrics_path: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_patch_model_metrics_summary.csv
+b87f_transfer_matrix_path: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_transfer_generalization_matrix.csv
+b87f_promotion_review_path: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_model_promotion_review.csv
+b87f_rank_topk_matrix_path: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_rank_topk_matrix.csv
+b86g3_readiness_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_true_vector_source_readiness.csv
+b86g3_gap_register_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_source_gap_register.csv
+b86g3_aoi_b9_blocker_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_aoi_b9_blocker_matrix.csv
+b86g3_n300_design_reviewed_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_design_v4_source_reviewed.csv
+b86g_n150_feature_dataset_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n150_feature_dataset.csv
+b86g_n300_candidate_feature_dataset_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n300_candidate_feature_dataset.csv
+b86g2_report_path: outputs/v12_surrogate/b8_6g2_feature_retest/b86g2_report.md
+b86g3_cn_doc_path: docs/v12/OpenHeat_SystemB_B8_6g3_true_vector_source_review_CN.md
+
+primary_target: delta_tmrt_p90_c
+secondary_targets:
+  - delta_tmrt_mean_c
+  - delta_tmrt_median_c
+  - delta_tmrt_p95_c
+  - delta_tmrt_max_c
+expected_rows: 3000
+expected_cells: 300
+group_column: cell_id
+sample_group_column: sample_group
+existing_main_baseline_model: extra_trees
+existing_main_baseline_feature_set: b87e_original_main
+existing_main_baseline_groupkfold_mae: 0.150376
+existing_best_old_to_new_mae: 0.213904
+existing_best_rank_spearman: 0.769221
+no_aoi_prediction: true
+no_b9: true
+random_state: 42
+
+buffer_scales_m:
+  - 50
+  - 100
+  - 150
+  - 250
+
+source_candidate_paths:
+  - data/features_3d/v10/overhead/overhead_structures_v10.geojson
+  - data/features_3d/v10/manual_qa/overhead_candidates_v10.geojson
+  - data/features_3d/merged_buildings_height_v08.geojson
+  - data/features_3d/hdb3d_buildings_toapayoh.geojson
+  - data/features_3d/ura_buildings_toapayoh.geojson
+  - data/raw/osm_roads_toa_payoh.geojson
+  - data/raw/osm_water_toa_payoh.geojson
+  - data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.csv
+  - data/grid/v10/toa_payoh_grid_v10_features_overhead_sensitivity.geojson
+  - data/grid/v10/toa_payoh_grid_v10_features_umep_with_veg.csv
+  - data/features/building_density.csv
+  - data/features/road_fraction.csv
+  - data/features/water_distance.csv
+  - data/features/park_distances.csv
+  - outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n300_candidate_feature_dataset.csv
+  - outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_design_v4_source_reviewed.csv
+  - outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_true_vector_source_readiness.csv
+  - outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_source_gap_register.csv
+  - outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_aoi_b9_blocker_matrix.csv
+
+search_roots:
+  - data
+  - configs
+  - docs
+  - outputs/v12_surrogate
+  - outputs/v12_systemb
+  - scripts
+  - C:/OpenHeat-local/solweig
+  - C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid
+
+search_keywords:
+  - overhead_structures
+  - sheltered
+  - covered_walkway
+  - walkway
+  - corridor
+  - shade_corridor
+  - pedestrian
+  - footpath
+  - crossing
+  - road
+  - sidewalk
+  - tree
+  - canopy
+  - vegetation
+  - building
+  - water
+  - river
+  - drain
+  - canal
+  - park_connector
+  - overhead
+  - viaduct
+  - bus_stop
+  - linkway
+  - osm
+  - geopackage
+  - geojson
+  - gpkg
+  - shp
+  - parquet
+
+feature_policy:
+  max_categorical_cardinality: 40
+  context_columns:
+    - forcing_day_id
+    - hour_sgt
+  diagnostic_only_columns:
+    - sample_group
+    - label_source
+    - protocol_id
+    - primary_role
+    - secondary_roles
+    - spatial_bin
+    - source_closeout_status
+    - design_status
+    - b86g3_design_status
+  forbidden_tokens:
+    - tmrt
+    - delta
+    - wbgt
+    - hazard
+    - risk
+    - vulnerability
+    - exposure
+    - observed
+    - solweig
+    - raster
+    - tif
+    - output
+    - path
+    - run_id
+    - status
+    - error
+    - materialization
+    - label_source
+    - protocol_id
+    - sample_group
+    - cell_id
+    - rank
+    - source
+    - note
+    - version
+    - method
+  forbidden_coordinate_tokens:
+    - centroid_x
+    - centroid_y
+    - lon
+    - lat
+    - longitude
+    - latitude
+
+models:
+  hyperparameter_grid_status: B87F2_N150_COMPATIBLE_NO_NEW_HEADLINE_FAMILIES
+  featureless_mean:
+    strategy: mean
+  context_mean:
+    groupby:
+      - forcing_day_id
+      - hour_sgt
+  ridge:
+    alpha: 1.0
+  elasticnet:
+    alpha: 0.001
+    l1_ratio: 0.5
+  random_forest:
+    n_estimators: 30
+    max_depth: 6
+    min_samples_leaf: 2
+    n_jobs: 1
+  extra_trees:
+    n_estimators: 30
+    max_depth: null
+    min_samples_leaf: 1
+    n_jobs: 1
+    prior_candidate_baseline: true
+  hist_gradient_boosting:
+    max_iter: 60
+    learning_rate: 0.06
+    max_leaf_nodes: 31
+
+validation:
+  group_kfold_splits: 5
+  max_spatial_holdouts: 4
+  spatial_min_test_cells: 5
+  max_typology_holdouts: 4
+  typology_min_test_cells: 5
+  typology_min_train_cells: 30
+  max_role_holdouts: 4
+  role_min_test_cells: 5
+  max_forcing_day_holdouts: 2
+  max_hour_holdouts: 5
+  random_test_fraction: 0.2
+  random_split_diagnostic_only: true
+
+promotion_gate:
+  group_mae_improvement_min: 0.005
+  old_to_new_mae_improvement_min: 0.010
+  group_mae_degrade_max_for_transfer: 0.005
+  rank_spearman_improvement_min: 0.020
+  old_to_new_max_degradation_stable_ratio: 1.05
+  require_source_gaps_cleared_for_aoi: true
+
+outputs:
+  out_dir: outputs/v12_surrogate/b87f2_true_vector_feature_patch
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B87F2_true_vector_feature_patch_CN.md
+  input_inventory: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_input_inventory.csv
+  source_inventory: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_source_inventory.csv
+  source_readiness_matrix: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_source_readiness_matrix.csv
+  feature_gap_resolution_matrix: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_feature_gap_resolution_matrix.csv
+  cell_geometry_audit: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_cell_geometry_audit.csv
+  true_vector_features_by_cell: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_true_vector_features_by_cell.csv
+  interaction_features_by_cell: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_interaction_features_by_cell.csv
+  patched_feature_matrix: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_patched_feature_matrix.csv
+  patched_feature_schema: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_patched_feature_schema.csv
+  patched_feature_missingness: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_patched_feature_missingness.csv
+  feature_leakage_audit: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_feature_leakage_audit.csv
+  feature_ablation_registry: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_feature_ablation_registry.csv
+  model_registry: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_model_registry.csv
+  model_metrics_by_split: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_model_metrics_by_split.csv
+  model_metrics_summary: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_model_metrics_summary.csv
+  predictions_oof: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_predictions_oof.csv
+  predictions_holdout: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_predictions_holdout.csv
+  transfer_generalization_matrix: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_transfer_generalization_matrix.csv
+  rank_topk_matrix: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_rank_topk_matrix.csv
+  error_strata_after_patch: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_error_strata_after_patch.csv
+  feature_gain_attribution: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_feature_gain_attribution.csv
+  prior_b87e_b87f_comparison: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_prior_b87e_b87f_comparison.csv
+  model_promotion_review: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_model_promotion_review.csv
+  stop_or_continue_decision: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_stop_or_continue_decision.csv
+  aoi_preflight_gate_matrix: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_aoi_preflight_gate_matrix.csv
+  blocker_register: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_blocker_register.csv
+  next_lane_decision_matrix: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_next_lane_decision_matrix.csv
+  codex_prompt_next_lane: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_codex_prompt_B87G_or_STOP.md
+  model_card_patch_summary: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_model_card_patch_summary.csv
+  status: outputs/v12_surrogate/b87f2_true_vector_feature_patch/B87F2_STATUS.md
+  report: outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_report.md
