@@ -1,0 +1,109 @@
+b87a_version: systemb_b87a_n300_design_qa_patch_v0_1
+lane: B8.7a_N300_manual_QA_reducer_design_patch
+branch: codex/b87a-n300-design-qa-patch
+random_seed: 42
+
+b87_candidate_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_design_freeze_candidates.csv
+b87_manual_qa_checklist_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_manual_qa_checklist.csv
+b87_role_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_role_balance_audit.csv
+b87_spatial_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_spatial_balance_audit.csv
+b87_typology_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_typology_balance_audit.csv
+b87_anchor_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_anchor_replication_audit.csv
+b87_neutral_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_neutral_replication_audit.csv
+b87_sparse_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_sparse_feature_space_audit.csv
+b87_feature_coverage_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_feature_coverage_audit.csv
+b87_control_audit_path: outputs/v12_surrogate/b8_7_n300_pre/b87_n300_control_cell_audit.csv
+b86f_n300_design_v2_path: outputs/v12_surrogate/b8_6f_surrogate_closure/b86f_targeted_n300_design_v2.csv
+b86g_n300_feature_dataset_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n300_candidate_feature_dataset.csv
+n150_feature_matrix_path: outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+candidate_universe_path: outputs/v12_systemb_n150_sample_design/n150_candidate_universe.csv
+manual_review_input_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/manual_inputs/b87a_manual_candidate_review.csv
+
+# Optional compact N150 cell sources used only to verify no N150 overlap.
+n150_selected_cells_path: outputs/v12_systemb_n150_sample_design/n150_selected_cells.csv
+b86g_n150_feature_dataset_path: outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n150_feature_dataset.csv
+
+expected_candidate_count: 150
+expected_existing_n150_count: 150
+required_role_quota:
+  typology_gap_fill: 50
+  spatial_gap_fill: 30
+  anchor_like_replication: 25
+  neutral_boundary_replication: 25
+  sparse_feature_space: 10
+  control_cell: 10
+target_spatial_minimum:
+  east_north: 35
+  east_south: 35
+  west_north: 35
+  west_south: 30
+preferred_anchor_minimum:
+  TP_0037: 15
+  TP_0141: 15
+  TP_0433: 15
+  TP_0542: 20
+  TP_0857: 20
+preferred_neutral_minimum_groups_at_minimum: 3
+neutral_group_min_count: 5
+neutral_underrepresented_cells:
+  - TP_0115
+  - TP_0492
+  - TP_0301
+  - TP_0326
+  - TP_0676
+water_review_typologies:
+  - water
+park_review_typologies:
+  - park_open_space
+overconcentrated_typologies:
+  - residential
+  - transport
+undercovered_typologies:
+  - park_open_space
+  - commercial
+sparse_p90_threshold: 0.90
+sparse_p95_threshold: 0.95
+high_water_fraction_threshold: 0.50
+low_pedestrian_shade_proxy_threshold: 0.01
+
+no_raster_io: true
+no_qgis_solweig: true
+no_n300_manifest: true
+no_aoi_prediction: true
+no_b9: true
+no_local_wbgt: true
+no_hazard_score: true
+no_risk_score: true
+no_system_a_b_coupling: true
+no_tmrt_to_wbgt_conversion: true
+no_observed_truth_claim: true
+no_causal_feature_importance_claim: true
+
+output_dir: outputs/v12_surrogate/b8_7a_n300_design_qa_patch
+input_inventory_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_input_inventory.csv
+manual_review_template_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_manual_review_template.csv
+manual_review_instructions_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_manual_review_instructions.md
+auto_qa_scored_candidates_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_auto_qa_scored_candidates.csv
+auto_exclusion_candidates_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_auto_exclusion_candidates.csv
+auto_replacement_pool_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_auto_replacement_pool.csv
+manual_review_status_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_manual_review_status.csv
+candidate_patch_log_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_candidate_patch_log.csv
+n300_design_v3_patched_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_n300_design_v3_patched.csv
+n300_design_v3_diff_vs_b87_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_n300_design_v3_diff_vs_b87.csv
+role_balance_after_patch_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_role_balance_after_patch.csv
+spatial_balance_after_patch_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_spatial_balance_after_patch.csv
+typology_balance_after_patch_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_typology_balance_after_patch.csv
+anchor_replication_after_patch_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_anchor_replication_after_patch.csv
+neutral_replication_after_patch_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_neutral_replication_after_patch.csv
+sparse_feature_space_after_patch_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_sparse_feature_space_after_patch.csv
+control_cell_after_patch_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_control_cell_after_patch.csv
+feature_coverage_after_patch_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_feature_coverage_after_patch.csv
+water_pure_river_review_queue_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_water_pure_river_review_queue.csv
+manual_qa_summary_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_manual_qa_summary.md
+freeze_readiness_matrix_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_freeze_readiness_matrix.csv
+next_lane_decision_matrix_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_next_lane_decision_matrix.csv
+codex_prompt_b87b_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_codex_prompt_B87B_N300_execution_precheck.md
+codex_prompt_b86g3_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_codex_prompt_B86G3_true_vector_feature_acquisition.md
+report_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/b87a_report.md
+status_path: outputs/v12_surrogate/b8_7a_n300_design_qa_patch/B8_7A_STATUS.md
+cn_doc_path: docs/v12/OpenHeat_SystemB_B8_7a_N300_design_QA_patch_CN.md
