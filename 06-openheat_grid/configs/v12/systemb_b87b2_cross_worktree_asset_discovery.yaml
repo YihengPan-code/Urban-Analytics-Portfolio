@@ -1,0 +1,71 @@
+b87b2_cross_worktree_asset_discovery_version: systemb_b87b2_cross_worktree_asset_discovery_v0_1
+lane: B8.7b.2
+branch: codex/b87b2-cross-worktree-asset-discovery
+generated_date: 2026-05-28
+
+b87b1_expected_paths_path: outputs/v12_surrogate/b8_7b1_local_asset_remap/b87b1_cell_asset_expected_paths.csv
+b87b1_readiness_path: outputs/v12_surrogate/b8_7b1_local_asset_remap/b87b1_cell_asset_readiness_resolved.csv
+b87b_new_candidate_sample_index_path: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_new_candidate_sample_index.csv
+b86g3_n300_v4_design_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_design_v4_source_reviewed.csv
+
+expected_new_candidate_count: 150
+current_b8_worktree_root: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid
+main_worktree_root: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid
+local_root: C:/OpenHeat-local
+target_b87c_asset_root: C:/OpenHeat-local/solweig/b87c_n300/assets
+
+search_roots:
+  - C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid
+  - C:/OpenHeat-local
+  - C:/OpenHeat-local/solweig
+  - C:/OpenHeat-local/solweig/b85_f1_tiles
+  - C:/OpenHeat-local/solweig/b85_f5_n150
+  - C:/OpenHeat-local/solweig/b87c_n300/assets
+
+required_asset_kinds:
+  - svf
+  - dsm
+
+desired_asset_kinds:
+  - cdsm
+  - dem
+  - landcover
+
+optional_asset_kinds:
+  - building
+  - vegetation
+  - wallheight
+  - sky_view_factor
+
+common_asset_folder_name_tokens:
+  - tile
+  - svf
+  - dsm
+  - solweig
+  - rasters
+  - assets
+  - grid
+
+skip_path_tokens:
+  - .git
+  - __pycache__
+  - data/archive
+  - data/raw
+  - archive
+  - raw
+  - forecast_live
+  - hourly_grid_heatstress_forecast
+
+signature_max_depth: 4
+
+output_dir: outputs/v12_surrogate/b8_7b2_cross_worktree_asset_discovery
+cn_doc_path: docs/v12/OpenHeat_SystemB_B8_7b2_cross_worktree_asset_discovery_CN.md
+
+metadata_only: true
+no_raster_io: true
+no_qgis_solweig: true
+no_copy_move_symlink: true
+no_run_ready_manifest: true
+no_qgis_runner: true
+no_aoi_prediction: true
+no_b9: true
