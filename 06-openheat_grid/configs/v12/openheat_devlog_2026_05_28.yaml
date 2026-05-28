@@ -1,0 +1,2482 @@
+{
+  "metadata": {
+    "current_date": "2026-05-28",
+    "lane_name": "OPENHEAT_DEVLOG_2026_05_28",
+    "project_identity": "A WBGT-gated, SOLWEIG-informed, surrogate-assisted local heat hazard ranking prototype for Toa Payoh, Singapore.",
+    "primary_worktree": "C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid",
+    "main_sibling": "C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid",
+    "systema_sibling": "C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_al1h/06-openheat_grid"
+  },
+  "source_roots": [
+    {
+      "id": "primary_b8",
+      "path": "."
+    },
+    {
+      "id": "sibling_main",
+      "path": "C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid"
+    },
+    {
+      "id": "sibling_al1h",
+      "path": "C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_al1h/06-openheat_grid"
+    }
+  ],
+  "outputs": {
+    "input_inventory_csv": "outputs/devlog_2026_05_28/openheat_devlog_input_inventory.csv",
+    "file_inventory_csv": "outputs/devlog_2026_05_28/openheat_devlog_file_inventory.csv",
+    "lane_timeline_csv": "outputs/devlog_2026_05_28/openheat_devlog_lane_timeline.csv",
+    "status_matrix_csv": "outputs/devlog_2026_05_28/openheat_devlog_status_matrix.csv",
+    "artifact_matrix_csv": "outputs/devlog_2026_05_28/openheat_devlog_artifact_matrix.csv",
+    "decision_register_csv": "outputs/devlog_2026_05_28/openheat_devlog_decision_register.csv",
+    "claim_boundary_csv": "outputs/devlog_2026_05_28/openheat_devlog_claim_boundary_matrix.csv",
+    "future_action_csv": "outputs/devlog_2026_05_28/openheat_devlog_future_action_matrix.csv",
+    "missing_artifacts_csv": "outputs/devlog_2026_05_28/openheat_devlog_missing_or_unreadable_artifacts.csv",
+    "status_md": "outputs/devlog_2026_05_28/OPENHEAT_DEVLOG_STATUS.md",
+    "report_md": "outputs/devlog_2026_05_28/openheat_devlog_report.md",
+    "full_devlog_doc": "docs/handoff/OpenHeat_SystemA_SystemB_FULL_DEVLOG_2026-05-28_CN.md",
+    "new_chat_context_doc": "docs/handoff/OpenHeat_NEW_CHAT_REENTRY_CONTEXT_2026-05-28_CN.md",
+    "active_dev_board_doc": "docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-28.md",
+    "roadmap_update_doc": "docs/roadmap/OpenHeat_Roadmap_Status_Update_2026-05-28_CN.md"
+  },
+  "inventory_scan_dirs": [
+    "docs",
+    "outputs",
+    "configs",
+    "scripts"
+  ],
+  "max_search_bytes": 5000000,
+  "search_patterns": [
+    "A_L1H",
+    "A-L1H",
+    "A_L2",
+    "A-L2",
+    "B87C",
+    "B87D",
+    "B87E",
+    "B87F",
+    "B87F2",
+    "B87G0",
+    "B8.7",
+    "N300",
+    "full_150",
+    "surrogate",
+    "protocol parity",
+    "source breakthrough",
+    "formal snapshot",
+    "frozen handoff",
+    "P_ge31",
+    "wbgt_a_c",
+    "delta_tmrt_p90_c"
+  ],
+  "expected_artifacts": [
+    {
+      "id": "systema_frozen_handoff",
+      "group": "System A",
+      "path": "docs/handoff/OpenHeat_SystemA_FROZEN_HANDOFF_2026-05-27_CN.md"
+    },
+    {
+      "id": "systema_development_dossier_doc",
+      "group": "System A",
+      "path": "docs/v11/OpenHeat_SystemA_development_dossier_2026-05-27_CN.md"
+    },
+    {
+      "id": "systema_l1h8_status",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/A_L1H8_STATUS.md"
+    },
+    {
+      "id": "systema_l1h8_report",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_report.md"
+    },
+    {
+      "id": "systema_l1h8_evidence_inventory",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_evidence_inventory.csv"
+    },
+    {
+      "id": "systema_l1h8_timeline",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_timeline.csv"
+    },
+    {
+      "id": "systema_l1h8_lane_status_matrix",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_lane_status_matrix.csv"
+    },
+    {
+      "id": "systema_l1h8_output_contract_summary",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_output_contract_summary.csv"
+    },
+    {
+      "id": "systema_l1h8_model_evidence_summary",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_model_evidence_summary.csv"
+    },
+    {
+      "id": "systema_l1h8_level2_boundary_summary",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_level2_boundary_summary.csv"
+    },
+    {
+      "id": "systema_l1h8_formal_snapshot_waiting_register",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_formal_snapshot_waiting_register.csv"
+    },
+    {
+      "id": "systema_l1h8_allowed_forbidden_claims",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_allowed_forbidden_claims.csv"
+    },
+    {
+      "id": "systema_l1h8_future_reactivation_checklist",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_future_reactivation_checklist.md"
+    },
+    {
+      "id": "systema_l1h8_codex_reentry_prompt",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_codex_reentry_prompt.md"
+    },
+    {
+      "id": "systema_l1h4_status",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/prob_exceedance_suite/A_L1H4_STATUS.md"
+    },
+    {
+      "id": "systema_l1h4_report",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_report.md"
+    },
+    {
+      "id": "systema_l1h5_status",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/model_card_output_contract/A_L1H5_STATUS.md"
+    },
+    {
+      "id": "systema_l1h5_model_card",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_systema_model_card.md"
+    },
+    {
+      "id": "systema_l1h5_output_contract",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_hourly_output_contract_v1.md"
+    },
+    {
+      "id": "systema_l1h6_status",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/prospective_eval_harness/A_L1H6_STATUS.md"
+    },
+    {
+      "id": "systema_l1h7_status",
+      "group": "System A",
+      "path": "outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/A_L1H7_STATUS.md"
+    },
+    {
+      "id": "systema_l2_residual_dir",
+      "group": "System A",
+      "path": "outputs/v11_systema_l2_residual"
+    },
+    {
+      "id": "systemb_architecture_discussion",
+      "group": "System B",
+      "path": "docs/v12/OpenHeat_SystemB_architecture_discussion_record_CN.md"
+    },
+    {
+      "id": "systemb_newdev_framework",
+      "group": "System B",
+      "path": "docs/handoff/OpenHeat_NewDevRoadmap_Framework_2026-05-27_CN.md"
+    },
+    {
+      "id": "roadmap_2026_05_26",
+      "group": "Roadmap",
+      "path": "docs/roadmap/OpenHeat_Next_Development_Roadmap_2026-05-26_CN.md"
+    },
+    {
+      "id": "active_dev_board_2026_05_26",
+      "group": "Roadmap",
+      "path": "docs/handoff/OpenHeat_ACTIVE_DEV_BOARD_2026-05-26.md"
+    },
+    {
+      "id": "b87b3p_status",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b8_7b3p_solweig_protocol_parity/B8_7B3P_STATUS.md"
+    },
+    {
+      "id": "b87b3p_report",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b8_7b3p_solweig_protocol_parity/b87b3p_report.md"
+    },
+    {
+      "id": "b87b4_b87c_status",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b8_7b4_b87c_materialization_package/B8_7B4_B87C_STATUS.md"
+    },
+    {
+      "id": "b87b4_b87c_report",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b8_7b4_b87c_materialization_package/b87b4_b87c_report.md"
+    },
+    {
+      "id": "b87c_full150_completion_note",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b8_7b4_b87c_materialization_package/postrun_summary/B87C_FULL150_COMPLETION_NOTE.md"
+    },
+    {
+      "id": "b87d_status",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87d_n300_label_integration/B87D_STATUS.md"
+    },
+    {
+      "id": "b87d_report",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87d_n300_label_integration/b87d_report.md"
+    },
+    {
+      "id": "b87e_status",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87e_n300_surrogate_benchmark/B87E_STATUS.md"
+    },
+    {
+      "id": "b87e_report",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_report.md"
+    },
+    {
+      "id": "b87f_status",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/B87F_STATUS.md"
+    },
+    {
+      "id": "b87f_report",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_report.md"
+    },
+    {
+      "id": "b87f2_status",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87f2_true_vector_feature_patch/B87F2_STATUS.md"
+    },
+    {
+      "id": "b87f2_report",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_report.md"
+    },
+    {
+      "id": "b87g0_status",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/B87G0_STATUS.md"
+    },
+    {
+      "id": "b87g0_report",
+      "group": "System B",
+      "path": "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/b87g0_report.md"
+    }
+  ],
+  "lanes": [
+    {
+      "sequence": 1,
+      "system": "System A",
+      "lane_id": "A-L1H.0",
+      "name": "high-tail residual decomposition",
+      "status": "PASS_DIAGNOSTIC / not_declared_in_status_file",
+      "classification": "DIAGNOSTIC",
+      "branch": "not recorded; evidence in sibling_al1h codex/systema-development-dossier",
+      "purpose": "Diagnose WBGT_A high-tail compression, station bias, ge31 miss/hit/false-alarm behavior, and weather-regime context.",
+      "commands": [
+        "recorded in predecessor lane outputs; no command rerun for devlog"
+      ],
+      "configs": [
+        "configs/v11/systema_l1h_residual_decomposition.yaml",
+        "configs/v11/systema_l1h_weather_regime_merge.yaml",
+        "configs/v11/systema_l1h_full_period_weather_merge.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l1h_run_residual_decomposition.py",
+        "scripts/v11_l1h_run_weather_regime_merge.py",
+        "scripts/v11_l1h_run_full_period_weather_merge.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L1_high_tail_residual_decomposition_protocol_CN.md",
+        "docs/v11/OpenHeat_SystemA_L1H_weather_regime_residual_merge_CN.md",
+        "docs/v11/OpenHeat_SystemA_L1H_full_period_weather_merge_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l1_high_tail/residual_decomposition",
+      "key_outputs": [
+        "outputs/v11_systema_l1_high_tail/residual_decomposition/high_tail_bias_report.md",
+        "outputs/v11_systema_l1_high_tail/residual_decomposition/residual_by_station.csv",
+        "outputs/v11_systema_l1_high_tail/weather_regime_merge_full_period/A_L1H_0C_STATUS.md"
+      ],
+      "key_findings": [
+        "High-tail compression around ge31 was visible.",
+        "S142 station bias was a prominent caveat.",
+        "Weather-regime diagnostics supported review context but not causal proof."
+      ],
+      "quantitative_results": [
+        "Observed ge31 rows in residual report: 408; predicted ge31 rows: 290",
+        "M4 fixed_31 recall 0.475 and precision 0.669 in integration report",
+        "Full-period weather merge matched 816/816 observed ge31 rows"
+      ],
+      "accepted_conclusion": "Use as historical diagnostic context for Level 1 high-tail behavior only.",
+      "caveats": [
+        "Not a recalibration lane.",
+        "ge33 rows exploratory.",
+        "Weather regime is diagnostic, not causal."
+      ],
+      "forbidden_claims": [
+        "validated local 100m WBGT",
+        "official warning probability",
+        "prospective forecast skill"
+      ],
+      "next_action": "No action unless reopening a separately scoped diagnostic review.",
+      "reentry_command": "not_applicable"
+    },
+    {
+      "sequence": 2,
+      "system": "System A",
+      "lane_id": "A-L1H.1",
+      "name": "formula/proxy audit",
+      "status": "PASS / WEAK_OR_NEGATIVE",
+      "classification": "DIAGNOSTIC",
+      "branch": "not recorded",
+      "purpose": "Audit raw formula/proxy alternatives as a companion check, not retroactive recalibration.",
+      "commands": [
+        "python scripts/v11_l1h_run_formula_proxy_audit.py --config configs/v11/systema_l1h_formula_proxy_audit.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l1h_formula_proxy_audit.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l1h_formula_proxy_audit.py",
+        "scripts/v11_l1h_run_formula_proxy_audit.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L1H_formula_proxy_audit_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l1_high_tail/formula_proxy_audit",
+      "key_outputs": [
+        "outputs/v11_systema_l1_high_tail/formula_proxy_audit/A_L1H_1_STATUS.md",
+        "outputs/v11_systema_l1_high_tail/formula_proxy_audit/formula_overall_metrics.csv",
+        "outputs/v11_systema_l1_high_tail/formula_proxy_audit/formula_threshold_metrics_31_33.csv"
+      ],
+      "key_findings": [
+        "Formula/proxy candidates stayed weak or negative versus WBGT_A.",
+        "Best raw formula remained a screening diagnostic."
+      ],
+      "quantitative_results": [
+        "Best diagnostic candidate max_pred=29.777 C",
+        "Best diagnostic candidate MAE=1.359 C",
+        "Best-F1 ge31 threshold=27.05 C"
+      ],
+      "accepted_conclusion": "Do not replace or retroactively recalibrate WBGT_A with formula/proxy candidates.",
+      "caveats": [
+        "Screening diagnostics only.",
+        "ge33 remains exploratory."
+      ],
+      "forbidden_claims": [
+        "formula-v2 implemented",
+        "validated replacement model",
+        "retroactive recalibration"
+      ],
+      "next_action": "No contract change.",
+      "reentry_command": "python scripts/v11_l1h_run_formula_proxy_audit.py --config configs/v11/systema_l1h_formula_proxy_audit.yaml"
+    },
+    {
+      "sequence": 3,
+      "system": "System A",
+      "lane_id": "A-L1H.2",
+      "name": "probability / threshold calibration",
+      "status": "PASS_CANDIDATE_PROBABILITY_COMPANION",
+      "classification": "DIAGNOSTIC",
+      "branch": "not recorded",
+      "purpose": "Create a retrospective station-held-out P_ge31 diagnostic companion from existing M4 scores.",
+      "commands": [
+        "python scripts/v11_l1h_run_probability_threshold_calibration.py --config configs/v11/systema_l1h_probability_threshold_calibration.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l1h_probability_threshold_calibration.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l1h_probability_threshold_calibration.py",
+        "scripts/v11_l1h_run_probability_threshold_calibration.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L1H_probability_threshold_calibration_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l1_high_tail/probability_threshold_calibration",
+      "key_outputs": [
+        "outputs/v11_systema_l1_high_tail/probability_threshold_calibration/A_L1H_2_STATUS.md",
+        "outputs/v11_systema_l1_high_tail/probability_threshold_calibration/probability_calibration_metrics.csv",
+        "outputs/v11_systema_l1_high_tail/probability_threshold_calibration/threshold_operating_points.csv"
+      ],
+      "key_findings": [
+        "Best companion was M4_inertia_ridge plus isotonic_score_only.",
+        "Useful for retrospective internal diagnostics only."
+      ],
+      "quantitative_results": [
+        "Brier=0.052",
+        "PR-AUC=0.610",
+        "ECE_fixed=0.018",
+        "best_F1 recall=0.765 precision=0.678"
+      ],
+      "accepted_conclusion": "P_ge31 can be a diagnostic companion while deterministic WBGT_A remains primary.",
+      "caveats": [
+        "Station-held-out retrospective OOF only.",
+        "S142/S139 remain caveats."
+      ],
+      "forbidden_claims": [
+        "official warning probability",
+        "policy threshold",
+        "prospective operational model"
+      ],
+      "next_action": "Feed A-L1H.4 companion suite and A-L1H.5 contract.",
+      "reentry_command": "python scripts/v11_l1h_run_probability_threshold_calibration.py --config configs/v11/systema_l1h_probability_threshold_calibration.yaml"
+    },
+    {
+      "sequence": 4,
+      "system": "System A",
+      "lane_id": "A-L1H.3",
+      "name": "high-tail challenger",
+      "status": "PASS / RECALL_FIRST_DIAGNOSTIC",
+      "classification": "DIAGNOSTIC",
+      "branch": "not recorded",
+      "purpose": "Benchmark constrained high-tail challengers against the accepted M4+isotonic P_ge31 diagnostic companion.",
+      "commands": [
+        "python scripts/v11_l1h3_run_high_tail_challenger.py --config configs/v11/systema_l1h3_high_tail_challenger.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l1h3_high_tail_challenger.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l1h3_high_tail_challenger.py",
+        "scripts/v11_l1h3_run_high_tail_challenger.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L1H3_high_tail_challenger_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l1_high_tail/high_tail_challenger",
+      "key_outputs": [
+        "outputs/v11_systema_l1_high_tail/high_tail_challenger/A_L1H_3_STATUS.md",
+        "outputs/v11_systema_l1_high_tail/high_tail_challenger/challenger_overall_metrics.csv",
+        "outputs/v11_systema_l1_high_tail/high_tail_challenger/high_tail_challenger_report.md"
+      ],
+      "key_findings": [
+        "Cost-sensitive logistic score/weather improved recall but remained diagnostic.",
+        "No production replacement was accepted."
+      ],
+      "quantitative_results": [
+        "Delta recall vs current best_F1=0.088",
+        "Delta miss_rate=-0.088",
+        "Delta precision=-0.031"
+      ],
+      "accepted_conclusion": "Recall-first challenger informs evidence but does not replace WBGT_A.",
+      "caveats": [
+        "Retrospective station-held-out OOF only.",
+        "Regime/station structure not causal proof."
+      ],
+      "forbidden_claims": [
+        "official warning probability",
+        "ge33 promotion",
+        "station causal correction"
+      ],
+      "next_action": "Proceed to companion suite/contract, not A-L2 unless separately scoped.",
+      "reentry_command": "python scripts/v11_l1h3_run_high_tail_challenger.py --config configs/v11/systema_l1h3_high_tail_challenger.yaml"
+    },
+    {
+      "sequence": 5,
+      "system": "System A",
+      "lane_id": "A-L1H.4",
+      "name": "probability / exceedance companion suite",
+      "status": "A_L1H4_COMPANION_PROMISING",
+      "classification": "ACCEPTED_WITH_BOUNDARY",
+      "branch": "not recorded",
+      "purpose": "Package P_ge31, expected exceedance, and interval diagnostics as optional companions while keeping WBGT_A primary.",
+      "commands": [
+        "python scripts/v11_l1h4_run_prob_exceedance_suite.py --config configs/v11/systema_l1h4_prob_exceedance_suite.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l1h4_prob_exceedance_suite.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l1h4_prob_exceedance_suite.py",
+        "scripts/v11_l1h4_run_prob_exceedance_suite.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L1H4_prob_exceedance_suite_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l1_high_tail/prob_exceedance_suite",
+      "key_outputs": [
+        "outputs/v11_systema_l1_high_tail/prob_exceedance_suite/A_L1H4_STATUS.md",
+        "outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_report.md",
+        "outputs/v11_systema_l1_high_tail/prob_exceedance_suite/l1h4_decision_matrix.csv"
+      ],
+      "key_findings": [
+        "P_ge31 companion promising.",
+        "P_ge33 low support.",
+        "Expected exceedance and intervals available as diagnostics."
+      ],
+      "quantitative_results": [
+        "n=1674 ge31=204 ge33=15",
+        "P_ge31 Brier=0.052 ECE_fixed=0.018 PR-AUC=0.610",
+        "best_F1 recall 0.765 precision 0.678 miss_rate 0.235",
+        "conformal 90pct coverage=0.898 mean width=2.869 C"
+      ],
+      "accepted_conclusion": "Keep WBGT_A as primary; optional companions only.",
+      "caveats": [
+        "No formal prospective snapshot yet.",
+        "P_ge33 exploratory.",
+        "Near-ge33 interval support weak."
+      ],
+      "forbidden_claims": [
+        "official warning probability",
+        "station-adjusted WBGT",
+        "local 100m WBGT",
+        "risk/hazard score"
+      ],
+      "next_action": "Use as evidence for A-L1H.5 output contract and future A-L1H.6 snapshot evaluation.",
+      "reentry_command": "python scripts/v11_l1h4_run_prob_exceedance_suite.py --config configs/v11/systema_l1h4_prob_exceedance_suite.yaml"
+    },
+    {
+      "sequence": 6,
+      "system": "System A",
+      "lane_id": "A-L1H.5",
+      "name": "model card / output contract",
+      "status": "A_L1H5_CONTRACT_PASS",
+      "classification": "ACCEPTED_FROZEN",
+      "branch": "not recorded",
+      "purpose": "Freeze System A Level 1 model card and hourly output contract.",
+      "commands": [
+        "python scripts/v11_l1h5_run_model_card_output_contract.py --config configs/v11/systema_l1h5_model_card_output_contract.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l1h5_model_card_output_contract.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l1h5_model_card_output_contract.py",
+        "scripts/v11_l1h5_run_model_card_output_contract.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L1H5_model_card_output_contract_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l1_high_tail/model_card_output_contract",
+      "key_outputs": [
+        "outputs/v11_systema_l1_high_tail/model_card_output_contract/A_L1H5_STATUS.md",
+        "outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_systema_model_card.md",
+        "outputs/v11_systema_l1_high_tail/model_card_output_contract/a_l1h5_hourly_output_contract_v1.md"
+      ],
+      "key_findings": [
+        "Primary output is wbgt_a_c.",
+        "P_ge31 optional companion; P_ge33 exploratory.",
+        "Level 2 explanatory only."
+      ],
+      "quantitative_results": [
+        "WBGT_A MAE=0.639 C",
+        "P_ge31 events=204 Brier=0.052 PR-AUC=0.610",
+        "P_ge33 events=15 low support"
+      ],
+      "accepted_conclusion": "A-L1H.5 is frozen source of truth for System A Level 1 hourly outputs.",
+      "caveats": [
+        "Prospective formal snapshot still required for stronger claims."
+      ],
+      "forbidden_claims": [
+        "station_adjusted_wbgt_c",
+        "local_wbgt_c",
+        "delta_wbgt_cell",
+        "risk_score",
+        "hazard_score"
+      ],
+      "next_action": "Do not modify unless a future formal snapshot review explicitly opens a contract update lane.",
+      "reentry_command": "python scripts/v11_l1h5_run_model_card_output_contract.py --config configs/v11/systema_l1h5_model_card_output_contract.yaml"
+    },
+    {
+      "sequence": 7,
+      "system": "System A",
+      "lane_id": "A-L1H.6",
+      "name": "prospective eval harness",
+      "status": "A_L1H6_WAITING_FOR_FORMAL_SNAPSHOT",
+      "classification": "BLOCKED_WAITING",
+      "branch": "not recorded",
+      "purpose": "Prepare prospective evaluation gates for WBGT_A and optional companions after a frozen formal snapshot exists.",
+      "commands": [
+        "python scripts/v11_l1h6_run_prospective_eval_harness.py --config configs/v11/systema_l1h6_prospective_eval_harness.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l1h6_prospective_eval_harness.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l1h6_prospective_eval_harness.py",
+        "scripts/v11_l1h6_run_prospective_eval_harness.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L1H6_prospective_eval_harness_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l1_high_tail/prospective_eval_harness",
+      "key_outputs": [
+        "outputs/v11_systema_l1_high_tail/prospective_eval_harness/A_L1H6_STATUS.md",
+        "outputs/v11_systema_l1_high_tail/prospective_eval_harness/a_l1h6_promotion_gate.csv",
+        "outputs/v11_systema_l1_high_tail/prospective_eval_harness/a_l1h6_report.md"
+      ],
+      "key_findings": [
+        "Harness ready.",
+        "Snapshot found false.",
+        "No fake prospective metrics written."
+      ],
+      "quantitative_results": [
+        "P_ge31 gate remains P_GE31_REMAINS_OPTIONAL_WAITING",
+        "P_ge33 remains exploratory"
+      ],
+      "accepted_conclusion": "Harness is ready but blocked until formal snapshot exists.",
+      "caveats": [
+        "WAITING is expected and acceptable.",
+        "No prospective pass before snapshot."
+      ],
+      "forbidden_claims": [
+        "prospective evaluation complete",
+        "P_ge31 promoted",
+        "official warning probability"
+      ],
+      "next_action": "Rerun only after A-L1H.7 freezes a reviewed formal snapshot.",
+      "reentry_command": "python scripts/v11_l1h6_run_prospective_eval_harness.py --config configs/v11/systema_l1h6_prospective_eval_harness.yaml"
+    },
+    {
+      "sequence": 8,
+      "system": "System A",
+      "lane_id": "A-L1H.7",
+      "name": "formal snapshot freezer",
+      "status": "A_L1H7_WAITING_FOR_FORMAL_INPUT",
+      "classification": "BLOCKED_WAITING",
+      "branch": "codex/systema-l1h7-formal-snapshot-freezer",
+      "purpose": "Validate and freeze a real formal snapshot before prospective comparisons.",
+      "commands": [
+        "python scripts/v11_l1h7_run_formal_snapshot_freezer.py --config configs/v11/systema_l1h7_formal_snapshot_freezer.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l1h7_formal_snapshot_freezer.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l1h7_formal_snapshot_freezer.py",
+        "scripts/v11_l1h7_run_formal_snapshot_freezer.py",
+        "scripts/v11_l1h7_validate_frozen_snapshot.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L1H7_formal_snapshot_freezer_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l1_high_tail/formal_snapshot_freezer",
+      "key_outputs": [
+        "outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/A_L1H7_STATUS.md",
+        "outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_freeze_readiness_check.csv",
+        "outputs/v11_systema_l1_high_tail/formal_snapshot_freezer/a_l1h7_report.md"
+      ],
+      "key_findings": [
+        "No plausible formal snapshot candidate found.",
+        "Forbidden-column status passed for scanned candidates."
+      ],
+      "quantitative_results": [
+        "Current schema status WAITING_NO_FORMAL_SCHEMA_CANDIDATE",
+        "Minimum support required: 200 prospective rows, 30 ge31 events, 30 ge33 events for promotion review"
+      ],
+      "accepted_conclusion": "Freezer waits for real formal input; do not use live-growing archive as formal pass.",
+      "caveats": [
+        "dry_run does not write formal snapshot data.",
+        "write_snapshot only after reviewed candidate passes checks."
+      ],
+      "forbidden_claims": [
+        "fake formal snapshot",
+        "live archive as final formal evidence",
+        "weakened schema checks"
+      ],
+      "next_action": "Provide reviewed compact formal candidate; run write_snapshot; then run A-L1H.6.",
+      "reentry_command": "python scripts/v11_l1h7_run_formal_snapshot_freezer.py --config configs/v11/systema_l1h7_formal_snapshot_freezer.yaml"
+    },
+    {
+      "sequence": 9,
+      "system": "System A",
+      "lane_id": "A-L1H.8",
+      "name": "development dossier / frozen handoff",
+      "status": "A_L1H8_DOSSIER_PASS",
+      "classification": "ACCEPTED_FROZEN_HANDOFF",
+      "branch": "codex/systema-development-dossier",
+      "purpose": "Consolidate System A evidence, contract, waiting register, claim boundaries, and re-entry prompt.",
+      "commands": [
+        "python scripts/v11_l1h8_run_development_dossier.py --config configs/v11/systema_l1h8_development_dossier.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l1h8_development_dossier.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l1h8_systema_development_dossier.py",
+        "scripts/v11_l1h8_run_development_dossier.py"
+      ],
+      "docs": [
+        "docs/handoff/OpenHeat_SystemA_FROZEN_HANDOFF_2026-05-27_CN.md",
+        "docs/v11/OpenHeat_SystemA_development_dossier_2026-05-27_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l1_high_tail/systema_development_dossier",
+      "key_outputs": [
+        "outputs/v11_systema_l1_high_tail/systema_development_dossier/A_L1H8_STATUS.md",
+        "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_report.md",
+        "outputs/v11_systema_l1_high_tail/systema_development_dossier/a_l1h8_lane_status_matrix.csv"
+      ],
+      "key_findings": [
+        "System A frozen/waiting.",
+        "wbgt_a_c primary.",
+        "A-L1H.6 and A-L1H.7 wait for formal snapshot/input.",
+        "Level 2 explanatory only."
+      ],
+      "quantitative_results": [
+        "Dossier status A_L1H8_DOSSIER_PASS",
+        "Formal snapshot status WAITING",
+        "P_ge31 optional diagnostic companion"
+      ],
+      "accepted_conclusion": "System A is frozen and ready for future formal snapshot reactivation only.",
+      "caveats": [
+        "No model training.",
+        "No contract changes.",
+        "No System B coupling."
+      ],
+      "forbidden_claims": [
+        "local 100m WBGT",
+        "official warning probability",
+        "station-adjusted WBGT",
+        "risk/hazard score"
+      ],
+      "next_action": "Future re-entry starts with A-L1H.7 only when a real formal snapshot exists.",
+      "reentry_command": "python scripts/v11_l1h7_run_formal_snapshot_freezer.py --config configs/v11/systema_l1h7_formal_snapshot_freezer.yaml"
+    },
+    {
+      "sequence": 10,
+      "system": "System A",
+      "lane_id": "A-L2.0",
+      "name": "identifiability",
+      "status": "PASS",
+      "classification": "DIAGNOSTIC",
+      "branch": "codex/systema-l2-identifiability-preflight",
+      "purpose": "Check whether station-context residual explanation is identifiable before any Level 2 modeling.",
+      "commands": [
+        "python scripts/v11_l2_run_identifiability_preflight.py --config configs/v11/systema_l2_identifiability_preflight.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l2_identifiability_preflight.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l2_run_identifiability_preflight.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L2_identifiability_preflight_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l2_residual/identifiability_preflight",
+      "key_outputs": [
+        "outputs/v11_systema_l2_residual/identifiability_preflight/A_L2_0_STATUS.md",
+        "outputs/v11_systema_l2_residual/identifiability_preflight/station_context_identifiability_matrix.csv"
+      ],
+      "key_findings": [
+        "Station-context residual explanation warranted scoped preflight only.",
+        "No causal correction claimed."
+      ],
+      "quantitative_results": [
+        "context-adjusted residual stable stations=14",
+        "high-tail stable stations=8",
+        "challenger probability-error stable stations=1"
+      ],
+      "accepted_conclusion": "Proceed only to scoped station-level preflight; exclude station_id.",
+      "caveats": [
+        "Station count limited.",
+        "P_ge31 remains retrospective diagnostic."
+      ],
+      "forbidden_claims": [
+        "station-context causal correction",
+        "station-adjusted WBGT"
+      ],
+      "next_action": "Proceed only to A-L2.1 scoped station features/preflight.",
+      "reentry_command": "python scripts/v11_l2_run_identifiability_preflight.py --config configs/v11/systema_l2_identifiability_preflight.yaml"
+    },
+    {
+      "sequence": 11,
+      "system": "System A",
+      "lane_id": "A-L2.1a",
+      "name": "station features",
+      "status": "PASS_FEATURE_TABLE",
+      "classification": "DIAGNOSTIC",
+      "branch": "codex/systema-l2-station-buffer-source-acquisition",
+      "purpose": "Build station-local explanatory feature table without residual modeling.",
+      "commands": [
+        "python scripts/v11_l2_run_station_buffer_source_acquisition.py --config configs/v11/systema_l2_station_buffer_source_acquisition.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l2_station_buffer_source_acquisition.yaml",
+        "configs/v11/systema_l2_station_buffer_features.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l2_run_station_buffer_source_acquisition.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L2_station_buffer_source_acquisition_CN.md",
+        "docs/v11/OpenHeat_SystemA_L2_station_buffer_features_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l2_residual/station_buffer_features_s1",
+      "key_outputs": [
+        "outputs/v11_systema_l2_residual/station_buffer_features_s1/A_L2_1A_S1_STATUS.md",
+        "outputs/v11_systema_l2_residual/station_buffer_features_s1/station_buffer_feature_wide_s1.csv"
+      ],
+      "key_findings": [
+        "Station feature source and buffer build created explanatory covariates."
+      ],
+      "quantitative_results": [
+        "Station count=27"
+      ],
+      "accepted_conclusion": "Feature table may support explanatory sidecar only.",
+      "caveats": [
+        "No residual modeling.",
+        "No correction output."
+      ],
+      "forbidden_claims": [
+        "station-adjusted WBGT",
+        "local 100m WBGT"
+      ],
+      "next_action": "Feed A-L2.1b QA.",
+      "reentry_command": "python scripts/v11_l2_run_station_buffer_source_acquisition.py --config configs/v11/systema_l2_station_buffer_source_acquisition.yaml"
+    },
+    {
+      "sequence": 12,
+      "system": "System A",
+      "lane_id": "A-L2.1b",
+      "name": "feature QA",
+      "status": "PASS_FEATURE_QA_READY_FOR_SCOPED_MODEL",
+      "classification": "DIAGNOSTIC",
+      "branch": "codex/systema-l2-station-feature-qa",
+      "purpose": "QA station buffer features, collinearity, caveats, and readiness for scoped preflight.",
+      "commands": [
+        "python scripts/v11_l2_run_station_feature_qa.py --config configs/v11/systema_l2_station_feature_qa.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l2_station_feature_qa.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l2_run_station_feature_qa.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L2_station_feature_QA_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l2_residual/station_feature_qa",
+      "key_outputs": [
+        "outputs/v11_systema_l2_residual/station_feature_qa/A_L2_1B_STATUS.md",
+        "outputs/v11_systema_l2_residual/station_feature_qa/station_feature_qa_summary.csv"
+      ],
+      "key_findings": [
+        "Feature interpretation narrowed to station-level explanatory context.",
+        "S142/S139 caveats explicit."
+      ],
+      "quantitative_results": [
+        "S142 n_ge31=15 high_tail=2.239617",
+        "S139 n_ge31=1 low support"
+      ],
+      "accepted_conclusion": "Proceed only to station-level n=27 scoped preflight.",
+      "caveats": [
+        "Probability-error screens secondary.",
+        "Static station features only at station level."
+      ],
+      "forbidden_claims": [
+        "station-adjusted WBGT",
+        "causal correction"
+      ],
+      "next_action": "A-L2.1c scoped residual preflight.",
+      "reentry_command": "python scripts/v11_l2_run_station_feature_qa.py --config configs/v11/systema_l2_station_feature_qa.yaml"
+    },
+    {
+      "sequence": 13,
+      "system": "System A",
+      "lane_id": "A-L2.1c",
+      "name": "scoped residual preflight",
+      "status": "A_L2_SCOPED_SIGNAL_PROMISING",
+      "classification": "EXPLANATORY_ONLY",
+      "branch": "not recorded",
+      "purpose": "Test station-context residual explanation under small-n station constraints.",
+      "commands": [
+        "python scripts/v11_l2_run_scoped_residual_preflight.py --config configs/v11/systema_l2_scoped_residual_preflight.yaml"
+      ],
+      "configs": [
+        "configs/v11/systema_l2_scoped_residual_preflight.yaml"
+      ],
+      "scripts": [
+        "scripts/v11_l2_run_scoped_residual_preflight.py"
+      ],
+      "docs": [
+        "docs/v11/OpenHeat_SystemA_L2_scoped_residual_preflight_CN.md"
+      ],
+      "output_dir": "outputs/v11_systema_l2_residual/scoped_residual_preflight",
+      "key_outputs": [
+        "outputs/v11_systema_l2_residual/scoped_residual_preflight/A_L2_1C_STATUS.md",
+        "outputs/v11_systema_l2_residual/scoped_residual_preflight/l2_scoped_decision_matrix.csv",
+        "outputs/v11_systema_l2_residual/scoped_residual_preflight/l2_scoped_residual_preflight_report.md"
+      ],
+      "key_findings": [
+        "Weak high-tail station-context signal.",
+        "Score residual not identifiable.",
+        "No correction layer."
+      ],
+      "quantitative_results": [
+        "high-tail residual MAE 0.4035 vs null 0.4316",
+        "high-tail improvement about 6.5%",
+        "p_mae=0.0529 p_spearman=0.0250",
+        "score residual improvement about 1.7%, p_mae=0.1419"
+      ],
+      "accepted_conclusion": "Level 2 remains explanatory sidecar only.",
+      "caveats": [
+        "n=26/27 station constraints.",
+        "S142/S139 caveats.",
+        "Coefficients descriptive, not causal."
+      ],
+      "forbidden_claims": [
+        "station correction",
+        "station-adjusted WBGT",
+        "local 100m WBGT",
+        "System B modifier"
+      ],
+      "next_action": "Only future explanatory protocol after longer archive and better metadata/SVF/LCZ/siting.",
+      "reentry_command": "not_applicable"
+    },
+    {
+      "sequence": 14,
+      "system": "System B",
+      "lane_id": "B8.5-F0",
+      "name": "multi-forcing preflight",
+      "status": "PASS",
+      "classification": "ACCEPTED_PRECHECK",
+      "branch": "not recorded",
+      "purpose": "Select N24 cells and forcing days for controlled multi-forcing sensitivity.",
+      "commands": [
+        "B8.5-F0b documentation hygiene patch only; no QGIS/SOLWEIG execution"
+      ],
+      "configs": [
+        "configs/v12/systemb_b85_multiforcing_preflight.yaml"
+      ],
+      "scripts": [],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_5_multiforcing_preflight_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_5_multiforcing_preflight",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_5_multiforcing_preflight/B8_5_F0_STATUS.md",
+        "outputs/v12_surrogate/b8_5_multiforcing_preflight/b85_f0_solweig_run_matrix.csv"
+      ],
+      "key_findings": [
+        "N24 cell set and forcing days selected.",
+        "No QGIS/SOLWEIG run."
+      ],
+      "quantitative_results": [
+        "N24 cells=24",
+        "fallback used=no"
+      ],
+      "accepted_conclusion": "Allowed preparation of future execution package, not B9.",
+      "caveats": [
+        "A-L1H outputs absent in B8 worktree for some inventory references."
+      ],
+      "forbidden_claims": [
+        "local WBGT",
+        "risk",
+        "B9 AOI inference"
+      ],
+      "next_action": "Prepare execution package.",
+      "reentry_command": "not_applicable"
+    },
+    {
+      "sequence": 15,
+      "system": "System B",
+      "lane_id": "B8.5-F1",
+      "name": "execution package",
+      "status": "PASS",
+      "classification": "ACCEPTED_PRECHECK",
+      "branch": "not recorded",
+      "purpose": "Prepare SOLWEIG execution skeleton and manifest validation without running QGIS.",
+      "commands": [
+        "python -m compileall scripts/v12_b85_prepare_execution_package.py scripts/v12_b85_validate_execution_package.py scripts/qgis/v12_b85_qgis_solweig_execution_SKELETON.py"
+      ],
+      "configs": [
+        "configs/v12/systemb_b85_f1_execution_package.yaml"
+      ],
+      "scripts": [
+        "scripts/qgis/v12_b85_qgis_solweig_execution_SKELETON.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_5_execution_package_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_5_execution_package",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_5_execution_package/B8_5_F1_STATUS.md",
+        "outputs/v12_surrogate/b8_5_execution_package/b85_f1_manifest_validation.csv"
+      ],
+      "key_findings": [
+        "Manifest validation failed checks: none.",
+        "Asset readiness partial."
+      ],
+      "quantitative_results": [
+        "Source manifest requires solweig_execute_now=no"
+      ],
+      "accepted_conclusion": "Execution package prepared; no B9 approval.",
+      "caveats": [
+        "Local-only output root placeholder."
+      ],
+      "forbidden_claims": [
+        "QGIS run by Codex",
+        "SOLWEIG run by Codex",
+        "local WBGT",
+        "risk"
+      ],
+      "next_action": "Resolve asset readiness.",
+      "reentry_command": "not_applicable"
+    },
+    {
+      "sequence": 16,
+      "system": "System B",
+      "lane_id": "B8.5-F2a-F2d",
+      "name": "asset readiness and met forcing",
+      "status": "READY_FOR_MANUAL_QGIS after F2d",
+      "classification": "ACCEPTED_PRECHECK",
+      "branch": "not recorded",
+      "purpose": "Move from missing assets to ready-for-human-manual-QGIS precheck without running SOLWEIG.",
+      "commands": [
+        "F2a/F2b/F2c/F2d readiness scripts recorded in status outputs"
+      ],
+      "configs": [
+        "configs/v12/systemb_b85_f2_asset_readiness.yaml",
+        "configs/v12/systemb_b85_f2b_asset_recovery_remap.yaml",
+        "configs/v12/systemb_b85_f2c_fd02_met_forcing.yaml",
+        "configs/v12/systemb_b85_f2d_readiness_final.yaml"
+      ],
+      "scripts": [],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_5_F2_asset_readiness_CN.md",
+        "docs/v12/OpenHeat_SystemB_B8_5_F2d_readiness_final_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_5_f2d_readiness_final",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_5_f2_asset_readiness/B8_5_F2A_STATUS.md",
+        "outputs/v12_surrogate/b8_5_f2c_met_forcing/B8_5_F2C_STATUS.md",
+        "outputs/v12_surrogate/b8_5_f2d_readiness_final/B8_5_F2D_STATUS.md"
+      ],
+      "key_findings": [
+        "F2a initially 0/480 ready.",
+        "FD02 met forcing generated local-only.",
+        "F2d reached READY_FOR_MANUAL_QGIS."
+      ],
+      "quantitative_results": [
+        "F2d file assets ready 480/480",
+        "F2d ready for manual QGIS 480/480"
+      ],
+      "accepted_conclusion": "Human-controlled manual QGIS execution could proceed after F2d.",
+      "caveats": [
+        "Generated met forcing files are local-only and not commit-safe."
+      ],
+      "forbidden_claims": [
+        "Codex ran QGIS",
+        "local WBGT",
+        "risk",
+        "B9"
+      ],
+      "next_action": "Human-controlled F3 execution lanes.",
+      "reentry_command": "not_applicable"
+    },
+    {
+      "sequence": 17,
+      "system": "System B",
+      "lane_id": "B8.5-F3a/F3b",
+      "name": "microbatch and one-cell full slice",
+      "status": "MICRO_BATCH_EXECUTED_PASS / ONECELL_SLICE_EXECUTED_PASS",
+      "classification": "ACCEPTED_EXECUTION_EVIDENCE",
+      "branch": "not recorded",
+      "purpose": "Validate human-run microbatch and one-cell full slice before N24 full execution.",
+      "commands": [
+        "Human QGIS/SOLWEIG execution recorded by run logs; Codex did not run QGIS/SOLWEIG"
+      ],
+      "configs": [
+        "configs/v12/systemb_b85_f3a_microbatch_execution.yaml",
+        "configs/v12/systemb_b85_f3b_onecell_fullslice.yaml"
+      ],
+      "scripts": [
+        "scripts/qgis/v12_b85_f3a_microbatch_qgis_runner.py",
+        "scripts/qgis/v12_b85_f3b_onecell_qgis_runner.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_5_F3a_microbatch_execution_CN.md",
+        "docs/v12/OpenHeat_SystemB_B8_5_F3b_onecell_fullslice_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_5_f3b_onecell",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_5_f3a_microbatch/B8_5_F3A_STATUS.md",
+        "outputs/v12_surrogate/b8_5_f3a_raster_qa/B8_5_F3A_QA_STATUS.md",
+        "outputs/v12_surrogate/b8_5_f3b_onecell/B8_5_F3B_STATUS.md"
+      ],
+      "key_findings": [
+        "Microbatch and one-cell slice outputs validated.",
+        "Raster QA pass after human execution."
+      ],
+      "quantitative_results": [
+        "F3a 4/4 executed outputs valid",
+        "F3b 20/20 executed outputs valid"
+      ],
+      "accepted_conclusion": "N24 full execution could proceed after staged validation.",
+      "caveats": [
+        "Not full 480 by itself.",
+        "No Tmrt-to-WBGT conversion."
+      ],
+      "forbidden_claims": [
+        "B9",
+        "local WBGT",
+        "risk"
+      ],
+      "next_action": "B8.5-F3c N24 full execution review.",
+      "reentry_command": "not_applicable"
+    },
+    {
+      "sequence": 18,
+      "system": "System B",
+      "lane_id": "B8.5-F3c",
+      "name": "N24 multi-forcing",
+      "status": "N24_STABILITY_REVIEW_READY",
+      "classification": "ACCEPTED_EXECUTION_EVIDENCE",
+      "branch": "codex/b85-f3c-n24-full-execution",
+      "purpose": "Prepare and validate N24 / 480-run controlled multi-forcing evidence and stability summaries.",
+      "commands": [
+        "python scripts/v12_b85_f3c_prepare_n24.py --config configs/v12/systemb_b85_f3c_n24_full_execution.yaml",
+        "python scripts/v12_b85_f3c_validate_n24.py --config configs/v12/systemb_b85_f3c_n24_full_execution.yaml",
+        "python scripts/v12_b85_f3c_raster_qa.py --config configs/v12/systemb_b85_f3c_n24_full_execution.yaml",
+        "python scripts/v12_b85_f3c_stability_summary.py --config configs/v12/systemb_b85_f3c_n24_full_execution.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b85_f3c_n24_full_execution.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b85_f3c_prepare_n24.py",
+        "scripts/v12_b85_f3c_validate_n24.py",
+        "scripts/qgis/v12_b85_f3c_n24_qgis_runner.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_5_F3c_N24_full_execution_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_5_f3c_n24",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_5_f3c_n24/B8_5_F3C_STATUS.md",
+        "outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_n24_report.md",
+        "outputs/v12_surrogate/b8_5_f3c_n24/b85_f3c_stability_summary.csv"
+      ],
+      "key_findings": [
+        "N24 postrun, raster QA, alignment QA, and stability summary passed.",
+        "B9 remained blocked."
+      ],
+      "quantitative_results": [
+        "Pre-execution ready 480/480",
+        "Postrun 480/480 executed outputs valid",
+        "Core h12/h13/h15/h16 stable in F4 review"
+      ],
+      "accepted_conclusion": "N24 evidence supported a decision gate, not AOI/B9.",
+      "caveats": [
+        "Codex/Python did not run QGIS/SOLWEIG.",
+        "h10 caveated."
+      ],
+      "forbidden_claims": [
+        "B9",
+        "local WBGT",
+        "risk",
+        "full AOI"
+      ],
+      "next_action": "B8.5-F4 decision matrix.",
+      "reentry_command": "python scripts/v12_b85_f3c_stability_summary.py --config configs/v12/systemb_b85_f3c_n24_full_execution.yaml"
+    },
+    {
+      "sequence": 19,
+      "system": "System B",
+      "lane_id": "B8.5-F4",
+      "name": "N24 decision",
+      "status": "F4_N24_DECISION_PASS",
+      "classification": "ACCEPTED_DECISION",
+      "branch": "codex/b85-f4-n24-decision-matrix",
+      "purpose": "Decide what N24 evidence supports before N150 or B9 movement.",
+      "commands": [
+        "python scripts/v12_b85_run_f4_n24_decision_matrix.py --config configs/v12/systemb_b85_f4_n24_decision.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b85_f4_n24_decision.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b85_f4_n24_decision_matrix.py",
+        "scripts/v12_b85_run_f4_n24_decision_matrix.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_5_F4_N24_decision_matrix_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_5_f4_n24_decision",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_5_f4_n24_decision/B8_5_F4_STATUS.md",
+        "outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_report.md",
+        "outputs/v12_surrogate/b8_5_f4_n24_decision/b85_f4_decision_matrix.csv"
+      ],
+      "key_findings": [
+        "delta_tmrt_p90_c ready as target-card variable.",
+        "N150 controlled execution allowed after precheck.",
+        "B9 blocked."
+      ],
+      "quantitative_results": [
+        "h12 Spearman=0.920276",
+        "h13 Spearman=0.967903",
+        "h15 Spearman=0.946160",
+        "h16 Spearman=0.992752"
+      ],
+      "accepted_conclusion": "N150 controlled execution could proceed after precheck; no B9.",
+      "caveats": [
+        "h10 stable with caveat.",
+        "No surrogate trained in F4."
+      ],
+      "forbidden_claims": [
+        "local WBGT",
+        "risk",
+        "B9",
+        "Tmrt-to-WBGT conversion"
+      ],
+      "next_action": "B8.5-F5 N150 multi-forcing execution package.",
+      "reentry_command": "python scripts/v12_b85_run_f4_n24_decision_matrix.py --config configs/v12/systemb_b85_f4_n24_decision.yaml"
+    },
+    {
+      "sequence": 20,
+      "system": "System B",
+      "lane_id": "B8.5-F5",
+      "name": "N150 multi-forcing / final ML label source",
+      "status": "N150_MULTIFORCING_STABILITY_REVIEW_READY",
+      "classification": "ACCEPTED_LABEL_SOURCE",
+      "branch": "codex/b85-f5-n150-multiforcing-precheck",
+      "purpose": "Prepare, validate, merge, and summarize N150 / 3000-run multi-forcing final ML label source.",
+      "commands": [
+        "python scripts/v12_b85_f5_prepare_n150_multiforcing.py --config configs/v12/systemb_b85_f5_n150_multiforcing.yaml",
+        "python scripts/v12_b85_f5_validate_n150_multiforcing.py --config configs/v12/systemb_b85_f5_n150_multiforcing.yaml",
+        "python scripts/v12_b85_f5_raster_qa.py --config configs/v12/systemb_b85_f5_n150_multiforcing.yaml",
+        "python scripts/v12_b85_f5_label_merge.py --config configs/v12/systemb_b85_f5_n150_multiforcing.yaml",
+        "python scripts/v12_b85_f5_stability_summary.py --config configs/v12/systemb_b85_f5_n150_multiforcing.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b85_f5_n150_multiforcing.yaml"
+      ],
+      "scripts": [
+        "scripts/qgis/v12_b85_f5_n150_qgis_runner.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_5_F5_N150_multiforcing_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_5_f5_n150_multiforcing",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_5_f5_n150_multiforcing/B8_5_F5_STATUS.md",
+        "outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_report.md",
+        "outputs/v12_surrogate/b8_5_f5_n150_multiforcing/b85_f5_pairwise_delta_by_cell_hour.csv"
+      ],
+      "key_findings": [
+        "F5 is final ML label source used by later B87 protocol parity.",
+        "B9 remained blocked pending promotion review."
+      ],
+      "quantitative_results": [
+        "Pre-execution ready 3000/3000",
+        "Postrun 3000/3000 executed outputs valid",
+        "Raster QA PASS",
+        "Label merge PASS",
+        "Stability PASS"
+      ],
+      "accepted_conclusion": "F5 became the accepted N150 multi-forcing label source for surrogate review.",
+      "caveats": [
+        "SOLWEIG simulated Tmrt labels, not observed truth.",
+        "No Codex QGIS/SOLWEIG execution."
+      ],
+      "forbidden_claims": [
+        "B9",
+        "local WBGT",
+        "risk",
+        "observed truth"
+      ],
+      "next_action": "Surrogate promotion and feature-source review.",
+      "reentry_command": "python scripts/v12_b85_f5_stability_summary.py --config configs/v12/systemb_b85_f5_n150_multiforcing.yaml"
+    },
+    {
+      "sequence": 21,
+      "system": "System B",
+      "lane_id": "B8.6",
+      "name": "surrogate protocol baseline",
+      "status": "B86_WEAK_BASELINE_NEEDS_N150_MULTIFORCING",
+      "classification": "DIAGNOSTIC",
+      "branch": "codex/b86-surrogate-protocol-baseline",
+      "purpose": "Create surrogate protocol and baseline gate using available labels before promotion.",
+      "commands": [
+        "python scripts/v12_b86_run_surrogate_protocol.py --config configs/v12/systemb_b86_surrogate_protocol.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b86_surrogate_protocol.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b86_run_surrogate_protocol.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_6_surrogate_protocol_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_6_surrogate_protocol",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_6_surrogate_protocol/B8_6_STATUS.md",
+        "outputs/v12_surrogate/b8_6_surrogate_protocol/b86_report.md"
+      ],
+      "key_findings": [
+        "Baseline was weak and required N150 multi-forcing before promotion/B9."
+      ],
+      "quantitative_results": [
+        "Dataset shape 750 x 42",
+        "Best baseline mean main-holdout MAE=0.1616",
+        "Spearman=0.611"
+      ],
+      "accepted_conclusion": "No promotion; require N150 multi-forcing and harder validation.",
+      "caveats": [
+        "Existing labels single-forcing at that point.",
+        "N24 stress-validation context only."
+      ],
+      "forbidden_claims": [
+        "B9",
+        "local WBGT",
+        "risk"
+      ],
+      "next_action": "N150 multi-forcing precheck/control execution and hardening.",
+      "reentry_command": "python scripts/v12_b86_run_surrogate_protocol.py --config configs/v12/systemb_b86_surrogate_protocol.yaml"
+    },
+    {
+      "sequence": 22,
+      "system": "System B",
+      "lane_id": "B8.6b-B8.6f",
+      "name": "surrogate promotion / feature hardening / closure",
+      "status": "B86F_SURROGATE_CLOSURE_PASS",
+      "classification": "DIAGNOSTIC_SUPERSEDED_BY_B87",
+      "branch": "codex/b86b/c/d/e/f series",
+      "purpose": "Stress test N150 surrogate candidates, identify spatial/typology failures, and design N300 follow-up.",
+      "commands": [
+        "B86b/B86c/B86d/B86e/B86f run scripts recorded in status files"
+      ],
+      "configs": [
+        "configs/v12/systemb_b86b_surrogate_promotion.yaml",
+        "configs/v12/systemb_b86c_feature_hardening.yaml",
+        "configs/v12/systemb_b86d_two_stage_surrogate.yaml",
+        "configs/v12/systemb_b86e_spatial_feature_closure.yaml",
+        "configs/v12/systemb_b86f_surrogate_closure.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b86b_run_surrogate_promotion.py",
+        "scripts/v12_b86c_run_feature_hardening.py",
+        "scripts/v12_b86d_run_two_stage_surrogate.py",
+        "scripts/v12_b86f_run_surrogate_closure.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_6b_surrogate_promotion_CN.md",
+        "docs/v12/OpenHeat_SystemB_B8_6f_surrogate_closure_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_6f_surrogate_closure",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_6b_surrogate_promotion/B8_6B_STATUS.md",
+        "outputs/v12_surrogate/b8_6c_feature_hardening/B8_6C_STATUS.md",
+        "outputs/v12_surrogate/b8_6f_surrogate_closure/B8_6F_STATUS.md"
+      ],
+      "key_findings": [
+        "Weak but real N150 signal did not support AOI/B9.",
+        "Spatial holdout and anchor/neutral failures drove N300 design.",
+        "Vector/compact feature acquisition recommended."
+      ],
+      "quantitative_results": [
+        "B86b forcing-day Spearman=0.864 but spatial_holdout Spearman=0.386",
+        "B86c two-stage supporting Spearman=0.489 top10pct=0.361",
+        "B86f N300 v2 role mix totals 150"
+      ],
+      "accepted_conclusion": "B8.6 series is diagnostic and superseded by N300 B87 evidence.",
+      "caveats": [
+        "Labels are SOLWEIG-derived Tmrt deltas.",
+        "Feature importance non-causal."
+      ],
+      "forbidden_claims": [
+        "AOI-wide prediction",
+        "B9",
+        "local WBGT",
+        "risk"
+      ],
+      "next_action": "B8.6g feature acquisition and B8.7 N300 design.",
+      "reentry_command": "not_applicable"
+    },
+    {
+      "sequence": 23,
+      "system": "System B",
+      "lane_id": "B8.6g/B8.6g2/B8.6g3",
+      "name": "true-vector / source review",
+      "status": "B86G3_SOURCE_REVIEW_PASS + needs external vector source",
+      "classification": "DIAGNOSTIC_SOURCE_GATE",
+      "branch": "codex/b86g3-true-vector-source-review",
+      "purpose": "Acquire compact/vector features, retest, and review true-vector source gaps before N300 execution.",
+      "commands": [
+        "python scripts/v12_b86g_run_feature_acquisition.py --config configs/v12/systemb_b86g_feature_acquisition.yaml",
+        "python scripts/v12_b86g2_run_feature_retest.py --config configs/v12/systemb_b86g2_feature_retest.yaml",
+        "python scripts/v12_b86g3_run_true_vector_source_review.py --config configs/v12/systemb_b86g3_true_vector_source_review.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b86g_feature_acquisition.yaml",
+        "configs/v12/systemb_b86g2_feature_retest.yaml",
+        "configs/v12/systemb_b86g3_true_vector_source_review.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b86g3_run_true_vector_source_review.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_6g_feature_acquisition_CN.md",
+        "docs/v12/OpenHeat_SystemB_B8_6g2_feature_retest_CN.md",
+        "docs/v12/OpenHeat_SystemB_B8_6g3_true_vector_source_review_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_6g3_true_vector_source_review",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_6g_feature_acquisition/B8_6G_STATUS.md",
+        "outputs/v12_surrogate/b8_6g2_feature_retest/B8_6G2_STATUS.md",
+        "outputs/v12_surrogate/b8_6g3_true_vector_source_review/B8_6G3_STATUS.md"
+      ],
+      "key_findings": [
+        "Connected shade corridor missing explicit source.",
+        "Tree/building true-vector source incomplete.",
+        "B8.7b precheck may proceed but AOI/B9 remains blocked."
+      ],
+      "quantitative_results": [
+        "B86G sources scanned=1256 usable=982",
+        "B86G2 spatial_holdout Spearman=0.517",
+        "B86G3 N300 v4 row count=150, N150 overlap=0"
+      ],
+      "accepted_conclusion": "Precheck can proceed; external vector acquisition remains required before AOI/B9.",
+      "caveats": [
+        "Source-review/design-gate only.",
+        "No execution artifact."
+      ],
+      "forbidden_claims": [
+        "AOI/B9",
+        "observed truth",
+        "causal feature importance"
+      ],
+      "next_action": "B8.7b precheck plus external/vector acquisition before AOI/B9.",
+      "reentry_command": "python scripts/v12_b86g3_run_true_vector_source_review.py --config configs/v12/systemb_b86g3_true_vector_source_review.yaml"
+    },
+    {
+      "sequence": 24,
+      "system": "System B",
+      "lane_id": "B8.7",
+      "name": "N300 predesign",
+      "status": "B87_N300_DESIGN_NEEDS_QA",
+      "classification": "DIAGNOSTIC_DESIGN",
+      "branch": "codex/b87-n300-pre-source-review",
+      "purpose": "Freeze/review N300 candidate design and source gaps.",
+      "commands": [
+        "python scripts/v12_b87_run_n300_pre.py --config configs/v12/systemb_b87_n300_pre.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87_n300_pre.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87_run_n300_pre.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_7_N300_PRE_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_7_n300_pre",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_7_n300_pre/B8_7_STATUS.md",
+        "outputs/v12_surrogate/b8_7_n300_pre/b87_report.md"
+      ],
+      "key_findings": [
+        "N300 candidate count 150 with 0 N150 overlap.",
+        "Connected shade corridor source unavailable.",
+        "AOI/B9 blocked."
+      ],
+      "quantitative_results": [
+        "N300 candidate count=150",
+        "N150 overlap=0"
+      ],
+      "accepted_conclusion": "Proceed to QA patch and source review; not execution yet.",
+      "caveats": [
+        "Design/source review only."
+      ],
+      "forbidden_claims": [
+        "N300 execution manifest",
+        "AOI/B9",
+        "WBGT/risk"
+      ],
+      "next_action": "Manual N300 QA then B8.7a/B8.6g3/B8.7b.",
+      "reentry_command": "python scripts/v12_b87_run_n300_pre.py --config configs/v12/systemb_b87_n300_pre.yaml"
+    },
+    {
+      "sequence": 25,
+      "system": "System B",
+      "lane_id": "B8.7a",
+      "name": "design QA patch",
+      "status": "B87A_PATCHED_DESIGN_READY_FOR_REVIEW",
+      "classification": "DIAGNOSTIC_DESIGN",
+      "branch": "codex/b87a-n300-design-qa-patch",
+      "purpose": "Patch N300 candidate design QA before execution precheck.",
+      "commands": [
+        "python scripts/v12_b87a_run_design_qa_patch.py --config configs/v12/systemb_b87a_n300_design_qa_patch.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87a_n300_design_qa_patch.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87a_run_design_qa_patch.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_7a_N300_design_QA_patch_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_7a_n300_design_qa_patch",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_7a_n300_design_qa_patch/B8_7A_STATUS.md"
+      ],
+      "key_findings": [
+        "N150 overlap count 0.",
+        "Manual source review blockers carried."
+      ],
+      "quantitative_results": [
+        "manual_source_review_blockers=3"
+      ],
+      "accepted_conclusion": "Patched design ready for review; no execution authorization by itself.",
+      "caveats": [
+        "AUTO_ONLY when manual input missing."
+      ],
+      "forbidden_claims": [
+        "SOLWEIG execution",
+        "AOI/B9",
+        "WBGT/risk"
+      ],
+      "next_action": "B8.7b precheck after review.",
+      "reentry_command": "python scripts/v12_b87a_run_design_qa_patch.py --config configs/v12/systemb_b87a_n300_design_qa_patch.yaml"
+    },
+    {
+      "sequence": 26,
+      "system": "System B",
+      "lane_id": "B8.7b",
+      "name": "execution precheck",
+      "status": "B87B_PRECHECK_NEEDS_LOCAL_ASSET_REMAP",
+      "classification": "BLOCKED_PRECHECK",
+      "branch": "not recorded",
+      "purpose": "Preview N300 additional runs and block execution until local asset remap.",
+      "commands": [
+        "python scripts/v12_b87b_run_execution_precheck.py --config configs/v12/systemb_b87b_n300_execution_precheck.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87b_n300_execution_precheck.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87b_run_execution_precheck.py",
+        "scripts/v12_b87b_precheck_decision.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_7b_N300_execution_precheck_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_7b_n300_execution_precheck",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_7b_n300_execution_precheck/B8_7B_STATUS.md",
+        "outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_blocker_register.csv"
+      ],
+      "key_findings": [
+        "Additional run count 3000.",
+        "Needs local asset remap.",
+        "AOI/B9 blocked."
+      ],
+      "quantitative_results": [
+        "2 forcing days x 5 hours x 2 scenarios = 3000 additional preview runs"
+      ],
+      "accepted_conclusion": "Precheck only; no run-ready manifest.",
+      "caveats": [
+        "No QGIS/SOLWEIG execution.",
+        "No runner."
+      ],
+      "forbidden_claims": [
+        "AOI/B9",
+        "WBGT/risk",
+        "run-ready execution manifest"
+      ],
+      "next_action": "B8.7b.1 local asset remap.",
+      "reentry_command": "python scripts/v12_b87b_run_execution_precheck.py --config configs/v12/systemb_b87b_n300_execution_precheck.yaml"
+    },
+    {
+      "sequence": 27,
+      "system": "System B",
+      "lane_id": "B8.7b.1",
+      "name": "local asset remap",
+      "status": "B87B1_WAITING_LOCAL_ROOTS",
+      "classification": "BLOCKED_PRECHECK",
+      "branch": "not recorded",
+      "purpose": "Check local asset readiness and path remap without touching rasters.",
+      "commands": [
+        "python scripts/v12_b87b1_run_local_asset_remap.py --config configs/v12/systemb_b87b1_local_asset_remap.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87b1_local_asset_remap.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87b1_run_local_asset_remap.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_7b1_local_asset_remap_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_7b1_local_asset_remap",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_7b1_local_asset_remap/B8_7B1_STATUS.md",
+        "outputs/v12_surrogate/b8_7b1_local_asset_remap/b87b1_missing_asset_register.csv"
+      ],
+      "key_findings": [
+        "Waiting local roots.",
+        "No raster touch audit pass."
+      ],
+      "quantitative_results": [
+        "output root status 150/150",
+        "waiting=900 missing=0 ambiguous=0"
+      ],
+      "accepted_conclusion": "Metadata-only lane remained blocked pending local roots.",
+      "caveats": [
+        "No manifest or runner."
+      ],
+      "forbidden_claims": [
+        "QGIS/SOLWEIG run",
+        "AOI/B9",
+        "WBGT/risk"
+      ],
+      "next_action": "B8.7b.2 local asset fix/cross-worktree discovery.",
+      "reentry_command": "python scripts/v12_b87b1_run_local_asset_remap.py --config configs/v12/systemb_b87b1_local_asset_remap.yaml"
+    },
+    {
+      "sequence": 28,
+      "system": "System B",
+      "lane_id": "B8.7b.2",
+      "name": "cross-worktree / full-raster locator",
+      "status": "B87B2_BLOCKED_NO_ASSETS_FOUND",
+      "classification": "BLOCKED_PRECHECK",
+      "branch": "not recorded",
+      "purpose": "Search configured worktrees for missing N300 assets without reading/copying rasters.",
+      "commands": [
+        "python scripts/v12_b87b2_run_cross_worktree_asset_discovery.py --config configs/v12/systemb_b87b2_cross_worktree_asset_discovery.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87b2_cross_worktree_asset_discovery.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87b2_run_cross_worktree_asset_discovery.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_7b2_cross_worktree_asset_discovery_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_7b2_cross_worktree_asset_discovery",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_7b2_cross_worktree_asset_discovery/B8_7B2_STATUS.md",
+        "outputs/v12_surrogate/b8_7b2_cross_worktree_asset_discovery/b87b2_b87c_readiness_matrix.csv"
+      ],
+      "key_findings": [
+        "No assets found for minimal SVF/DSM.",
+        "Metadata-only no-raster-touch audit pass."
+      ],
+      "quantitative_results": [
+        "resolved minimal SVF/DSM count=0"
+      ],
+      "accepted_conclusion": "Proceed to source lock / materialization preplan rather than pretending assets exist.",
+      "caveats": [
+        "No raster read/write/copy/open."
+      ],
+      "forbidden_claims": [
+        "asset ready",
+        "AOI/B9",
+        "WBGT/risk"
+      ],
+      "next_action": "B8.7b.3 source lock / SVF scenario model.",
+      "reentry_command": "python scripts/v12_b87b2_run_cross_worktree_asset_discovery.py --config configs/v12/systemb_b87b2_cross_worktree_asset_discovery.yaml"
+    },
+    {
+      "sequence": 29,
+      "system": "System B",
+      "lane_id": "B8.7b.3",
+      "name": "source lock / SVF scenario model",
+      "status": "B87B3_SOURCE_LOCK_READY_FOR_MATERIALIZATION",
+      "classification": "ACCEPTED_SOURCE_LOCK",
+      "branch": "codex/b87b3-source-lock-svf-scenario-preplan",
+      "purpose": "Lock canonical DSM/CDSM/grid/SVF source lineage and define materialization preplan.",
+      "commands": [
+        "python scripts/v12_b87b3_run_full_raster_source_preplan.py --config configs/v12/systemb_b87b3_full_raster_source_preplan.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87b3_full_raster_source_preplan.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87b3_run_full_raster_source_preplan.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_7b3_full_raster_source_preplan_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_7b3_full_raster_source_preplan",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/B8_7B3_STATUS.md",
+        "outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/b87b3_report.md",
+        "outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/b87b3_svf_scenario_model.csv"
+      ],
+      "key_findings": [
+        "DSM/CDSM/grid locked.",
+        "Base SVF locked full-AOI source only.",
+        "Overhead requires scenario-specific materialization."
+      ],
+      "quantitative_results": [
+        "HEADER_OK=3/3",
+        "base and overhead feasible for B87B4 prematerialization"
+      ],
+      "accepted_conclusion": "B87B4 materialization could proceed with locked sources.",
+      "caveats": [
+        "No raster pixel read.",
+        "No raster write/copy/move/symlink in this preplan lane."
+      ],
+      "forbidden_claims": [
+        "QGIS/SOLWEIG run",
+        "AOI/B9",
+        "WBGT/risk"
+      ],
+      "next_action": "B8.7b.3p protocol parity then B8.7b.4 materialization.",
+      "reentry_command": "python scripts/v12_b87b3_run_full_raster_source_preplan.py --config configs/v12/systemb_b87b3_full_raster_source_preplan.yaml"
+    },
+    {
+      "sequence": 30,
+      "system": "System B",
+      "lane_id": "B8.7b.3p",
+      "name": "SOLWEIG protocol parity audit",
+      "status": "B87B3P_PASS_WITH_NONFINAL_SMOKE_DIFFERENCES",
+      "classification": "ACCEPTED_PROTOCOL_PARITY",
+      "branch": "not recorded",
+      "purpose": "Audit final F5 ML label source against planned B87C protocol before materialization.",
+      "commands": [
+        "python scripts/v12_b87b3p_run_protocol_parity.py --config configs/v12/systemb_b87b3p_solweig_protocol_parity.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87b3p_solweig_protocol_parity.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87b3p_run_protocol_parity.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_7b3p_SOLWEIG_protocol_parity_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_7b3p_solweig_protocol_parity",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_7b3p_solweig_protocol_parity/B8_7B3P_STATUS.md",
+        "outputs/v12_surrogate/b8_7b3p_solweig_protocol_parity/b87b3p_report.md",
+        "outputs/v12_surrogate/b8_7b3p_solweig_protocol_parity/b87b3p_protocol_parity_decision_matrix.csv"
+      ],
+      "key_findings": [
+        "Final ML label source is b85_f5_n150_multiforcing.",
+        "Planned B87C protocol compatible.",
+        "Nonfinal smoke differences are WARN, not final ML mixing."
+      ],
+      "quantitative_results": [
+        "Nonfinal smoke/deprecated caveat rows=5",
+        "Blockers=none"
+      ],
+      "accepted_conclusion": "B8.7b.4 materialization may proceed with parity assertions.",
+      "caveats": [
+        "No QGIS/SOLWEIG.",
+        "No run-ready manifest/runner."
+      ],
+      "forbidden_claims": [
+        "AOI/B9",
+        "WBGT/risk",
+        "raster write"
+      ],
+      "next_action": "B8.7b.4 materialization package.",
+      "reentry_command": "python scripts/v12_b87b3p_run_protocol_parity.py --config configs/v12/systemb_b87b3p_solweig_protocol_parity.yaml"
+    },
+    {
+      "sequence": 31,
+      "system": "System B",
+      "lane_id": "B8.7b.4/B87C",
+      "name": "materialization / execution package",
+      "status": "B87B4_MATERIALIZATION_COMPLETE_READY_FOR_B87C_RUN",
+      "classification": "ACCEPTED_MATERIALIZATION",
+      "branch": "not recorded",
+      "purpose": "Materialize local-only B87C assets and prepare N300 new150 run package.",
+      "commands": [
+        "python scripts/v12_b87b4_run_materialization_package.py --config configs/v12/systemb_b87b4_b87c_materialization_package.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87b4_b87c_materialization_package.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87b4_run_materialization_package.py",
+        "scripts/qgis/v12_b87b4_qgis_svf_materialization_runner.py",
+        "scripts/qgis/v12_b87c_qgis_solweig_n300_runner.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B8_7b4_B87C_materialization_execution_package_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b8_7b4_b87c_materialization_package",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_7b4_b87c_materialization_package/B8_7B4_B87C_STATUS.md",
+        "outputs/v12_surrogate/b8_7b4_b87c_materialization_package/b87b4_b87c_report.md"
+      ],
+      "key_findings": [
+        "Local-only asset root ready.",
+        "SVF/svfs readiness 300/300.",
+        "Manifest row count 3000."
+      ],
+      "quantitative_results": [
+        "SVF/svfs readiness 300/300",
+        "manifest row count=3000"
+      ],
+      "accepted_conclusion": "Ready for human/local B87C run; AOI/B9 still blocked.",
+      "caveats": [
+        "Local-only raster writes allowed under C:/OpenHeat-local only.",
+        "No repo raster writes."
+      ],
+      "forbidden_claims": [
+        "AOI/B9",
+        "WBGT/risk",
+        "observed truth"
+      ],
+      "next_action": "B87C full_150 raw SOLWEIG human/local execution and postrun summary.",
+      "reentry_command": "python scripts/v12_b87b4_run_materialization_package.py --config configs/v12/systemb_b87b4_b87c_materialization_package.yaml"
+    },
+    {
+      "sequence": 32,
+      "system": "System B",
+      "lane_id": "B87C",
+      "name": "full_150 raw SOLWEIG",
+      "status": "B87C_FULL150_POSTRUN_SUMMARY_PASS",
+      "classification": "ACCEPTED_RAW_SOLWEIG",
+      "branch": "not recorded",
+      "purpose": "Record completed B87C full_150 raw SOLWEIG postrun summary.",
+      "commands": [
+        "Human/local QGIS/SOLWEIG execution recorded; devlog does not rerun"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87b4_b87c_materialization_package.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87c_postrun_qa.py"
+      ],
+      "docs": [],
+      "output_dir": "outputs/v12_surrogate/b8_7b4_b87c_materialization_package/postrun_summary",
+      "key_outputs": [
+        "outputs/v12_surrogate/b8_7b4_b87c_materialization_package/postrun_summary/B87C_FULL150_COMPLETION_NOTE.md"
+      ],
+      "key_findings": [
+        "B87C full_150 raw SOLWEIG completed with no missing/empty Tmrt."
+      ],
+      "quantitative_results": [
+        "3000/3000 success",
+        "150 cells",
+        "2 forcing days",
+        "5 hours",
+        "2 scenarios",
+        "missing_or_empty_tmrt=0"
+      ],
+      "accepted_conclusion": "Raw SOLWEIG simulated Tmrt source complete for B87D label integration.",
+      "caveats": [
+        "SOLWEIG simulated Tmrt only.",
+        "Not observed truth."
+      ],
+      "forbidden_claims": [
+        "WBGT",
+        "risk",
+        "AOI/B9 prediction"
+      ],
+      "next_action": "B87D N300 label integration.",
+      "reentry_command": "not_applicable"
+    },
+    {
+      "sequence": 33,
+      "system": "System B",
+      "lane_id": "B87D",
+      "name": "N300 label integration",
+      "status": "B87D_N300_LABEL_INTEGRATION_PASS",
+      "classification": "ACCEPTED_LABEL_TABLE",
+      "branch": "not recorded",
+      "purpose": "Integrate F5 N150 and B87C new150 labels into N300 pairwise delta table.",
+      "commands": [
+        "python scripts/v12_b87d_run_label_integration.py --config configs/v12/systemb_b87d_n300_label_integration.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87d_n300_label_integration.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87d_run_label_integration.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B87D_N300_label_integration_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b87d_n300_label_integration",
+      "key_outputs": [
+        "outputs/v12_surrogate/b87d_n300_label_integration/B87D_STATUS.md",
+        "outputs/v12_surrogate/b87d_n300_label_integration/b87d_report.md",
+        "outputs/v12_surrogate/b87d_n300_label_integration/b87d_n300_pairwise_delta_by_cell_hour.csv",
+        "outputs/v12_surrogate/b87d_n300_label_integration/b87d_n300_label_qa_matrix.csv"
+      ],
+      "key_findings": [
+        "N300 label integration passed.",
+        "F5/B87C old-new overlap count zero.",
+        "Full-tile valid non-nodata extraction convention recovered."
+      ],
+      "quantitative_results": [
+        "b87c_tmrt_stats_rows=3000",
+        "b87c_pairwise_rows=1500",
+        "n300_pairwise_rows=3000",
+        "n300_unique_cells=300",
+        "f5_b87c_overlap_count=0"
+      ],
+      "accepted_conclusion": "N300 labels are accepted for surrogate benchmarking.",
+      "caveats": [
+        "delta is overhead_as_canopy - base.",
+        "Not observed truth."
+      ],
+      "forbidden_claims": [
+        "WBGT",
+        "hazard map",
+        "risk map",
+        "causal evidence"
+      ],
+      "next_action": "B87E N300 surrogate benchmark.",
+      "reentry_command": "python scripts/v12_b87d_run_label_integration.py --config configs/v12/systemb_b87d_n300_label_integration.yaml"
+    },
+    {
+      "sequence": 34,
+      "system": "System B",
+      "lane_id": "B87E",
+      "name": "N300 surrogate benchmark",
+      "status": "B87E_SURROGATE_BENCHMARK_PASS_NO_PROMOTION",
+      "classification": "DIAGNOSTIC_NO_PROMOTION",
+      "branch": "not recorded",
+      "purpose": "Benchmark N300 surrogate models as emulators of SOLWEIG-derived delta Tmrt labels.",
+      "commands": [
+        "python scripts/v12_b87e_run_surrogate_benchmark.py --config configs/v12/systemb_b87e_n300_surrogate_benchmark.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87e_n300_surrogate_benchmark.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87e_run_surrogate_benchmark.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B87E_N300_surrogate_benchmark_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b87e_n300_surrogate_benchmark",
+      "key_outputs": [
+        "outputs/v12_surrogate/b87e_n300_surrogate_benchmark/B87E_STATUS.md",
+        "outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_report.md",
+        "outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_model_metrics_summary.csv"
+      ],
+      "key_findings": [
+        "Benchmark passed but did not promote.",
+        "Extra trees remained candidate baseline."
+      ],
+      "quantitative_results": [
+        "Feature matrix 3000 x 377",
+        "Best GroupKFold MAE extra_trees=0.150376",
+        "Best old-to-new MAE random_forest=0.218676",
+        "Best GroupKFold rank Spearman=0.749701"
+      ],
+      "accepted_conclusion": "No AOI/B9 inference authorized; proceed to promotion review/feature patch.",
+      "caveats": [
+        "Surrogate of SOLWEIG labels only.",
+        "Top-k ranking diagnostic only."
+      ],
+      "forbidden_claims": [
+        "observed truth",
+        "WBGT calibration",
+        "AOI/B9 inference",
+        "risk/hazard map"
+      ],
+      "next_action": "B87F surrogate patch/promotion review.",
+      "reentry_command": "python scripts/v12_b87e_run_surrogate_benchmark.py --config configs/v12/systemb_b87e_n300_surrogate_benchmark.yaml"
+    },
+    {
+      "sequence": 35,
+      "system": "System B",
+      "lane_id": "B87F",
+      "name": "promotion review",
+      "status": "B87F_EXTRA_TREES_REMAINS_CANDIDATE_NO_PROMOTION",
+      "classification": "DIAGNOSTIC_NO_PROMOTION",
+      "branch": "not recorded",
+      "purpose": "Review whether B87E extra_trees or patched feature sets can be promoted to AOI preflight.",
+      "commands": [
+        "python scripts/v12_b87f_run_promotion_review.py --config configs/v12/systemb_b87f_n300_surrogate_promotion_review.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87f_n300_surrogate_promotion_review.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87f_run_promotion_review.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B87F_N300_surrogate_promotion_review_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b87f_n300_surrogate_promotion_review",
+      "key_outputs": [
+        "outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/B87F_STATUS.md",
+        "outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_report.md",
+        "outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_model_promotion_review.csv"
+      ],
+      "key_findings": [
+        "Extra trees retained but no promotion.",
+        "AOI preflight blocked by source gaps and metric gates."
+      ],
+      "quantitative_results": [
+        "Best B87F GroupKFold extra_trees MAE=0.150376",
+        "Best old-to-new random_forest MAE=0.213904",
+        "Best rank Spearman=0.769221"
+      ],
+      "accepted_conclusion": "No AOI preflight; go to B87F2 feature patch and true-vector source acquisition.",
+      "caveats": [
+        "Surrogate of SOLWEIG Tmrt deltas only.",
+        "Feature interpretation non-causal."
+      ],
+      "forbidden_claims": [
+        "AOI/B9 inference",
+        "WBGT",
+        "risk/hazard",
+        "causal feature importance"
+      ],
+      "next_action": "B87F2 true-vector/proxy feature patch.",
+      "reentry_command": "python scripts/v12_b87f_run_promotion_review.py --config configs/v12/systemb_b87f_n300_surrogate_promotion_review.yaml"
+    },
+    {
+      "sequence": 36,
+      "system": "System B",
+      "lane_id": "B87F2",
+      "name": "true-vector/proxy feature patch",
+      "status": "B87F2_FEATURE_PATCH_PARTIAL_NO_AOI",
+      "classification": "BEST_LOCAL_CHECKPOINT_BLOCKED",
+      "branch": "not recorded",
+      "purpose": "Test whether compact local true-vector/proxy features improve transfer and ranking before AOI preflight.",
+      "commands": [
+        "python scripts/v12_b87f2_run_true_vector_feature_patch.py --config configs/v12/systemb_b87f2_true_vector_feature_patch.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87f2_true_vector_feature_patch.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87f2_run_true_vector_feature_patch.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B87F2_true_vector_feature_patch_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b87f2_true_vector_feature_patch",
+      "key_outputs": [
+        "outputs/v12_surrogate/b87f2_true_vector_feature_patch/B87F2_STATUS.md",
+        "outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_report.md",
+        "outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_patched_feature_matrix.csv",
+        "outputs/v12_surrogate/b87f2_true_vector_feature_patch/b87f2_aoi_preflight_gate_matrix.csv"
+      ],
+      "key_findings": [
+        "Best local-source surrogate checkpoint.",
+        "Feature patch improved MAE and rank versus B87F.",
+        "AOI remained blocked by connected shade corridor and tree-building source gaps."
+      ],
+      "quantitative_results": [
+        "Feature matrix 3000 x 468",
+        "Best GroupKFold MAE=0.137744",
+        "Best old-to-new MAE=0.201257",
+        "Best rank Spearman=0.800468"
+      ],
+      "accepted_conclusion": "Best local-source checkpoint but not AOI-ready.",
+      "caveats": [
+        "Some features explicitly proxy-labelled.",
+        "Connected shade and true tree/canopy-building sources unresolved."
+      ],
+      "forbidden_claims": [
+        "AOI/B9 inference",
+        "WBGT conversion",
+        "risk/hazard",
+        "causal feature importance"
+      ],
+      "next_action": "Stop model tuning or external true-vector acquisition.",
+      "reentry_command": "python scripts/v12_b87f2_run_true_vector_feature_patch.py --config configs/v12/systemb_b87f2_true_vector_feature_patch.yaml"
+    },
+    {
+      "sequence": 37,
+      "system": "System B",
+      "lane_id": "B87G0",
+      "name": "final source breakthrough attempt",
+      "status": "B87G0_EXTERNAL_SOURCE_REQUIRED",
+      "classification": "BLOCKED_FINAL_SOURCE_GATE",
+      "branch": "codex/b87g0-source-breakthrough-attempt",
+      "purpose": "Make the final local-source search and proxy-feature test before stopping model tuning.",
+      "commands": [
+        "python scripts/v12_b87g0_run_source_breakthrough_attempt.py --config configs/v12/systemb_b87g0_source_breakthrough_attempt.yaml"
+      ],
+      "configs": [
+        "configs/v12/systemb_b87g0_source_breakthrough_attempt.yaml"
+      ],
+      "scripts": [
+        "scripts/v12_b87g0_run_source_breakthrough_attempt.py"
+      ],
+      "docs": [
+        "docs/v12/OpenHeat_SystemB_B87G0_source_breakthrough_attempt_CN.md"
+      ],
+      "output_dir": "outputs/v12_surrogate/b87g0_source_breakthrough_attempt",
+      "key_outputs": [
+        "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/B87G0_STATUS.md",
+        "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/b87g0_report.md",
+        "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/b87g0_closure_recommendation.csv",
+        "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/b87g0_promotion_stopgo_matrix.csv"
+      ],
+      "key_findings": [
+        "Connected shade source remains missing_true_source_proxy_only.",
+        "True tree-building source remains missing_true_source_proxy_only.",
+        "No meaningful metric breakthrough over B87F2."
+      ],
+      "quantitative_results": [
+        "Feature matrix 3000 x 519",
+        "Best GroupKFold MAE=0.141038",
+        "Best old-to-new MAE=0.213469",
+        "Best rank Spearman=0.801491",
+        "Improvement vs B87F2 group_mae_gain=-0.003294 old_to_new_gain=-0.012212 rank_gain=0.001023"
+      ],
+      "accepted_conclusion": "Local proxy/source breakthrough exhausted; external source required or close phase.",
+      "caveats": [
+        "Proxy features cannot clear true source gates.",
+        "AOI gate remains blocked."
+      ],
+      "forbidden_claims": [
+        "AOI/B9 inference",
+        "WBGT",
+        "risk/hazard/exposure/vulnerability",
+        "causal feature importance"
+      ],
+      "next_action": "EXTERNAL_TRUE_VECTOR_SOURCE_ACQUISITION_OR_CLOSE_PHASE.",
+      "reentry_command": "python scripts/v12_b87g0_run_source_breakthrough_attempt.py --config configs/v12/systemb_b87g0_source_breakthrough_attempt.yaml"
+    }
+  ],
+  "decision_register": [
+    {
+      "decision_id": "D-A-001",
+      "system": "System A",
+      "decision": "Freeze Level 1 deterministic primary output",
+      "status": "ACCEPTED",
+      "evidence": "A-L1H.5 contract and A-L1H.8 dossier",
+      "accepted_interpretation": "wbgt_a_c is the primary calibrated hourly temporal baseline.",
+      "forbidden_interpretation": "validated local 100m WBGT or station-adjusted WBGT"
+    },
+    {
+      "decision_id": "D-A-002",
+      "system": "System A",
+      "decision": "Keep P_ge31 optional diagnostic companion",
+      "status": "ACCEPTED_WITH_BOUNDARY",
+      "evidence": "A-L1H.4 retrospective LOSO n=1674 ge31=204 Brier=0.052",
+      "accepted_interpretation": "Internal diagnostic companion pending formal prospective snapshot.",
+      "forbidden_interpretation": "official warning probability"
+    },
+    {
+      "decision_id": "D-A-003",
+      "system": "System A",
+      "decision": "Keep P_ge33 exploratory",
+      "status": "EXPLORATORY",
+      "evidence": "A-L1H.4 ge33 events=15",
+      "accepted_interpretation": "Report support count only.",
+      "forbidden_interpretation": "promoted severe warning probability"
+    },
+    {
+      "decision_id": "D-A-004",
+      "system": "System A",
+      "decision": "Level 2 explanatory sidecar only",
+      "status": "ACCEPTED_WITH_BOUNDARY",
+      "evidence": "A-L2.1c weak high-tail signal and non-identifiable score residual",
+      "accepted_interpretation": "Station-context explanation may be studied later.",
+      "forbidden_interpretation": "station correction or System B modifier"
+    },
+    {
+      "decision_id": "D-B-001",
+      "system": "System B",
+      "decision": "B87C raw SOLWEIG complete",
+      "status": "ACCEPTED",
+      "evidence": "B87C full_150 completion note: 3000/3000 success, 0 missing/empty Tmrt",
+      "accepted_interpretation": "SOLWEIG simulated Tmrt source complete for label integration.",
+      "forbidden_interpretation": "observed truth, WBGT, risk, or AOI/B9 inference"
+    },
+    {
+      "decision_id": "D-B-002",
+      "system": "System B",
+      "decision": "B87D N300 labels accepted",
+      "status": "ACCEPTED",
+      "evidence": "3000 pairwise rows, 300 cells, 0 F5/B87C overlap",
+      "accepted_interpretation": "N300 label table accepted for surrogate benchmark.",
+      "forbidden_interpretation": "hazard/risk map or causal evidence"
+    },
+    {
+      "decision_id": "D-B-003",
+      "system": "System B",
+      "decision": "B87F2 is best local-source checkpoint",
+      "status": "ACCEPTED_WITH_BLOCKER",
+      "evidence": "3000 x 468 feature matrix; MAE=0.137744; old-to-new=0.201257; Spearman=0.800468",
+      "accepted_interpretation": "Best local-source surrogate checkpoint for diagnostics.",
+      "forbidden_interpretation": "AOI-ready model"
+    },
+    {
+      "decision_id": "D-B-004",
+      "system": "System B",
+      "decision": "B87G0 closes local-source tuning",
+      "status": "BLOCKED_EXTERNAL_SOURCE_REQUIRED",
+      "evidence": "No meaningful breakthrough vs B87F2; true connected shade/tree-building sources missing",
+      "accepted_interpretation": "Stop model tuning or acquire external true-vector sources.",
+      "forbidden_interpretation": "continue tuning proxies into AOI/B9"
+    }
+  ],
+  "claim_boundaries": [
+    {
+      "claim": "WBGT_A deterministic temporal baseline",
+      "decision": "ALLOWED",
+      "allowed_wording": "calibrated hourly WBGT temporal baseline",
+      "forbidden_upgrade": "validated local WBGT prediction",
+      "rationale": "A-L1H.5 freezes wbgt_a_c as primary temporal output."
+    },
+    {
+      "claim": "P_ge31 optional diagnostic companion",
+      "decision": "ALLOWED_WITH_BOUNDARY",
+      "allowed_wording": "P_ge31 optional diagnostic companion",
+      "forbidden_upgrade": "official warning probability",
+      "rationale": "A-L1H.4 is retrospective; A-L1H.6 waits for formal snapshot."
+    },
+    {
+      "claim": "P_ge33",
+      "decision": "EXPLORATORY",
+      "allowed_wording": "P_ge33 remains exploratory due to low event support",
+      "forbidden_upgrade": "severe warning probability",
+      "rationale": "Only 15 ge33 events in A-L1H.4 evidence."
+    },
+    {
+      "claim": "System A Level 2",
+      "decision": "EXPLANATORY_ONLY",
+      "allowed_wording": "Level 2 shows weak high-tail explanatory signal",
+      "forbidden_upgrade": "station-adjusted WBGT or causal driver proof",
+      "rationale": "Score residual not identifiable under n=27 station constraints."
+    },
+    {
+      "claim": "System B radiative layer",
+      "decision": "ALLOWED_WITH_BOUNDARY",
+      "allowed_wording": "SOLWEIG-derived Tmrt / radiative spatial layer",
+      "forbidden_upgrade": "local WBGT or observed truth",
+      "rationale": "B87C/D labels are simulated Tmrt deltas only."
+    },
+    {
+      "claim": "System B surrogate",
+      "decision": "DIAGNOSTIC_ONLY",
+      "allowed_wording": "surrogate/emulator of SOLWEIG-derived delta Tmrt",
+      "forbidden_upgrade": "AOI/B9 inference or causal feature importance",
+      "rationale": "B87G0 leaves true-source gates blocked."
+    },
+    {
+      "claim": "Product C coupling",
+      "decision": "DEFERRED",
+      "allowed_wording": "future WBGT-conditioned radiative priority",
+      "forbidden_upgrade": "current System A/B coupling output",
+      "rationale": "Requires System A formal snapshot plus System B AOI preflight source gates."
+    },
+    {
+      "claim": "Risk layer",
+      "decision": "FORBIDDEN_NOW",
+      "allowed_wording": "future risk overlay after exposure and vulnerability are explicit",
+      "forbidden_upgrade": "risk map complete",
+      "rationale": "Exposure/vulnerability layer not started."
+    }
+  ],
+  "future_actions": [
+    {
+      "action_id": "FA-01",
+      "allowed_next_action": "System A formal snapshot reactivation",
+      "prerequisites": "Real reviewed compact formal snapshot with required A-L1H.5/A-L1H.7 schema and support.",
+      "command_or_prompt_path": "python scripts/v11_l1h7_run_formal_snapshot_freezer.py --config configs/v11/systema_l1h7_formal_snapshot_freezer.yaml",
+      "expected_benefit": "Freeze auditable formal input for prospective evaluation.",
+      "risk": "Using live archive or ambiguous schema would invalidate formal comparison.",
+      "stop_condition": "No real candidate; required columns/support fail; forbidden columns present.",
+      "forbidden_action": "Create fake rows or treat live-growing archive as formal pass."
+    },
+    {
+      "action_id": "FA-02",
+      "allowed_next_action": "System A prospective eval",
+      "prerequisites": "A-L1H.7 frozen snapshot manifest and validation pass.",
+      "command_or_prompt_path": "python scripts/v11_l1h6_run_prospective_eval_harness.py --config configs/v11/systema_l1h6_prospective_eval_harness.yaml",
+      "expected_benefit": "Evaluate wbgt_a_c and optional diagnostics on prospective snapshot.",
+      "risk": "Premature promotion of P_ge31 or weak station caveats.",
+      "stop_condition": "Snapshot missing, row/event support insufficient, gates fail.",
+      "forbidden_action": "Claim final prospective pass before evaluation."
+    },
+    {
+      "action_id": "FA-03",
+      "allowed_next_action": "System A Level 2 optional future metadata/longer archive",
+      "prerequisites": "Explicit new explanatory protocol, longer archive, better station metadata/SVF/LCZ/siting.",
+      "command_or_prompt_path": "none_current",
+      "expected_benefit": "Improve explanatory station-context evidence.",
+      "risk": "Confusing explanation with correction.",
+      "stop_condition": "No new station metadata or archive support.",
+      "forbidden_action": "Create station-adjusted WBGT or local 100m WBGT."
+    },
+    {
+      "action_id": "FA-04",
+      "allowed_next_action": "System B closure note",
+      "prerequisites": "Acceptance that external true-vector sources are not being acquired now.",
+      "command_or_prompt_path": "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/b87g0_codex_prompt_if_continuing_external_source_acquisition.md",
+      "expected_benefit": "Close current surrogate phase cleanly without over-tuning proxies.",
+      "risk": "Losing momentum if external source acquisition is actually available.",
+      "stop_condition": "User explicitly chooses external acquisition instead.",
+      "forbidden_action": "Start AOI/B9 from B87G0 proxy-only state."
+    },
+    {
+      "action_id": "FA-05",
+      "allowed_next_action": "System B external true-vector acquisition if continued",
+      "prerequisites": "External/manual connected shade corridor and true tree/canopy-building interaction sources.",
+      "command_or_prompt_path": "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/b87g0_external_manual_source_requirements.csv",
+      "expected_benefit": "Potentially clear source gates that proxy features cannot clear.",
+      "risk": "External data quality, licensing, alignment, and reproducibility burden.",
+      "stop_condition": "Sources unavailable, unlicensed, non-reproducible, or fail source QA.",
+      "forbidden_action": "Use proxy-only features as if true sources were acquired."
+    },
+    {
+      "action_id": "FA-06",
+      "allowed_next_action": "System B AOI preflight only if external source gates clear",
+      "prerequisites": "B87G0 source gaps cleared and model/source gates pass in a new explicit lane.",
+      "command_or_prompt_path": "none_current",
+      "expected_benefit": "Assess whether AOI inference is even safe to prepare.",
+      "risk": "Creating de facto B9 or map output prematurely.",
+      "stop_condition": "Any source gate, leakage gate, transfer gate, or claim-boundary gate fails.",
+      "forbidden_action": "Create AOI prediction, B9, WBGT conversion, hazard/risk output."
+    },
+    {
+      "action_id": "FA-07",
+      "allowed_next_action": "Coupling/Product C only after System A formal snapshot plus System B AOI preflight",
+      "prerequisites": "System A formal prospective evidence and System B source-cleared AOI preflight.",
+      "command_or_prompt_path": "none_current",
+      "expected_benefit": "Future WBGT-conditioned radiative priority concept.",
+      "risk": "Silent System A/B claim upgrade.",
+      "stop_condition": "Either System A formal pass or System B AOI preflight missing.",
+      "forbidden_action": "Create System A/B coupling output now."
+    },
+    {
+      "action_id": "FA-08",
+      "allowed_next_action": "Risk layer only after exposure/vulnerability explicit",
+      "prerequisites": "Explicit exposure and vulnerability definitions, data, validation, and governance.",
+      "command_or_prompt_path": "none_current",
+      "expected_benefit": "Move from hazard prioritisation toward risk assessment.",
+      "risk": "Hazard map being mistaken for risk.",
+      "stop_condition": "No exposure/vulnerability layer or validation plan.",
+      "forbidden_action": "Output risk_score or claim risk map complete."
+    }
+  ],
+  "new_chat_read_first": [
+    "docs/handoff/OpenHeat_SystemA_SystemB_FULL_DEVLOG_2026-05-28_CN.md",
+    "docs/handoff/OpenHeat_NEW_CHAT_REENTRY_CONTEXT_2026-05-28_CN.md",
+    "outputs/devlog_2026_05_28/OPENHEAT_DEVLOG_STATUS.md",
+    "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/B87G0_STATUS.md",
+    "outputs/v12_surrogate/b87g0_source_breakthrough_attempt/b87g0_report.md",
+    "outputs/v12_surrogate/b87f2_true_vector_feature_patch/B87F2_STATUS.md",
+    "outputs/v12_surrogate/b87d_n300_label_integration/B87D_STATUS.md",
+    "docs/handoff/OpenHeat_SystemA_FROZEN_HANDOFF_2026-05-27_CN.md",
+    "outputs/v11_systema_l1_high_tail/systema_development_dossier/A_L1H8_STATUS.md"
+  ],
+  "new_chat_commands": [
+    "git status -sb -uno",
+    "git status --short -- .",
+    "C:/Users/CloudStar/anaconda3/envs/openheat/python.exe scripts/v12_devlog_run.py --config configs/v12/openheat_devlog_2026_05_28.yaml",
+    "C:/Users/CloudStar/anaconda3/envs/openheat/python.exe scripts/v11_l1h7_run_formal_snapshot_freezer.py --config configs/v11/systema_l1h7_formal_snapshot_freezer.yaml",
+    "C:/Users/CloudStar/anaconda3/envs/openheat/python.exe scripts/v11_l1h6_run_prospective_eval_harness.py --config configs/v11/systema_l1h6_prospective_eval_harness.yaml"
+  ],
+  "new_chat_b8_commands": [
+    "cd C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid",
+    "git status -sb -uno",
+    "git status --short -- .",
+    "C:/Users/CloudStar/anaconda3/envs/openheat/python.exe scripts/v12_devlog_run.py --config configs/v12/openheat_devlog_2026_05_28.yaml"
+  ],
+  "new_chat_al1h_commands": [
+    "cd C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_al1h/06-openheat_grid",
+    "git status -sb -uno",
+    "git status --short -- .",
+    "C:/Users/CloudStar/anaconda3/envs/openheat/python.exe scripts/v11_l1h7_run_formal_snapshot_freezer.py --config configs/v11/systema_l1h7_formal_snapshot_freezer.yaml",
+    "C:/Users/CloudStar/anaconda3/envs/openheat/python.exe scripts/v11_l1h6_run_prospective_eval_harness.py --config configs/v11/systema_l1h6_prospective_eval_harness.yaml"
+  ],
+  "forbidden_files": [
+    "*.tif",
+    "*.tiff",
+    "*.vrt",
+    "*.asc",
+    "*.img",
+    "*.nc",
+    "*.grib",
+    "svfs.zip",
+    "data/solweig/",
+    "data/rasters/",
+    "data/archive/",
+    "data/raw/buildings_v10/",
+    "outputs/*forecast_live/*hourly_grid_heatstress_forecast*.csv",
+    "patch zip packages",
+    "raw API dumps"
+  ],
+  "explicit_approval_only": [
+    "QGIS or SOLWEIG execution.",
+    "Expensive raster processing.",
+    "Any AOI/B9 preflight or prediction.",
+    "Any WBGT conversion or Product C coupling lane.",
+    "Any risk/exposure/vulnerability layer.",
+    "Any external data acquisition that changes source licensing or reproducibility."
+  ],
+  "roadmap_update_rows": [
+    {
+      "topic": "System A Level 1",
+      "roadmap_2026_05_26": "A-L1H high-tail decomposition planned/running.",
+      "framework_2026_05_27": "Found at C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid/docs/handoff/OpenHeat_NewDevRoadmap_Framework_2026-05-27_CN.md.",
+      "actual_2026_05_28": "Output contract frozen, optional P_ge31 diagnostic, A-L1H.6/7 waiting, A-L1H.8 dossier pass.",
+      "status": "completed_for_current_v1_1_waiting_snapshot",
+      "note": "No longer merely pending probability companion."
+    },
+    {
+      "topic": "System A formal snapshot",
+      "roadmap_2026_05_26": "Not yet resolved.",
+      "framework_2026_05_27": "Framework artifact found in B8 docs/handoff; this update does not reinterpret its full contents.",
+      "actual_2026_05_28": "Freezer exists; no real formal input.",
+      "status": "blocked",
+      "note": "Needs real compact snapshot; live archive not formal pass."
+    },
+    {
+      "topic": "System A Level 2",
+      "roadmap_2026_05_26": "Station-context residual possible future lane.",
+      "framework_2026_05_27": "Framework artifact found in B8 docs/handoff; this update does not reinterpret its full contents.",
+      "actual_2026_05_28": "Identifiability, features, QA, scoped preflight done; explanatory only.",
+      "status": "completed_diagnostic",
+      "note": "No correction layer."
+    },
+    {
+      "topic": "System B N24/N150",
+      "roadmap_2026_05_26": "B8 surrogate/emulator stage expected after N150 label set.",
+      "framework_2026_05_27": "Framework artifact found in B8 docs/handoff; this update does not reinterpret its full contents.",
+      "actual_2026_05_28": "N24 and N150 multi-forcing completed; F5 final ML label source.",
+      "status": "completed_superseded_by_n300",
+      "note": "Far beyond early N24/N150 stage."
+    },
+    {
+      "topic": "System B N300",
+      "roadmap_2026_05_26": "Not yet in early roadmap.",
+      "framework_2026_05_27": "Framework artifact found in B8 docs/handoff; this update does not reinterpret its full contents.",
+      "actual_2026_05_28": "B87C raw SOLWEIG, B87D labels, B87E/F/F2/G0 completed.",
+      "status": "completed_source_gate_blocked",
+      "note": "N300 labels and surrogate/source-gate complete."
+    },
+    {
+      "topic": "System B AOI/B9",
+      "roadmap_2026_05_26": "B9 not allowed in current sprint.",
+      "framework_2026_05_27": "Framework artifact found in B8 docs/handoff; this update does not reinterpret its full contents.",
+      "actual_2026_05_28": "Blocked by connected shade and true tree-building source gaps.",
+      "status": "blocked",
+      "note": "Do not create AOI/B9 without external true-vector source gates."
+    },
+    {
+      "topic": "External true-vector acquisition",
+      "roadmap_2026_05_26": "Not explicit.",
+      "framework_2026_05_27": "Framework artifact found in B8 docs/handoff; this update does not reinterpret its full contents.",
+      "actual_2026_05_28": "Only continuation path for System B.",
+      "status": "recommended_if_continuing",
+      "note": "Otherwise close System B surrogate phase."
+    },
+    {
+      "topic": "Risk layer",
+      "roadmap_2026_05_26": "Future after exposure/vulnerability.",
+      "framework_2026_05_27": "Framework artifact found in B8 docs/handoff; this update does not reinterpret its full contents.",
+      "actual_2026_05_28": "Not started.",
+      "status": "deferred",
+      "note": "Hazard is not risk."
+    }
+  ]
+}

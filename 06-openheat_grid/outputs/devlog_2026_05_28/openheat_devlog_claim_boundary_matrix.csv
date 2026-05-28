@@ -1,0 +1,9 @@
+claim,decision,allowed_wording,forbidden_upgrade,rationale
+WBGT_A deterministic temporal baseline,ALLOWED,calibrated hourly WBGT temporal baseline,validated local WBGT prediction,A-L1H.5 freezes wbgt_a_c as primary temporal output.
+P_ge31 optional diagnostic companion,ALLOWED_WITH_BOUNDARY,P_ge31 optional diagnostic companion,official warning probability,A-L1H.4 is retrospective; A-L1H.6 waits for formal snapshot.
+P_ge33,EXPLORATORY,P_ge33 remains exploratory due to low event support,severe warning probability,Only 15 ge33 events in A-L1H.4 evidence.
+System A Level 2,EXPLANATORY_ONLY,Level 2 shows weak high-tail explanatory signal,station-adjusted WBGT or causal driver proof,Score residual not identifiable under n=27 station constraints.
+System B radiative layer,ALLOWED_WITH_BOUNDARY,SOLWEIG-derived Tmrt / radiative spatial layer,local WBGT or observed truth,B87C/D labels are simulated Tmrt deltas only.
+System B surrogate,DIAGNOSTIC_ONLY,surrogate/emulator of SOLWEIG-derived delta Tmrt,AOI/B9 inference or causal feature importance,B87G0 leaves true-source gates blocked.
+Product C coupling,DEFERRED,future WBGT-conditioned radiative priority,current System A/B coupling output,Requires System A formal snapshot plus System B AOI preflight source gates.
+Risk layer,FORBIDDEN_NOW,future risk overlay after exposure and vulnerability are explicit,risk map complete,Exposure/vulnerability layer not started.

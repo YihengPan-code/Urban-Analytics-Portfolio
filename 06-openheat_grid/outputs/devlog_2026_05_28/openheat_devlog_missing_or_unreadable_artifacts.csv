@@ -1,0 +1,2 @@
+artifact_id,group,relative_path,found,source_root_id,source_path,byte_size,modified_utc,readable,missing_reason
+systemb_architecture_discussion,System B,docs/v12/OpenHeat_SystemB_architecture_discussion_record_CN.md,no,,,,,no,not_found_in_configured_roots

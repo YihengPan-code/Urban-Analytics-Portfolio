@@ -1,0 +1,9 @@
+decision_id,system,decision,status,evidence,accepted_interpretation,forbidden_interpretation
+D-A-001,System A,Freeze Level 1 deterministic primary output,ACCEPTED,A-L1H.5 contract and A-L1H.8 dossier,wbgt_a_c is the primary calibrated hourly temporal baseline.,validated local 100m WBGT or station-adjusted WBGT
+D-A-002,System A,Keep P_ge31 optional diagnostic companion,ACCEPTED_WITH_BOUNDARY,A-L1H.4 retrospective LOSO n=1674 ge31=204 Brier=0.052,Internal diagnostic companion pending formal prospective snapshot.,official warning probability
+D-A-003,System A,Keep P_ge33 exploratory,EXPLORATORY,A-L1H.4 ge33 events=15,Report support count only.,promoted severe warning probability
+D-A-004,System A,Level 2 explanatory sidecar only,ACCEPTED_WITH_BOUNDARY,A-L2.1c weak high-tail signal and non-identifiable score residual,Station-context explanation may be studied later.,station correction or System B modifier
+D-B-001,System B,B87C raw SOLWEIG complete,ACCEPTED,"B87C full_150 completion note: 3000/3000 success, 0 missing/empty Tmrt",SOLWEIG simulated Tmrt source complete for label integration.,"observed truth, WBGT, risk, or AOI/B9 inference"
+D-B-002,System B,B87D N300 labels accepted,ACCEPTED,"3000 pairwise rows, 300 cells, 0 F5/B87C overlap",N300 label table accepted for surrogate benchmark.,hazard/risk map or causal evidence
+D-B-003,System B,B87F2 is best local-source checkpoint,ACCEPTED_WITH_BLOCKER,3000 x 468 feature matrix; MAE=0.137744; old-to-new=0.201257; Spearman=0.800468,Best local-source surrogate checkpoint for diagnostics.,AOI-ready model
+D-B-004,System B,B87G0 closes local-source tuning,BLOCKED_EXTERNAL_SOURCE_REQUIRED,No meaningful breakthrough vs B87F2; true connected shade/tree-building sources missing,Stop model tuning or acquire external true-vector sources.,continue tuning proxies into AOI/B9
