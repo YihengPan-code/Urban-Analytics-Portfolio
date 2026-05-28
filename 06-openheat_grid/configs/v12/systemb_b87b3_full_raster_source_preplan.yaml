@@ -1,0 +1,41 @@
+b87b3_version: systemb_b87b3_full_raster_source_preplan_v1_0
+lane: B8.7b.3
+branch: codex/b87b3-source-lock-svf-scenario-preplan
+generated_date: 2026-05-28
+
+manual_source_csv_path: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan/manual_inputs/b87b3_manual_full_raster_sources.csv
+b87b_new_candidate_sample_index_path: outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_new_candidate_sample_index.csv
+b86g3_n300_v4_design_path: outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_design_v4_source_reviewed.csv
+b87b1_expected_paths_path: outputs/v12_surrogate/b8_7b1_local_asset_remap/b87b1_cell_asset_expected_paths.csv
+b87b1_readiness_path: outputs/v12_surrogate/b8_7b1_local_asset_remap/b87b1_cell_asset_readiness_resolved.csv
+expected_new_candidate_count: 150
+
+current_b8_worktree_root: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid_b8/06-openheat_grid
+main_worktree_root: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid
+local_root: C:/OpenHeat-local
+target_b87c_asset_root: C:/OpenHeat-local/solweig/b87c_n300/assets
+
+canonical_dsm_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/rasters/v10/dsm_buildings_2m_augmented_reviewed_heightqa.tif
+canonical_cdsm_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/rasters/v08/dsm_vegetation_2m_toapayoh.tif
+canonical_grid_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/grid/toa_payoh_grid_v07_features.geojson
+canonical_base_svf_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/rasters/v10/umep_svf_with_veg/SkyViewFactor.tif
+expected_overhead_source_path: C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/features_3d/v10/overhead/overhead_structures_v10.geojson
+
+deprecated_dsm_paths:
+  - C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/rasters/v08/dsm_buildings_2m_toapayoh.tif
+  - C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/rasters/v10/dsm_buildings_2m_augmented.tif
+  - C:/Users/CloudStar/Documents/GitHub/Urban-Analytics-Portfolio/06-openheat_grid/data/rasters/v10/dsm_buildings_2m_augmented_reviewed.tif
+
+metadata_only: true
+header_only_allowed: true
+no_pixel_read: true
+no_raster_write: true
+no_copy_move_symlink: true
+no_qgis_solweig: true
+no_run_ready_manifest: true
+no_qgis_runner: true
+no_aoi_prediction: true
+no_b9: true
+
+output_dir: outputs/v12_surrogate/b8_7b3_full_raster_source_preplan
+cn_doc_path: docs/v12/OpenHeat_SystemB_B8_7b3_full_raster_source_preplan_CN.md

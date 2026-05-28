@@ -1,0 +1,13 @@
+source_kind,scenario,absolute_path,user_decision,version_status,notes
+svf_base_full,base,C:\Users\CloudStar\Documents\GitHub\Urban-Analytics-Portfolio\06-openheat_grid\data\rasters\v10\umep_svf_with_veg\SkyViewFactor.tif,use,likely_final_building_plus_existing_vegetation,Use as base full-AOI SVF source. Not directly a SOLWEIG per-tile svfs.zip; B8.7b.4 must generate/repackage per-cell/tile SVF assets.
+svf_building_only,not_final,,reject,deprecated_or_diagnostic_only,Do not use for N300 final labels because base scenario includes existing vegetation DSM.
+svf_vegetation_only,not_final,,reject,invalid_for_final_geometry,Do not use alone because it omits building obstruction.
+svf_overhead_full_or_tile,overhead_as_canopy,,missing,needs_materialization,"No canonical full-AOI building+vegetation+overhead SVF locked yet. For overhead_as_canopy, generate scenario-specific per-cell/tile svfs.zip from building DSM + max(existing vegetation DSM, overhead canopy)."
+dsm,all,C:\Users\CloudStar\Documents\GitHub\Urban-Analytics-Portfolio\06-openheat_grid\data\rasters\v10\dsm_buildings_2m_augmented_reviewed_heightqa.tif,use,qa_corrected_final,Final building DSM after manual QA and height/geometry QA. Supersedes v08 and intermediate v10 DSMs.
+cdsm_base_vegetation,base,C:\Users\CloudStar\Documents\GitHub\Urban-Analytics-Portfolio\06-openheat_grid\data\rasters\v08\dsm_vegetation_2m_toapayoh.tif,use,likely_final_base_vegetation_dsm,Base 2m vegetation DSM reused by v10/v12 flows. Overhead scenario variants are generated per tile.
+dem,all,,not_applicable_generate_flat_tile,flat_dem_convention,No canonical full DEM/DTM. v10/v12 used generated all-zero flat DEM tiles.
+landcover,all,,not_applicable,not_used_by_solweig,No canonical SOLWEIG landcover raster. INPUT_LC=None / USE_LC_BUILD=false.
+grid_geometry,all,C:\Users\CloudStar\Documents\GitHub\Urban-Analytics-Portfolio\06-openheat_grid\data\grid\toa_payoh_grid_v07_features.geojson,use,likely_final_geometry_source,"Base Toa Payoh 100m grid geometry with cell_id, used by v10/v12 configs."
+asset_inventory,all,C:\Users\CloudStar\Documents\GitHub\Urban-Analytics-Portfolio\06-openheat_grid\configs\v12\v12_solweig_typology_config.example.json,use,likely_final,Records v12 SOLWEIG source paths and overhead_structures_geojson; parse to recover overhead layer.
+asset_inventory,all,C:\Users\CloudStar\Documents\GitHub\Urban-Analytics-Portfolio\06-openheat_grid\configs\v10\v10_gamma_umep_config.example.json,use,likely_final,Records v10 gamma UMEP full-AOI SVF and DSM source paths.
+asset_inventory,all,C:\Users\CloudStar\Documents\GitHub\Urban-Analytics-Portfolio\06-openheat_grid\docs\v12\v10_SOLWEIG_source_of_truth_recovery_note_CN.md,use,likely_final,Human-readable v10/v12 source-of-truth note if present.
