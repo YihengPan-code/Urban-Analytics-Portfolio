@@ -1,0 +1,9 @@
+check_name,observed,expected,status,note,claim_boundary
+manifest_row_count,3000,3000,PASS,,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+candidate_count,150,150,PASS,,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+forcing_day_count,2,2,PASS,,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+hour_count,5,5,PASS,,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+base_run_count,1500,1500,PASS,,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+overhead_run_count,1500,1500,PASS,,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+not_ready_rows,3000,0,REVIEW,Rows may be not_ready until QGIS materialization has run.,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+repo_heavy_path_references,0,0,PASS,Manifest must reference local-only heavy paths.,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.

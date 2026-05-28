@@ -1,0 +1,2 @@
+blocker_id,severity,status,scope,details,resolution_path,claim_boundary
+QGIS_UMEP_SVF_REQUIRED,PENDING_QGIS_ACTION,OPEN,scenario_specific_svfs_zip,At least one scenario-specific svfs.zip is missing.,Run the QGIS SVF materialization stage; do not reuse base full-AOI SVF for overhead.,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.

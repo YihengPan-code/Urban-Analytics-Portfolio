@@ -1,0 +1,4 @@
+decision_status,meaning,recommended_next_action,claim_boundary
+B87B4_DIAGNOSTIC_ONLY,Current primary lane decision,Run QGIS materialization runner first; then re-audit manifest readiness.,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+AOI_PREFLIGHT_BLOCKED,AOI-wide prediction is out of scope,Do not start AOI/B9 in this lane.,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+B9_BLOCKED,B9 integration is out of scope,Wait until B87C postrun QA passes.,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.

@@ -1,0 +1,7 @@
+qa_check,source,expected,claim_boundary
+manifest_row_count,b87c_manifest.csv,expect 3000 rows,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+run_log_status_counts,local run log,success/skipped/failed counts,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+missing_tmrt_outputs,expected_tmrt_path,list missing outputs,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+per_cell_scenario_counts,manifest + outputs,expect 20 runs per cell,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+local_storage_summary,C:/OpenHeat-local,summarise local-only size; do not copy rasters,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
+git_hygiene,git status,no repo-side heavy files,B8.7b.4/B87C local-only materialization package; no repo raster writes; no AOI/B9; no WBGT/risk/hazard/exposure/vulnerability outputs; no observed truth; no causal feature-importance claims.
