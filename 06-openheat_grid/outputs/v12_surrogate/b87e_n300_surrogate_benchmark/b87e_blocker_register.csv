@@ -1,0 +1,2 @@
+blocker_id,status,notes,claim_boundary
+none,PASS,No B87E blockers.,"Surrogate/emulator of SOLWEIG-derived delta Tmrt/Tmrt features only; not observed truth, not WBGT calibration, not AOI/B9 inference, not hazard or risk mapping, not exposure/vulnerability output, and not causal feature importance."

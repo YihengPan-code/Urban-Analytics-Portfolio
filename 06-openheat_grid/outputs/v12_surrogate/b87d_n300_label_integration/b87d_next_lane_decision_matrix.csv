@@ -1,0 +1,2 @@
+next_lane,decision,required_status,observed_status,notes,claim_boundary
+B87E_N300_surrogate_benchmark,PROCEED,B87D_N300_LABEL_INTEGRATION_PASS,B87D_N300_LABEL_INTEGRATION_PASS,Proceed only with SOLWEIG-derived label benchmark; no AOI/B9 prediction.,"SOLWEIG Tmrt simulated radiative output only; delta is overhead_as_canopy - base; not observed truth, not WBGT, not AOI/B9 prediction, not hazard map, not risk map, and not causal evidence."

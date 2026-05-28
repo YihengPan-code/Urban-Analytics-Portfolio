@@ -1,0 +1,2 @@
+blocker_id,status,notes,claim_boundary
+none,PASS,No B87D blockers.,"SOLWEIG Tmrt simulated radiative output only; delta is overhead_as_canopy - base; not observed truth, not WBGT, not AOI/B9 prediction, not hazard map, not risk map, and not causal evidence."

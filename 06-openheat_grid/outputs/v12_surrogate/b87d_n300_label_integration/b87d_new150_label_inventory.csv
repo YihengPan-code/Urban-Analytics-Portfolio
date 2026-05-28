@@ -1,0 +1,3 @@
+metric,observed,expected,status,claim_boundary
+rows,1500,1500,PASS,"SOLWEIG Tmrt simulated radiative output only; delta is overhead_as_canopy - base; not observed truth, not WBGT, not AOI/B9 prediction, not hazard map, not risk map, and not causal evidence."
+unique_cells,150,150,PASS,"SOLWEIG Tmrt simulated radiative output only; delta is overhead_as_canopy - base; not observed truth, not WBGT, not AOI/B9 prediction, not hazard map, not risk map, and not causal evidence."

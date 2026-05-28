@@ -1,0 +1,2 @@
+next_lane,decision,b87e_status,promotion_decision,claim_boundary
+B87F_surrogate_patch_stronger_features_before_any_AOI_preflight,RECOMMENDED,B87E_SURROGATE_BENCHMARK_PASS_NO_PROMOTION,B87E_EXTRA_TREES_REMAINS_CANDIDATE,"Surrogate/emulator of SOLWEIG-derived delta Tmrt/Tmrt features only; not observed truth, not WBGT calibration, not AOI/B9 inference, not hazard or risk mapping, not exposure/vulnerability output, and not causal feature importance."

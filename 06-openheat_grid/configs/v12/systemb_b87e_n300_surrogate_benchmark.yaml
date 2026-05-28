@@ -1,0 +1,234 @@
+lane: B87E_N300_surrogate_benchmark
+branch: codex/b87d-b87e-n300-labels-surrogate
+generated_date: 2026-05-28
+
+scope:
+  surrogate_emulator_only: true
+  run_qgis: false
+  run_solweig: false
+  read_rasters: false
+  write_rasters: false
+  create_aoi_prediction: false
+  create_b9_output: false
+  create_wbgt_conversion: false
+  create_hazard_map: false
+  create_risk_map: false
+  causal_feature_importance_claim: false
+  random_split_headline: false
+  stage_changes: false
+  commit_changes: false
+
+n300_label_path: outputs/v12_surrogate/b87d_n300_label_integration/b87d_n300_pairwise_delta_by_cell_hour.csv
+b87d_status_path: outputs/v12_surrogate/b87d_n300_label_integration/B87D_STATUS.md
+primary_target: delta_tmrt_p90_c
+secondary_targets:
+  - delta_tmrt_mean_c
+  - delta_tmrt_median_c
+  - delta_tmrt_p95_c
+  - delta_tmrt_max_c
+feature_source_candidates:
+  - outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n150_feature_dataset.csv
+  - outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n300_candidate_feature_dataset.csv
+  - outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+  - outputs/v12_systemb_n150_sample_design/n150_candidate_universe.csv
+  - outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_n300_design_v4_source_reviewed.csv
+  - outputs/v12_surrogate/b8_7b_n300_execution_precheck/b87b_new_candidate_sample_index.csv
+expected_cells: 300
+expected_rows: 3000
+group_column: cell_id
+context_columns:
+  - forcing_day_id
+  - hour_sgt
+sample_group_column: sample_group
+allowed_models:
+  - featureless_mean
+  - context_mean
+  - dummy_context_mean
+  - ridge
+  - elasticnet
+  - random_forest
+  - extra_trees
+  - gradient_boosting
+  - hist_gradient_boosting
+optional_models_if_installed:
+  - xgboost
+  - lightgbm
+  - pygam
+random_state: 42
+
+feature_policy:
+  main_feature_set: no_coordinate_static_plus_context
+  max_categorical_cardinality: 40
+  include_context_columns: true
+  include_coordinates_in_main: false
+  preferred_main_features:
+    - forcing_day_id
+    - hour_sgt
+    - svf_or_open_sky
+    - shade_fraction
+    - building_density
+    - building_height_or_canyon_proxy
+    - road_or_hardscape_fraction
+    - tree_or_gvi_fraction
+    - grass_fraction
+    - water_edge_or_water_fraction
+    - overhead_fraction
+    - impervious_or_built_fraction
+    - ped_access_shade_frac_proxy
+    - ped_access_shade_length_m_proxy
+    - overhead_patch_count
+    - overhead_total_area_m2
+    - overhead_mean_patch_area_m2
+    - sunlit_hot_pocket_proxy_frac
+    - open_high_svf_low_shade_frac
+    - water_edge_contact_frac
+    - park_edge_contact_frac
+    - hardscape_edge_contact_frac
+    - neighbourhood_shade_mean
+    - neighbourhood_overhead_frac
+    - neighbourhood_open_frac
+    - tree_building_overlap_proxy
+    - tree_near_tall_building_frac
+    - height_roughness_iqr_m
+    - height_asymmetry_idx
+    - typology_geometry_class
+    - typology_shade_interaction
+    - typology_support_count
+    - typology_label
+    - svf_umep_selected
+    - shade_fraction_umep_selected
+    - building_pixel_fraction_v10
+    - open_pixel_fraction_v10
+    - dsm_building_height_mean_m_v10
+    - dsm_building_height_p90_m_v10
+    - svf_umep_mean_open_v10
+    - shade_fraction_umep_10_16_open_v10
+    - shade_fraction_umep_13_15_open_v10
+    - v10_building_density
+    - overhead_shade_proxy
+    - overhead_fraction_covered_walkway
+    - overhead_fraction_pedestrian_bridge
+    - overhead_fraction_viaduct
+  diagnostic_only_columns:
+    - sample_group
+    - label_source
+    - protocol_id
+    - primary_role
+    - secondary_roles
+    - spatial_bin
+    - source_closeout_status
+    - design_status
+  forbidden_tokens:
+    - tmrt
+    - delta
+    - wbgt
+    - hazard
+    - risk
+    - vulnerability
+    - exposure
+    - observed
+    - solweig
+    - raster
+    - tif
+    - output
+    - path
+    - run_id
+    - status
+    - error
+    - materialization
+    - label_source
+    - protocol_id
+    - sample_group
+    - cell_id
+    - rank
+    - source
+    - note
+    - version
+    - method
+  forbidden_coordinate_tokens:
+    - centroid_x
+    - centroid_y
+    - lon
+    - lat
+    - longitude
+    - latitude
+models:
+  hyperparameter_grid_status: RECONSTRUCTED_COMPATIBLE
+  featureless_mean:
+    strategy: mean
+  context_mean:
+    groupby:
+      - forcing_day_id
+      - hour_sgt
+  ridge:
+    alpha: 1.0
+  elasticnet:
+    alpha: 0.001
+    l1_ratio: 0.5
+  random_forest:
+    n_estimators: 30
+    max_depth: 6
+    min_samples_leaf: 2
+    n_jobs: 1
+  extra_trees:
+    n_estimators: 30
+    max_depth: null
+    min_samples_leaf: 1
+    n_jobs: 1
+    prior_candidate_baseline: true
+  gradient_boosting:
+    n_estimators: 120
+    learning_rate: 0.05
+    max_depth: 3
+    diagnostic_only: true
+  hist_gradient_boosting:
+    max_iter: 60
+    learning_rate: 0.06
+    max_leaf_nodes: 31
+
+validation:
+  group_kfold_splits: 5
+  max_context_holdouts: 2
+  typology_min_test_cells: 5
+  typology_min_train_cells: 30
+  max_typology_holdouts: 1
+  role_min_test_cells: 5
+  max_role_holdouts: 1
+  spatial_min_test_cells: 5
+  max_spatial_holdouts: 1
+  random_test_fraction: 0.2
+  random_split_diagnostic_only: true
+
+promotion_gate:
+  require_beats_context_mean_group_mae: true
+  require_beats_extra_trees_to_supersede: true
+  old_to_new_max_context_mae_ratio: 1.10
+  group_spearman_min: 0.30
+  top30_overlap_min: 0.20
+
+outputs:
+  out_dir: outputs/v12_surrogate/b87e_n300_surrogate_benchmark
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B87E_N300_surrogate_benchmark_CN.md
+  input_inventory: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_input_inventory.csv
+  feature_source_inventory: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_source_inventory.csv
+  feature_matrix: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_matrix.csv
+  feature_schema: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_schema.csv
+  feature_missingness: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_missingness.csv
+  feature_leakage_audit: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_leakage_audit.csv
+  target_summary: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_target_summary.csv
+  split_registry: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_split_registry.csv
+  model_registry: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_model_registry.csv
+  model_metrics_by_split: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_model_metrics_by_split.csv
+  model_metrics_summary: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_model_metrics_summary.csv
+  predictions_oof: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_predictions_oof.csv
+  predictions_holdout: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_predictions_holdout.csv
+  error_by_strata: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_error_by_strata.csv
+  topk_overlap_by_model: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_topk_overlap_by_model.csv
+  rank_metrics_by_model: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_rank_metrics_by_model.csv
+  feature_importance_diagnostic: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_importance_diagnostic.csv
+  model_promotion_matrix: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_model_promotion_matrix.csv
+  blocker_register: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_blocker_register.csv
+  next_lane_decision_matrix: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_next_lane_decision_matrix.csv
+  codex_prompt_next_lane: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_codex_prompt_B87F_surrogate_patch_or_AOI_preflight.md
+  status: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/B87E_STATUS.md
+  report: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_report.md
