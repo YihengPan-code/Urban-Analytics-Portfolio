@@ -1,0 +1,250 @@
+lane: B87F_N300_surrogate_promotion_review
+branch: codex/b87f-n300-surrogate-promotion-review
+generated_date: 2026-05-28
+
+scope:
+  surrogate_emulator_only: true
+  run_qgis: false
+  run_solweig: false
+  read_rasters: false
+  write_rasters: false
+  copy_rasters: false
+  create_aoi_prediction: false
+  create_b9_output: false
+  create_wbgt_conversion: false
+  create_hazard_map: false
+  create_risk_map: false
+  causal_feature_importance_claim: false
+  observed_truth_claim: false
+  stage_changes: false
+  commit_changes: false
+
+b87d_n300_label_path: outputs/v12_surrogate/b87d_n300_label_integration/b87d_n300_pairwise_delta_by_cell_hour.csv
+b87d_status_path: outputs/v12_surrogate/b87d_n300_label_integration/B87D_STATUS.md
+b87d_report_path: outputs/v12_surrogate/b87d_n300_label_integration/b87d_report.md
+b87e_status_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/B87E_STATUS.md
+b87e_report_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_report.md
+b87e_feature_matrix_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_matrix.csv
+b87e_model_metrics_by_split_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_model_metrics_by_split.csv
+b87e_model_metrics_summary_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_model_metrics_summary.csv
+b87e_predictions_oof_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_predictions_oof.csv
+b87e_predictions_holdout_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_predictions_holdout.csv
+b87e_feature_leakage_audit_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_leakage_audit.csv
+b87e_feature_schema_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_schema.csv
+b87e_feature_missingness_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_feature_missingness.csv
+b87e_error_by_strata_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_error_by_strata.csv
+b87e_rank_metrics_by_model_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_rank_metrics_by_model.csv
+b87e_topk_overlap_by_model_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_topk_overlap_by_model.csv
+b87e_model_promotion_matrix_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_model_promotion_matrix.csv
+b87e_next_lane_decision_matrix_path: outputs/v12_surrogate/b87e_n300_surrogate_benchmark/b87e_next_lane_decision_matrix.csv
+
+feature_context_paths:
+  - outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n150_feature_dataset.csv
+  - outputs/v12_surrogate/b8_6g_feature_acquisition/b86g_n300_candidate_feature_dataset.csv
+  - outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_true_vector_source_readiness.csv
+  - outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_source_gap_register.csv
+  - outputs/v12_surrogate/b8_6g3_true_vector_source_review/b86g3_aoi_b9_blocker_matrix.csv
+  - outputs/v12_systemb_n150_sample_design/n150_sampling_feature_matrix.csv
+  - outputs/v12_systemb_n150_sample_design/n150_candidate_universe.csv
+  - docs/v12/OpenHeat_SystemB_B87E_N300_surrogate_benchmark_CN.md
+  - docs/v12/OpenHeat_SystemB_B8_6g3_true_vector_source_review_CN.md
+prior_surrogate_context_paths:
+  - outputs/v12_surrogate/b8_model_card
+  - outputs/v12_surrogate/b8_model_benchmark
+  - configs/v12/systemb_surrogate_b8_model_card.yaml
+  - configs/v12/systemb_surrogate_b8_model_benchmark.yaml
+  - configs/v12/systemb_surrogate_b8_config.yaml
+
+primary_target: delta_tmrt_p90_c
+secondary_targets:
+  - delta_tmrt_mean_c
+  - delta_tmrt_median_c
+  - delta_tmrt_p95_c
+  - delta_tmrt_max_c
+expected_rows: 3000
+expected_cells: 300
+group_column: cell_id
+sample_group_column: sample_group
+prior_candidate_model: extra_trees
+prior_status: B87E_EXTRA_TREES_REMAINS_CANDIDATE
+no_aoi_prediction: true
+no_b9: true
+random_state: 42
+
+feature_policy:
+  b87e_original_feature_set_name: b87e_original_main
+  missing_fraction_max_pruned: 0.20
+  missing_fraction_max_robust: 0.05
+  correlation_abs_threshold: 0.985
+  max_categorical_cardinality: 40
+  context_columns:
+    - forcing_day_id
+    - hour_sgt
+  diagnostic_only_columns:
+    - sample_group
+    - label_source
+    - protocol_id
+    - primary_role
+    - secondary_roles
+    - spatial_bin
+    - source_closeout_status
+    - design_status
+    - b86g3_design_status
+  forbidden_tokens:
+    - tmrt
+    - delta
+    - wbgt
+    - hazard
+    - risk
+    - vulnerability
+    - exposure
+    - observed
+    - solweig
+    - raster
+    - tif
+    - output
+    - path
+    - run_id
+    - status
+    - error
+    - materialization
+    - label_source
+    - protocol_id
+    - sample_group
+    - cell_id
+    - rank
+    - source
+    - note
+    - version
+    - method
+  forbidden_coordinate_tokens:
+    - centroid_x
+    - centroid_y
+    - lon
+    - lat
+    - longitude
+    - latitude
+  design_flag_tokens:
+    - design
+    - qa
+    - candidate
+    - selected
+    - replacement
+    - nearest
+    - coverage_gap
+    - sampling_boundary
+  static_physical_core_tokens:
+    - svf
+    - shade
+    - building
+    - canyon
+    - height
+    - road
+    - hardscape
+    - tree
+    - gvi
+    - grass
+    - water
+    - park
+    - overhead
+    - impervious
+    - open
+    - neighbourhood
+    - ped_access
+    - typology
+
+models:
+  hyperparameter_grid_status: B87E_N150_COMPATIBLE_PATCH_NO_BROAD_SEARCH
+  featureless_mean:
+    strategy: mean
+  context_mean:
+    groupby:
+      - forcing_day_id
+      - hour_sgt
+  ridge:
+    alpha: 1.0
+  elasticnet:
+    alpha: 0.001
+    l1_ratio: 0.5
+  random_forest:
+    n_estimators: 30
+    max_depth: 6
+    min_samples_leaf: 2
+    n_jobs: 1
+  extra_trees:
+    n_estimators: 30
+    max_depth: null
+    min_samples_leaf: 1
+    n_jobs: 1
+    prior_candidate_baseline: true
+  hist_gradient_boosting:
+    max_iter: 60
+    learning_rate: 0.06
+    max_leaf_nodes: 31
+
+validation:
+  group_kfold_splits: 5
+  max_spatial_holdouts: 4
+  spatial_min_test_cells: 5
+  max_typology_holdouts: 4
+  typology_min_test_cells: 5
+  typology_min_train_cells: 30
+  max_role_holdouts: 4
+  role_min_test_cells: 5
+  random_test_fraction: 0.2
+  random_split_diagnostic_only: true
+
+prediction_output_policy:
+  save_models:
+    - context_mean
+    - extra_trees
+    - random_forest
+    - hist_gradient_boosting
+  save_feature_sets:
+    - b87e_original_main
+    - pruned_low_missing_low_corr
+    - context_residual_two_stage
+    - old_to_new_robust_pruned
+
+promotion_gate:
+  meaningful_group_mae_margin: 0.010
+  group_mae_match_tolerance: 0.003
+  old_to_new_max_degradation_vs_b87e_best: 1.05
+  stable_sample_group_mae_gap_max: 0.12
+  stable_forcing_day_mae_gap_max: 0.12
+  stable_hour_mae_gap_max: 0.18
+  min_group_spearman: 0.70
+  min_old_to_new_spearman: 0.65
+  require_b86g3_aoi_source_blockers_cleared: true
+
+outputs:
+  out_dir: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review
+  canonical_note_cn: docs/v12/OpenHeat_SystemB_B87F_N300_surrogate_promotion_review_CN.md
+  input_inventory: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_input_inventory.csv
+  b87e_replay_audit: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_b87e_replay_audit.csv
+  target_distribution_deepdive: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_target_distribution_deepdive.csv
+  error_source_hypotheses: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_error_source_hypotheses.csv
+  feature_group_registry: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_feature_group_registry.csv
+  feature_quality_audit: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_feature_quality_audit.csv
+  feature_correlation_clusters: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_feature_correlation_clusters.csv
+  feature_set_registry: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_feature_set_registry.csv
+  split_stress_test_registry: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_split_stress_test_registry.csv
+  model_patch_registry: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_model_patch_registry.csv
+  patch_model_metrics_by_split: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_patch_model_metrics_by_split.csv
+  patch_model_metrics_summary: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_patch_model_metrics_summary.csv
+  patch_predictions_oof: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_patch_predictions_oof.csv
+  patch_predictions_holdout: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_patch_predictions_holdout.csv
+  transfer_generalization_matrix: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_transfer_generalization_matrix.csv
+  rank_topk_matrix: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_rank_topk_matrix.csv
+  error_strata_deepdive: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_error_strata_deepdive.csv
+  outlier_cell_context_register: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_outlier_cell_context_register.csv
+  prior_candidate_comparison: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_prior_candidate_comparison.csv
+  extra_trees_stability_audit: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_extra_trees_stability_audit.csv
+  model_promotion_review: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_model_promotion_review.csv
+  model_card_patch_summary: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_model_card_patch_summary.csv
+  aoi_preflight_gate_matrix: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_aoi_preflight_gate_matrix.csv
+  blocker_register: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_blocker_register.csv
+  next_lane_decision_matrix: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_next_lane_decision_matrix.csv
+  codex_prompt_next_lane: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_codex_prompt_B87G_aoi_preflight_or_B87F2_feature_patch.md
+  status: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/B87F_STATUS.md
+  report: outputs/v12_surrogate/b87f_n300_surrogate_promotion_review/b87f_report.md
