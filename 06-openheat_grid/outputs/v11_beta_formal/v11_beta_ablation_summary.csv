@@ -1,0 +1,73 @@
+ablation,filter_mode,description,n_rows,model,cv_scheme,mae,rmse,bias,r2
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M0_raw_proxy,loso,1.2731949376228195,1.76056726197049,-0.8566787860115392,0.320861572756109
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M1_global_bias,loso,1.190543897608666,1.540038533857215,4.915922378983434e-06,0.4803436528991655
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M1b_period_bias,loso,1.010002851701944,1.3704295252908938,4.862711039602078e-06,0.5885031885133694
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M2_linear_proxy,loso,1.1615176303854156,1.4972590786865454,-0.0002998747767102,0.5088128788238515
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M3_weather_ridge,loso,0.9331908120529048,1.269310222252598,0.0032219447874506,0.6469886929860795
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M4_inertia_ridge,loso,0.9167539091559062,1.2551937099962958,0.0034765471979211,0.6547969935453319
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M5_v10_morphology_ridge,loso,0.9356057758781106,1.288905697895169,0.0035037124662807,0.6360050586057706
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M6_v10_overhead_ridge,loso,0.9356057758780744,1.2889056978951523,0.0035037124661685,0.6360050586057799
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M7_compact_weather_ridge,loso,0.9356057758780956,1.2889056978951468,0.0035037124662128,0.6360050586057833
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M0_raw_proxy,time_block,1.2731949376228195,1.76056726197049,-0.8566787860115392,0.320861572756109
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M1_global_bias,time_block,1.2045589989176535,1.5561066434065327,0.0138980772059697,0.4694433350661094
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M1b_period_bias,time_block,1.0504102983451884,1.4401778736507762,0.0148914410028001,0.5455508143554316
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M2_linear_proxy,time_block,1.178491523214231,1.5203929961596203,-0.0143042067772146,0.4935171065714941
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M3_weather_ridge,time_block,1.046468142144808,1.444127083080955,0.0720723270363858,0.5430550452601772
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M4_inertia_ridge,time_block,1.0692181039524642,1.4949996144768478,0.1074393932702639,0.5102942287655028
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M5_v10_morphology_ridge,time_block,1.0440219102978592,1.4509040814070404,0.0551723388307472,0.5387562804756363
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M6_v10_overhead_ridge,time_block,1.0440219102973618,1.4509040814062488,0.0551723388307254,0.5387562804761394
+A_all,all,"All 5,723 rows (β.1 smoke test behavior, no filter)",40389,M7_compact_weather_ridge,time_block,1.0440219102976342,1.4509040814066596,0.0551723388307045,0.5387562804758783
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M0_raw_proxy,loso,1.2731949376228195,1.76056726197049,-0.8566787860115392,0.320861572756109
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M1_global_bias,loso,1.190543897608666,1.540038533857215,4.915922378983434e-06,0.4803436528991655
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M1b_period_bias,loso,1.010002851701944,1.3704295252908938,4.862711039602078e-06,0.5885031885133694
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M2_linear_proxy,loso,1.1615176303854156,1.4972590786865454,-0.0002998747767102,0.5088128788238515
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M3_weather_ridge,loso,0.9331908120529048,1.269310222252598,0.0032219447874506,0.6469886929860795
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M4_inertia_ridge,loso,0.9167539091559062,1.2551937099962958,0.0034765471979211,0.6547969935453319
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M5_v10_morphology_ridge,loso,0.9356057758781106,1.288905697895169,0.0035037124662807,0.6360050586057706
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M6_v10_overhead_ridge,loso,0.9356057758780744,1.2889056978951523,0.0035037124661685,0.6360050586057799
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M7_compact_weather_ridge,loso,0.9356057758780956,1.2889056978951468,0.0035037124662128,0.6360050586057833
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M0_raw_proxy,time_block,1.2731949376228195,1.76056726197049,-0.8566787860115392,0.320861572756109
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M1_global_bias,time_block,1.2045589989176535,1.5561066434065327,0.0138980772059697,0.4694433350661094
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M1b_period_bias,time_block,1.0504102983451884,1.4401778736507762,0.0148914410028001,0.5455508143554316
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M2_linear_proxy,time_block,1.178491523214231,1.5203929961596203,-0.0143042067772146,0.4935171065714941
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M3_weather_ridge,time_block,1.046468142144808,1.444127083080955,0.0720723270363858,0.5430550452601772
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M4_inertia_ridge,time_block,1.0692181039524642,1.4949996144768478,0.1074393932702639,0.5102942287655028
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M5_v10_morphology_ridge,time_block,1.0440219102978592,1.4509040814070404,0.0551723388307472,0.5387562804756363
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M6_v10_overhead_ridge,time_block,1.0440219102973618,1.4509040814062488,0.0551723388307254,0.5387562804761394
+B_retrospective,retrospective_calibration,Valid-time-aligned weather only (proper retrospective filter),40389,M7_compact_weather_ridge,time_block,1.0440219102976342,1.4509040814066596,0.0551723388307045,0.5387562804758783
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M0_raw_proxy,loso,1.2616193696814584,1.7355920617950105,-0.8095661189560619,0.3321950197365629
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M1_global_bias,loso,1.1827428654283034,1.5371555279873883,4.944705292408473e-06,0.476170483936844
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M1b_period_bias,loso,1.0247030627633809,1.3838175522457894,3.997454495170435e-06,0.575466454142692
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M2_linear_proxy,loso,1.163447135277033,1.5022113168510074,-0.0002703141674479,0.499716243543865
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M3_weather_ridge,loso,0.9189705792407292,1.2411583974516478,0.0032598333632591,0.6584858022249469
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M4_inertia_ridge,loso,0.8989662099837991,1.221142382326868,0.0033965860944552,0.6694121008630758
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M5_v10_morphology_ridge,loso,0.9346947439688283,1.2770824502218598,0.0036684188260614,0.6384301433909478
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M6_v10_overhead_ridge,loso,0.9346947439688053,1.277082450221838,0.0036684188259227,0.6384301433909603
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M7_compact_weather_ridge,loso,0.9346947439688,1.277082450221765,0.0036684188259512,0.6384301433910016
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M0_raw_proxy,time_block,1.2616193696814584,1.7355920617950105,-0.8095661189560619,0.3321950197365629
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M1_global_bias,time_block,1.1934343594050942,1.5501092711161788,0.0004819268371282,0.4673045701207317
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M1b_period_bias,time_block,1.0524565332058295,1.432090620957175,0.0004762245242814,0.5453310000869185
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M2_linear_proxy,time_block,1.176387987224512,1.523544317865038,-0.0178617805601536,0.4854062265967745
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M3_weather_ridge,time_block,0.9706282485243826,1.3141444594251797,-0.02214457494609,0.617139501848608
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M4_inertia_ridge,time_block,0.9603931635249612,1.3074524663357685,-0.0115484719774718,0.621028840380915
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M5_v10_morphology_ridge,time_block,1.0056023021614329,1.3850753776548126,-0.0129737580874288,0.5746943411345282
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M6_v10_overhead_ridge,time_block,1.005602302161249,1.3850753776544105,-0.0129737580880606,0.5746943411347752
+C_fresh_v11,fresh_v11_only,Only fresh v11 collector rows (excludes migrated v0.9/v10),35017,M7_compact_weather_ridge,time_block,1.0056023021609526,1.3850753776539313,-0.0129737580870761,0.5746943411350696
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M0_raw_proxy,loso,1.3486494541162375,1.9154029752810249,-1.1637793560565215,0.2149981547959232
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M1_global_bias,loso,1.238225851017967,1.5239240889526542,5.847989668325946e-06,0.5030908082100978
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M1b_period_bias,loso,0.864028894619901,1.1642892161956555,1.7649198117221592e-05,0.7099505059975373
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M2_linear_proxy,loso,1.1139225686026486,1.41708929986621,-0.0006495159745598,0.5703203359895452
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M3_weather_ridge,loso,0.698285118815611,0.9516466632604516,0.0007062313021634,0.8062231817921539
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M4_inertia_ridge,loso,0.6794969973759,0.9245142578692648,0.0016067764727496,0.817115209695691
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M5_v10_morphology_ridge,loso,0.728361791779305,0.9823274600115623,0.0017444503287057,0.7935271601305336
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M6_v10_overhead_ridge,loso,0.7283617917793026,0.9823274600115796,0.001744450328753,0.7935271601305264
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M7_compact_weather_ridge,loso,0.7283617917792858,0.9823274600115514,0.0017444503287153,0.7935271601305383
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M0_raw_proxy,time_block,1.3486494541162375,1.9154029752810249,-1.1637793560565215,0.2149981547959232
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M1_global_bias,time_block,1.233653643447458,1.5381637587975765,-0.0678035455920085,0.4937611028583278
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M1b_period_bias,time_block,0.979268609736482,1.3192030779631887,0.0079148039941682,0.6276308665908815
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M2_linear_proxy,time_block,1.211362178913133,1.526158636112079,-0.0294544613188799,0.5016324926641524
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M3_weather_ridge,time_block,0.84479211216467,1.1029886289347115,0.0751103153090216,0.7396890527337223
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M4_inertia_ridge,time_block,0.8421763495344008,1.1303056799881437,-0.2681769954772127,0.7266354576866285
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M5_v10_morphology_ridge,time_block,0.876884716798193,1.1841599240661145,-0.0037102497157374,0.699965579780361
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M6_v10_overhead_ridge,time_block,0.8768847167985533,1.1841599240666252,-0.0037102497156107,0.6999655797801023
+D_migrated,migrated_only,Only migrated v0.9/v10 archive rows,5372,M7_compact_weather_ridge,time_block,0.8768847167981878,1.1841599240661065,-0.0037102497157857,0.6999655797803652
