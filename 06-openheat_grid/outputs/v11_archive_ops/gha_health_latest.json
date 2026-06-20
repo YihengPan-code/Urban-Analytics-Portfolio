@@ -1,16 +1,16 @@
 {
-  "total_rows": 6304,
-  "wbgt_rows": 6282,
+  "total_rows": 6331,
+  "wbgt_rows": 6309,
   "unique_stations": 27,
-  "unique_timestamps": 234,
+  "unique_timestamps": 235,
   "first_obs": "2026-05-24 12:25:03+00:00",
-  "last_obs": "2026-06-19 23:10:03+00:00",
-  "span_hours": 634.75,
-  "rows_last_24h": 268,
+  "last_obs": "2026-06-20 01:25:03+00:00",
+  "span_hours": 637.0,
+  "rows_last_24h": 269,
   "rows_last_7d": 1577,
   "nat_timestamp_rows": 0,
   "stations_last_24h": 27,
-  "rows_per_station_last_24h_min": 8,
+  "rows_per_station_last_24h_min": 9,
   "rows_per_station_last_24h_max": 10,
   "verdict": "GREEN"
 }
