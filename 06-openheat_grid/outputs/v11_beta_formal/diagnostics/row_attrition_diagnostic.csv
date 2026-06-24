@@ -1,0 +1,8 @@
+diagnostic,rows
+total_rows,40419
+retrospective_eligible_rows,40419
+official_wbgt_c_non_null,40389
+official_wbgt_c_missing,30
+wbgt_proxy_v09_c_non_null,40419
+wbgt_proxy_v09_c_missing,0
+target_and_proxy_non_null,40389

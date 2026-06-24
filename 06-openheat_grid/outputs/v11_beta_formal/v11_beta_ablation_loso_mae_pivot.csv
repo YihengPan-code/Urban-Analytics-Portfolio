@@ -1,0 +1,7 @@
+model,A_all,B_retrospective,C_fresh_v11,D_migrated
+M0_raw_proxy,1.273,1.273,1.262,1.349
+M1_global_bias,1.191,1.191,1.183,1.238
+M1b_period_bias,1.01,1.01,1.025,0.864
+M3_weather_ridge,0.933,0.933,0.919,0.698
+M4_inertia_ridge,0.917,0.917,0.899,0.679
+M5_v10_morphology_ridge,0.936,0.936,0.935,0.728
