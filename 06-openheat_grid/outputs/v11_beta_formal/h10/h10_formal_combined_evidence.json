@@ -1,0 +1,382 @@
+{
+  "decimals": 6,
+  "datasets": {
+    "all_stations": {
+      "pass": true,
+      "metrics": {
+        "dataset": "all_stations",
+        "pass": true,
+        "metric_file": "outputs\\v11_beta_formal\\all_stations\\v11_beta_calibration_metrics.csv",
+        "rows_checked": 3,
+        "comparisons": {
+          "mae": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.935606,
+              "M6_v10_overhead_ridge": 0.935606,
+              "M7_compact_weather_ridge": 0.935606
+            },
+            "unique_values": [
+              0.935606
+            ]
+          },
+          "rmse": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 1.288906,
+              "M6_v10_overhead_ridge": 1.288906,
+              "M7_compact_weather_ridge": 1.288906
+            },
+            "unique_values": [
+              1.288906
+            ]
+          },
+          "bias": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.003504,
+              "M6_v10_overhead_ridge": 0.003504,
+              "M7_compact_weather_ridge": 0.003504
+            },
+            "unique_values": [
+              0.003504
+            ]
+          },
+          "r2": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.636005,
+              "M6_v10_overhead_ridge": 0.636005,
+              "M7_compact_weather_ridge": 0.636005
+            },
+            "unique_values": [
+              0.636005
+            ]
+          }
+        }
+      },
+      "oof": {
+        "dataset": "all_stations",
+        "pass": true,
+        "oof_file": "outputs\\v11_beta_formal\\all_stations\\v11_beta_oof_predictions.csv",
+        "n_values": {
+          "M5_v10_morphology_ridge": 40389,
+          "M6_v10_overhead_ridge": 40389,
+          "M7_compact_weather_ridge": 40389
+        },
+        "comparisons": {
+          "M5_v10_morphology_ridge vs M6_v10_overhead_ridge": {
+            "max_abs_diff": 1.8612666963235824e-11,
+            "nonzero_raw_gt_1e_12": 9809,
+            "nonzero_after_round6": 0
+          },
+          "M5_v10_morphology_ridge vs M7_compact_weather_ridge": {
+            "max_abs_diff": 9.759304475664976e-12,
+            "nonzero_raw_gt_1e_12": 4754,
+            "nonzero_after_round6": 0
+          },
+          "M6_v10_overhead_ridge vs M7_compact_weather_ridge": {
+            "max_abs_diff": 1.5052847857077722e-11,
+            "nonzero_raw_gt_1e_12": 8895,
+            "nonzero_after_round6": 0
+          }
+        },
+        "alignment": {
+          "M5_v10_morphology_ridge vs M6_v10_overhead_ridge": {
+            "station_id": true,
+            "timestamp": true,
+            "fold": true
+          },
+          "M5_v10_morphology_ridge vs M7_compact_weather_ridge": {
+            "station_id": true,
+            "timestamp": true,
+            "fold": true
+          }
+        }
+      }
+    },
+    "no_S142": {
+      "pass": true,
+      "metrics": {
+        "dataset": "no_S142",
+        "pass": true,
+        "metric_file": "outputs\\v11_beta_formal\\no_S142\\v11_beta_calibration_metrics.csv",
+        "rows_checked": 3,
+        "comparisons": {
+          "mae": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.926656,
+              "M6_v10_overhead_ridge": 0.926656,
+              "M7_compact_weather_ridge": 0.926656
+            },
+            "unique_values": [
+              0.926656
+            ]
+          },
+          "rmse": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 1.270739,
+              "M6_v10_overhead_ridge": 1.270739,
+              "M7_compact_weather_ridge": 1.270739
+            },
+            "unique_values": [
+              1.270739
+            ]
+          },
+          "bias": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.003555,
+              "M6_v10_overhead_ridge": 0.003555,
+              "M7_compact_weather_ridge": 0.003555
+            },
+            "unique_values": [
+              0.003555
+            ]
+          },
+          "r2": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.637972,
+              "M6_v10_overhead_ridge": 0.637972,
+              "M7_compact_weather_ridge": 0.637972
+            },
+            "unique_values": [
+              0.637972
+            ]
+          }
+        }
+      },
+      "oof": {
+        "dataset": "no_S142",
+        "pass": true,
+        "oof_file": "outputs\\v11_beta_formal\\no_S142\\v11_beta_oof_predictions.csv",
+        "n_values": {
+          "M5_v10_morphology_ridge": 38893,
+          "M6_v10_overhead_ridge": 38893,
+          "M7_compact_weather_ridge": 38893
+        },
+        "comparisons": {
+          "M5_v10_morphology_ridge vs M6_v10_overhead_ridge": {
+            "max_abs_diff": 1.9813484186670394e-11,
+            "nonzero_raw_gt_1e_12": 9515,
+            "nonzero_after_round6": 0
+          },
+          "M5_v10_morphology_ridge vs M7_compact_weather_ridge": {
+            "max_abs_diff": 1.0619061185934697e-11,
+            "nonzero_raw_gt_1e_12": 3033,
+            "nonzero_after_round6": 0
+          },
+          "M6_v10_overhead_ridge vs M7_compact_weather_ridge": {
+            "max_abs_diff": 1.0341949518988258e-11,
+            "nonzero_raw_gt_1e_12": 7333,
+            "nonzero_after_round6": 0
+          }
+        },
+        "alignment": {
+          "M5_v10_morphology_ridge vs M6_v10_overhead_ridge": {
+            "station_id": true,
+            "timestamp": true,
+            "fold": true
+          },
+          "M5_v10_morphology_ridge vs M7_compact_weather_ridge": {
+            "station_id": true,
+            "timestamp": true,
+            "fold": true
+          }
+        }
+      }
+    },
+    "hourly_mean": {
+      "pass": true,
+      "metrics": {
+        "dataset": "hourly_mean",
+        "pass": true,
+        "metric_file": "outputs\\v11_beta_formal\\hourly_mean\\v11_beta_calibration_metrics.csv",
+        "rows_checked": 3,
+        "comparisons": {
+          "mae": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.894784,
+              "M6_v10_overhead_ridge": 0.894784,
+              "M7_compact_weather_ridge": 0.894784
+            },
+            "unique_values": [
+              0.894784
+            ]
+          },
+          "rmse": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 1.229108,
+              "M6_v10_overhead_ridge": 1.229108,
+              "M7_compact_weather_ridge": 1.229108
+            },
+            "unique_values": [
+              1.229108
+            ]
+          },
+          "bias": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.003546,
+              "M6_v10_overhead_ridge": 0.003546,
+              "M7_compact_weather_ridge": 0.003546
+            },
+            "unique_values": [
+              0.003546
+            ]
+          },
+          "r2": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.654248,
+              "M6_v10_overhead_ridge": 0.654248,
+              "M7_compact_weather_ridge": 0.654248
+            },
+            "unique_values": [
+              0.654248
+            ]
+          }
+        }
+      },
+      "oof": {
+        "dataset": "hourly_mean",
+        "pass": true,
+        "oof_file": "outputs\\v11_beta_formal\\hourly_mean\\v11_beta_oof_predictions.csv",
+        "n_values": {
+          "M5_v10_morphology_ridge": 10473,
+          "M6_v10_overhead_ridge": 10473,
+          "M7_compact_weather_ridge": 10473
+        },
+        "comparisons": {
+          "M5_v10_morphology_ridge vs M6_v10_overhead_ridge": {
+            "max_abs_diff": 3.1512570330960443e-12,
+            "nonzero_raw_gt_1e_12": 65,
+            "nonzero_after_round6": 0
+          },
+          "M5_v10_morphology_ridge vs M7_compact_weather_ridge": {
+            "max_abs_diff": 3.339550858072471e-12,
+            "nonzero_raw_gt_1e_12": 40,
+            "nonzero_after_round6": 0
+          },
+          "M6_v10_overhead_ridge vs M7_compact_weather_ridge": {
+            "max_abs_diff": 1.7905676941154525e-12,
+            "nonzero_raw_gt_1e_12": 6,
+            "nonzero_after_round6": 0
+          }
+        },
+        "alignment": {
+          "M5_v10_morphology_ridge vs M6_v10_overhead_ridge": {
+            "station_id": true,
+            "timestamp": true,
+            "fold": true
+          },
+          "M5_v10_morphology_ridge vs M7_compact_weather_ridge": {
+            "station_id": true,
+            "timestamp": true,
+            "fold": true
+          }
+        }
+      }
+    },
+    "hourly_max": {
+      "pass": true,
+      "metrics": {
+        "dataset": "hourly_max",
+        "pass": true,
+        "metric_file": "outputs\\v11_beta_formal\\hourly_max\\v11_beta_calibration_metrics.csv",
+        "rows_checked": 3,
+        "comparisons": {
+          "mae": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.954158,
+              "M6_v10_overhead_ridge": 0.954158,
+              "M7_compact_weather_ridge": 0.954158
+            },
+            "unique_values": [
+              0.954158
+            ]
+          },
+          "rmse": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 1.312972,
+              "M6_v10_overhead_ridge": 1.312972,
+              "M7_compact_weather_ridge": 1.312972
+            },
+            "unique_values": [
+              1.312972
+            ]
+          },
+          "bias": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.003854,
+              "M6_v10_overhead_ridge": 0.003854,
+              "M7_compact_weather_ridge": 0.003854
+            },
+            "unique_values": [
+              0.003854
+            ]
+          },
+          "r2": {
+            "pass": true,
+            "values_rounded": {
+              "M5_v10_morphology_ridge": 0.679275,
+              "M6_v10_overhead_ridge": 0.679275,
+              "M7_compact_weather_ridge": 0.679275
+            },
+            "unique_values": [
+              0.679275
+            ]
+          }
+        }
+      },
+      "oof": {
+        "dataset": "hourly_max",
+        "pass": true,
+        "oof_file": "outputs\\v11_beta_formal\\hourly_max\\v11_beta_oof_predictions.csv",
+        "n_values": {
+          "M5_v10_morphology_ridge": 10473,
+          "M6_v10_overhead_ridge": 10473,
+          "M7_compact_weather_ridge": 10473
+        },
+        "comparisons": {
+          "M5_v10_morphology_ridge vs M6_v10_overhead_ridge": {
+            "max_abs_diff": 3.630873379734112e-12,
+            "nonzero_raw_gt_1e_12": 28,
+            "nonzero_after_round6": 0
+          },
+          "M5_v10_morphology_ridge vs M7_compact_weather_ridge": {
+            "max_abs_diff": 3.765876499528531e-12,
+            "nonzero_raw_gt_1e_12": 45,
+            "nonzero_after_round6": 0
+          },
+          "M6_v10_overhead_ridge vs M7_compact_weather_ridge": {
+            "max_abs_diff": 1.0693668173189508e-12,
+            "nonzero_raw_gt_1e_12": 2,
+            "nonzero_after_round6": 0
+          }
+        },
+        "alignment": {
+          "M5_v10_morphology_ridge vs M6_v10_overhead_ridge": {
+            "station_id": true,
+            "timestamp": true,
+            "fold": true
+          },
+          "M5_v10_morphology_ridge vs M7_compact_weather_ridge": {
+            "station_id": true,
+            "timestamp": true,
+            "fold": true
+          }
+        }
+      }
+    }
+  },
+  "overall_pass": true
+}
