@@ -1,0 +1,10 @@
+{
+  "rows": 40419,
+  "wbgt_rows": 40389,
+  "unique_stations": 27,
+  "unique_timestamps": 1497,
+  "first_obs": "2026-05-06 18:00:00+00:00",
+  "last_obs": "2026-05-24 12:40:03+00:00",
+  "span_days": 17.778,
+  "nat_rows": 0
+}

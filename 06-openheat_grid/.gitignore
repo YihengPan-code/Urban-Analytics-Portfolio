@@ -180,3 +180,18 @@ __pycache__/
 .env
 *.env
 secrets/
+
+# OpenHeat v1.1-beta-formal local artifacts
+06-openheat_grid/data/calibration/v11/snapshots/*.csv
+06-openheat_grid/outputs/v11_beta_formal/**/v11_beta_oof_predictions.csv
+06-openheat_grid/outputs/v11_beta_formal/h10_inputs/
+06-openheat_grid/outputs/v11_beta_formal/diagnostics_inputs/
+06-openheat_grid/outputs/v11_beta_formal/**/*.tmp
+
+# OpenHeat v1.1-beta-formal local artifacts
+data/calibration/v11/snapshots/*.csv
+outputs/v11_beta_formal/**/v11_beta_oof_predictions.csv
+outputs/v11_beta_formal/h10_inputs/
+outputs/v11_beta_formal/diagnostics_inputs/
+outputs/v11_beta_formal/**/*_diag.csv
+outputs/v11_beta_formal/**/*.tmp
